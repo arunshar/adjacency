@@ -1,0 +1,27 @@
+.gitignore
+  s_012c1d33fe9afb::t_123115658b54da 1-26
+.pre-commit-config.yaml
+  s_012c1d33fe9afb::t_a009426f72b5b4 1-22
+.python-version
+  s_012c1d33fe9afb::t_6041a59d9bcffc 1
+src/adjacency/gates.py
+  s_012c1d33fe9afb::t_faa9ac684ff25c 1-444
+tests/test_gates.py
+  s_012c1d33fe9afb::t_585f6c589d1204 1-422
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.19",
+  "base_commit_sha": "036db6bfc998a2f2993a564b0d1f429f37ef028d",
+  "prompts": {},
+  "sessions": {
+    "s_012c1d33fe9afb": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "882918ec-65c5-45ef-97b9-857ad19b0fe5",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Arun Sharma <sharm485@umn.edu>"
+    }
+  }
+}
