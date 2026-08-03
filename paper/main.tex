@@ -1,0 +1,492 @@
+\documentclass{article}
+
+\usepackage[accepted]{icml2025}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{amsthm}
+\usepackage{bm}
+\usepackage{booktabs}
+\usepackage{microtype}
+\usepackage{xspace}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,shapes.geometric}
+\usepackage[hyperfootnotes=false,colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\usepackage[capitalize,noabbrev]{cleveref}
+
+\input{macros_kit}
+
+\emergencystretch=2em
+\newcommand{\artifact}[1]{\nolinkurl{#1}}
+\Urlmuskip=0mu plus 1mu
+\newcommand{\code}[1]{\texttt{#1}}
+\newcommand{\Adj}{\textsc{Adjacency}\xspace}
+
+\makeatletter
+\renewcommand{\ICML@appearing}{\textit{Technical report prepared for the xAI Grokathon, August 2026. Not an ICML publication.}}
+\makeatother
+
+\icmltitlerunning{Adjacency: Typed Evidence and Fail-Closed Decisions}
+
+\begin{document}
+
+\twocolumn[
+\icmltitle{Adjacency: Compiling Brand-Safety Intent into Typed Evidence and Fail-Closed Decisions}
+
+\begin{icmlauthorlist}
+\icmlauthor{Arun Sharma}{umn}
+\end{icmlauthorlist}
+
+\icmlaffiliation{umn}{Department of Computer Science, University of Minnesota, Twin Cities, Minneapolis, MN, USA}
+\icmlcorrespondingauthor{Arun Sharma}{sharm636@umn.edu}
+
+\icmlkeywords{brand safety, multimodal reasoning, selective prediction, policy compilation, evaluation gates}
+
+\vskip 0.3in
+]
+
+\printAffiliationsAndNotice{}
+
+\begin{abstract}
+X gives advertisers direct adjacency controls over where promoted content appears, but advertiser
+intent begins as prose while serving controls ultimately require discrete, reviewable decisions.
+\Adj compiles that prose into a typed and hashed policy, evaluates multimodal inventory with a
+cost-gated reasoning ladder, and admits a verdict only after deterministic checks validate its
+source clauses, evidence, action, and confidence. The same prose also generates the keyword
+blocklist used for comparison, which avoids giving the proposed engine a richer intent signal than
+the baseline. A frozen-corpus study establishes three concrete properties rather than a broad
+accuracy claim: seeded structural faults are rejected, an unconstrained raw-prompt baseline is
+poorly grounded and not fully stable across identical inputs, and selective escalation has a
+measurable cost. A live durable human-review transition completes the failure path. The system is a
+read-only autopsy and shadow-evaluation tool. It is not an ad-serving integration, an estimate of
+X's internal performance, or a synthetic-media detector.
+\end{abstract}
+
+\section{Introduction}
+\label{sec:intro}
+
+Advertising was Twitter's largest disclosed revenue surface before the company became private
+\citep{twitter2021form10k}. X's current documentation still places advertiser-controlled adjacency
+at the center of brand safety. It lets advertisers exclude chosen keywords from neighboring
+placements \citep{xbrandsafety}. That control is practical, legible, and fast. It also turns a
+sentence-level policy into a lexical filter. A safe discussion can contain an excluded word. A risky
+image can accompany clean text. Both errors matter because one withholds monetizable inventory and
+the other exposes an advertiser to content it intended to avoid.
+
+The tempting replacement is a multimodal prompt. It can read the prose and inspect the image, then
+return ALLOW, REVIEW, or BLOCK. That gains context but loses a stable execution contract. The model
+can cite text at the wrong offset, refer to a policy clause that does not exist, disagree with its
+own severity field, or change behavior under the same input. A polished rationale does not repair
+any of those failures. In a serving-adjacent system, prose should never be load-bearing.
+
+\Adj starts from a design discipline used in Spatial Atlas: represent perception as typed scene
+state, place deterministic checks after model output, and spend more reasoning only when confidence
+or consistency says it is needed. Here the scene is not geometric. It binds an advertiser's
+\code{PolicySpec}, one \code{InventoryItem}, structured evidence, and a \code{Verdict}. The
+architecture points the same discipline at X's historically largest disclosed revenue surface.
+
+The central design choice is to separate generation from admission. A model may propose a policy or
+a verdict. It cannot decide whether its own proposal is valid. Pure functions do that after the
+call. A gate failure moves the decision toward withholding, usually REVIEW, and writes a stable code
+to the audit ledger. The rationale remains visible to a person but invisible to every gate.
+
+\phead{Contributions.} This report presents five connected pieces.
+
+\begin{enumerate}
+  \item A policy compiler maps advertiser prose to an immutable, hashed \code{PolicySpec}. Each
+  clause points back to the exact characters that authorized it. Compile-time G0 rejects an
+  invented or misplaced source span. The implementation is in \artifact{src/adjacency/policy.py}
+  and \artifact{src/adjacency/gates.py}.
+  \item A typed multimodal verdict carries clause identifiers, exact text spans or image boxes,
+  severity, action, confidence, and reasoning tier. Deterministic gates validate those fields and
+  never read the generated rationale. The contract is in
+  \artifact{src/adjacency/contracts.py}.
+  \item A selective ladder routes clean text through deterministic Tier 0, uses low reasoning at
+  Tier 1, and escalates uncertain or structurally risky items to high reasoning at Tier 2. Its
+  measured routing and cost are recorded in
+  \artifact{artifacts/wednesday/judge_report.json}.
+  \item A fair comparison baseline is generated from the exact same advertiser prose, then matched
+  deterministically. The Autopsy separates agreement from over-blocks and under-blocks, with REVIEW
+  treated as withholding. The source artifacts are
+  \artifact{artifacts/tuesday/baseline_blocklist.json} and
+  \artifact{artifacts/ui/autopsy_snapshot.json}.
+  \item A seeded fault study, a repeated raw-prompt study, and a real Temporal Cloud transition test
+  the failure path directly. Their records are listed in \cref{tab:results}.
+\end{enumerate}
+
+The claim is deliberately narrow. This is evidence that typed admission gates catch the injected
+failures they target, that the tested prompt baseline has a grounding problem, and that the tested
+ladder has a measurable cost profile. It is not evidence of production accuracy. No gold-label
+accuracy figure is reported.
+
+\section{Context and Related Work}
+\label{sec:related}
+
+\phead{Advertiser controls.} X documents both platform protections and advertiser controls. Its
+Adjacency Controls use keyword and account exclusions and explicitly note that placement protection
+is not guaranteed to be perfectly effective \citep{xbrandsafety}. \Adj does not claim to reproduce
+X's internal blocklist, ranking stack, or policy models. The baseline is Arun's construction. It is
+generated from the same prose as the compiled policy, then visibly labeled as such in
+\artifact{artifacts/tuesday/baseline_blocklist.json}. This keeps the comparison about representation:
+identical intent expressed as keywords versus as a compiled policy.
+
+\phead{Multimodal safety.} The Hateful Memes Challenge demonstrates why independent text and image
+signals can be insufficient. Its counterfactual construction changes the joint meaning while
+preserving a benign-looking modality \citep{kiela2020hateful}. Brand suitability is not identical to
+hate-speech detection, but the representational warning transfers directly. Text-only keyword
+matching cannot inspect an image region. \Adj therefore accepts text evidence and image bounding
+boxes under one verdict schema.
+
+\phead{Selective prediction and human review.} Selective classification gives a predictor an
+explicit reject option and studies the resulting risk-coverage tradeoff
+\citep{geifman2019selectivenet}. Learning-to-defer work makes the downstream expert part of the
+decision system rather than an exception path \citep{mozannar2020defer}. Content-moderation work
+extends that framing to delayed and capacity-limited review queues \citep{lykouris2024moderation}.
+\Adj uses the same operational principle without claiming a learned deferral policy. Confidence,
+media, boundary severity, low-tier gate failure, model failure, and near-duplicate disagreement are
+explicit escalation predicates. A REVIEW result enters a human queue.
+
+\phead{Cascades and behavioral evaluation.} Model cascades trade cost against capability by routing
+easy requests away from expensive calls \citep{chen2023frugalgpt}. Here the first stage is not a
+smaller language model. It is a deterministic decider. The remaining stages use the same model at
+different reasoning effort, which xAI exposes directly for Grok 4.5
+\citep{xai2026grok45,xai2026reasoning}. Behavioral testing argues for targeted capability and
+invariance checks beyond one aggregate score \citep{ribeiro2020checklist}. The synthetic fault suite
+follows that logic. Each mutation has an expected gate code, so an unrelated rejection does not
+count as success.
+
+\phead{Model drift and replay.} Hosted model behavior can change while the API name stays fixed
+\citep{chen2023behavior}. Every external request in \Adj is therefore content-addressed. Recording is
+explicit. Offline replay is the default. Corpus, policy, request, and response hashes make the
+reported run inspectable without requiring a live model endpoint.
+
+\section{System Design}
+\label{sec:method}
+
+\subsection{Five-part skeleton}
+
+The architecture follows the five-part teaching skeleton in Spatial Atlas: problem contract, typed
+interaction map, module responsibilities, end-to-end flow, and explicit design decisions. The
+runtime form is shown in \cref{fig:architecture}.
+
+\begin{figure*}[t]
+\centering
+\begin{tikzpicture}[
+  node distance=0.72cm,
+  box/.style={draw, rounded corners, align=center, minimum height=0.82cm,
+              text width=2.75cm, fill=blue!4},
+  gate/.style={draw, rounded corners, align=center, minimum height=0.82cm,
+               text width=2.75cm, fill=red!5},
+  outputbox/.style={draw, rounded corners, align=center, minimum height=0.82cm,
+                    text width=2.75cm, fill=green!5},
+  arrow/.style={-{Latex[length=2mm]}, thick}
+]
+\node[box] (prose) {Advertiser prose};
+\node[box, right=of prose] (compile) {Policy compiler\\structured output};
+\node[gate, right=of compile] (g0) {G0 source-span\\admission};
+\node[outputbox, right=of g0] (spec) {Hashed \code{PolicySpec}};
+
+\node[box, below=1.15cm of prose] (inventory) {Frozen multimodal\\inventory};
+\node[box, right=of inventory] (baseline) {Same-prose keyword\\baseline};
+\node[box, right=of baseline] (judge) {Tiered multimodal\\judge};
+\node[gate, right=of judge] (gates) {Fail-closed\\verdict gates};
+
+\node[outputbox, below=1.15cm of baseline] (delta) {Autopsy delta\\AGREE, OVER, UNDER};
+\node[outputbox, right=of delta] (review) {In-process HITL\\default};
+\node[outputbox, right=of review] (temporal) {Temporal HITL\\opt-in only};
+
+\draw[arrow] (prose) -- (compile);
+\draw[arrow] (compile) -- (g0);
+\draw[arrow] (g0) -- (spec);
+\draw[arrow] (prose) -- (baseline);
+\draw[arrow] (inventory) -- (baseline);
+\draw[arrow] (inventory) -- (judge);
+\draw[arrow] (spec) |- (judge);
+\draw[arrow] (judge) -- (gates);
+\draw[arrow] (baseline) -- (delta);
+\draw[arrow] (gates) |- (delta);
+\draw[arrow] (gates) -- (review);
+\draw[arrow, dashed] (review) -- (temporal);
+\end{tikzpicture}
+\caption{\Adj separates proposal from admission. Model-produced structures pass through deterministic
+checks before they can become decisions. The default demo ends at the in-process queue. Temporal is
+an opt-in durability adapter and is not imported by the demo path. Source:
+\artifact{src/adjacency/ui.py}, \artifact{src/adjacency/hitl.py}, and
+\artifact{src/adjacency/temporal_hitl.py}.}
+\label{fig:architecture}
+\end{figure*}
+
+\subsection{Policy as a compiled artifact}
+
+Let advertiser prose be a normalized string $p$. The compiler proposes a policy
+$S=(v,a,p,C)$ with version $v$, advertiser $a$, and clauses $C$. Each clause $c$ stores a source
+interval $[s_c,e_c)$ and quoted text $q_c$. Admission requires
+
+\begin{equation}
+p[s_c:e_c] = q_c \quad \text{for every } c \in C.
+\label{eq:g0}
+\end{equation}
+
+The comparison is exact after Unicode NFC normalization. Offsets are Python character indices, not
+byte offsets and not UTF-16 code units. This choice matters for emoji and combining marks. G0 runs
+immediately after the high-reasoning structured call. The trusted advertiser name, normalized prose,
+and requested policy version must also equal the returned values. Only then is the policy cached.
+The compiled instance and policy hash are stored in
+\artifact{artifacts/tuesday/policy_spec.json}.
+
+The same $p$ enters a separate keyword-expansion call. Trusted code, not the model, attaches the
+advertiser, version, policy hash, and original prose to the returned terms. Terms are normalized,
+deduplicated, sorted, and capped at the product limit documented by X. Whole-token phrase matching
+prevents substring accidents. Because both methods receive identical intent, differences can be
+attributed to representation and judgment rather than a richer policy description.
+
+\subsection{Typed inventory and evidence}
+
+An \code{InventoryItem} contains normalized text and zero or more typed media records. Media records
+carry identifiers, dimensions, and local paths. A \code{Verdict} contains an action, severity,
+clause identifiers, evidence, confidence, tier, policy version, and display-only rationale. Text
+evidence is an exact quote with $[s,e)$ offsets. Image evidence is a bounding box $(x,y,w,h)$ tied to
+one media identifier.
+
+G1 verifies that each text slice reproduces its quote and each image box lies within the named
+frame. G2 resolves every clause identifier against the active policy version. G4 requires action to
+equal the fixed severity lookup. G6 refuses low-confidence ALLOW and detects disagreement across
+effort levels. G3 protects policy revision by requiring logged approval before a frozen holdout item
+can change from BLOCK to ALLOW. G5 validates explicit run budgets. The full gate definitions and
+coercions live in \artifact{src/adjacency/gates.py}.
+
+The chain runs all applicable gates even after a failure. This creates a complete ledger and lets the
+strictest coercion win. The key property is non-interference from generated prose. No gate reads
+\code{rationale}. A convincing explanation cannot change an action, repair a nonexistent clause, or
+move a bounding box.
+
+\subsection{Confidence-gated escalation}
+
+The judge implements a fixed ladder rather than sending every item to the most expensive call.
+Tier 0 is a deterministic clean-text decider. Residual items receive a low-reasoning structured
+verdict at Tier 1. The system escalates to Tier 2 when confidence falls below the configured floor,
+severity lands on the review boundary, media accompanies text that did not trigger the baseline, a
+low-tier gate fails, the model call fails, or near-duplicate cluster members disagree. Tier 2 uses
+high reasoning and receives the low-tier verdict as auditable context, not as trusted truth.
+
+For item $i$, let $r(i) \in \{0,1,2\}$ be its final tier and let $c_j$ be the measured cost of model
+call $j$. The observed blended cost over corpus $D$ is
+
+\begin{equation}
+\operatorname{Cost}_{1000}(D)
+= \frac{1000}{|D|}\sum_{j \in \operatorname{calls}(D)} c_j.
+\label{eq:cost}
+\end{equation}
+
+The implementation records provider-reported token usage, reasoning tokens, elapsed time, response
+identifier, and computed cost for every call. Tier 0 contributes no model call. The content-addressed
+fixtures permit exact replay, while the live report preserves original measurements.
+
+\subsection{Autopsy and the failure path}
+
+For each item, the baseline action and engine action are reduced to a delivery disposition. ALLOW
+serves. BLOCK and REVIEW withhold. Equal dispositions are AGREE. A baseline withhold paired with an
+engine allow is OVER\_BLOCK. A baseline allow paired with an engine withhold is UNDER\_BLOCK. This
+definition avoids treating BLOCK and REVIEW as if one served while the other withheld.
+
+The Gradio Autopsy streams those three columns from committed artifacts. Selecting a row opens the
+source content, cited image region, final verdict, model-call measurements, and complete gate chain.
+One recorded item first appears as ALLOW, then fails G1 because its claimed text span is absent. The
+row turns red, the final action becomes REVIEW, and the item enters the human queue. The exact beat is
+in \artifact{artifacts/ui/autopsy_snapshot.json}.
+
+The default queue is in-process. An environment switch can opt into Temporal Cloud for the review
+queue alone. That adapter defines one workflow, one human-adjudication signal, and one queue-state
+query in \artifact{src/adjacency/temporal_hitl.py}. The judge, policy compiler, corpus fetcher, gates,
+and demo do not move to Temporal. If the cloud service is unreachable, the default demo path does not
+import the SDK or connect.
+
+\section{Evaluation}
+\label{sec:experiments}
+
+\subsection{Protocol and evidence boundary}
+
+The frozen corpus manifest is \artifact{corpus/frozen/manifest.json}. It binds each item, source URL,
+local media digest, and the overall corpus hash. The comparison baseline, compiled policy, judge
+traces, and raw-prompt runs carry the same policy and corpus hashes. Evaluation reads committed
+fixtures by default. Network calls are not needed to reproduce the gate and comparison logic.
+
+The study asks four questions. First, do deterministic gates catch structural failures that should
+never be admitted? Second, does a free-text prompt produce grounded and repeatable decisions on the
+same inputs? Third, how does the implemented reasoning ladder route cost? Fourth, does a review
+survive a real durable queue transition? \cref{tab:results} reports only observed answers and places
+the authoritative repository path beside every value.
+
+\begin{table*}[t]
+\centering
+\caption{Observed results. Every value is paired with its authoritative committed artifact. The
+raw-prompt grounding result is explicitly run-specific. The durable HITL row is protocol evidence,
+not a human label.}
+\label{tab:results}
+\begin{tabular}{@{}p{0.25\textwidth}p{0.18\textwidth}p{0.50\textwidth}@{}}
+\toprule
+Question & Observed result & Authoritative artifact \\
+\midrule
+Do gates reject seeded structural faults? & 12/12 injected faults caught, with 0/4 clean cases rejected &
+\artifact{artifacts/tuesday/synthetic_faults.json} \\
+Is the raw-prompt evidence grounded? & 68\% failure in run 1 &
+\artifact{evals/prompt_baseline/comparison.json} \\
+Do identical-input prompt runs agree on action? & 2\% action disagreement &
+\artifact{evals/prompt_baseline/comparison.json} \\
+How much inventory reaches high reasoning? & 44\% at Tier 2 &
+\artifact{artifacts/wednesday/judge_report.json} \\
+What is the measured blended judge cost? & \$6.12 per 1,000 decisions &
+\artifact{artifacts/wednesday/judge_report.json} \\
+Did durable review complete? & PENDING query, adjudication signal, ADJUDICATED query, completed workflow &
+\artifact{artifacts/temporal/hitl_live_proof.json} \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\subsection{Seeded structural faults}
+
+The synthetic suite begins with known-good verdicts grounded in the compiled policy. It injects
+three fault families: a hallucinated text span, an invented clause identifier, and an incoherent
+severity-action pair. Each mutation declares its expected gate code. A case counts as caught only if
+that code appears, which prevents a coincidental failure elsewhere from inflating the result.
+
+The run caught 12 of 12 injected cases. It rejected 0 of 4 unmodified controls. These figures come
+from \artifact{artifacts/tuesday/synthetic_faults.json}, which also stores the seed, per-case mutation,
+expected code, observed codes, and policy hash. This is the strongest evaluation result in the
+project because it is deterministic, reproducible, and independent of human labels. It is not a
+detection-accuracy claim. It tests gate behavior under known structural corruption.
+
+\subsection{Raw-prompt baseline}
+
+The baseline receives the same advertiser prose and the same ordered frozen corpus in two calls.
+It returns one action and one evidence claim per item, but without the compiled policy contract and
+post-call admission gates. A strict checker then asks whether each submitted span reproduces the
+quoted text at the claimed offsets.
+
+Run 1 failed that grounding check on 68\% of claims. The cross-run action disagreement rate was 2\%.
+Both figures are in \artifact{evals/prompt_baseline/comparison.json}. The first result should not be
+misread as an average across runs. It is the observed rate for run 1. The comparison artifact also
+retains the other run's grounding result, every failed item, both response identifiers, token usage,
+cost, policy prose hash, and corpus hash.
+
+The action disagreement is small in absolute terms, but it answers a different question than
+grounding. The prompt can often choose the same action while providing evidence that does not exist
+where it says it does. A system that checks only label agreement would miss the larger structural
+failure. This separation is the reason \Adj treats evidence as a first-class contract.
+
+\subsection{Escalation economics}
+
+The observed ladder is bimodal rather than smooth. The frozen run placed 26 of 50 items at Tier 0,
+2 of 50 at Tier 1, and 22 of 50 at Tier 2. Those counts and fractions are in
+\artifact{artifacts/wednesday/judge_report.json}. Tier 1 is a narrow residual in this corpus. A chart
+that visually implies even progression would be misleading.
+
+Tier 2 therefore handled 44\% of items. The measured blended cost was \$6.12 per 1,000 decisions,
+rounded from the higher-precision value stored in
+\artifact{artifacts/wednesday/judge_report.json}. This is a routing and cost measurement for the
+frozen run. It is not a cost forecast for X traffic and not an accuracy-versus-cost curve. Accuracy
+requires independent labels that do not exist in this pre-event corpus.
+
+\subsection{Durable human review}
+
+The live integration test connected to Temporal Cloud, started the committed review workflow,
+queried a PENDING state, sent the adjudication signal, queried ADJUDICATED, and observed the workflow
+complete. The credential-free record is
+\artifact{artifacts/temporal/hitl_live_proof.json}. It retains execution identifiers, timestamps,
+the state transition, a namespace hash, source artifact paths, and an empty list of recorded
+credential fields.
+
+The supplied adjudication is labeled \code{integration-proof}. It is not a human label and must not
+enter a training dataset. The result establishes protocol behavior only. It does show that the
+failure path can leave a process, wait durably, and continue after a signal while keeping the default
+demo independent of the cloud backend.
+
+\section{Operational Design and Quality}
+\label{sec:quality}
+
+\phead{Offline-first demonstration.} Demo mode is the only UI mode. It loads the committed corpus,
+policy, baseline, traces, and economics assumption. It does not read an API key. Missing,
+hash-mismatched, or incomplete artifacts fail during application construction rather than halfway
+through a presentation. The over-block dollar counter is explicitly illustrative. Its assumption is
+in \artifact{artifacts/ui/economics_assumption.json} and is never presented as measured revenue.
+
+\phead{Asymmetric testing.} Contracts and gates are held to complete line and branch coverage in CI
+because they define admission. I/O surfaces use fixture-replay integration tests with one success
+path and one failure path per component. This is not uniform coverage by design. A model-layer bug
+still produces structured output that must cross the same gates. The policy and enforcement commands
+are documented in \artifact{QUALITY.md} and \artifact{.github/workflows/ci.yml}.
+
+\phead{Credential boundary.} External credentials are read from the environment only by explicitly
+selected live paths. Fixture recording rejects credential-shaped fields. The Temporal proof stores a
+namespace hash but not the raw namespace, address, or API key. The public demo uses no model or
+workflow credential.
+
+\phead{Read-only rollout.} \Adj produces inspection and shadow evidence. It never mutates bids,
+budgets, or serving state. A credible deployment sequence starts with read-only autopsy, then shadow
+evaluation, then per-clause activation after independently labeled validation. G3 remains active
+during policy revision to stop silent loosening on a frozen holdout.
+
+\section{Limitations}
+\label{sec:limitations}
+
+The frozen corpus is an engineering fixture, not a representative sample of X inventory. It was
+selected to exercise multimodal and policy behavior, and its manifest contains the exact membership.
+No independent human labels exist before the event. This report therefore makes no precision,
+recall, false-positive, or detection-accuracy claim.
+
+The keyword baseline is not X's internal blocklist. It is generated from the exact advertiser prose
+so that the comparison is controlled, but it cannot represent X's proprietary models, enforcement
+logic, or operational tuning. The delta columns describe disagreement between two implemented
+representations of the same intent. They do not estimate production uplift.
+
+The raw-prompt study has only two identical-input runs over one frozen corpus. It demonstrates an
+observed failure mode, not a universal rate for Grok 4.5. Hosted models may change. The fixtures make
+this run reproducible, but later live behavior must be measured again.
+
+The cost result is tied to the recorded route distribution, model pricing, and call shapes. It does
+not include platform integration, storage, review labor, caching changes, or future pricing. The
+ladder also routed very little work to Tier 1, so additional tuning may be needed before describing it
+as a smooth cascade.
+
+The Temporal exercise proves one protocol transition. It does not measure long-duration retention,
+load, retry storms, regional failure, or reviewer operations. Temporal remains opt-in. The in-process
+queue is the only backend the demo touches.
+
+Finally, synthetic-media language is represented as a policy route to REVIEW. The project does not
+train or evaluate a synthetic-media detector and makes no detection claim.
+
+\section{Conclusion}
+\label{sec:conclusion}
+
+\Adj treats a model response as a proposal, not a decision. Advertiser prose becomes a versioned
+policy whose clauses point back to their source. Multimodal judgments become typed records whose
+evidence can be checked. Confidence controls where extra reasoning is spent. Deterministic gates
+decide what is admissible, and failures move toward review. The same prose produces the comparison
+blocklist, so the baseline is not intentionally weakened.
+
+The evaluation supports the design claim at the level this artifact can honestly sustain. The seeded
+fault suite catches its targeted structural corruptions. The tested raw prompt is poorly grounded in
+one run and not fully stable across identical inputs. The ladder exposes its actual high-reasoning
+fraction and blended cost. The durable queue completes a real cloud transition. Each statement points
+to a committed artifact rather than a remembered number.
+
+The next scientific step is independent labeling, not a larger model claim. A held-out, doubly
+labeled corpus can measure risk and coverage for each tier, quantify the cost of review, and test
+policy revisions under G3. Until then, the system remains what it should be: a read-only autopsy that
+makes model failure visible before anyone asks it to control delivery.
+
+\section*{Impact Statement}
+
+Brand-safety systems can affect expression, monetization, advertiser trust, and reviewer workload.
+An over-broad filter can suppress safe inventory. An under-broad filter can place advertising beside
+content a brand intended to avoid. \Adj makes both directions visible and abstains when its evidence
+or structure fails. That design reduces silent automation, but it does not remove judgment from
+policy writing or human adjudication. Any deployment should measure subgroup and language effects,
+publish reviewer guidance, provide appeal paths, and keep policy changes auditable. The current
+system has no write access to ads and should not receive it without independent evaluation.
+
+\bibliographystyle{icml2025}
+\bibliography{refs}
+
+\end{document}

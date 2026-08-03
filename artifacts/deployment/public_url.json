@@ -1,0 +1,40 @@
+{
+  "deployment": {
+    "hardware": "cpu-basic",
+    "public": true,
+    "space_commit": "32f07379745489ed2b189d2d3952486285220829",
+    "space_id": "Arun0808/adjacency-autopsy",
+    "stage": "RUNNING",
+    "url": "https://arun0808-adjacency-autopsy.hf.space"
+  },
+  "isolation": {
+    "secrets": [],
+    "variables": []
+  },
+  "physical_cellular_check": {
+    "completed": false,
+    "reason": "The build machine exposes only its en0 Wi-Fi route and no cellular interface.",
+    "required_action": "Open the public URL on a physical phone with Wi-Fi disabled."
+  },
+  "public_checks": {
+    "gradio_config_title": "Adjacency Autopsy",
+    "gradio_version": "6.16.0",
+    "http_status": 200,
+    "interaction": [
+      "load public route",
+      "run Autopsy",
+      "observe G1_SPAN_NOT_FOUND",
+      "select gate-failure row",
+      "render cited media and bounding box",
+      "render audit payload"
+    ],
+    "mobile_viewport": {
+      "height_css_pixels": 390,
+      "touch_enabled": true,
+      "width_css_pixels": 844
+    },
+    "screenshot": "artifacts/deployment/public_mobile_viewport.png",
+    "screenshot_sha256": "d87009e21c92f0917de2d03552465ca9c2de6714c9a246b0916e2c395e19f2ed"
+  },
+  "verified_at": "2026-08-03T11:00:32Z"
+}

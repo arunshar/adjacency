@@ -1,0 +1,194 @@
+{
+  "summary": "Adjacency Grokathon demo deck",
+  "result": {
+    "slides": [
+      {
+        "n": 1,
+        "section": "OPENING",
+        "kicker": "ADJACENCY / XAI GROKATHON",
+        "title": "Spatial Atlas discipline, pointed at *ad adjacency*",
+        "layout": "title",
+        "body": [
+          "Typed scene state becomes a typed PolicySpec",
+          "Fail-closed execution becomes deterministic verdict gates",
+          "Confidence-gated revision becomes selective reasoning"
+        ],
+        "highlights": [
+          {"label": "System", "value": "Adjacency"},
+          {"label": "Surface", "value": "Brand safety"},
+          {"label": "Mode", "value": "Read-only"}
+        ],
+        "chartRef": "",
+        "figureRef": "",
+        "equations": [],
+        "notes": "Open on the design lineage. Spatial Atlas turns uncertain perception into typed scene state, then checks it before execution. Adjacency applies the same discipline to brand-safety policy. The model proposes. Deterministic code decides whether the proposal is admissible."
+      },
+      {
+        "n": 2,
+        "section": "PROBLEM",
+        "kicker": "THE CONTROL GAP",
+        "title": "Keywords are legible, but the risk is often *between modalities*",
+        "layout": "split",
+        "body": [
+          "X exposes advertiser-controlled adjacency keyword exclusions",
+          "A safe discussion can contain a blocked word",
+          "A risky image can accompany clean text",
+          "Source: src/adjacency/baseline.py and X Brand Safety documentation"
+        ],
+        "highlights": [
+          {"label": "Representation", "value": "Prose → terms"},
+          {"label": "Missing signal", "value": "Joint context"}
+        ],
+        "chartRef": "control_gap",
+        "figureRef": "",
+        "equations": [],
+        "notes": "The current control is useful, not a straw man. The baseline gets the same advertiser prose. The gap is representational. Keywords cannot express carve-outs, and they cannot inspect an image region."
+      },
+      {
+        "n": 3,
+        "section": "SYSTEM",
+        "kicker": "THE FIVE-PART SKELETON",
+        "title": "Compile intent, inspect inventory, admit evidence, compare outcomes, route review",
+        "layout": "chart",
+        "body": [],
+        "highlights": [],
+        "chartRef": "architecture",
+        "figureRef": "",
+        "equations": [],
+        "notes": "Walk left to right. Advertiser prose becomes a hashed policy only after source-span admission. Inventory reaches a cost-gated judge. Every verdict crosses deterministic gates. The same prose also creates the keyword baseline. Their delivery dispositions become the Autopsy columns, and REVIEW enters a human queue."
+      },
+      {
+        "n": 4,
+        "section": "SYSTEM",
+        "kicker": "COMPILED, NOT PROMPTED",
+        "title": "Every clause must point back to the words that authorized it",
+        "layout": "split",
+        "body": [
+          "PolicySpec is typed, immutable, versioned, hashed, and diffable",
+          "G0 checks exact character spans at compile time",
+          "The keyword baseline is generated from the identical prose",
+          "Sources: artifacts/tuesday/policy_spec.json and artifacts/tuesday/baseline_blocklist.json"
+        ],
+        "highlights": [
+          {"label": "Compiler admission", "value": "G0"},
+          {"label": "Baseline", "value": "Same prose"}
+        ],
+        "chartRef": "compile_contract",
+        "figureRef": "",
+        "equations": [],
+        "notes": "This is the answer to why the system is not just a prompt. Each clause has an exact source span. The compiled artifact is stable and diffable. The baseline is generated from the exact same prose, which keeps the comparison honest."
+      },
+      {
+        "n": 5,
+        "section": "DEMO",
+        "kicker": "THE AUTOPSY",
+        "title": "Both directions matter: missed risk and *recovered safe inventory*",
+        "layout": "figure",
+        "body": [],
+        "highlights": [],
+        "chartRef": "",
+        "figureRef": "autopsy",
+        "equations": [],
+        "notes": "Spend longer on over-blocks. Under-blocks are familiar safety failures. Over-blocks are safe inventory a lexical filter withheld, which makes this a revenue and trust story. The counter is a demo input and should be described that way."
+      },
+      {
+        "n": 6,
+        "section": "DEMO",
+        "kicker": "THE WOW BEAT",
+        "title": "A persuasive rationale cannot argue past *G1_SPAN_NOT_FOUND*",
+        "layout": "split",
+        "body": [
+          "The proposed ALLOW becomes REVIEW",
+          "The row enters the human queue",
+          "The audit drawer retains every applicable gate",
+          "Source: artifacts/ui/autopsy_snapshot.json"
+        ],
+        "highlights": [
+          {"label": "Before", "value": "ALLOW"},
+          {"label": "After", "value": "REVIEW"},
+          {"label": "Rule", "value": "Fail closed"}
+        ],
+        "chartRef": "gate_fail",
+        "figureRef": "",
+        "equations": [],
+        "notes": "Say the core line: the model is allowed to be wrong, but it is not allowed to be wrong silently. G1 recomputes the cited span. When it fails, deterministic code changes the delivery disposition and records the reason."
+      },
+      {
+        "n": 7,
+        "section": "EVIDENCE",
+        "kicker": "RECEIPTS, NOT CLAIMS",
+        "title": "The strongest numbers test the *failure path*",
+        "layout": "chart",
+        "body": [],
+        "highlights": [],
+        "chartRef": "results",
+        "figureRef": "",
+        "equations": [],
+        "notes": "Lead with seeded faults. All injected structural failures were caught and clean controls stayed clean. Then show why the raw prompt is not enough. One identical-input run had a 68 percent grounding failure rate, and the two runs disagreed on action for 2 percent of items. Every row names the file."
+      },
+      {
+        "n": 8,
+        "section": "ECONOMICS",
+        "kicker": "REASONING AS A ROUTING DECISION",
+        "title": "The measured ladder is *bimodal*, not a smooth curve",
+        "layout": "split",
+        "body": [
+          "Tier 0 absorbs the deterministic clean-text slice",
+          "Tier 1 is a narrow residual in the frozen run",
+          "Tier 2 handles the multimodal and uncertain cases",
+          "Source: artifacts/wednesday/judge_report.json"
+        ],
+        "highlights": [
+          {"label": "Tier 2 fraction", "value": "44%"},
+          {"label": "Blended judge cost", "value": "$6.12 / 1,000"}
+        ],
+        "chartRef": "ladder",
+        "figureRef": "",
+        "equations": [],
+        "notes": "Do not draw this as a gentle cascade. The middle tier only caught a narrow residual. The honest shape is free deterministic routing, then a jump to high reasoning for media and uncertainty. The artifact contains the exact counts and unrounded cost."
+      },
+      {
+        "n": 9,
+        "section": "CLOSE",
+        "kicker": "FAILURE HAS A DESTINATION",
+        "title": "Real Cloud review, offline demo, staged rollout",
+        "layout": "closing",
+        "body": [
+          "Temporal proof: PENDING query → adjudication signal → ADJUDICATED query → completed workflow",
+          "Artifact: artifacts/temporal/hitl_live_proof.json",
+          "Demo default: in-process queue with no API key",
+          "Rollout: read-only autopsy → shadow evaluation → per-clause activation"
+        ],
+        "highlights": [
+          {"label": "Code", "value": "github.com/arunshar/adjacency"},
+          {"label": "Position", "value": "Models propose. Gates decide."}
+        ],
+        "chartRef": "",
+        "figureRef": "",
+        "equations": [],
+        "notes": "Close on trust. The durable review round-trip is real, but the demo never depends on Temporal. The product path is also deliberately staged. Start with read-only evidence, run shadow evaluation, and activate policy clauses only after independent labels support it."
+      }
+    ],
+    "design": {
+      "palette": {
+        "bg": "#08111F",
+        "bgAlt": "#101C2F",
+        "ink": "#F4F7FB",
+        "inkDim": "#A8B4C8",
+        "accent": "#22D3EE",
+        "accent2": "#F97316",
+        "pcrf": "#38BDF8",
+        "pigrpo": "#F43F5E",
+        "good": "#4ADE80",
+        "warn": "#FBBF24",
+        "grid": "#2A3A53"
+      },
+      "fonts": {
+        "heading": "Space Grotesk",
+        "body": "Inter",
+        "mono": "JetBrains Mono",
+        "googleFontsHref": "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      }
+    }
+  }
+}

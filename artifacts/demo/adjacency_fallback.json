@@ -1,0 +1,19 @@
+{
+  "artifact": "artifacts/demo/adjacency_fallback.mp4",
+  "capture_mode": "local_offline_gradio",
+  "captured_flow": [
+    "load_demo",
+    "run_autopsy",
+    "observe_G1_SPAN_NOT_FOUND",
+    "select_gate_failure",
+    "inspect_evidence_and_audit"
+  ],
+  "codec": "h264",
+  "duration_seconds": 13.44,
+  "file_size_bytes": 734690,
+  "frame_rate_fps": 25,
+  "height_pixels": 1000,
+  "network_credentials_present": false,
+  "sha256": "47373befcfcdcfbb99f2341c0e372b48d05be31834841115142b434529a85904",
+  "width_pixels": 1600
+}

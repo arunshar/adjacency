@@ -17,10 +17,13 @@ htmlcov/
 junit.xml
 *.log
 .DS_Store
+texput.log
 paper/*.aux
-paper/*.log
+paper/*.bbl
+paper/*.blg
 paper/*.out
+slides/slides_png/
 
-# Local-only session handoffs/ledgers (MSI operational details; never publish)
+# Local-only session handoffs and ledgers. Never publish operational details.
 sessions/
 fixtures/cache/

@@ -1,78 +1,58 @@
 # Adjacency
 
+[![CI](https://github.com/arunshar/adjacency/actions/workflows/ci.yml/badge.svg)](https://github.com/arunshar/adjacency/actions/workflows/ci.yml)
+[![Python](https://img.shields.io/badge/Python-3.13-3776AB?logo=python&logoColor=white)](.python-version)
+[![License: MIT](https://img.shields.io/badge/License-MIT-22c55e.svg)](LICENSE)
+[![Live demo](https://img.shields.io/badge/Demo-Hugging%20Face-f59e0b?logo=huggingface&logoColor=white)](https://arun0808-adjacency-autopsy.hf.space)
+
 **A brand-safety policy engine that compiles advertiser prose into something you can test.**
 
-An advertiser writes their policy in three sentences of English. Adjacency compiles it into
-a typed, hashed, diffable `PolicySpec`, evaluates inventory against it multimodally, passes
-every verdict through seven deterministic fail-closed gates, and reports the delta against
-what a keyword blocklist would have done, split into two directions that matter differently:
+Adjacency is Spatial Atlas's typed-scene-graph, fail-closed, confidence-gated discipline pointed at ad adjacency. Advertiser prose becomes a typed, hashed, diffable `PolicySpec`. Frozen inventory is evaluated multimodally. Every proposed verdict passes deterministic gates before it can affect delivery. The resulting decision is compared with a keyword blocklist generated from the same prose.
 
-- **Under-blocks**: risk the blocklist could not see, because it was in the image.
-- **Over-blocks**: safe inventory the blocklist demonetized.
+The model proposes. Gates decide.
 
-The second one is the half that costs money and that nobody demos.
+## Try the Autopsy
 
-## The design claim
+The [public Autopsy](https://arun0808-adjacency-autopsy.hf.space) is an offline replay. It has no xAI or Temporal credentials. Run it to inspect:
 
-A language model does exactly three things here: compile prose into a `PolicySpec` (once,
-cached), judge adjacency on the residual that survives deterministic triage, and write a
-human-readable rationale. Everything else is a pure function.
+- `AGREE`: both systems produce the same delivery disposition.
+- `OVER_BLOCK`: the keyword baseline withholds inventory that the compiled engine allows.
+- `UNDER_BLOCK`: the keyword baseline allows inventory that the compiled engine withholds.
+- `G1_SPAN_NOT_FOUND`: a proposed `ALLOW` becomes `REVIEW` when cited evidence does not reproduce the source span.
+- The cited image region, full gate chain, audit payload, and human-review destination.
 
-**The rationale is display-only.** Every decision is computed from structured fields
-(`action`, `severity`, `clause_ids`, `evidence`) that a gate checks mechanically. Prose is
-never load-bearing. A model that writes a persuasive paragraph cannot argue its way past a
-lookup table.
+The dollar counter is an illustrative operator input. It is not a measured revenue claim. Its source is `artifacts/ui/economics_assumption.json`.
 
-## The gates
+## Results
 
-| Gate | Checks | When |
-|---|---|---|
-| G0 | Every clause's span reproduces its quoted prose exactly | compile time |
-| G1 | Every cited text span is present verbatim, and every box lies inside its frame | per verdict |
-| G2 | Every cited clause exists at that policy version | per verdict |
-| G3 | A revision cannot flip a holdout item BLOCK to ALLOW without logged approval | per revision |
-| G4 | `action` equals `SEVERITY_ACTION[severity]` | per verdict |
-| G5 | Token, tool-call, and wallclock caps | per run |
-| G6 | Below the confidence floor, or when two effort levels disagree, never ALLOW | per verdict |
+Every value below is copied from the file named beside it.
 
-G1 is the hallucination gate. G3 is the reward-hacking gate: absent it, the cheapest way to
-make any brand-safety metric look good is to loosen the policy until everything is
-deliverable, and the loosening is invisible because it shows up as more inventory rather
-than as an incident.
+| Observed result | Artifact |
+|---|---|
+| 12/12 injected faults caught with 0/4 clean cases rejected | `artifacts/tuesday/synthetic_faults.json` |
+| 68% grounding failure in raw-prompt run 1 | `evals/prompt_baseline/comparison.json` |
+| 2% action disagreement across identical-input raw-prompt runs | `evals/prompt_baseline/comparison.json` |
+| 44% of frozen decisions escalated to Tier 2 | `artifacts/wednesday/judge_report.json` |
+| $6.12 per 1,000 decisions in measured blended judge cost | `artifacts/wednesday/judge_report.json` |
+| Real Temporal Cloud transition from pending review through signal, adjudicated query state, and workflow completion | `artifacts/temporal/hitl_live_proof.json` |
 
-Fail-closed means every failure resolves toward not serving an ad. `REVIEW` is a fail-closed
-outcome, not a neutral one.
+These are failure-detection, grounding, stability, routing, cost, and protocol observations. They are not an accuracy claim. See [RESULTS.md](RESULTS.md) for the one-page evidence sheet.
 
-## Status
+## Architecture
 
-The deterministic core, fixture recorder, fixed inventory-source switch, delta engine,
-near-duplicate clustering, policy compilation, same-prose keyword baseline, and seeded synthetic
-faults are implemented and tested. `InventoryFetcher` discovers candidates through recorded
-`x_search` calls, then verifies direct X status sources before the corpus can be frozen.
-`AdjacencyJudge` routes each item through deterministic Tier 0, low-reasoning Tier 1, and
-high-reasoning Tier 2 under explicit escalation predicates. The artifact-backed Gradio Autopsy
-runs offline by default and shows the agreement, over-block, under-block, evidence, audit, and
-human-review surfaces from the frozen corpus.
+The system has five connected parts, each anchored by source files:
 
-The recorded demo compiled four grounded clauses in `artifacts/tuesday/policy_spec.json`.
-The baseline contains 73 normalized terms in `artifacts/tuesday/baseline_blocklist.json`.
-The seeded evaluation caught all 12 injected faults and rejected none of its four clean
-cases. The full cases and gate codes are in `artifacts/tuesday/synthetic_faults.json`.
+1. Policy compilation: `src/adjacency/policy.py`, `src/adjacency/contracts.py`, and compile-time G0 in `src/adjacency/gates.py`.
+2. Inventory and judging: `src/adjacency/inventory.py`, `src/adjacency/corpus.py`, `src/adjacency/tier_zero.py`, and `src/adjacency/judge.py`.
+3. Deterministic admission: G1 through G6 in `src/adjacency/gates.py`.
+4. Same-prose comparison and Autopsy: `src/adjacency/baseline.py`, `src/adjacency/delta.py`, `src/adjacency/autopsy.py`, and `src/adjacency/ui.py`.
+5. Human review: the default in-process queue in `src/adjacency/hitl.py`, with the Temporal adapter isolated in `src/adjacency/temporal_hitl.py`.
 
-The frozen Wednesday corpus contains 50 verified items and 18 locally stored media items. Its
-content hash and every media SHA-256 digest are in `corpus/frozen/manifest.json`. The live judge
-routed 52 percent of items to Tier 0, 4 percent to Tier 1, and 44 percent to Tier 2. Its measured
-blended cost was $6.117936 per 1,000 decisions. Routing, latency, cost, gate-failure counts, and the
-corpus hash are in `artifacts/wednesday/judge_report.json`. These are routing and cost measurements,
-not an accuracy claim.
-
-The raw-prompt comparison used the same policy prose and the same frozen 50-item corpus twice. The
-runs disagreed on one action. Their strict evidence checks failed 34 of 50 claims in the first run
-and 46 of 50 in the second because the returned offsets did not reproduce the quoted source text.
-The complete verdicts, failures, measurements, policy prose hash, and corpus hash are in
-`evals/prompt_baseline/`.
+Read [ARCHITECTURE.md](ARCHITECTURE.md) for the complete interaction map, file walkthrough, flows, and design decisions.
 
 ## Quick start
+
+The Python version is pinned in `.python-version`. The deterministic core installs without model, media, UI, or Temporal dependencies.
 
 ```bash
 python3.13 -m venv .venv
@@ -80,30 +60,18 @@ python3.13 -m venv .venv
 .venv/bin/python -m pytest -q
 ```
 
-The deterministic core has no model dependency. `pip install -e .` is enough to run every
-gate test. `[model]` is only needed once you want to score real inventory.
-
-Run the Autopsy with no API key:
+Run the offline Autopsy with no API key:
 
 ```bash
 .venv/bin/pip install -e ".[serve]"
 .venv/bin/python app.py
 ```
 
-The app reads only committed artifacts in its default demo mode. It streams the frozen Autopsy,
-draws cited image boxes, exposes the full gate chain, and makes the `G1_SPAN_NOT_FOUND`
-ALLOW-to-REVIEW transition visible. The over-block dollar counter uses an illustrative operator
-input from `artifacts/ui/economics_assumption.json`. It is not a measured revenue result. Rebuild
-the UI snapshot with `PYTHONPATH=src .venv/bin/python scripts/build_ui_artifacts.py`.
+External calls replay from content-addressed fixtures by default. Set `ADJ_RECORD=1` only when intentionally recording a live response. The default inventory source is `frozen_corpus`, as defined in `src/adjacency/sources.py`.
 
-### Optional durable HITL queue
+## Optional Temporal review backend
 
-`ADJ_HITL_BACKEND` defaults to `in_process`. Temporal is an opt-in backend for the human-review
-queue only. The judge, gates, corpus, and Autopsy demo do not import it or connect to it. The
-Temporal surface is deliberately small: one `AdjacencyHITLReview` workflow, one `adjudicate` signal,
-and one `queue_state` query.
-
-Install the optional dependency and run the worker in a separate terminal:
+`ADJ_HITL_BACKEND` defaults to `in_process`. Temporal remains opt-in and owns only the human-review queue. The judge, gates, corpus, and public demo never depend on it.
 
 ```bash
 .venv/bin/pip install -e ".[temporal]"
@@ -111,95 +79,16 @@ export ADJ_HITL_BACKEND=temporal
 .venv/bin/python scripts/run_temporal_hitl_worker.py
 ```
 
-The worker reads `TEMPORAL_API_KEY`, `TEMPORAL_ADDRESS`, and `TEMPORAL_NAMESPACE` from the
-environment. No credential is written to an artifact. To exercise the complete cloud transition
-with the frozen gate-fail review and write a credential-free proof:
+The durable surface is deliberately small: one `AdjacencyHITLReview` workflow, one `adjudicate` signal, and one `queue_state` query in `src/adjacency/temporal_hitl.py`. The live proof in `artifacts/temporal/hitl_live_proof.json` is an integration transition, not a human label.
 
-```bash
-PYTHONPATH=src .venv/bin/python scripts/prove_temporal_hitl.py
-```
+## Deliverables
 
-The recorded transition is in `artifacts/temporal/hitl_live_proof.json`. The integration-proof
-adjudication is protocol evidence only. It is explicitly not a human label.
-
-External calls replay from content-addressed fixtures by default. Set `ADJ_RECORD=1` only
-when intentionally recording live responses. `ADJ_FIXTURE_DIR` overrides the default
-`fixtures/api` path.
-
-Rebuild the Tuesday artifacts from the recorded responses without an API key:
-
-```bash
-PYTHONPATH=src .venv/bin/python scripts/build_tuesday_artifacts.py
-```
-
-Replay Wednesday discovery, source verification, judging, and both raw-prompt runs without an API
-key. Replay verifies the committed corpus and evaluation outputs without replacing live latency
-measurements:
-
-```bash
-PYTHONPATH=src .venv/bin/python scripts/freeze_wednesday_corpus.py
-PYTHONPATH=src .venv/bin/python scripts/run_wednesday_evals.py
-```
-
-The blocklist is Arun's comparison baseline, not X's internal blocklist. It is generated
-from the exact advertiser prose stored in the compiled `PolicySpec`, and its artifact keeps
-the source policy hash and source prose beside the generated terms.
-
-`ADJ_SOURCE` has four fixed values: `grok_x_search`, `live_x_api`, `frozen_corpus`, and
-`synthetic_faults`. The default is `frozen_corpus`. Evaluation numbers may come only from
-`frozen_corpus` or `synthetic_faults`.
-
-## Layout
-
-```
-src/adjacency/
-  baseline.py    same-prose keyword expansion and deterministic baseline matching
-  autopsy.py     validated offline Autopsy replay, evidence rendering, and audit payloads
-  corpus.py      verified local corpus freezing and content hashing
-  contracts.py   the four frozen types: PolicySpec, InventoryItem, Verdict, DeltaRow
-  delta.py       deterministic engine-versus-baseline comparison
-  fixtures.py    content-addressed record and replay for external calls
-  gates.py       the seven gates, all pure functions
-  hitl.py        queue contracts and the default in-process review backend
-  inventory.py   recorded x_search discovery plus direct-status verification
-  judge.py       deterministic, low-effort, and high-effort escalation ladder
-  model_metrics.py  per-call latency, token, and cost measurements
-  near_dup.py    pHash and MinHash near-duplicate clustering
-  policy.py      cached structured compilation with compile-time G0
-  prompt_baseline.py  two raw free-text policy runs and strict comparison
-  sources.py     the fixed ADJ_SOURCE switch
-  synthetic_faults.py  seeded gate fault injection and measurement
-  temporal_hitl.py  opt-in Temporal workflow, signal, query, and client adapter
-  tier_zero.py   zero-cost clean-text decisions
-  ui.py          Gradio Autopsy layout and streaming interaction handlers
-  xai.py         recorded raw client for the xAI Responses API
-app.py           local Gradio entry point
-artifacts/tuesday/
-  policy_spec.json, baseline_blocklist.json, synthetic_faults.json
-artifacts/wednesday/
-  inventory_discovery.json, judge_report.json, judge_traces.json
-artifacts/ui/
-  autopsy_snapshot.json, economics_assumption.json
-artifacts/temporal/
-  hitl_live_proof.json
-corpus/
-  frozen/manifest.json, media/*.jpg
-evals/prompt_baseline/
-  run_1.json, run_2.json, comparison.json
-tests/
-  test_*.py      focused branch and fixture-replay coverage
-```
-
-## Text offsets
-
-Spans are character offsets into NFC-normalized text, not bytes and not UTF-16 code units.
-This is load-bearing on a platform whose posts are full of emoji. The family emoji is 1
-grapheme, 7 Python characters, 25 UTF-8 bytes, and 11 UTF-16 code units, and a model asked
-for "the byte offset" will not reliably give you any of those. `Evidence.quote` is the
-source of truth. The offsets are a claim about where it appears, and G1 checks that claim
-rather than trusting the model's arithmetic.
+- Paper source and compiled report: `paper/main.tex` and `paper/main.pdf`.
+- Portable browser deck, PDF, and PowerPoint: `slides/adjacency_deck_portable.html`, `slides/adjacency_deck.pdf`, and `slides/adjacency_deck.pptx`.
+- Recorded fallback run and capture metadata: `artifacts/demo/adjacency_fallback.mp4` and `artifacts/demo/adjacency_fallback.json`.
+- Quality contract: [QUALITY.md](QUALITY.md).
+- Judging evidence map: [judging-map.md](judging-map.md).
 
 ## License
 
-Code is MIT licensed. Third-party evaluation text and media are not relicensed. See
-`corpus/README.md` for provenance handling.
+Code is MIT licensed. Third-party evaluation text and media are not relicensed. See `corpus/README.md` for provenance handling.

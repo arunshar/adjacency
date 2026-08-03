@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+<title>Adjacency: Models propose. Gates decide.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#08111F;--bgAlt:#101C2F;--ink:#F4F7FB;--inkDim:#A8B4C8;
+  --accent:#22D3EE;--accent2:#F97316;--pcrf:#38BDF8;--pigrpo:#F43F5E;
+  --good:#4ADE80;--warn:#FBBF24;--grid:#2A3A53;
+  --fh:'Space Grotesk',sans-serif;--fb:'Inter',sans-serif;--fm:'JetBrains Mono',monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;background:#050914;color:var(--ink);font-family:var(--fb);overflow:hidden}
+#stageWrap{position:fixed;inset:0;display:flex;align-items:center;justify-content:center}
+#stage{position:relative;width:1280px;height:720px;background:var(--bg);overflow:hidden;
+  box-shadow:0 30px 120px rgba(0,0,0,.65);transform-origin:center center}
+#progress{position:absolute;top:0;left:0;height:3px;background:var(--accent);z-index:40;transition:width .3s ease}
+.slide{position:absolute;inset:0;padding:58px 80px 76px;display:none;flex-direction:column;opacity:0}
+.slide.active{display:flex;opacity:1}
+.kicker{font-family:var(--fm);font-size:13px;letter-spacing:.20em;text-transform:uppercase;color:var(--inkDim);
+  display:flex;align-items:center;gap:10px;margin-bottom:22px}
+.kicker .dot{width:7px;height:7px;border-radius:50%;background:var(--sys,var(--accent));box-shadow:0 0 12px var(--sys,var(--accent))}
+h1.title{font-family:var(--fh);font-weight:600;font-size:40px;line-height:1.11;letter-spacing:-.02em;max-width:27ch}
+.title .em{color:var(--sys,var(--accent))}
+.titleRule{width:64px;height:2px;background:var(--sys,var(--accent));margin-top:16px;border-radius:2px}
+.body{margin-top:24px;display:flex;flex-direction:column;gap:12px;max-width:62ch}
+.body li{list-style:none;position:relative;padding-left:22px;font-size:18px;line-height:1.42;color:#e0e7f3}
+.body li::before{content:"";position:absolute;left:0;top:11px;width:9px;height:1.5px;background:var(--sys,var(--accent))}
+.hl{display:flex;gap:34px;margin-top:auto;padding-top:20px;flex-wrap:wrap}
+.stat{display:flex;flex-direction:column;gap:3px}
+.stat .v{font-family:var(--fh);font-weight:600;font-size:28px;color:var(--ink);letter-spacing:-.01em}
+.stat .l{font-family:var(--fm);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--inkDim)}
+.foot{position:absolute;left:80px;right:80px;bottom:28px;display:flex;justify-content:space-between;align-items:center;
+  font-family:var(--fm);font-size:11px;letter-spacing:.11em;text-transform:uppercase;color:var(--inkDim);
+  border-top:1px solid var(--grid);padding-top:11px}
+.foot .sec{color:var(--sys,var(--inkDim))}
+.layout-title{justify-content:center}
+.layout-title h1.title{font-size:54px;max-width:23ch}
+.layout-title .sub{margin-top:20px;font-size:19px;color:var(--inkDim);max-width:75ch;line-height:1.5}
+.layout-closing{justify-content:center}
+.layout-closing h1.title{font-size:46px}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:42px;align-items:center;flex:1;margin-top:6px}
+.split .col-r{align-self:stretch;display:flex;align-items:center;justify-content:center;min-width:0}
+.chartWrap{flex:1;margin-top:16px;display:flex;flex-direction:column;min-height:0}
+.chartWrap svg{width:100%;flex:1;min-height:260px}
+.split .chartWrap{width:100%;margin-top:0}
+.cap{font-size:12px;color:var(--inkDim);margin-top:8px;line-height:1.4;max-width:100ch}
+.figWrap{flex:1;margin-top:13px;display:flex;flex-direction:column;align-items:center;min-height:0}
+.figWrap img{max-width:100%;max-height:385px;object-fit:contain;border:1px solid var(--grid);border-radius:9px;background:#0d1626}
+table.tbl{width:100%;border-collapse:collapse;margin-top:12px;font-size:14px;table-layout:fixed}
+table.tbl th,table.tbl td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--grid);vertical-align:top;line-height:1.32;overflow-wrap:anywhere}
+table.tbl thead th{font-family:var(--fm);font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--accent);border-bottom:1px solid var(--inkDim)}
+table.tbl td:nth-child(2){font-family:var(--fm);font-size:11.5px;color:var(--inkDim)}
+#notes{position:fixed;left:0;right:0;bottom:0;max-height:42vh;overflow:auto;background:rgba(8,11,20,.97);
+  border-top:2px solid var(--accent);padding:18px 26px;z-index:60;display:none;backdrop-filter:blur(6px)}
+#notes.show{display:block}
+#notes .nh{font-family:var(--fm);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+#notes .nb{font-size:15px;line-height:1.6;color:#cdd6ea;max-width:120ch}
+#hud{position:fixed;right:14px;top:12px;z-index:60;font-family:var(--fm);font-size:11px;color:var(--inkDim);letter-spacing:.1em;display:flex;gap:14px}
+.navbtn{position:fixed;bottom:calc(16px + env(safe-area-inset-bottom));z-index:55;width:54px;height:54px;border-radius:50%;
+  background:rgba(18,24,41,.86);border:1px solid var(--grid);color:var(--ink);font-size:26px;display:none;align-items:center;justify-content:center}
+#prevBtn{left:calc(14px + env(safe-area-inset-left))}#nextBtn{right:calc(14px + env(safe-area-inset-right))}
+#rotateHint{position:fixed;inset:0;z-index:70;display:none;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;gap:14px;padding:40px;background:rgba(5,7,13,.95);color:var(--ink)}
+#rotateHint .ic{font-size:56px;color:var(--accent)}
+#rotateHint .t{font-family:var(--fh);font-weight:600;font-size:23px}
+#rotateHint .s{color:var(--inkDim);font-size:15px;max-width:32ch;line-height:1.55}
+#rotateHint button{margin-top:8px;font-family:var(--fm);font-size:13px;color:var(--accent);background:none;border:1px solid var(--accent);border-radius:999px;padding:9px 20px}
+@media (pointer:coarse),(max-width:820px){.navbtn{display:flex}#hud .help{display:none}}
+@media print{html,body{overflow:visible;height:auto}#stageWrap{position:static}#stage{transform:none!important;box-shadow:none;width:1280px;height:720px}
+  .slide{display:flex!important;opacity:1!important;position:relative;page-break-after:always}#progress,#hud,#notes,.navbtn,#rotateHint{display:none!important}}
+</style>
+</head>
+<body>
+<div id="progress"></div>
+<div id="hud"><span id="counter">1 / 9</span><span class="help">left/right nav · N notes · F full · P print</span></div>
+<div id="stageWrap"><div id="stage"></div></div>
+<div id="notes"><div class="nh">Presenter notes</div><div class="nb" id="notesBody"></div></div>
+<div id="rotateHint"><div class="ic">↻</div><div class="t">Rotate to landscape</div><div class="s">This deck is designed for a wide screen. Swipe or use the arrows after rotating.</div><button id="rhDismiss">View anyway</button></div>
+<script>
+const PAL={"bg": "#08111F", "bgAlt": "#101C2F", "ink": "#F4F7FB", "inkDim": "#A8B4C8", "accent": "#22D3EE", "accent2": "#F97316", "pcrf": "#38BDF8", "pigrpo": "#F43F5E", "good": "#4ADE80", "warn": "#FBBF24", "grid": "#2A3A53"},SLIDES=[{"n": 1, "section": "OPENING", "kicker": "ADJACENCY / XAI GROKATHON", "title": "Spatial Atlas discipline, pointed at *ad adjacency*", "layout": "title", "body": ["Typed scene state becomes a typed PolicySpec", "Fail-closed execution becomes deterministic verdict gates", "Confidence-gated revision becomes selective reasoning"], "highlights": [{"label": "System", "value": "Adjacency"}, {"label": "Surface", "value": "Brand safety"}, {"label": "Mode", "value": "Read-only"}], "chartRef": "", "figureRef": "", "equations": [], "notes": "Open on the design lineage. Spatial Atlas turns uncertain perception into typed scene state, then checks it before execution. Adjacency applies the same discipline to brand-safety policy. The model proposes. Deterministic code decides whether the proposal is admissible."}, {"n": 2, "section": "PROBLEM", "kicker": "THE CONTROL GAP", "title": "Keywords are legible, but the risk is often *between modalities*", "layout": "split", "body": ["X exposes advertiser-controlled adjacency keyword exclusions", "A safe discussion can contain a blocked word", "A risky image can accompany clean text", "Source: src/adjacency/baseline.py and X Brand Safety documentation"], "highlights": [{"label": "Representation", "value": "Prose → terms"}, {"label": "Missing signal", "value": "Joint context"}], "chartRef": "control_gap", "figureRef": "", "equations": [], "notes": "The current control is useful, not a straw man. The baseline gets the same advertiser prose. The gap is representational. Keywords cannot express carve-outs, and they cannot inspect an image region."}, {"n": 3, "section": "SYSTEM", "kicker": "THE FIVE-PART SKELETON", "title": "Compile intent, inspect inventory, admit evidence, compare outcomes, route review", "layout": "chart", "body": [], "highlights": [], "chartRef": "architecture", "figureRef": "", "equations": [], "notes": "Walk left to right. Advertiser prose becomes a hashed policy only after source-span admission. Inventory reaches a cost-gated judge. Every verdict crosses deterministic gates. The same prose also creates the keyword baseline. Their delivery dispositions become the Autopsy columns, and REVIEW enters a human queue."}, {"n": 4, "section": "SYSTEM", "kicker": "COMPILED, NOT PROMPTED", "title": "Every clause must point back to the words that authorized it", "layout": "split", "body": ["PolicySpec is typed, immutable, versioned, hashed, and diffable", "G0 checks exact character spans at compile time", "The keyword baseline is generated from the identical prose", "Sources: artifacts/tuesday/policy_spec.json and artifacts/tuesday/baseline_blocklist.json"], "highlights": [{"label": "Compiler admission", "value": "G0"}, {"label": "Baseline", "value": "Same prose"}], "chartRef": "compile_contract", "figureRef": "", "equations": [], "notes": "This is the answer to why the system is not just a prompt. Each clause has an exact source span. The compiled artifact is stable and diffable. The baseline is generated from the exact same prose, which keeps the comparison honest."}, {"n": 5, "section": "DEMO", "kicker": "THE AUTOPSY", "title": "Both directions matter: missed risk and *recovered safe inventory*", "layout": "figure", "body": [], "highlights": [], "chartRef": "", "figureRef": "autopsy", "equations": [], "notes": "Spend longer on over-blocks. Under-blocks are familiar safety failures. Over-blocks are safe inventory a lexical filter withheld, which makes this a revenue and trust story. The counter is a demo input and should be described that way."}, {"n": 6, "section": "DEMO", "kicker": "THE WOW BEAT", "title": "A persuasive rationale cannot argue past *G1_SPAN_NOT_FOUND*", "layout": "split", "body": ["The proposed ALLOW becomes REVIEW", "The row enters the human queue", "The audit drawer retains every applicable gate", "Source: artifacts/ui/autopsy_snapshot.json"], "highlights": [{"label": "Before", "value": "ALLOW"}, {"label": "After", "value": "REVIEW"}, {"label": "Rule", "value": "Fail closed"}], "chartRef": "gate_fail", "figureRef": "", "equations": [], "notes": "Say the core line: the model is allowed to be wrong, but it is not allowed to be wrong silently. G1 recomputes the cited span. When it fails, deterministic code changes the delivery disposition and records the reason."}, {"n": 7, "section": "EVIDENCE", "kicker": "RECEIPTS, NOT CLAIMS", "title": "The strongest numbers test the *failure path*", "layout": "chart", "body": [], "highlights": [], "chartRef": "results", "figureRef": "", "equations": [], "notes": "Lead with seeded faults. All injected structural failures were caught and clean controls stayed clean. Then show why the raw prompt is not enough. One identical-input run had a 68 percent grounding failure rate, and the two runs disagreed on action for 2 percent of items. Every row names the file."}, {"n": 8, "section": "ECONOMICS", "kicker": "REASONING AS A ROUTING DECISION", "title": "The measured ladder is *bimodal*, not a smooth curve", "layout": "split", "body": ["Tier 0 absorbs the deterministic clean-text slice", "Tier 1 is a narrow residual in the frozen run", "Tier 2 handles the multimodal and uncertain cases", "Source: artifacts/wednesday/judge_report.json"], "highlights": [{"label": "Tier 2 fraction", "value": "44%"}, {"label": "Blended judge cost", "value": "$6.12 / 1,000"}], "chartRef": "ladder", "figureRef": "", "equations": [], "notes": "Do not draw this as a gentle cascade. The middle tier only caught a narrow residual. The honest shape is free deterministic routing, then a jump to high reasoning for media and uncertainty. The artifact contains the exact counts and unrounded cost."}, {"n": 9, "section": "CLOSE", "kicker": "FAILURE HAS A DESTINATION", "title": "Real Cloud review, offline demo, staged rollout", "layout": "closing", "body": ["Temporal proof: PENDING query → adjudication signal → ADJUDICATED query → completed workflow", "Artifact: artifacts/temporal/hitl_live_proof.json", "Demo default: in-process queue with no API key", "Rollout: read-only autopsy → shadow evaluation → per-clause activation"], "highlights": [{"label": "Code", "value": "github.com/arunshar/adjacency"}, {"label": "Position", "value": "Models propose. Gates decide."}], "chartRef": "", "figureRef": "", "equations": [], "notes": "Close on trust. The durable review round-trip is real, but the demo never depends on Temporal. The product path is also deliberately staged. Start with read-only evidence, run shadow evaluation, and activate policy clauses only after independent labels support it."}],CHARTS={"results": {"kind": "table", "head": ["Observed result", "Artifact"], "rows": [["12/12 faults caught, 0/4 clean rejected", "artifacts/tuesday/synthetic_faults.json"], ["68% grounding failure, raw-prompt run 1", "evals/prompt_baseline/comparison.json"], ["2% cross-run action disagreement", "evals/prompt_baseline/comparison.json"], ["44% routed to Tier 2", "artifacts/wednesday/judge_report.json"], ["$6.12 per 1,000 decisions", "artifacts/wednesday/judge_report.json"], ["Real Temporal round-trip completed", "artifacts/temporal/hitl_live_proof.json"]]}, "ladder": {"kind": "bars", "bars": [{"label": "Tier 0", "value": 26, "detail": "26 / 50", "hue": "good"}, {"label": "Tier 1", "value": 2, "detail": "2 / 50", "hue": "warn"}, {"label": "Tier 2", "value": 22, "detail": "22 / 50", "hue": "pigrpo"}], "caption": "Observed routing. Source: artifacts/wednesday/judge_report.json"}, "control_gap": {"kind": "control_gap"}, "architecture": {"kind": "architecture"}, "compile_contract": {"kind": "compile_contract"}, "gate_fail": {"kind": "gate_fail"}},FIGURES={"autopsy": {"src": "autopsy_gate.png", "cap": "Artifact-backed Autopsy after the G1 gate failure. Sources: artifacts/ui/autopsy_snapshot.json and artifacts/ui/economics_assumption.json. The dollar counter is illustrative."}};
+const stage=document.getElementById('stage');
+if(new URLSearchParams(location.search).has('clean'))document.getElementById('hud').style.display='none';
+const esc=s=>(s==null?'':String(s)).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+const emph=t=>esc(t).replace(/\*(.+?)\*/g,'<span class="em">$1</span>');
+function box(x,y,w,h,label,sub,hue='accent'){
+  return `<g><rect x="${x}" y="${y}" width="${w}" height="${h}" rx="10" fill="var(--bgAlt)" stroke="var(--${hue})" stroke-width="1.5"/>
+  <text x="${x+w/2}" y="${y+h/2-5}" text-anchor="middle" fill="var(--ink)" font-family="var(--fh)" font-weight="600" font-size="16">${esc(label)}</text>
+  <text x="${x+w/2}" y="${y+h/2+17}" text-anchor="middle" fill="var(--inkDim)" font-family="var(--fm)" font-size="11.5">${esc(sub)}</text></g>`;
+}
+function arrow(x1,y1,x2,y2,hue='grid'){
+  return `<path d="M ${x1} ${y1} L ${x2} ${y2}" stroke="var(--${hue})" stroke-width="2" fill="none" marker-end="url(#arr)"/>`;
+}
+function frame(body,W=960,H=360){return `<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="xMidYMid meet"><defs><marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L7,4 L0,8 Z" fill="var(--inkDim)"/></marker></defs>${body}</svg>`;}
+function controlGap(){
+  let g=box(50,65,360,90,'Keyword control','clean text → term match','warn');
+  g+=box(550,65,360,90,'Compiled policy','text + image → typed evidence','accent');
+  g+=box(50,230,360,70,'Lexical blind spot','safe context or risky media','warn');
+  g+=box(550,230,360,70,'Auditable disposition','ALLOW · REVIEW · BLOCK','good');
+  g+=arrow(230,155,230,230,'warn')+arrow(730,155,730,230,'accent');
+  return frame(g);
+}
+function architecture(){
+  const xs=[18,205,392,579,766],labels=[
+    ['1 · POLICY','prose → PolicySpec'],['2 · INVENTORY','frozen multimodal corpus'],['3 · ADMISSION','judge → deterministic gates'],
+    ['4 · AUTOPSY','same-prose delta'],['5 · REVIEW','in-process default']];
+  let g='';
+  xs.forEach((x,i)=>{g+=box(x,105,176,92,labels[i][0],labels[i][1],i===2?'pigrpo':'accent');if(i<4)g+=arrow(x+176,151,xs[i+1],151);});
+  g+=`<text x="480" y="265" text-anchor="middle" fill="var(--inkDim)" font-family="var(--fm)" font-size="12">Source: ARCHITECTURE.md and src/adjacency/</text>`;
+  return frame(g);
+}
+function compileContract(){
+  let g=box(25,120,190,76,'Advertiser prose','trusted input','accent');
+  g+=box(270,120,190,76,'Structured call','Grok 4.5 · high effort','pcrf');
+  g+=box(515,120,190,76,'G0 admission','exact source spans','pigrpo');
+  g+=box(760,120,175,76,'PolicySpec','hashed + versioned','good');
+  g+=arrow(215,158,270,158)+arrow(460,158,515,158)+arrow(705,158,760,158);
+  return frame(g);
+}
+function gateFail(){
+  let g=box(30,120,180,78,'Proposed ALLOW','model output','pcrf');
+  g+=box(275,105,260,108,'G1_SPAN_NOT_FOUND','quoted text absent at offset','pigrpo');
+  g+=box(600,120,145,78,'REVIEW','fail closed','warn');
+  g+=box(810,120,130,78,'HITL','audit retained','good');
+  g+=arrow(210,159,275,159)+arrow(535,159,600,159)+arrow(745,159,810,159);
+  return frame(g);
+}
+function bars(c){
+  const W=560,H=330,left=120,top=38,max=Math.max(...c.bars.map(b=>b.value)),avail=355;
+  let g='';
+  c.bars.forEach((b,i)=>{const y=top+i*84,w=Math.max(8,avail*b.value/max);g+=`<g>
+    <text x="${left-16}" y="${y+26}" text-anchor="end" fill="var(--inkDim)" font-family="var(--fh)" font-size="16">${esc(b.label)}</text>
+    <rect x="${left}" y="${y}" width="${w}" height="34" rx="6" fill="var(--${b.hue})"/>
+    <text x="${left+w+12}" y="${y+24}" fill="var(--ink)" font-family="var(--fm)" font-size="15" font-weight="600">${esc(b.detail)}</text></g>`;});
+  return `<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="xMidYMid meet">${g}</svg><div class="cap">${esc(c.caption)}</div>`;
+}
+function table(c){let h='<table class="tbl"><thead><tr>'+c.head.map(x=>`<th>${esc(x)}</th>`).join('')+'</tr></thead><tbody>';
+  c.rows.forEach(r=>{h+='<tr>'+r.map(x=>`<td>${esc(x)}</td>`).join('')+'</tr>';});return h+'</tbody></table>';}
+function renderChart(ref){const c=CHARTS[ref];if(!c)return'';let content='';
+  if(c.kind==='table')content=table(c);else if(c.kind==='bars')content=bars(c);else if(c.kind==='control_gap')content=controlGap();
+  else if(c.kind==='architecture')content=architecture();else if(c.kind==='compile_contract')content=compileContract();else if(c.kind==='gate_fail')content=gateFail();
+  return `<div class="chartWrap">${content}</div>`;}
+function blockBody(s){return s.body?.length?`<ul class="body">${s.body.map(b=>`<li>${esc(b)}</li>`).join('')}</ul>`:'';}
+function blockHighlights(s){return s.highlights?.length?`<div class="hl">${s.highlights.map(h=>`<div class="stat"><span class="v">${esc(h.value)}</span><span class="l">${esc(h.label)}</span></div>`).join('')}</div>`:'';}
+function blockFigure(s){if(!s.figureRef)return'';const f=FIGURES[s.figureRef];return `<div class="figWrap"><img src="${f.src}" alt="Adjacency Autopsy interface"/><div class="cap">${esc(f.cap)}</div></div>`;}
+function buildSlide(s,i,total){const el=document.createElement('section');el.className='slide layout-'+s.layout;el.style.setProperty('--sys','var(--accent)');
+  const kick=`<div class="kicker"><span class="dot"></span>${esc(s.kicker||s.section)}</div>`;
+  const title=`<h1 class="title">${emph(s.title)}</h1><div class="titleRule"></div>`;let mid='';
+  if(s.layout==='title')mid=`<div class="sub">${s.body.map(esc).join(' · ')}</div>`+blockHighlights(s);
+  else if(s.layout==='split')mid=`<div class="split"><div class="col-l">${blockBody(s)}</div><div class="col-r">${renderChart(s.chartRef)}</div></div>`+blockHighlights(s);
+  else if(s.layout==='chart')mid=renderChart(s.chartRef)+blockHighlights(s);
+  else if(s.layout==='figure')mid=blockFigure(s)+blockBody(s);
+  else mid=blockBody(s)+blockHighlights(s);
+  el.innerHTML=kick+title+mid+`<div class="foot"><span class="sec">${esc(s.section)}</span><span>${String(i+1).padStart(2,'0')} / ${total}</span></div>`;return el;}
+let idx=0;const total=SLIDES.length,slideEls=[];SLIDES.forEach((s,i)=>{const e=buildSlide(s,i,total);stage.appendChild(e);slideEls.push(e);});
+const notesEl=document.getElementById('notes'),notesBody=document.getElementById('notesBody'),counter=document.getElementById('counter'),progress=document.getElementById('progress');
+function show(n){idx=Math.max(0,Math.min(total-1,n));slideEls.forEach((e,i)=>e.classList.toggle('active',i===idx));counter.textContent=(idx+1)+' / '+total;progress.style.width=((idx+1)/total*100)+'%';notesBody.textContent=SLIDES[idx].notes||'';try{location.hash=idx+1}catch(e){}}
+function fit(){const sx=innerWidth/1280,sy=innerHeight/720;stage.style.transform='scale('+Math.min(sx,sy)+')';}
+addEventListener('resize',fit);document.addEventListener('keydown',e=>{if(['ArrowRight','PageDown',' '].includes(e.key)){show(idx+1);e.preventDefault()}else if(['ArrowLeft','PageUp'].includes(e.key))show(idx-1);else if(e.key==='Home')show(0);else if(e.key==='End')show(total-1);else if(['n','N'].includes(e.key))notesEl.classList.toggle('show');else if(['f','F'].includes(e.key)){if(!document.fullscreenElement)document.documentElement.requestFullscreen();else document.exitFullscreen()}else if(['p','P'].includes(e.key))print();});
+let tx=0,ty=0;stage.addEventListener('touchstart',e=>{tx=e.changedTouches[0].clientX;ty=e.changedTouches[0].clientY},{passive:true});stage.addEventListener('touchend',e=>{const t=e.changedTouches[0],dx=t.clientX-tx,dy=t.clientY-ty;if(Math.abs(dx)>45&&Math.abs(dx)>Math.abs(dy)*1.4)show(idx+(dx<0?1:-1))},{passive:true});
+['prev','next'].forEach(d=>{const b=document.createElement('div');b.className='navbtn';b.id=d+'Btn';b.textContent=d==='prev'?'‹':'›';b.addEventListener('click',e=>{e.stopPropagation();show(idx+(d==='next'?1:-1))});document.body.appendChild(b)});
+let dismissed=false;const hint=document.getElementById('rotateHint');document.getElementById('rhDismiss').addEventListener('click',()=>{dismissed=true;hint.style.display='none'});function orient(){hint.style.display=(innerHeight>innerWidth&&Math.min(innerWidth,innerHeight)<560&&!dismissed)?'flex':'none'}addEventListener('resize',orient);fit();orient();show(parseInt(location.hash.slice(1))-1||0);
+</script>
+</body>
+</html>

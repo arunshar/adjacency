@@ -1,0 +1,90 @@
+%% macros_kit.tex -- distilled ICML math + text macro kit for the icml-paper skill.
+%%
+%% This is an ORIGINAL curation of conventional LaTeX math-writing patterns,
+%% distilled from two exemplar sources and stripped of each paper's project-
+%% specific notation. Nothing here is a verbatim copy of either paper's kit.
+%%   - Paper A "The Flexibility Trap" (config.tex): text shortcuts + run-in headers.
+%%   - Paper B "High-accuracy sampling ..." (macros.tex, arxiv_style.tex): paired
+%%     delimiters, calligraphic alphabet, expectation/divergence operators, and the
+%%     shared-counter theorem environments.
+%%
+%% Load these packages in the preamble BEFORE \input{macros_kit}:
+%%   amsmath, amssymb, mathtools, amsthm, xspace
+%% Optional: bbm (for a blackboard indicator; then switch \ind to \mathbbm{1}).
+
+% ---- Paired delimiters (use the starred form for auto-sizing, e.g. \norm*{x}) ----
+\DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
+\DeclarePairedDelimiter{\norm}{\lVert}{\rVert}
+\DeclarePairedDelimiter{\prn}{(}{)}
+\DeclarePairedDelimiter{\brk}{[}{]}
+\DeclarePairedDelimiter{\crl}{\{}{\}}
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+\DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
+\DeclarePairedDelimiter{\inner}{\langle}{\rangle}
+\newcommand{\set}[1]{\crl*{#1}}
+
+% ---- Blackboard number sets (explicit safe names; no risky single-letter clobber) ----
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+
+% ---- Calligraphic alphabet \cA .. \cZ (the one auto-loop worth keeping) ----
+\newcommand{\defcalX}[1]{\expandafter\newcommand\csname c#1\endcsname{\mathcal{#1}}}
+\defcalX{A}\defcalX{B}\defcalX{C}\defcalX{D}\defcalX{E}\defcalX{F}\defcalX{G}
+\defcalX{H}\defcalX{I}\defcalX{J}\defcalX{K}\defcalX{L}\defcalX{M}\defcalX{N}
+\defcalX{O}\defcalX{P}\defcalX{Q}\defcalX{R}\defcalX{S}\defcalX{T}\defcalX{U}
+\defcalX{V}\defcalX{W}\defcalX{X}\defcalX{Y}\defcalX{Z}
+\let\defcalX\undefined
+
+% ---- Operators, expectation, probability ----
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\Var}{Var}
+\DeclareMathOperator{\Cov}{Cov}
+\DeclareMathOperator{\supp}{supp}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Prob}{\mathbb{P}}          % \Prob, not \P (\P is the text pilcrow)
+\newcommand{\ind}{\mathbf{1}}           % blackboard variant: load bbm, use \mathbbm{1}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\T}{^{\top}}
+\newcommand{\defeq}{\vcentcolon=}
+\newcommand{\eqdef}{=\vcentcolon}
+
+% ---- Hat / tilde / bar wrappers ----
+\newcommand{\wt}[1]{\widetilde{#1}}
+\newcommand{\wh}[1]{\widehat{#1}}
+\newcommand{\wb}[1]{\overline{#1}}
+
+% ---- Divergences and distances (auto-sized via \prn*) ----
+\newcommand{\Dkl}[2]{D_{\mathrm{KL}}\prn*{#1 \,\|\, #2}}
+\newcommand{\Dtv}[2]{D_{\mathrm{TV}}\prn*{#1, #2}}
+\newcommand{\Dbl}[2]{D_{\mathrm{BL}}\prn*{#1, #2}}
+\newcommand{\Dhel}[2]{D_{\mathrm{H}}\prn*{#1, #2}}
+\newcommand{\Dchi}[2]{D_{\chi^2}\prn*{#1 \,\|\, #2}}
+
+% ---- Text shortcuts (Paper A idiom) ----
+\newcommand{\ie}{i.e.,\xspace}
+\newcommand{\eg}{e.g.,\xspace}
+\newcommand{\cf}{cf.\xspace}
+\newcommand{\etal}{et~al.\xspace}
+\newcommand{\etc}{etc.\xspace}
+\newcommand{\wrt}{w.r.t.\xspace}
+% Run-in bold header (Paper A style). Named \phead so it does not clobber the
+% ICML \paragraph. Usage: \phead{Contributions.} text continues on the same line.
+\newcommand{\phead}[1]{\vspace{2pt}\noindent\textbf{#1}\hspace{0.5em}}
+
+% ---- Theorem-like environments (Paper B pattern: one shared counter, per section) ----
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{assumption}[theorem]{Assumption}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{example}[theorem]{Example}
