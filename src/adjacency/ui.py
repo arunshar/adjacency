@@ -29,7 +29,21 @@ TABLE_HEADERS = ["Trace", "Decision", "Tier", "Signal"]
 
 AUTOPSY_CSS = """
 .gradio-container {
+  --adj-gate-banner-background: #fff1f2;
+  --adj-gate-banner-border: #b91c1c;
+  --adj-gate-banner-text: #7f1d1d;
+  --adj-mode-badge-background: #ecfdf5;
+  --adj-mode-badge-border: #047857;
+  --adj-mode-badge-text: #065f46;
   max-width: 1680px !important;
+}
+body.dark .gradio-container {
+  --adj-gate-banner-background: #450a0a;
+  --adj-gate-banner-border: #ef4444;
+  --adj-gate-banner-text: #fecaca;
+  --adj-mode-badge-background: #12372a;
+  --adj-mode-badge-border: #2b7a55;
+  --adj-mode-badge-text: #a7f3d0;
 }
 .autopsy-header {
   border-bottom: 1px solid var(--border-color-primary);
@@ -37,10 +51,10 @@ AUTOPSY_CSS = """
   padding-bottom: 0.75rem;
 }
 .mode-badge {
-  background: #12372a;
-  border: 1px solid #2b7a55;
+  background: var(--adj-mode-badge-background) !important;
+  border: 1px solid var(--adj-mode-badge-border) !important;
   border-radius: 999px;
-  color: #a7f3d0;
+  color: var(--adj-mode-badge-text) !important;
   display: inline-block;
   font-size: 0.76rem;
   font-weight: 700;
@@ -54,11 +68,14 @@ AUTOPSY_CSS = """
   padding: 0.65rem;
 }
 .gate-banner {
-  background: #450a0a;
-  border: 1px solid #ef4444;
+  background: var(--adj-gate-banner-background) !important;
+  border: 1px solid var(--adj-gate-banner-border) !important;
   border-radius: 10px;
-  color: #fecaca;
+  color: var(--adj-gate-banner-text) !important;
   padding: 0.65rem 0.9rem;
+}
+.gate-banner h2 {
+  color: var(--adj-gate-banner-text) !important;
 }
 #gate-fail-row button {
   font-family: ui-monospace, SFMono-Regular, Menlo, monospace;

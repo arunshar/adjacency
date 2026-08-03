@@ -34,6 +34,20 @@ def test_ui_builds_in_demo_mode_even_when_an_api_key_is_present(monkeypatch):
     assert rendered.getpixel((200, 20)) == (220, 38, 38)
 
 
+def test_autopsy_css_branches_theme_colors_and_targets_gate_heading():
+    from adjacency.ui import AUTOPSY_CSS
+
+    assert "--adj-mode-badge-background: #ecfdf5" in AUTOPSY_CSS
+    assert "--adj-gate-banner-background: #fff1f2" in AUTOPSY_CSS
+    assert "body.dark .gradio-container" in AUTOPSY_CSS
+    assert "--adj-mode-badge-background: #12372a" in AUTOPSY_CSS
+    assert "--adj-gate-banner-text: #fecaca" in AUTOPSY_CSS
+    assert "color: var(--adj-mode-badge-text) !important" in AUTOPSY_CSS
+    assert "background: var(--adj-gate-banner-background) !important" in AUTOPSY_CSS
+    assert ".gate-banner h2" in AUTOPSY_CSS
+    assert "color: var(--adj-gate-banner-text) !important" in AUTOPSY_CSS
+
+
 def test_ui_rejects_non_demo_mode(monkeypatch):
     from adjacency.ui import UIModeError, create_app
 

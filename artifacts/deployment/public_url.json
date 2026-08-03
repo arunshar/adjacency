@@ -2,7 +2,7 @@
   "deployment": {
     "hardware": "cpu-basic",
     "public": true,
-    "space_commit": "32f07379745489ed2b189d2d3952486285220829",
+    "space_commit": "4a739de8979581587f6b012b804fcf89af517951",
     "space_id": "Arun0808/adjacency-autopsy",
     "stage": "RUNNING",
     "url": "https://arun0808-adjacency-autopsy.hf.space"
@@ -12,9 +12,10 @@
     "variables": []
   },
   "physical_cellular_check": {
-    "completed": false,
-    "reason": "The build machine exposes only its en0 Wi-Fi route and no cellular interface.",
-    "required_action": "Open the public URL on a physical phone with Wi-Fi disabled."
+    "completed": true,
+    "performed_by": "Arun Sharma",
+    "result": "The public URL loaded on a phone over cellular. The captured screen exposed the light-theme contrast defect fixed by Space commit 4a739de8979581587f6b012b804fcf89af517951.",
+    "post_fix_verification": "The corrected hosted build was rendered and captured in mobile Chromium under both light and dark color schemes."
   },
   "public_checks": {
     "gradio_config_title": "Adjacency Autopsy",
@@ -33,8 +34,24 @@
       "touch_enabled": true,
       "width_css_pixels": 844
     },
-    "screenshot": "artifacts/deployment/public_mobile_viewport.png",
-    "screenshot_sha256": "d87009e21c92f0917de2d03552465ca9c2de6714c9a246b0916e2c395e19f2ed"
+    "theme_rendering": {
+      "contrast_threshold": 4.5,
+      "dark": {
+        "badge_contrast": 10.2,
+        "banner_contrast": 11.16,
+        "heading_contrast": 11.16,
+        "screenshot": "artifacts/deployment/public_dark_theme.png",
+        "screenshot_sha256": "4bb9d741b064cad3e4c2ebb74ea773ec8de5983406d2d19acfbd8931511447c2"
+      },
+      "light": {
+        "badge_contrast": 7.29,
+        "banner_contrast": 9.12,
+        "heading_contrast": 9.12,
+        "screenshot": "artifacts/deployment/public_light_theme.png",
+        "screenshot_sha256": "7a01f4b5577f81a49b555f65c5d8acbd03992e3f5602cf5fa9169337ae8be5ee"
+      },
+      "method": "Playwright Chromium with explicit color_scheme, a touch-enabled mobile viewport, computed-style assertions, and full-page screenshots"
+    }
   },
-  "verified_at": "2026-08-03T11:00:32Z"
+  "verified_at": "2026-08-03T11:43:05Z"
 }
