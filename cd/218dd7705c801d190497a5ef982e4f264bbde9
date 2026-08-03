@@ -1,0 +1,29 @@
+scripts/verify_public_demo.py
+  s_a8b24bcb194c1e::t_1ebbf1cd4e4ed3 12,35-38
+  s_a8b24bcb194c1e::t_98314b992c9f3c 2,7,13-34,39-44,48-51,55-72,75-82,87-95,98-108,113,122,151,154
+  s_a8b24bcb194c1e::t_33809cadd166e5 45-47,52-54,73-74,83-86,96-97
+src/adjacency/ui.py
+  s_a8b24bcb194c1e::t_1ebbf1cd4e4ed3 54-55,57,71-72,74
+  s_a8b24bcb194c1e::t_98314b992c9f3c 32-37,40-47,77-79
+tests/test_ui.py
+  s_a8b24bcb194c1e::t_98314b992c9f3c 37-44,47-50
+  s_a8b24bcb194c1e::t_1ebbf1cd4e4ed3 45-46
+artifacts/deployment/public_url.json
+  s_a8b24bcb194c1e::t_90dd29541b37e7 5,15-18,37-54,56
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.20",
+  "base_commit_sha": "cd218dd7705c801d190497a5ef982e4f264bbde9",
+  "prompts": {},
+  "sessions": {
+    "s_a8b24bcb194c1e": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019fc654-c310-7411-a428-5f83232f95b7",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Arun Sharma <arun08sharma@gmail.com>"
+    }
+  }
+}
