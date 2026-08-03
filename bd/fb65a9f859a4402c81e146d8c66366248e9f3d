@@ -1,0 +1,27 @@
+.github/dependabot.yml
+  s_012c1d33fe9afb::t_a652736f48d3f0 1-9
+.github/PULL_REQUEST_TEMPLATE.md
+  s_012c1d33fe9afb::t_4fcdf4a9f19d20 1-18
+.github/workflows/ci.yml
+  s_012c1d33fe9afb::t_3aef9ff6ce9246 1-101
+CONTRIBUTING.md
+  s_012c1d33fe9afb::t_0b944c7e885aba 1-54
+LICENSE
+  s_012c1d33fe9afb::t_0d8c87741b4b8a 1-21
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.20",
+  "base_commit_sha": "bdfb65a9f859a4402c81e146d8c66366248e9f3d",
+  "prompts": {},
+  "sessions": {
+    "s_012c1d33fe9afb": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "882918ec-65c5-45ef-97b9-857ad19b0fe5",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": "Arun Sharma <sharm485@umn.edu>"
+    }
+  }
+}
