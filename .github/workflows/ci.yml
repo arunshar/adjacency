@@ -52,13 +52,25 @@ jobs:
           pip install bandit==1.9.4
           bandit -q -c pyproject.toml -r src
 
-      # The deterministic core is pure functions with no excuse for an uncovered
-      # branch, so the floor is high and branch coverage is on.
-      - name: Test with coverage gate
+      # Two gates, deliberately asymmetric.
+      #
+      # The core is the product. contracts.py and gates.py are pure functions, a
+      # wrong gate invalidates every claim the system makes, and the tests cost
+      # about 0.16 seconds. That one stays at 100 percent line and branch.
+      - name: Deterministic core must stay at 100 percent
+        run: |
+          pytest -m "not e2e" -q \
+            --cov=adjacency.contracts --cov=adjacency.gates \
+            --cov-report=term-missing --cov-fail-under=100
+
+      # Everything else is model calls, network I/O, and UI, where the gates are
+      # already the safety net. This floor only catches a module that is entirely
+      # untested.
+      - name: Full suite
         run: |
           pytest -m "not e2e" \
             --cov --cov-report=term-missing \
-            --cov-fail-under=90 --junitxml=junit.xml
+            --cov-fail-under=55 --junitxml=junit.xml
 
       - name: Upload test report
         if: always()

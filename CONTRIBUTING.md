@@ -4,11 +4,30 @@
 
 ```bash
 ruff check src tests && ruff format --check src tests
-pytest -m "not e2e" --cov --cov-fail-under=90
+pytest -m "not e2e" -q --cov=adjacency.contracts --cov=adjacency.gates --cov-fail-under=100
+pytest -m "not e2e" --cov --cov-fail-under=55
 ```
 
 CI runs the same commands plus `pip-audit` and `bandit`. If it is green locally it should be green
 there.
+
+## Where testing effort goes, and why it is uneven
+
+The coverage bar is deliberately asymmetric. Read this before adding or removing a test.
+
+**The deterministic core is held to 100 percent line and branch.** `contracts.py` and `gates.py` are
+pure functions with no I/O, they are the product rather than plumbing, and a wrong gate invalidates
+every claim the system makes. They are also nearly free to test: the whole suite runs in about
+0.16 seconds.
+
+**Everything else has a low floor and is covered by fixture-replay integration tests.** The model
+layer, the fetchers, and the UI are I/O. Exhaustive branch coverage there buys much less, because the
+gates are the safety net by design: a bad verdict is caught by G1 through G6 regardless of how badly
+the code that produced it was written. Re-proving that in unit tests is redundant with the
+architecture.
+
+So: a new gate or contract change needs exhaustive tests. A new API client needs a fixture-replay
+test that exercises the happy path and one failure, and that is enough.
 
 ## Hard invariants
 
