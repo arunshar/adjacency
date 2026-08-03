@@ -1,0 +1,24 @@
+pyproject.toml
+  s_012c1d33fe9afb::t_55a5a5cdefed26 63-80
+CONTRIBUTING.md
+  s_012c1d33fe9afb::t_6a994a736ba47f 7-8,14-30
+  s_012c1d33fe9afb::t_6a9483a2298862 31
+.github/workflows/ci.yml
+  s_012c1d33fe9afb::t_da30fae49454f0 55-69,73
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.20",
+  "base_commit_sha": "fb0d883bdde398779037891c69de445c63578776",
+  "prompts": {},
+  "sessions": {
+    "s_012c1d33fe9afb": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "882918ec-65c5-45ef-97b9-857ad19b0fe5",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Arun Sharma <sharm485@umn.edu>"
+    }
+  }
+}
