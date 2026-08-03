@@ -1,0 +1,295 @@
+{
+  "format_version": 1,
+  "request": {
+    "input": [
+      {
+        "content": "Compile the advertiser's prose into a PolicySpec. Return one or more clauses. Every clause must quote an exact, contiguous source_text span from the prose, with zero-based Python character offsets and an exclusive source_end. Do not invent policy requirements. Keep the advertiser, prose, and version exactly as provided. Use severity 0 or 1 for ALLOW intent, 2 for REVIEW, and 3 or 4 for BLOCK intent. Clause ids must be unique and stable-looking.\n\nAdvertiser: Demo Travel Co.\nVersion: 1\nAdvertiser prose:\nDo not place our ads next to content that celebrates graphic violence or promotes illegal drug sales. Allow neutral news reporting and public-health discussion of those topics. Route suspected synthetic media impersonating public officials to review.",
+        "role": "user"
+      }
+    ],
+    "max_output_tokens": 8192,
+    "model": "grok-4.5",
+    "reasoning": {
+      "effort": "high"
+    },
+    "store": false,
+    "text": {
+      "format": {
+        "name": "policy_spec",
+        "schema": {
+          "$defs": {
+            "Clause": {
+              "additionalProperties": false,
+              "description": "One rule, compiled from a span of the advertiser's own prose.\n\n`source_start` and `source_end` point back into the prose the advertiser wrote.\nG0 checks that `prose[source_start:source_end] == source_text` exactly. A clause\nthat cannot point at the sentence it came from is a clause the model invented.",
+              "properties": {
+                "category": {
+                  "minLength": 1,
+                  "title": "Category",
+                  "type": "string"
+                },
+                "clause_id": {
+                  "minLength": 1,
+                  "title": "Clause Id",
+                  "type": "string"
+                },
+                "description": {
+                  "minLength": 1,
+                  "title": "Description",
+                  "type": "string"
+                },
+                "severity": {
+                  "maximum": 4,
+                  "minimum": 0,
+                  "title": "Severity",
+                  "type": "integer"
+                },
+                "source_end": {
+                  "minimum": 0,
+                  "title": "Source End",
+                  "type": "integer"
+                },
+                "source_start": {
+                  "minimum": 0,
+                  "title": "Source Start",
+                  "type": "integer"
+                },
+                "source_text": {
+                  "minLength": 1,
+                  "title": "Source Text",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "clause_id",
+                "category",
+                "severity",
+                "description",
+                "source_text",
+                "source_start",
+                "source_end"
+              ],
+              "title": "Clause",
+              "type": "object"
+            }
+          },
+          "additionalProperties": false,
+          "description": "An advertiser's brand-safety policy, compiled from prose into checkable structure.\n\nHashed and versioned so that two runs of the same policy are provably the same\npolicy, and so that a revision produces a diff rather than an opaque replacement.",
+          "properties": {
+            "advertiser": {
+              "minLength": 1,
+              "title": "Advertiser",
+              "type": "string"
+            },
+            "clauses": {
+              "items": {
+                "$ref": "#/$defs/Clause"
+              },
+              "title": "Clauses",
+              "type": "array"
+            },
+            "prose": {
+              "minLength": 1,
+              "title": "Prose",
+              "type": "string"
+            },
+            "version": {
+              "minimum": 1,
+              "title": "Version",
+              "type": "integer"
+            }
+          },
+          "required": [
+            "version",
+            "advertiser",
+            "prose",
+            "clauses"
+          ],
+          "title": "PolicySpec",
+          "type": "object"
+        },
+        "strict": true,
+        "type": "json_schema"
+      }
+    }
+  },
+  "request_sha256": "b2b178065aa3542f3595aed80650c55c856a88055c60f28e6ec663871657745e",
+  "response": {
+    "background": false,
+    "completed_at": 1785741649,
+    "created_at": 1785741593,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "id": "302e4170-7b9a-9a09-b1b8-d8602309ec0f",
+    "incomplete_details": null,
+    "instructions": null,
+    "max_output_tokens": 8192,
+    "max_tool_calls": null,
+    "metadata": {
+      "system_fingerprint": "fp_a39489019fa99b6e"
+    },
+    "model": "grok-4.5",
+    "object": "response",
+    "output": [
+      {
+        "id": "rs_302e4170-7b9a-9a09-b1b8-d8602309ec0f",
+        "status": "completed",
+        "summary": [
+          {
+            "text": "The user wants me to compile the advertiser's prose into a PolicySpec JSON object.\n{\n  \"advertiser\": \"Demo Travel Co.\",\n  \"version\": 1,\n  \"clauses\": [\n    {\n      \"id\": \"violence-adjacent\",\n      \"source_text\": \"Do not place our ads next to content that celebrates graphic violence or promotes illegal drug sales.\",\n      \"source_start \": 0,\n      \"source_end\": 100,\n      \"intent\": 3\n    },\n    {\n      \"id\": \"news-reporting\",\n      \"source_text\": \"Allow neutral news reporting and public-health discussion of those topics.\",\n      \"source_start\": 101,\n      \"source_end\": 175 ,\n      \"intent\": 0\n    },\n    {\n      \"id\": \"synthetic-media\",\n      \"source_text\": \"Route suspected synthetic media impersonating public officials to review.\",\n      \"source_start\": 176,\n      \"source_end\": 249,\n      \"intent\": 2\n    }\n  ]\n}``` \n\nThe prose is 250 characters long (0-249), so the exclusive end for the first clause is 100 (after the period). The second clause starts at 101 and ends at 175 (after the period). The third clause starts at 176 and ends at 249. \n\nI used severity 3 for BLOCK (illegal drug sales and graphic violence), 0 for ALLOW (neutral news), and 2 for REVIEW (synthetic media). Each clause quotes a contiguous span from the prose exactly as provided. The categories are implied by the intent and the source text. \n\nThis is a clean PolicySpec that meets all the requirements. No invented rules, just direct quotes with offsets. \n\nIf you need more clauses or different severities, let me know!``` \n\nThe response is ready. The JSON is valid and follows the spec. The offsets are correct based on the character count. The prose is preserved exactly. \n\n \"advertiser\": \"Demo Travel Co.\",\n  \"version\": 1,\n  \"clauses\": [\n    {\n      \"id\": \"violence-adjacent\",\n      \"source_text\": \"Do not place our ads next to content that celebrates graphic violence or promotes illegal drug sales.\",\n      \"source_start\":  0,\n      \"source_end\": 100,\n      \"intent\": 3\n    },\n    {\n      \"id\": \"news-reporting\",\n      \"source_text\": \"Allow neutral news reporting and public-health discussion of those topics.\",\n      \"source_start\": 101,\n      \"source_end\": 175,\n \"intent\": 0\n    },\n    {\n      \"id\": \"synthetic-media\",\n      \"source_text\": \"Route suspected synthetic media impersonating public officials to review.\",\n      \"source_start\": 176,\n      \"source_end\": 249,\n      \"intent\": 2\n    }\n  ]\n} ``` \n\nThe prose is 250 characters long (0-249), so the exclusive end for the first clause is 100 (after the period). The second clause starts at 101 and ends at 175 (after the period). The third clause starts at 176 and ends at 249. \n\nI used severity 3 for BLOCK (illegal drug sales and graphic violence), 0 for ALLOW (neutral news), and 2 for REVIEW (synthetic media). Each clause quotes a contiguous span from the prose exactly as provided. The categories are implied by the intent and the source text.",
+            "type": "summary_text"
+          }
+        ],
+        "type": "reasoning"
+      },
+      {
+        "content": [
+          {
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\n  \"version\": 1,\n  \"advertiser\": \"Demo Travel Co.\",\n  \"prose\": \"Do not place our ads next to content that celebrates graphic violence or promotes illegal drug sales. Allow neutral news reporting and public-health discussion of those topics. Route suspected synthetic media impersonating public officials to review.\",\n  \"clauses\": [\n    {\n      \"clause_id\": \"block-graphic-violence\",\n      \"category\": \"graphic_violence\",\n      \"severity\": 4,\n      \"description\": \"Do not place ads next to content that celebrates graphic violence\",\n      \"source_text\": \"Do not place our ads next to content that celebrates graphic violence or promotes illegal drug sales.\",\n      \"source_start\": 0,\n      \"source_end\": 101\n    },\n    {\n      \"clause_id\": \"block-illegal-drug-sales\",\n      \"category\": \"illegal_drug_sales\",\n      \"severity\": 4,\n      \"description\": \"Do not place ads next to content that promotes illegal drug sales\",\n      \"source_text\": \"Do not place our ads next to content that celebrates graphic violence or promotes illegal drug sales.\",\n      \"source_start\": 0,\n      \"source_end\": 101\n    },\n    {\n      \"clause_id\": \"allow-news-public-health\",\n      \"category\": \"news_and_public_health\",\n      \"severity\": 1,\n      \"description\": \"Allow neutral news reporting and public-health discussion of those topics\",\n      \"source_text\": \"Allow neutral news reporting and public-health discussion of those topics.\",\n      \"source_start\": 102,\n      \"source_end\": 176\n    },\n    {\n      \"clause_id\": \"review-synthetic-media\",\n      \"category\": \"synthetic_media\",\n      \"severity\": 2,\n      \"description\": \"Route suspected synthetic media impersonating public officials to review\",\n      \"source_text\": \"Route suspected synthetic media impersonating public officials to review.\",\n      \"source_start\": 177,\n      \"source_end\": 250\n    }\n  ]\n}",
+            "type": "output_text"
+          }
+        ],
+        "id": "msg_302e4170-7b9a-9a09-b1b8-d8602309ec0f",
+        "role": "assistant",
+        "status": "completed",
+        "type": "message"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "reasoning": {
+      "effort": "high",
+      "summary": "detailed"
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "status": "completed",
+    "store": false,
+    "temperature": 0.7,
+    "text": {
+      "format": {
+        "schema": {
+          "$defs": {
+            "Clause": {
+              "additionalProperties": false,
+              "description": "One rule, compiled from a span of the advertiser's own prose.\n\n`source_start` and `source_end` point back into the prose the advertiser wrote.\nG0 checks that `prose[source_start:source_end] == source_text` exactly. A clause\nthat cannot point at the sentence it came from is a clause the model invented.",
+              "properties": {
+                "category": {
+                  "minLength": 1,
+                  "title": "Category",
+                  "type": "string"
+                },
+                "clause_id": {
+                  "minLength": 1,
+                  "title": "Clause Id",
+                  "type": "string"
+                },
+                "description": {
+                  "minLength": 1,
+                  "title": "Description",
+                  "type": "string"
+                },
+                "severity": {
+                  "maximum": 4,
+                  "minimum": 0,
+                  "title": "Severity",
+                  "type": "integer"
+                },
+                "source_end": {
+                  "minimum": 0,
+                  "title": "Source End",
+                  "type": "integer"
+                },
+                "source_start": {
+                  "minimum": 0,
+                  "title": "Source Start",
+                  "type": "integer"
+                },
+                "source_text": {
+                  "minLength": 1,
+                  "title": "Source Text",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "clause_id",
+                "category",
+                "severity",
+                "description",
+                "source_text",
+                "source_start",
+                "source_end"
+              ],
+              "title": "Clause",
+              "type": "object"
+            }
+          },
+          "additionalProperties": false,
+          "description": "An advertiser's brand-safety policy, compiled from prose into checkable structure.\n\nHashed and versioned so that two runs of the same policy are provably the same\npolicy, and so that a revision produces a diff rather than an opaque replacement.",
+          "properties": {
+            "advertiser": {
+              "minLength": 1,
+              "title": "Advertiser",
+              "type": "string"
+            },
+            "clauses": {
+              "items": {
+                "$ref": "#/$defs/Clause"
+              },
+              "title": "Clauses",
+              "type": "array"
+            },
+            "prose": {
+              "minLength": 1,
+              "title": "Prose",
+              "type": "string"
+            },
+            "version": {
+              "minimum": 1,
+              "title": "Version",
+              "type": "integer"
+            }
+          },
+          "required": [
+            "version",
+            "advertiser",
+            "prose",
+            "clauses"
+          ],
+          "title": "PolicySpec",
+          "type": "object"
+        },
+        "type": "json_schema"
+      }
+    },
+    "tool_choice": "auto",
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.95,
+    "truncation": "disabled",
+    "usage": {
+      "context_details": {
+        "input_tokens": 854,
+        "output_tokens": 4598
+      },
+      "cost_in_usd_ticks": 290784000,
+      "input_tokens": 854,
+      "input_tokens_details": {
+        "cached_tokens": 128
+      },
+      "num_server_side_tools_used": 0,
+      "num_sources_used": 0,
+      "output_tokens": 4598,
+      "output_tokens_details": {
+        "reasoning_tokens": 4132
+      },
+      "total_tokens": 5452
+    },
+    "user": null
+  },
+  "response_sha256": "f847ded56423905023409dde62833370292b2597a789ecaf9617fc2a9f98d34b",
+  "surface": "model.policy_compiler"
+}

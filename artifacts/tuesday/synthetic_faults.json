@@ -1,0 +1,161 @@
+{
+  "artifact_type": "synthetic_gate_fault_evaluation",
+  "clean_cases": [
+    {
+      "gate_codes": [],
+      "item_id": "synthetic-clean-1"
+    },
+    {
+      "gate_codes": [],
+      "item_id": "synthetic-clean-2"
+    },
+    {
+      "gate_codes": [],
+      "item_id": "synthetic-clean-3"
+    },
+    {
+      "gate_codes": [],
+      "item_id": "synthetic-clean-4"
+    }
+  ],
+  "fault_cases": [
+    {
+      "caught": true,
+      "expected_gate_code": "G2_CLAUSE_NOT_FOUND",
+      "fault_kind": "invented_clause_id",
+      "item_id": "synthetic-clean-4",
+      "observed_gate_codes": [
+        "G2_CLAUSE_NOT_FOUND"
+      ]
+    },
+    {
+      "caught": true,
+      "expected_gate_code": "G4_SEVERITY_INCOHERENT",
+      "fault_kind": "severity_mismatch",
+      "item_id": "synthetic-clean-2",
+      "observed_gate_codes": [
+        "G4_SEVERITY_INCOHERENT"
+      ]
+    },
+    {
+      "caught": true,
+      "expected_gate_code": "G2_CLAUSE_NOT_FOUND",
+      "fault_kind": "invented_clause_id",
+      "item_id": "synthetic-clean-3",
+      "observed_gate_codes": [
+        "G2_CLAUSE_NOT_FOUND"
+      ]
+    },
+    {
+      "caught": true,
+      "expected_gate_code": "G4_SEVERITY_INCOHERENT",
+      "fault_kind": "severity_mismatch",
+      "item_id": "synthetic-clean-1",
+      "observed_gate_codes": [
+        "G4_SEVERITY_INCOHERENT"
+      ]
+    },
+    {
+      "caught": true,
+      "expected_gate_code": "G4_SEVERITY_INCOHERENT",
+      "fault_kind": "severity_mismatch",
+      "item_id": "synthetic-clean-4",
+      "observed_gate_codes": [
+        "G4_SEVERITY_INCOHERENT"
+      ]
+    },
+    {
+      "caught": true,
+      "expected_gate_code": "G1_SPAN_NOT_FOUND",
+      "fault_kind": "hallucinated_span",
+      "item_id": "synthetic-clean-3",
+      "observed_gate_codes": [
+        "G1_SPAN_NOT_FOUND"
+      ]
+    },
+    {
+      "caught": true,
+      "expected_gate_code": "G4_SEVERITY_INCOHERENT",
+      "fault_kind": "severity_mismatch",
+      "item_id": "synthetic-clean-3",
+      "observed_gate_codes": [
+        "G4_SEVERITY_INCOHERENT"
+      ]
+    },
+    {
+      "caught": true,
+      "expected_gate_code": "G1_SPAN_NOT_FOUND",
+      "fault_kind": "hallucinated_span",
+      "item_id": "synthetic-clean-1",
+      "observed_gate_codes": [
+        "G1_SPAN_NOT_FOUND"
+      ]
+    },
+    {
+      "caught": true,
+      "expected_gate_code": "G2_CLAUSE_NOT_FOUND",
+      "fault_kind": "invented_clause_id",
+      "item_id": "synthetic-clean-2",
+      "observed_gate_codes": [
+        "G2_CLAUSE_NOT_FOUND"
+      ]
+    },
+    {
+      "caught": true,
+      "expected_gate_code": "G1_SPAN_NOT_FOUND",
+      "fault_kind": "hallucinated_span",
+      "item_id": "synthetic-clean-4",
+      "observed_gate_codes": [
+        "G1_SPAN_NOT_FOUND"
+      ]
+    },
+    {
+      "caught": true,
+      "expected_gate_code": "G2_CLAUSE_NOT_FOUND",
+      "fault_kind": "invented_clause_id",
+      "item_id": "synthetic-clean-1",
+      "observed_gate_codes": [
+        "G2_CLAUSE_NOT_FOUND"
+      ]
+    },
+    {
+      "caught": true,
+      "expected_gate_code": "G1_SPAN_NOT_FOUND",
+      "fault_kind": "hallucinated_span",
+      "item_id": "synthetic-clean-2",
+      "observed_gate_codes": [
+        "G1_SPAN_NOT_FOUND"
+      ]
+    }
+  ],
+  "report": {
+    "by_fault": [
+      {
+        "catch_rate": 1.0,
+        "caught": 4,
+        "injected": 4,
+        "kind": "hallucinated_span"
+      },
+      {
+        "catch_rate": 1.0,
+        "caught": 4,
+        "injected": 4,
+        "kind": "severity_mismatch"
+      },
+      {
+        "catch_rate": 1.0,
+        "caught": 4,
+        "injected": 4,
+        "kind": "invented_clause_id"
+      }
+    ],
+    "catch_rate": 1.0,
+    "clean_rejected": 0,
+    "clean_total": 4,
+    "false_positive_rate": 0.0,
+    "injected_caught": 12,
+    "injected_total": 12,
+    "policy_hash": "eb02d3e636c7ff1fdb43cf5ecc9dbfd8bbb2f5858382769a9e471dab72344512",
+    "seed": 20260804
+  }
+}

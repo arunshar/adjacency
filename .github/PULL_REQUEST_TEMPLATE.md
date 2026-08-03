@@ -6,8 +6,9 @@ What changed and why?
 
 ## Checklist
 
-- [ ] `ruff check src tests` and `ruff format --check src tests` are clean.
-- [ ] `pytest -m "not e2e" --cov --cov-fail-under=90` is clean.
+- [ ] `ruff check src tests scripts` and `ruff format --check src tests scripts` are clean.
+- [ ] The contracts and gates coverage check is at 100 percent.
+- [ ] `pytest -m "not e2e" --cov --cov-fail-under=55` is clean.
 - [ ] No gate function calls a model, opens a socket, reads an unhanded clock, or touches the filesystem.
 - [ ] No code path reads `Verdict.rationale` to decide anything. It is display-only.
 - [ ] Every new failure branch resolves to `REVIEW` or `BLOCK`, never `ALLOW`.

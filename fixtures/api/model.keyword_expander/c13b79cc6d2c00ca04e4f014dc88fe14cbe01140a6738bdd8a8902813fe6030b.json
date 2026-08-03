@@ -1,0 +1,151 @@
+{
+  "format_version": 1,
+  "request": {
+    "input": [
+      {
+        "content": "Build a conventional brand-safety keyword blocklist from the advertiser prose below. Return lowercase terms or short phrases that would trigger blocking. Include useful lexical variants. Do not include allowance or carve-out language solely because it appears in the prose. Return at most 4000 unique terms. This is Arun's comparison baseline, not X's internal blocklist.\n\nAdvertiser: Demo Travel Co.\nVersion: 1\nAdvertiser prose:\nDo not place our ads next to content that celebrates graphic violence or promotes illegal drug sales. Allow neutral news reporting and public-health discussion of those topics. Route suspected synthetic media impersonating public officials to review.",
+        "role": "user"
+      }
+    ],
+    "max_output_tokens": 8192,
+    "model": "grok-4.5",
+    "reasoning": {
+      "effort": "low"
+    },
+    "store": false,
+    "text": {
+      "format": {
+        "name": "keyword_terms",
+        "schema": {
+          "additionalProperties": false,
+          "properties": {
+            "terms": {
+              "items": {
+                "type": "string"
+              },
+              "maxItems": 4000,
+              "minItems": 1,
+              "title": "Terms",
+              "type": "array"
+            }
+          },
+          "required": [
+            "terms"
+          ],
+          "title": "_KeywordTerms",
+          "type": "object"
+        },
+        "strict": true,
+        "type": "json_schema"
+      }
+    }
+  },
+  "request_sha256": "c13b79cc6d2c00ca04e4f014dc88fe14cbe01140a6738bdd8a8902813fe6030b",
+  "response": {
+    "background": false,
+    "completed_at": 1785741659,
+    "created_at": 1785741649,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "id": "830cd935-91e8-9d1e-8866-fb2588dd4063",
+    "incomplete_details": null,
+    "instructions": null,
+    "max_output_tokens": 8192,
+    "max_tool_calls": null,
+    "metadata": {
+      "system_fingerprint": "fp_a39489019fa99b6e"
+    },
+    "model": "grok-4.5",
+    "object": "response",
+    "output": [
+      {
+        "id": "rs_830cd935-91e8-9d1e-8866-fb2588dd4063",
+        "status": "completed",
+        "summary": [
+          {
+            "text": "The user wants me to build a conventional brand-safety keyword blocklist from the advertiser prose. I need to return lowercase terms or short phrases that would trigger blocking, including useful lexi...",
+            "type": "summary_text"
+          }
+        ],
+        "type": "reasoning"
+      },
+      {
+        "content": [
+          {
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"terms\":[\"graphic violence\",\"celebrates violence\",\"celebrating violence\",\"celebrate violence\",\"graphic violent\",\"ultraviolence\",\"extreme violence\",\"bloody violence\",\"gore\",\"gory\",\"graphic gore\",\"violence celebration\",\"glorify violence\",\"glorifying violence\",\"glorifies violence\",\"promote violence\",\"promoting violence\",\"celebrates graphic violence\",\"graphic violence celebration\",\"illegal drug sales\",\"illegal drugs\",\"drug sales\",\"selling drugs\",\"sell drugs\",\"drug dealing\",\"drug dealer\",\"drug trafficking\",\"narcotics sales\",\"illegal narcotics\",\"promote drugs\",\"promoting drugs\",\"promotes drugs\",\"drug promotion\",\"buy drugs\",\"selling narcotics\",\"illegal substance sales\",\"controlled substance sales\",\"street drugs\",\"illicit drugs\",\"drug trade\",\"drug pusher\",\"synthetic media\",\"deepfake\",\"deepfakes\",\"synthetic impersonation\",\"impersonating officials\",\"impersonate official\",\"public official impersonation\",\"fake official\",\"synthetic official\",\"ai impersonation\",\"deepfake official\",\"impersonating public officials\",\"synthetic media impersonating\",\"fake public official\",\"ai generated impersonation\",\"deepfake public official\",\"official deepfake\",\"impersonation deepfake\",\"violence gore\",\"bloodshed\",\"mutilation\",\"torture porn\",\"snuff\",\"extreme gore\",\"drug cartel\",\"cocaine sales\",\"heroin sales\",\"meth sales\",\"fentanyl sales\",\"illegal opioid sales\",\"schedule i drugs\",\"street drug sales\"]}",
+            "type": "output_text"
+          }
+        ],
+        "id": "msg_830cd935-91e8-9d1e-8866-fb2588dd4063",
+        "role": "assistant",
+        "status": "completed",
+        "type": "message"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "reasoning": {
+      "effort": "low",
+      "summary": "detailed"
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "status": "completed",
+    "store": false,
+    "temperature": 0.7,
+    "text": {
+      "format": {
+        "schema": {
+          "additionalProperties": false,
+          "properties": {
+            "terms": {
+              "items": {
+                "type": "string"
+              },
+              "maxItems": 4000,
+              "minItems": 1,
+              "title": "Terms",
+              "type": "array"
+            }
+          },
+          "required": [
+            "terms"
+          ],
+          "title": "_KeywordTerms",
+          "type": "object"
+        },
+        "type": "json_schema"
+      }
+    },
+    "tool_choice": "auto",
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.95,
+    "truncation": "disabled",
+    "usage": {
+      "context_details": {
+        "input_tokens": 419,
+        "output_tokens": 463
+      },
+      "cost_in_usd_ticks": 33984000,
+      "input_tokens": 419,
+      "input_tokens_details": {
+        "cached_tokens": 128
+      },
+      "num_server_side_tools_used": 0,
+      "num_sources_used": 0,
+      "output_tokens": 463,
+      "output_tokens_details": {
+        "reasoning_tokens": 189
+      },
+      "total_tokens": 882
+    },
+    "user": null
+  },
+  "response_sha256": "2db1e2c5142b1946b6da49258f22cb611fc9feeb21d062253a1c8d5eef3d6160",
+  "surface": "model.keyword_expander"
+}

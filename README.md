@@ -46,8 +46,16 @@ outcome, not a neutral one.
 ## Status
 
 The deterministic core, fixture recorder, fixed inventory-source switch, delta engine,
-near-duplicate clustering, and zero-cost text tier are implemented and tested. Policy
-compilation, inventory fetching, the model judge, and the UI are next.
+near-duplicate clustering, and zero-cost text tier are implemented and tested. The
+`PolicyCompiler` now makes one cached, high-reasoning structured call and runs G0 before
+admitting the result. `KeywordExpander`, `BaselineBlocklist`, `BaselineMatcher`, and seeded
+synthetic gate faults are also implemented. Inventory fetching, the model judge, and the UI
+are next.
+
+The recorded demo compiled four grounded clauses in `artifacts/tuesday/policy_spec.json`.
+The baseline contains 73 normalized terms in `artifacts/tuesday/baseline_blocklist.json`.
+The seeded evaluation caught all 12 injected faults and rejected none of its four clean
+cases. The full cases and gate codes are in `artifacts/tuesday/synthetic_faults.json`.
 
 ## Quick start
 
@@ -64,6 +72,16 @@ External calls replay from content-addressed fixtures by default. Set `ADJ_RECOR
 when intentionally recording live responses. `ADJ_FIXTURE_DIR` overrides the default
 `fixtures/api` path.
 
+Rebuild the Tuesday artifacts from the recorded responses without an API key:
+
+```bash
+PYTHONPATH=src .venv/bin/python scripts/build_tuesday_artifacts.py
+```
+
+The blocklist is Arun's comparison baseline, not X's internal blocklist. It is generated
+from the exact advertiser prose stored in the compiled `PolicySpec`, and its artifact keeps
+the source policy hash and source prose beside the generated terms.
+
 `ADJ_SOURCE` has four fixed values: `grok_x_search`, `live_x_api`, `frozen_corpus`, and
 `synthetic_faults`. The default is `frozen_corpus`. Evaluation numbers may come only from
 `frozen_corpus` or `synthetic_faults`.
@@ -72,13 +90,19 @@ when intentionally recording live responses. `ADJ_FIXTURE_DIR` overrides the def
 
 ```
 src/adjacency/
+  baseline.py    same-prose keyword expansion and deterministic baseline matching
   contracts.py   the four frozen types: PolicySpec, InventoryItem, Verdict, DeltaRow
   delta.py       deterministic engine-versus-baseline comparison
   fixtures.py    content-addressed record and replay for external calls
   gates.py       the seven gates, all pure functions
   near_dup.py    pHash and MinHash near-duplicate clustering
+  policy.py      cached structured compilation with compile-time G0
   sources.py     the fixed ADJ_SOURCE switch
+  synthetic_faults.py  seeded gate fault injection and measurement
   tier_zero.py   zero-cost clean-text decisions
+  xai.py         recorded raw client for the xAI Responses API
+artifacts/tuesday/
+  policy_spec.json, baseline_blocklist.json, synthetic_faults.json
 tests/
   test_*.py      focused branch and fixture-replay coverage
 ```

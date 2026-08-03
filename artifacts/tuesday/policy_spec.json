@@ -1,0 +1,52 @@
+{
+  "artifact_type": "compiled_policy",
+  "compiler": {
+    "model": "grok-4.5",
+    "reasoning_effort": "high",
+    "surface": "model.policy_compiler"
+  },
+  "policy_hash": "eb02d3e636c7ff1fdb43cf5ecc9dbfd8bbb2f5858382769a9e471dab72344512",
+  "policy_spec": {
+    "advertiser": "Demo Travel Co.",
+    "clauses": [
+      {
+        "category": "graphic_violence",
+        "clause_id": "block-graphic-violence",
+        "description": "Do not place ads next to content that celebrates graphic violence",
+        "severity": 4,
+        "source_end": 101,
+        "source_start": 0,
+        "source_text": "Do not place our ads next to content that celebrates graphic violence or promotes illegal drug sales."
+      },
+      {
+        "category": "illegal_drug_sales",
+        "clause_id": "block-illegal-drug-sales",
+        "description": "Do not place ads next to content that promotes illegal drug sales",
+        "severity": 4,
+        "source_end": 101,
+        "source_start": 0,
+        "source_text": "Do not place our ads next to content that celebrates graphic violence or promotes illegal drug sales."
+      },
+      {
+        "category": "news_and_public_health",
+        "clause_id": "allow-news-public-health",
+        "description": "Allow neutral news reporting and public-health discussion of those topics",
+        "severity": 1,
+        "source_end": 176,
+        "source_start": 102,
+        "source_text": "Allow neutral news reporting and public-health discussion of those topics."
+      },
+      {
+        "category": "synthetic_media",
+        "clause_id": "review-synthetic-media",
+        "description": "Route suspected synthetic media impersonating public officials to review",
+        "severity": 2,
+        "source_end": 250,
+        "source_start": 177,
+        "source_text": "Route suspected synthetic media impersonating public officials to review."
+      }
+    ],
+    "prose": "Do not place our ads next to content that celebrates graphic violence or promotes illegal drug sales. Allow neutral news reporting and public-health discussion of those topics. Route suspected synthetic media impersonating public officials to review.",
+    "version": 1
+  }
+}

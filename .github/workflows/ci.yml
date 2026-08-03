@@ -44,8 +44,8 @@ jobs:
       - name: Lint
         run: |
           pip install ruff
-          ruff check src tests
-          ruff format --check src tests
+          ruff check src tests scripts
+          ruff format --check src tests scripts
 
       - name: Scan for security patterns
         run: |
