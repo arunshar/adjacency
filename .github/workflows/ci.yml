@@ -1,0 +1,101 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+# Least privilege by default. No job here needs to write anything.
+permissions:
+  contents: read
+
+jobs:
+  lint-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      # Actions are pinned by commit SHA rather than tag. A tag is mutable and a
+      # compromised action tag is a supply-chain foothold with write access to CI.
+      - name: Checkout repository
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+        with:
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38 # v5
+        with:
+          python-version: '3.13'
+          cache: pip
+
+      - name: Install package and test extras
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e ".[test]"
+
+      - name: Audit dependencies for known advisories
+        run: |
+          pip install pip-audit==2.10.1
+          pip-audit --skip-editable --strict
+
+      - name: Lint
+        run: |
+          pip install ruff
+          ruff check src tests
+          ruff format --check src tests
+
+      - name: Scan for security patterns
+        run: |
+          pip install bandit==1.9.4
+          bandit -q -c pyproject.toml -r src
+
+      # The deterministic core is pure functions with no excuse for an uncovered
+      # branch, so the floor is high and branch coverage is on.
+      - name: Test with coverage gate
+        run: |
+          pytest -m "not e2e" \
+            --cov --cov-report=term-missing \
+            --cov-fail-under=90 --junitxml=junit.xml
+
+      - name: Upload test report
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: junit-adjacency
+          path: junit.xml
+
+  # The deterministic core must install and pass with no model dependency at all.
+  # If this job ever needs `[model]`, the separation has leaked and that is a bug.
+  core-without-model-deps:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+        with:
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38 # v5
+        with:
+          python-version: '3.13'
+          cache: pip
+
+      - name: Install without the model extra
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e ".[test]"
+
+      - name: Assert no model library is importable
+        run: |
+          python - <<'PY'
+          import importlib.util
+          for mod in ("litellm", "httpx", "PIL"):
+              if importlib.util.find_spec(mod) is not None:
+                  raise SystemExit(
+                      f"{mod} is importable without the [model] extra. The deterministic "
+                      "core must not depend on the model layer."
+                  )
+          print("core is clean of model dependencies")
+          PY
+
+      - name: Run the gate suite
+        run: pytest -m "not e2e" -q
