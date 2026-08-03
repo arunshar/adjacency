@@ -1,0 +1,7 @@
+{
+  "currency": "USD",
+  "default_value_per_recovered_item_usd": "100.00",
+  "description": "Illustrative operator input for the live counter. Replace it with campaign data before making a revenue claim.",
+  "evidence_class": "illustrative_demo_input",
+  "schema_version": 1
+}

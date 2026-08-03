@@ -49,9 +49,9 @@ class DeltaKind(StrEnum):
 
     AGREE = "AGREE"
     OVER_BLOCK = "OVER_BLOCK"
-    """Baseline blocked it, the engine allows it. Safe inventory the blocklist demonetized."""
+    """The baseline withholds it and the engine serves it."""
     UNDER_BLOCK = "UNDER_BLOCK"
-    """Baseline allowed it, the engine blocks it. Risk the blocklist could not see."""
+    """The baseline serves it and the engine withholds it."""
 
 
 #: Severity to action. A verdict whose `action` disagrees with this table is incoherent
@@ -303,10 +303,10 @@ class DeltaRow(Frozen):
 
     @property
     def kind(self) -> DeltaKind:
-        engine_blocks = self.engine_action is Action.BLOCK
-        baseline_blocks = self.baseline_action is Action.BLOCK
-        if engine_blocks == baseline_blocks:
+        engine_withholds = self.engine_action is not Action.ALLOW
+        baseline_withholds = self.baseline_action is not Action.ALLOW
+        if engine_withholds == baseline_withholds:
             return DeltaKind.AGREE
-        if baseline_blocks and not engine_blocks:
+        if baseline_withholds and not engine_withholds:
             return DeltaKind.OVER_BLOCK
         return DeltaKind.UNDER_BLOCK

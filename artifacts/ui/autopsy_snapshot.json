@@ -1,0 +1,30 @@
+{
+  "corpus_hash": "91d93e38db8bb93c532f17ff3db4eeb02b68ca8179194ae0db899656d9e5e390",
+  "delta_distribution": {
+    "AGREE": 43,
+    "OVER_BLOCK": 2,
+    "UNDER_BLOCK": 5
+  },
+  "delta_semantics": "BLOCK and REVIEW both withhold immediate delivery",
+  "demo_mode_default": true,
+  "economics": {
+    "counter_value_usd": "200.00",
+    "evidence_class": "illustrative_demo_input",
+    "value_per_recovered_item_usd": "100.00"
+  },
+  "gate_fail_beat": {
+    "after_action": "REVIEW",
+    "before_action": "ALLOW",
+    "code": "G1_SPAN_NOT_FOUND",
+    "item_id": "x-2054959102195872231"
+  },
+  "hitl_item_count": 9,
+  "policy_hash": "eb02d3e636c7ff1fdb43cf5ecc9dbfd8bbb2f5858382769a9e471dab72344512",
+  "schema_version": 1,
+  "source_artifacts": [
+    "artifacts/tuesday/baseline_blocklist.json",
+    "artifacts/ui/economics_assumption.json",
+    "artifacts/wednesday/judge_traces.json",
+    "corpus/frozen/manifest.json"
+  ]
+}

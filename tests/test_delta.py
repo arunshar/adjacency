@@ -40,6 +40,31 @@ def test_delta_engine_emits_all_three_kinds_in_verdict_order():
     assert rows[1].matched_terms == ("drug", "sale")
 
 
+@pytest.mark.parametrize(
+    ("engine_action", "baseline_action", "expected"),
+    (
+        (Action.ALLOW, Action.ALLOW, DeltaKind.AGREE),
+        (Action.ALLOW, Action.REVIEW, DeltaKind.OVER_BLOCK),
+        (Action.ALLOW, Action.BLOCK, DeltaKind.OVER_BLOCK),
+        (Action.REVIEW, Action.ALLOW, DeltaKind.UNDER_BLOCK),
+        (Action.REVIEW, Action.REVIEW, DeltaKind.AGREE),
+        (Action.REVIEW, Action.BLOCK, DeltaKind.AGREE),
+        (Action.BLOCK, Action.ALLOW, DeltaKind.UNDER_BLOCK),
+        (Action.BLOCK, Action.REVIEW, DeltaKind.AGREE),
+        (Action.BLOCK, Action.BLOCK, DeltaKind.AGREE),
+    ),
+)
+def test_delta_kind_compares_immediate_delivery_disposition(
+    engine_action, baseline_action, expected
+):
+    row = DeltaEngine().compare(
+        [verdict("item", engine_action)],
+        {"item": BaselineDecision(baseline_action)},
+    )[0]
+
+    assert row.kind is expected
+
+
 def test_delta_engine_rejects_duplicate_or_unpaired_item_ids():
     engine = DeltaEngine()
     repeated = verdict("same", Action.ALLOW)

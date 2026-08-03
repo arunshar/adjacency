@@ -240,10 +240,10 @@ def test_evidence_types_carry_their_discriminator():
     [
         (Action.BLOCK, Action.BLOCK, DeltaKind.AGREE),
         (Action.ALLOW, Action.ALLOW, DeltaKind.AGREE),
-        (Action.REVIEW, Action.ALLOW, DeltaKind.AGREE),
+        (Action.REVIEW, Action.ALLOW, DeltaKind.UNDER_BLOCK),
         (Action.ALLOW, Action.BLOCK, DeltaKind.OVER_BLOCK),
         (Action.BLOCK, Action.ALLOW, DeltaKind.UNDER_BLOCK),
-        (Action.BLOCK, Action.REVIEW, DeltaKind.UNDER_BLOCK),
+        (Action.BLOCK, Action.REVIEW, DeltaKind.AGREE),
     ],
 )
 def test_delta_kind_classification(engine, baseline, expected):

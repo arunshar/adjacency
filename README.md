@@ -50,7 +50,9 @@ near-duplicate clustering, policy compilation, same-prose keyword baseline, and 
 faults are implemented and tested. `InventoryFetcher` discovers candidates through recorded
 `x_search` calls, then verifies direct X status sources before the corpus can be frozen.
 `AdjacencyJudge` routes each item through deterministic Tier 0, low-reasoning Tier 1, and
-high-reasoning Tier 2 under explicit escalation predicates. The UI is next.
+high-reasoning Tier 2 under explicit escalation predicates. The artifact-backed Gradio Autopsy
+runs offline by default and shows the agreement, over-block, under-block, evidence, audit, and
+human-review surfaces from the frozen corpus.
 
 The recorded demo compiled four grounded clauses in `artifacts/tuesday/policy_spec.json`.
 The baseline contains 73 normalized terms in `artifacts/tuesday/baseline_blocklist.json`.
@@ -80,6 +82,19 @@ python3.13 -m venv .venv
 
 The deterministic core has no model dependency. `pip install -e .` is enough to run every
 gate test. `[model]` is only needed once you want to score real inventory.
+
+Run the Autopsy with no API key:
+
+```bash
+.venv/bin/pip install -e ".[serve]"
+.venv/bin/python app.py
+```
+
+The app reads only committed artifacts in its default demo mode. It streams the frozen Autopsy,
+draws cited image boxes, exposes the full gate chain, and makes the `G1_SPAN_NOT_FOUND`
+ALLOW-to-REVIEW transition visible. The over-block dollar counter uses an illustrative operator
+input from `artifacts/ui/economics_assumption.json`. It is not a measured revenue result. Rebuild
+the UI snapshot with `PYTHONPATH=src .venv/bin/python scripts/build_ui_artifacts.py`.
 
 External calls replay from content-addressed fixtures by default. Set `ADJ_RECORD=1` only
 when intentionally recording live responses. `ADJ_FIXTURE_DIR` overrides the default
@@ -113,6 +128,7 @@ the source policy hash and source prose beside the generated terms.
 ```
 src/adjacency/
   baseline.py    same-prose keyword expansion and deterministic baseline matching
+  autopsy.py     validated offline Autopsy replay, evidence rendering, and audit payloads
   corpus.py      verified local corpus freezing and content hashing
   contracts.py   the four frozen types: PolicySpec, InventoryItem, Verdict, DeltaRow
   delta.py       deterministic engine-versus-baseline comparison
@@ -127,11 +143,15 @@ src/adjacency/
   sources.py     the fixed ADJ_SOURCE switch
   synthetic_faults.py  seeded gate fault injection and measurement
   tier_zero.py   zero-cost clean-text decisions
+  ui.py          Gradio Autopsy layout and streaming interaction handlers
   xai.py         recorded raw client for the xAI Responses API
+app.py           local Gradio entry point
 artifacts/tuesday/
   policy_spec.json, baseline_blocklist.json, synthetic_faults.json
 artifacts/wednesday/
   inventory_discovery.json, judge_report.json, judge_traces.json
+artifacts/ui/
+  autopsy_snapshot.json, economics_assumption.json
 corpus/
   frozen/manifest.json, media/*.jpg
 evals/prompt_baseline/
