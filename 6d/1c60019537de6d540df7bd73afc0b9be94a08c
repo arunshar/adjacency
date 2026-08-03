@@ -1,0 +1,473 @@
+src/adjacency/model_metrics.py
+  s_a8b24bcb194c1e::t_db0da20e11e0f2 1-72
+src/adjacency/judge.py
+  s_a8b24bcb194c1e::t_db0da20e11e0f2 1-8,10,12-36,41-98,101-156,158-161,170-366,368,370,372-395,402-404,406,409,411-430
+  s_a8b24bcb194c1e::t_686092bccc5acb 9,396-401,407-408
+  s_a8b24bcb194c1e::t_17fa67b0878ee9 11,157,162-169,405
+  s_a8b24bcb194c1e::t_766337c1613964 37-40,99-100,367,369,371,410
+tests/test_corpus.py
+  s_a8b24bcb194c1e::t_090384a23368ab 1-87
+src/adjacency/corpus.py
+  s_a8b24bcb194c1e::t_c1aa690fc7ace0 208-212,320-332,339,341
+  s_a8b24bcb194c1e::t_efda93435043f2 1-37,44-48,50-105,107-113,124-127,129-133,145-157,165-166,179-184,190-207,213-256,258-261,265-279,299-319,333-338,340,342-345
+  s_a8b24bcb194c1e::t_5b998f149bd0a5 38-43,49,106,114-123,128,134-144,158-164,167-178,185-189,262-264
+  s_a8b24bcb194c1e::t_8e5e8412a7678d 257,280-298
+scripts/run_wednesday_evals.py
+  s_a8b24bcb194c1e::t_686092bccc5acb 43-48,71,78,80,86,93,95,102,111-115,146,167-187
+  s_a8b24bcb194c1e::t_383ad42a6b6853 1-42,49-70,72-77,79,81-85,87-92,94,96-101,103-110,116-145,147-166,188-191
+tests/test_fixtures.py
+  s_a8b24bcb194c1e::t_1ab8529324fc25 56-71
+README.md
+  s_a8b24bcb194c1e::t_686092bccc5acb 49-53,60-72,94-102,116,121-123,126,133-138
+  s_a8b24bcb194c1e::t_5d402d787f514c 154-155
+artifacts/wednesday/judge_report.json
+  s_a8b24bcb194c1e::t_30b600d46f74e1 1-40
+tests/test_inventory.py
+  s_a8b24bcb194c1e::t_090384a23368ab 1-12,14-26,28-102
+  s_a8b24bcb194c1e::t_ba187b646cf636 13,27
+corpus/README.md
+  s_a8b24bcb194c1e::t_686092bccc5acb 1-10
+tests/test_prompt_baseline.py
+  s_a8b24bcb194c1e::t_090384a23368ab 1-126
+src/adjacency/prompt_baseline.py
+  s_a8b24bcb194c1e::t_96a08019637b79 16,129-130
+  s_a8b24bcb194c1e::t_9490b37bc82210 1-15,17-128,131-323
+src/adjacency/inventory.py
+  s_a8b24bcb194c1e::t_efda93435043f2 1-25,27-28,36-45,47-177,179-232,236-248,250-251,255-269,272-308
+  s_a8b24bcb194c1e::t_5b998f149bd0a5 26,29-35,46,178,233-235,249,252-254
+  s_a8b24bcb194c1e::t_8e5e8412a7678d 270-271
+tests/test_judge.py
+  s_a8b24bcb194c1e::t_686092bccc5acb 11,201-215
+  s_a8b24bcb194c1e::t_78375f08e692e1 216
+  s_a8b24bcb194c1e::t_090384a23368ab 1-10,12-200
+src/adjacency/fixtures.py
+  s_a8b24bcb194c1e::t_1ab8529324fc25 102-108,112-116,150-151
+  s_a8b24bcb194c1e::t_8e5e8412a7678d 189
+tests/test_wednesday_fixture_replay.py
+  s_a8b24bcb194c1e::t_686092bccc5acb 1-78
+  s_a8b24bcb194c1e::t_57f4d229be9ee6 79
+scripts/freeze_wednesday_corpus.py
+  s_a8b24bcb194c1e::t_7c58e3a317d362 1-8,15,17-104,135-140,142-175,188-189,191-200,202-206,254-258
+  s_a8b24bcb194c1e::t_54f22b29da90ec 16,141
+  s_a8b24bcb194c1e::t_1ab8529324fc25 105-134
+  s_a8b24bcb194c1e::t_dfea97e58e4c3f 176-187,190,207-253
+  s_a8b24bcb194c1e::t_8e5e8412a7678d 9-14,201,259
+artifacts/wednesday/inventory_discovery.json
+  s_a8b24bcb194c1e::t_80b5182070e5e6 1-1320
+artifacts/wednesday/judge_traces.json
+  s_a8b24bcb194c1e::t_19de0436101fbb 1-3588
+corpus/frozen/manifest.json
+  s_a8b24bcb194c1e::t_c3be2868076c16 1-978
+evals/prompt_baseline/comparison.json
+  s_a8b24bcb194c1e::t_bc16c4046ccc56 1-465
+evals/prompt_baseline/run_1.json
+  s_a8b24bcb194c1e::t_449243a980e922 1-1023
+evals/prompt_baseline/run_2.json
+  s_a8b24bcb194c1e::t_44509f8a077196 1-1023
+fixtures/api/http.x_status_metadata/0197f655adba0fd8cca6cfb3cb5131091a7bf2d8f5b320bb16fd010085242b76.json
+  s_a8b24bcb194c1e::t_c07a0bff1569f4 1-18
+fixtures/api/http.x_status_metadata/0384223ee9917466b729d871219205845f2f1e794fe794b9098b098fe9b3d560.json
+  s_a8b24bcb194c1e::t_6f08adc58f78dc 1-18
+fixtures/api/http.x_status_metadata/0408d6571df872b53f581f638afeb769a1645cd1e2fc67544b667a0966fbbdb6.json
+  s_a8b24bcb194c1e::t_35c002c302ec6c 1-18
+fixtures/api/http.x_status_metadata/04191f329c4f25ae9082be91a3122db7dc772a8ed39ee147ebd2701629b13c26.json
+  s_a8b24bcb194c1e::t_0f65ee111f7eb8 1-18
+fixtures/api/http.x_status_metadata/05b1941c2c00ad4bd7d995d45cdabbe77f35764a905d0d34e8997c5bbd08be82.json
+  s_a8b24bcb194c1e::t_c4b337ec7f5a89 1-18
+fixtures/api/http.x_status_metadata/097eb29fef46cbfeae834e3d0d1731c575e9a394fc2ef4ebba37db842f52ee9d.json
+  s_a8b24bcb194c1e::t_6d55412e9b3a42 1-18
+fixtures/api/http.x_status_metadata/0989793a80544a6b23ffe7dba38e5c321c43b47e175ff9054af7d6f19204a38c.json
+  s_a8b24bcb194c1e::t_ace531fe71a6df 1-18
+fixtures/api/http.x_status_metadata/0a1dfc5cc768a67d608d2aeeb1c0b39d9e2f6d935699aef75b51d4f4341221ca.json
+  s_a8b24bcb194c1e::t_819e896bf8eed7 1-18
+fixtures/api/http.x_status_metadata/12d2b053ebf918da226f5d3985905703f1ab2a5b87ed41d11bca7873b38f5be9.json
+  s_a8b24bcb194c1e::t_089dbc9130302a 1-18
+fixtures/api/http.x_status_metadata/16414ddc41b1332de900221d32994002193c2dddd1b23b8e41909574cb7724d4.json
+  s_a8b24bcb194c1e::t_e8929093d6ebb3 1-18
+fixtures/api/http.x_status_metadata/166296afaa4262f7b02e98213456917faf585557663799d8c5e2209d3773af77.json
+  s_a8b24bcb194c1e::t_85def970960f25 1-18
+fixtures/api/http.x_status_metadata/168767bd3625c4814bd2b68a6b9fad830c76de966d98a83e747bd7bd57e61472.json
+  s_a8b24bcb194c1e::t_ff54b04b3435c7 1-18
+fixtures/api/http.x_status_metadata/179f6b37c6dd81ebdd4e0b8138b8fa8c2af61ccc773f871a048af8eff0945e72.json
+  s_a8b24bcb194c1e::t_322efc4a99371b 1-18
+fixtures/api/http.x_status_metadata/182d9a3269a3426e3f71e03999430a098f5e982af03a7c880aa58eb531bc31f5.json
+  s_a8b24bcb194c1e::t_5dc04e200d5742 1-18
+fixtures/api/http.x_status_metadata/1957987d5bdf11696af83829aa1509dd691286a8cbbe0336450201ad1cd20807.json
+  s_a8b24bcb194c1e::t_ea9ff91fa34784 1-18
+fixtures/api/http.x_status_metadata/1a2d7390ff570748bca1fdcec6f4c07f94e3359d6d4af39937716d0e9c002795.json
+  s_a8b24bcb194c1e::t_184cf3395d736a 1-18
+fixtures/api/http.x_status_metadata/1d84755388504a8d27d099e9819c0577b404bb513dca26f8d388b2b3d6197092.json
+  s_a8b24bcb194c1e::t_8f275fbc9c53f6 1-18
+fixtures/api/http.x_status_metadata/1f8ece17b33fcfa8a99280fec95012117139e245e5ccb89c264d87a933edddb1.json
+  s_a8b24bcb194c1e::t_0285f7ece700fd 1-18
+fixtures/api/http.x_status_metadata/22438cec23f5c622d2038aece0a420102b6b06607c68c58a3e03c2b533c0afc7.json
+  s_a8b24bcb194c1e::t_26e4fbb975ef97 1-18
+fixtures/api/http.x_status_metadata/24252ebd618dd84aa3a4c485bd0ed5cdd004357859d87991572b7d1be031d571.json
+  s_a8b24bcb194c1e::t_7a84af805c3b3c 1-18
+fixtures/api/http.x_status_metadata/25609153bac8d15e73bbb3493c9c4d7a36b11d98f1804d523f98a837b838876e.json
+  s_a8b24bcb194c1e::t_26e9eb4559bd95 1-18
+fixtures/api/http.x_status_metadata/2598f46c471e6f177cedd03206efda66429c6cc6b61e94165a92f351227660ae.json
+  s_a8b24bcb194c1e::t_399091a46d415d 1-18
+fixtures/api/http.x_status_metadata/25f96607b8e5402f18b59a32bc6727ed8f5cf95bd402bd39ae59bd2bfe6a9745.json
+  s_a8b24bcb194c1e::t_ef000989984895 1-18
+fixtures/api/http.x_status_metadata/27870ca0611bc0dae607615dfd347edb7225bc76e9bc70702d4212f5d21d829f.json
+  s_a8b24bcb194c1e::t_06a4a2a0ab780b 1-18
+fixtures/api/http.x_status_metadata/2c1e09201c97ad7fb154032d5d12f56edc62a3826b031f775ecc5ba05a8de658.json
+  s_a8b24bcb194c1e::t_10a554b8fa9904 1-18
+fixtures/api/http.x_status_metadata/2ecc2f36c97d82c26f50eec47042877c8ab3b68b6df0e39df8756cfd3df4b0d9.json
+  s_a8b24bcb194c1e::t_4a576dc24a932d 1-18
+fixtures/api/http.x_status_metadata/3054e8a5edaa2f77e89024a059585429444678b2b428d955348e6e524f294339.json
+  s_a8b24bcb194c1e::t_e2b325323a1799 1-18
+fixtures/api/http.x_status_metadata/3158c77744282601eb2739208f63d959cb1e1f0ee1588c479a4593b79b8f6711.json
+  s_a8b24bcb194c1e::t_3996348c2a785c 1-18
+fixtures/api/http.x_status_metadata/34bc9ceadb0ba091e721da07b75d2058ce7b890cf89980b9a07d600b8fc0ad10.json
+  s_a8b24bcb194c1e::t_c28d1947165f41 1-18
+fixtures/api/http.x_status_metadata/36ab587e98a84c046877816939543c652038a68ff1c6203bc0d0001a0c479b7a.json
+  s_a8b24bcb194c1e::t_d6e5b7bc739502 1-18
+fixtures/api/http.x_status_metadata/36efb9d76419af252be4160d6116605edaf9d36240ed1643a7823865cee1a746.json
+  s_a8b24bcb194c1e::t_e9f8ab62bfbe32 1-18
+fixtures/api/http.x_status_metadata/3865b0953a5ad7f3248c18ce1d0991d4bcab9c24942d2896bbb5be8d03ac46ff.json
+  s_a8b24bcb194c1e::t_9b4cc253042ed0 1-18
+fixtures/api/http.x_status_metadata/3bfb6870e7088fe9270710f9e683878f1d8594064a1540023afc22eef0419e9e.json
+  s_a8b24bcb194c1e::t_c6193acf88573d 1-18
+fixtures/api/http.x_status_metadata/3c5dc8c12b6e0c24af09f9be9657cbfe2d415868a19024640a990d6fe4e36061.json
+  s_a8b24bcb194c1e::t_e9b26f3f4474e3 1-18
+fixtures/api/http.x_status_metadata/3e942e1569b324dc0578a30023a188faf9e06a88c671b51e5ebfc561c05d9b41.json
+  s_a8b24bcb194c1e::t_b1deba7c8df123 1-18
+fixtures/api/http.x_status_metadata/4031218c5c494758f689de56c7c99a886fee2f414121eb07cada270e754bd755.json
+  s_a8b24bcb194c1e::t_14a45b54b97d7e 1-18
+fixtures/api/http.x_status_metadata/421cc3cdd28939976043663a279265c5cfb4c5e88f5ad1c7278519327e286e4c.json
+  s_a8b24bcb194c1e::t_a7bd6b074cb650 1-18
+fixtures/api/http.x_status_metadata/46824174ba6d6941ee1f9c168099d49680c48021bebbdb8e5c33026b2cebbab4.json
+  s_a8b24bcb194c1e::t_afdaa27c691039 1-18
+fixtures/api/http.x_status_metadata/4682f2d14d23b5705cce299f59abbeeae0db7c8782ff680904d52a7291a8a727.json
+  s_a8b24bcb194c1e::t_a9e8d1928d6992 1-18
+fixtures/api/http.x_status_metadata/4853772591767f98e33f50a268949490504056469602ac6470c0bbb6944a5d3d.json
+  s_a8b24bcb194c1e::t_5238f373b8b84e 1-18
+fixtures/api/http.x_status_metadata/49bbfaadf010cb815bbcb01ec4a2c9243ace77bca372ae7a1fd3b5088a5de028.json
+  s_a8b24bcb194c1e::t_8669cc13ea669f 1-18
+fixtures/api/http.x_status_metadata/4dd9048cd425d15d0f4afe77acb00131faa03c084022836a8d5d182a16e749ac.json
+  s_a8b24bcb194c1e::t_d010acdcf0d17e 1-18
+fixtures/api/http.x_status_metadata/5020cede58dab78c59278ccd27b7c9fefe7b645b922b2cc36e9f4c12d134d42d.json
+  s_a8b24bcb194c1e::t_cf252c45a6c428 1-18
+fixtures/api/http.x_status_metadata/5140b461b266d2fcb651f1b1f59250eaa1a811c4539fede3758a783ce960d94e.json
+  s_a8b24bcb194c1e::t_251af2bcfe7234 1-18
+fixtures/api/http.x_status_metadata/51e007893441ce0642dc35a4f4aaad1527b92f8aa62f7e8dfa75a106e33aca48.json
+  s_a8b24bcb194c1e::t_fc5281e42e86bf 1-18
+fixtures/api/http.x_status_metadata/52fc4624aeaf893f327a8630f7267c4e685917c6555811def49d281a93795254.json
+  s_a8b24bcb194c1e::t_684d5dc842009f 1-18
+fixtures/api/http.x_status_metadata/54cb0257e61807378221485b5723978e80929462e0ebf1ca8133e8300b8fbd8a.json
+  s_a8b24bcb194c1e::t_eee32c034d94ac 1-18
+fixtures/api/http.x_status_metadata/55fe9fa41e9c8352b9a45786cff36cf2f427c33e239ad3d542eb27f8d9de238c.json
+  s_a8b24bcb194c1e::t_74498f6223288e 1-18
+fixtures/api/http.x_status_metadata/578f1f1a1d65e8f00fe63eb47954020dd04d4983399de65b16738ec5b4144cec.json
+  s_a8b24bcb194c1e::t_9d4e8fb91fd5be 1-18
+fixtures/api/http.x_status_metadata/5cfaed1fe7d86de90060a491ae4270fed4b56b958c668987df8991012b6ef063.json
+  s_a8b24bcb194c1e::t_381a1504815257 1-18
+fixtures/api/http.x_status_metadata/5dcba05d5140eea0c011d635f931890d33351a5e998d35fa761c074073e8c544.json
+  s_a8b24bcb194c1e::t_950eee29d09a9c 1-18
+fixtures/api/http.x_status_metadata/65be394db7599e4eb877d86724af30e469da76e9392696f5d8098b9674028a21.json
+  s_a8b24bcb194c1e::t_3bffac6f783a43 1-18
+fixtures/api/http.x_status_metadata/6615e374d0af914914c960cc7f9c8966bc3062ab7664635170992874771cb9c1.json
+  s_a8b24bcb194c1e::t_633af562979337 1-18
+fixtures/api/http.x_status_metadata/66808cd4cf07e4e97112d1486b7e4e45864a58c0cda998ef0caec8c13f06dfa8.json
+  s_a8b24bcb194c1e::t_b7b9c4877b4372 1-18
+fixtures/api/http.x_status_metadata/6740e3f9f0b2d43e03392400cb4c3d8882be825115cd4272181b19b09e140a7a.json
+  s_a8b24bcb194c1e::t_01606b79606663 1-18
+fixtures/api/http.x_status_metadata/6873fb079f6d04f4d665bc4b52308f8f107853a9881a9695976a426132b6ed36.json
+  s_a8b24bcb194c1e::t_100c3e1ed08ed8 1-18
+fixtures/api/http.x_status_metadata/6b330d03916ecb5cd635edb5004c3199132d51a2ef7f0cdf737e7c5ae44254cd.json
+  s_a8b24bcb194c1e::t_bd701856669aaf 1-18
+fixtures/api/http.x_status_metadata/6caa9db242ce49d63e3206594784204e002477799bd840bc17ff6c4ed6d50e29.json
+  s_a8b24bcb194c1e::t_c59759a2bad72d 1-18
+fixtures/api/http.x_status_metadata/6d86e1a41a58fa681719cafeb4b5f41037ce297dbb2120affdee57895fa53120.json
+  s_a8b24bcb194c1e::t_47e5448fce34a1 1-18
+fixtures/api/http.x_status_metadata/6de68c0ddc563912ddf7e5e6744a4309ec65e7bac61a21c4661c654811987bf4.json
+  s_a8b24bcb194c1e::t_48e68b83bc6c44 1-18
+fixtures/api/http.x_status_metadata/6fa61ba84b4eda045f269ee4ac64baa729b0fb90f63142f489690cf6db10657b.json
+  s_a8b24bcb194c1e::t_b3c02ad151576a 1-18
+fixtures/api/http.x_status_metadata/70891114591ccc7c0f086cf82e26556cd1ca71ab39ef13a2f59d4e2f7beff179.json
+  s_a8b24bcb194c1e::t_e2bfc05ab990a2 1-18
+fixtures/api/http.x_status_metadata/7261d74080dfac717f994ce39efea0f9d535804282b895ccfc14118ebd104dfa.json
+  s_a8b24bcb194c1e::t_6c9f0274bf1607 1-18
+fixtures/api/http.x_status_metadata/74733349328d328da1cdc21f6b4d7b91b354b30efe42fd3e1b6beb5d7dbaf86c.json
+  s_a8b24bcb194c1e::t_b44db8197c8125 1-18
+fixtures/api/http.x_status_metadata/759e4ffeb31aeaf3d2ff4ca6a8edd94af7f72e351d37bf000a7901ad6a8d05fb.json
+  s_a8b24bcb194c1e::t_a71b5a545856ed 1-18
+fixtures/api/http.x_status_metadata/77b639c7b4d36e76ebcf5165ca2c07bc2363e5a9df0886ef2f96f92448f8ea8d.json
+  s_a8b24bcb194c1e::t_c7e720c919395d 1-18
+fixtures/api/http.x_status_metadata/7803871dac3fb4f027e80a039bf8dddd9e4aaad5f02c4a7dca9c0193ee7eefe0.json
+  s_a8b24bcb194c1e::t_70f90547a7371a 1-18
+fixtures/api/http.x_status_metadata/7edbf6953bc81882cc40ce9a90101b4e798ef3bd12be5aa0183785cee11b312f.json
+  s_a8b24bcb194c1e::t_68c27defb8a833 1-18
+fixtures/api/http.x_status_metadata/7f1cb6c334f6a868c1583304116de52000131b009fe39f3e7d50ad0f5837ace5.json
+  s_a8b24bcb194c1e::t_91f9a9d99e6db1 1-18
+fixtures/api/http.x_status_metadata/806ba6ea7993ac7ad08a3d9d70ace4aacde5a7dbb8ae047889181395f11474a8.json
+  s_a8b24bcb194c1e::t_54159a26a069dc 1-18
+fixtures/api/http.x_status_metadata/86a09a25ade9eb4b41f26f4e58c8429aa616e8168f6bed9cd1b5f94806c54c5a.json
+  s_a8b24bcb194c1e::t_56f7c9843fee94 1-18
+fixtures/api/http.x_status_metadata/87985e0a375896223999b4090ef8bd3efb82fa9aeb4af5fd8e65e38c416fa408.json
+  s_a8b24bcb194c1e::t_2a470106438e4e 1-18
+fixtures/api/http.x_status_metadata/8a3082c4a68f565ef549ce7873777d54067230cb60faeb152dd105cd51efe72e.json
+  s_a8b24bcb194c1e::t_49fbbb55a86bc9 1-18
+fixtures/api/http.x_status_metadata/8ad1e5e1c5a87abfa8be36b7cff9d5076e8676e91288b076570c4595ab09439b.json
+  s_a8b24bcb194c1e::t_9ca146b725bb0d 1-18
+fixtures/api/http.x_status_metadata/8fbf801f48d3bee624d3c6bbf0245a5aac60c0a9579bf8ef7de44fe5e438693b.json
+  s_a8b24bcb194c1e::t_fd07cacf5783ab 1-18
+fixtures/api/http.x_status_metadata/9221cc57ffbfd1ef90278c4f32ed5e6e792109d789aa213767e86ed264d32c0d.json
+  s_a8b24bcb194c1e::t_88df24b1935a9f 1-18
+fixtures/api/http.x_status_metadata/9280a88ec0f5d855e7d8e17f18e9115efc0240c1f31b60e368043dd5c77ea2ba.json
+  s_a8b24bcb194c1e::t_9d840e4b19c877 1-18
+fixtures/api/http.x_status_metadata/9498a36a12b5e9d58ac6f48f8dd98eef97900e3f66201c52005b5f09765b1ccd.json
+  s_a8b24bcb194c1e::t_795edda7de8fec 1-18
+fixtures/api/http.x_status_metadata/94f3d902e9238b54adcbdcd12a4ef7f9825f3ee5fd7cde68b8cf675128070185.json
+  s_a8b24bcb194c1e::t_a6a8a93b21370d 1-18
+fixtures/api/http.x_status_metadata/974523f3d4f118f6062936b9f9d5414a97e3cf01504932b246c480d3e9cfe8ce.json
+  s_a8b24bcb194c1e::t_27afd0beaca186 1-18
+fixtures/api/http.x_status_metadata/97f662ffebbeeb7a4c90a4992add0708e5e34428d555eb8055e3a617efdd622c.json
+  s_a8b24bcb194c1e::t_f98a5c67c11fe4 1-18
+fixtures/api/http.x_status_metadata/a0042c4bed63f7dd6b75c1b9d040679ccbf126ac20e913391410751a416adb35.json
+  s_a8b24bcb194c1e::t_a406382d502c13 1-18
+fixtures/api/http.x_status_metadata/a1d5f94200b8f0dbcf85640c303a6d94ad6ea35efe3cb53ca1a575f09a0219f0.json
+  s_a8b24bcb194c1e::t_a245192afed152 1-18
+fixtures/api/http.x_status_metadata/a212e47fa4bebc1a6a51903d13c75e148eb4ce30b8e83b1374146b39184e681c.json
+  s_a8b24bcb194c1e::t_b3b0693000d629 1-18
+fixtures/api/http.x_status_metadata/a23a7877d1b657ba77c5f3acde15914882d0e39529e1ad033fadf74d55ef40bf.json
+  s_a8b24bcb194c1e::t_ba79db252c63df 1-18
+fixtures/api/http.x_status_metadata/a6362d9e80d3b8cb20710fe6b1743d41fc848c35e1d8b990b9a753a93ed96191.json
+  s_a8b24bcb194c1e::t_5067a61bf9d606 1-18
+fixtures/api/http.x_status_metadata/a67f449de3f929be9da7f773596d9951c8e96a5ce57301e6e0b771acb721f757.json
+  s_a8b24bcb194c1e::t_f9a31b73262bea 1-18
+fixtures/api/http.x_status_metadata/a85a325a61f92b8fad3b9c613eb353d7db5c37dbfdfd6c2b663db3a9aa4cd927.json
+  s_a8b24bcb194c1e::t_19d0b5d4f9f7af 1-18
+fixtures/api/http.x_status_metadata/aa46a81d25fcd48151530a18bdc336788880ebe90f9f5225217c2604fa47976f.json
+  s_a8b24bcb194c1e::t_e21df9d74fa302 1-18
+fixtures/api/http.x_status_metadata/aa5ae323c285f2ac35df67ba5bf64c1551619189c6e3710c470070c98bf5a915.json
+  s_a8b24bcb194c1e::t_3985eb8d84b74f 1-18
+fixtures/api/http.x_status_metadata/aa8607454d30dc4d0fd64d341d1d5623b1dd3c41f24e0061fb304e07eeac600a.json
+  s_a8b24bcb194c1e::t_897b3d9a215452 1-18
+fixtures/api/http.x_status_metadata/ab2619ed93af9fa85bf9cc2cf15e198c1a385ebbcc6769f84d1d0493bdeb0c4a.json
+  s_a8b24bcb194c1e::t_9f970a94886ea4 1-18
+fixtures/api/http.x_status_metadata/ab3f6884cee0545a6851f339e9aec82c7035f0de2b1aea719b087db0ddb59804.json
+  s_a8b24bcb194c1e::t_2e50fcc899bb84 1-18
+fixtures/api/http.x_status_metadata/aea99493b8986f1c9b827c7be12687338d2faa4bb84dee461818361d018e8029.json
+  s_a8b24bcb194c1e::t_e65a1c2775a687 1-18
+fixtures/api/http.x_status_metadata/aff6325b9b52254bfd10c086de73f4bc80f24dab5e86d25e73f701203aebaa99.json
+  s_a8b24bcb194c1e::t_64158c87221da9 1-18
+fixtures/api/http.x_status_metadata/b19c64c79f378bf5f337b20c6c347bff13e028f82fc799911bd908213576d049.json
+  s_a8b24bcb194c1e::t_1676d5e6bf8080 1-18
+fixtures/api/http.x_status_metadata/b3e9c6429eb3896c1e9df93783864fd32ccf13bbf7a9caaf43bcaf995dbbfc8c.json
+  s_a8b24bcb194c1e::t_724424ba8d44ec 1-18
+fixtures/api/http.x_status_metadata/b6cd4361c336965b88fd9040fabf9d666c2a717063d23e01388432ac2f294e86.json
+  s_a8b24bcb194c1e::t_3651c315d6854c 1-18
+fixtures/api/http.x_status_metadata/b99561503c82ef14d774605806b9e26fc2bce5f1fdee6fe2b4f599ebfa9b8c1c.json
+  s_a8b24bcb194c1e::t_70065d5c611639 1-18
+fixtures/api/http.x_status_metadata/bbbd9f2943b7c9437af7ac05063a815faed2e2455407c1d1390fb3bd20dcc11d.json
+  s_a8b24bcb194c1e::t_fed94655c157f2 1-18
+fixtures/api/http.x_status_metadata/bc2d91c9ad075df64ab138b96e0741122e06758629d0574e2e0cd90c8646d05a.json
+  s_a8b24bcb194c1e::t_0e2dad064fa5b4 1-18
+fixtures/api/http.x_status_metadata/bd8c3e0916f091591cb60b4816c26405b47a206a48415aa7d886c08c9e52984c.json
+  s_a8b24bcb194c1e::t_aabff9d8582aef 1-18
+fixtures/api/http.x_status_metadata/c23fb71f2a32ed90b2e9c15d0fb5d0650d774baa8ee56404f02173d6981e8f4c.json
+  s_a8b24bcb194c1e::t_4a8f05a5dd7d41 1-18
+fixtures/api/http.x_status_metadata/c685e3edc3bfc7ff47215822c2bf82e49e908de517f03ecbe4340f59fb3a4fb8.json
+  s_a8b24bcb194c1e::t_b5e638aaea55a1 1-18
+fixtures/api/http.x_status_metadata/c7acfa652c33e52c24ec14bd4d13b017c0b941a07a69d78daf95313477955fe1.json
+  s_a8b24bcb194c1e::t_a13c1b5f5674b2 1-18
+fixtures/api/http.x_status_metadata/c7e81207c89dca5194d51999e64877a823714238cacdafd544b1499da33c9704.json
+  s_a8b24bcb194c1e::t_5586a488837c02 1-18
+fixtures/api/http.x_status_metadata/ca01542d815deaa60411fa778f8d910ff36e65652f289ea5966d2b680f981b9c.json
+  s_a8b24bcb194c1e::t_130f0c8e521aab 1-18
+fixtures/api/http.x_status_metadata/ca67b0dde9d074e8c18207c0f82a9f341ad12a90dbafe8e34a0f0790455f9ef6.json
+  s_a8b24bcb194c1e::t_f9d23a5d332128 1-18
+fixtures/api/http.x_status_metadata/ca70c074ba6a064d65b8ba130c1acc7de838b2990ec7854a3e6e7345418279c0.json
+  s_a8b24bcb194c1e::t_10ff2a8e7acb3c 1-18
+fixtures/api/http.x_status_metadata/cd2507ff7e127701731c0dd6c8fbe4888fc26502f0ce79f51912ca8517883665.json
+  s_a8b24bcb194c1e::t_6f87e6986468a1 1-18
+fixtures/api/http.x_status_metadata/cf2f365793190f2bca4baecc66c3e5b8cba81ca10d1eeffb9b822eb1f7e34d67.json
+  s_a8b24bcb194c1e::t_a87dd42fe977ca 1-18
+fixtures/api/http.x_status_metadata/cf6195829e36f57292648d9fa4ceb87ee0036438a83b5bdee8db9891e1207227.json
+  s_a8b24bcb194c1e::t_c0be6ba554cd73 1-18
+fixtures/api/http.x_status_metadata/d1e19f31839ce10472f7557ddcdebc310d3a6dd6f678a88a5d716d6464f275a6.json
+  s_a8b24bcb194c1e::t_b2cb88903c3a23 1-18
+fixtures/api/http.x_status_metadata/d20d95b60087a7a73ba9bc3d35e6920d134e9b35ca4fd33cbeadb81d563ae5d5.json
+  s_a8b24bcb194c1e::t_dcb605f55eae3c 1-18
+fixtures/api/http.x_status_metadata/d324a66871d8777b2365d5e58e446a8b33aa07e33504b04eda134cf4651abef0.json
+  s_a8b24bcb194c1e::t_82f8fe37cb0a79 1-18
+fixtures/api/http.x_status_metadata/d4143e8e732efd334031f1eb32efda23bfdae506528963e34b1f52fecc8699a5.json
+  s_a8b24bcb194c1e::t_019c0ff7cf99ce 1-18
+fixtures/api/http.x_status_metadata/d516bd9bf89eeedf77c2bb12ebec93e8db93fca173a708754fe929faf03ec199.json
+  s_a8b24bcb194c1e::t_fc7c658106baa7 1-18
+fixtures/api/http.x_status_metadata/d5ceb194216b5afe3d3d51021b2c17813c846f6801e8896c4bda52fd64a7cedc.json
+  s_a8b24bcb194c1e::t_8983298a66e5da 1-18
+fixtures/api/http.x_status_metadata/d770f1a170c5a60efcde912ba3fdecf9d2647b60430369c37ea31439d8df62b2.json
+  s_a8b24bcb194c1e::t_a6eb59bb586c22 1-18
+fixtures/api/http.x_status_metadata/d8898b16c54cc18fddd64979d8cefb1e98f884f244959647e2da2619f72352c9.json
+  s_a8b24bcb194c1e::t_6a5067af35aad6 1-18
+fixtures/api/http.x_status_metadata/da0fb6d1e89e685d20667043949e662016010ae198ad68b799f9202097997ddd.json
+  s_a8b24bcb194c1e::t_9f2ca51970e745 1-18
+fixtures/api/http.x_status_metadata/da497a32b889ac9a9964cea84959731e9fdb9609d1e436f86335a0390a10681f.json
+  s_a8b24bcb194c1e::t_4a5e5bd558e215 1-18
+fixtures/api/http.x_status_metadata/e1d07e2d11b8bb2c31e203fcfbb794248618a63faf48e2bd03fdf61ca6c3734d.json
+  s_a8b24bcb194c1e::t_e396c2a456bf1e 1-18
+fixtures/api/http.x_status_metadata/e32b5c52ccbafec95b329ee7bbc29dfbbb3167faf3b20f1d0af79a4d6725e8e7.json
+  s_a8b24bcb194c1e::t_792f5eb97bef5e 1-18
+fixtures/api/http.x_status_metadata/e509e077000fad5f5a9412d442c6eb5840d1ca59db4116ceb9b5022dc328176c.json
+  s_a8b24bcb194c1e::t_2375d7f234eb12 1-18
+fixtures/api/http.x_status_metadata/e8475fa4ec55910b673f5843313c144311c34ce828283170597771f61e1e2c48.json
+  s_a8b24bcb194c1e::t_982ba1082a8bf2 1-18
+fixtures/api/http.x_status_metadata/e90cc39f726dfcdf6e8ad99ad760e1310b1fdbcd7059eedba9603d0083b82955.json
+  s_a8b24bcb194c1e::t_f949e787d7f2d7 1-18
+fixtures/api/http.x_status_metadata/ede6762bfa3eefc69b70272df6ec9654d4c5c255e70c32e0330bf67d9a4eab1f.json
+  s_a8b24bcb194c1e::t_fd2ad8bb07ac5a 1-18
+fixtures/api/http.x_status_metadata/f3e103cd4a2d4f2ee91021bdd9f7f75032e948d3d18f3b4f0c28b6df2ed794ac.json
+  s_a8b24bcb194c1e::t_e43bd44e5cf4b6 1-18
+fixtures/api/http.x_status_metadata/f94047f684b1daf7a1c8193568b898021a6687a71269130153abd680d5cf4feb.json
+  s_a8b24bcb194c1e::t_772fc1486c19ab 1-18
+fixtures/api/http.x_status_metadata/f9b4d74fffe3fd008691a53ee3f0162f20bcb79d55c09b47d61602c2b827a606.json
+  s_a8b24bcb194c1e::t_8433bcf797d52b 1-18
+fixtures/api/http.x_status_metadata/fa8cff1b51773b4096ede4a00d38052aa836f7d27afc5fb2207a7b6845436483.json
+  s_a8b24bcb194c1e::t_a301e42436430e 1-18
+fixtures/api/http.x_status_metadata/fac164494a70b9c67c193b8ac4cf5b32d5e55fee4d87407740546c80a18b31e4.json
+  s_a8b24bcb194c1e::t_237e35b0277c78 1-18
+fixtures/api/http.x_status_metadata/fce75394aed272f5bd4e1b7f2f07b5dc06986288ce038ab59529b42309c6c113.json
+  s_a8b24bcb194c1e::t_d4e39aef99c87e 1-18
+fixtures/api/http.x_status_metadata/fd2df1e0a5807756ab5e1f7eaa01adce7599db90c421ceed05a6fb0ca9dbf6d0.json
+  s_a8b24bcb194c1e::t_9ef2bb4332c0df 1-18
+fixtures/api/http.x_status_metadata/feb3bb651caf0e4bbbd3754183e19d27e9b09d6adaa6aa0c15c877fc07ed1896.json
+  s_a8b24bcb194c1e::t_3409169080e64a 1-18
+fixtures/api/model.adjacency_judge.tier1/0629bafe0ea702904923390efa6243998faf3702004f50b956f36462b486ecf0.json
+  s_a8b24bcb194c1e::t_45d24b08bfe627 1-477
+fixtures/api/model.adjacency_judge.tier1/080099d4adbacd519852700460354cb6c56c37817607c9d4a69bbdd95b483273.json
+  s_a8b24bcb194c1e::t_d7af16a07f577c 1-477
+fixtures/api/model.adjacency_judge.tier1/227c4f519a811b5fcc669de6d5dfecc6a485d52a2e3a83480113bfafa4a573c7.json
+  s_a8b24bcb194c1e::t_23c84bdf51adb4 1-477
+fixtures/api/model.adjacency_judge.tier1/2752b98aa6e6ac0a1ab44a3446412ca34b60a76c04b399de99d2cf53c7925e71.json
+  s_a8b24bcb194c1e::t_8e09666e1cfc77 1-477
+fixtures/api/model.adjacency_judge.tier1/27abe50d09aee03d285d48bc7f506ef528813d23e378818380a0d0d7370fb3f9.json
+  s_a8b24bcb194c1e::t_70529ce2b7dbb1 1-477
+fixtures/api/model.adjacency_judge.tier1/2c38f6ab78bc95fa1d8eaeceb3a5385b6b12c0d531edfc7496ddbfdb5c66886b.json
+  s_a8b24bcb194c1e::t_b16fdf6d22ce82 1-477
+fixtures/api/model.adjacency_judge.tier1/46dbb4d57141a2047687506520e71966de0b6c2420cd079e9d61d143b89163f6.json
+  s_a8b24bcb194c1e::t_03f89bfe4e86a0 1-466
+fixtures/api/model.adjacency_judge.tier1/493301326da2ddc40dbac705ce3b8fca4f3581d25b150de872cc88c037e3597a.json
+  s_a8b24bcb194c1e::t_fa092c2f365626 1-477
+fixtures/api/model.adjacency_judge.tier1/4e8cd0a8174836f9853c1b30d0bde43ab0dcee285040c087cfbc80778f78d735.json
+  s_a8b24bcb194c1e::t_820caa84615dfb 1-468
+fixtures/api/model.adjacency_judge.tier1/5cd3e03593bbaba8ae61fc9b1faa90f05ef56542489405455a638af3283b0a95.json
+  s_a8b24bcb194c1e::t_c75da26ca95e10 1-477
+fixtures/api/model.adjacency_judge.tier1/61a98e985d10f4702d7d92eaeb11e2a8d4970066b1444588825b15ee5a315c8f.json
+  s_a8b24bcb194c1e::t_21b0dc392ed4eb 1-477
+fixtures/api/model.adjacency_judge.tier1/62f9fbb94b0829cc75b2a4376abe80bcb18d7709f1fd9b4f7beff3e9d0e626ac.json
+  s_a8b24bcb194c1e::t_7b50ddc01ff80d 1-477
+fixtures/api/model.adjacency_judge.tier1/6943a54303f16838e0a3e85f71de427ce61f1eb4cfeeb803a04df8c12b78f8db.json
+  s_a8b24bcb194c1e::t_c1fa792ed42311 1-477
+fixtures/api/model.adjacency_judge.tier1/6fac4d189ff115c8573b610b798311ac94f48e12f4a6a0ac9e9b77ac03c1690c.json
+  s_a8b24bcb194c1e::t_d1e9fca6336a60 1-468
+fixtures/api/model.adjacency_judge.tier1/71dcef2028d4ac22cf1434f257cd5f08a7aea3541284d35e9c68d5378e2f1225.json
+  s_a8b24bcb194c1e::t_6f0b248e4ea0f2 1-466
+fixtures/api/model.adjacency_judge.tier1/83aad7a3fb8263fcc1b4e59a66c7c188976d92e0934ce1138a80be992e93ebee.json
+  s_a8b24bcb194c1e::t_efe2dd2d9e44c4 1-468
+fixtures/api/model.adjacency_judge.tier1/a27c8492430b4454d873a93dfe301722147f0907af8a2bd299668db695a9c071.json
+  s_a8b24bcb194c1e::t_0ce925e8ea78ef 1-477
+fixtures/api/model.adjacency_judge.tier1/bbea28be777124ae8ff425a031d044beebff73d641f9d995d65ca49d985c274a.json
+  s_a8b24bcb194c1e::t_bdb3b9c0295054 1-477
+fixtures/api/model.adjacency_judge.tier1/da2ad648eb06eaeb559cad27160e91361b3b69c9dd59d59e46b0da39193b8fbb.json
+  s_a8b24bcb194c1e::t_51a6d8a5c8821d 1-468
+fixtures/api/model.adjacency_judge.tier1/e82aa0bf8fab1870dfa5cadb488bfab09b501ab5b6386a68c92bbf0a9c2e58d8.json
+  s_a8b24bcb194c1e::t_059031a44763ec 1-468
+fixtures/api/model.adjacency_judge.tier1/f1c9ada2971fde545b209af5b1704e3896a0cede4797f2d9869f9ac77099b3c9.json
+  s_a8b24bcb194c1e::t_39019dd723a2ae 1-477
+fixtures/api/model.adjacency_judge.tier1/f2a39c3753f851965641274e72510121d55c6cc4b3c7e4155aacfd2768b76ea0.json
+  s_a8b24bcb194c1e::t_2dbd48cb683191 1-466
+fixtures/api/model.adjacency_judge.tier1/f3675178b44ba5a7590a9cffff5bc415acd27fc7eee077022a8408271d8c8e9d.json
+  s_a8b24bcb194c1e::t_c0c476cc370335 1-477
+fixtures/api/model.adjacency_judge.tier1/fe0ea428df6cc3158e46b55eb66ede5a79d313008a0b849211202e739229866f.json
+  s_a8b24bcb194c1e::t_70c5c116562642 1-468
+fixtures/api/model.adjacency_judge.tier2/011fea5911acd899965315763e54da2a3d43ba133c99b0071fe111b74dd2eb70.json
+  s_a8b24bcb194c1e::t_899b396ffd5703 1-477
+fixtures/api/model.adjacency_judge.tier2/070d68d9ed849754e3b3f7454e09d2d2bf9b8bcb7f2614b29a7d5fbea0090609.json
+  s_a8b24bcb194c1e::t_8fab0dc6103f3a 1-477
+fixtures/api/model.adjacency_judge.tier2/0cad6ff5963da843a0662117aca62ad3454c07f72397720ab7d643c8413c99c5.json
+  s_a8b24bcb194c1e::t_5a2946e3bf65ad 1-477
+fixtures/api/model.adjacency_judge.tier2/1f93ffe7112f8db5d177928dc62b01344f6858894764e4bcdd24cf8c491c8d89.json
+  s_a8b24bcb194c1e::t_59264ad3ecdc73 1-477
+fixtures/api/model.adjacency_judge.tier2/253e395893ab58c721d1845c3dfa39756cec39d30bf68463016ebc4342af4197.json
+  s_a8b24bcb194c1e::t_987ddaa5e152aa 1-468
+fixtures/api/model.adjacency_judge.tier2/2db704c6c046288d56ed7cae1191b27cc318a502eeb45e19fd9ce0f3f7f211ec.json
+  s_a8b24bcb194c1e::t_9f2c6c5b396591 1-468
+fixtures/api/model.adjacency_judge.tier2/314867b4bf762132ea66253409b422468b632abda8b68a89dd75495e1dd85fcb.json
+  s_a8b24bcb194c1e::t_3ea87baa9e4bcf 1-477
+fixtures/api/model.adjacency_judge.tier2/3a4372e1a0bf9a2f3b6bab7c27ba8697c098a72c2216fe8bfb1cd638add815ca.json
+  s_a8b24bcb194c1e::t_e7cd4db09c777a 1-477
+fixtures/api/model.adjacency_judge.tier2/5d2e15fa1ba6a84c383b8ac9ce790b68f84d22417d0489dd21f4569a1d11903a.json
+  s_a8b24bcb194c1e::t_cc1ddef0d59d58 1-477
+fixtures/api/model.adjacency_judge.tier2/7947c28d6c402449957f8b823c127266e8b75ede5680ddac8c568fa5b56472d7.json
+  s_a8b24bcb194c1e::t_21a95b7eba7820 1-477
+fixtures/api/model.adjacency_judge.tier2/826dbb6ac0634b3318408c802b086469eafd47957e7973ff79497d89a08b395c.json
+  s_a8b24bcb194c1e::t_59d4c884ec668b 1-477
+fixtures/api/model.adjacency_judge.tier2/84f08bb974a07ab8e1b435eec4ea60aefa551b6e387e4b72c237532ec7a3b1d6.json
+  s_a8b24bcb194c1e::t_b4bc2f8ab53baa 1-477
+fixtures/api/model.adjacency_judge.tier2/90320a196f97d0955fa3c7b2f09c881aaf47443facf47fef3fed1c3c7c953933.json
+  s_a8b24bcb194c1e::t_9d29d93006fcb6 1-477
+fixtures/api/model.adjacency_judge.tier2/92b6e4bc4dc10d4ce09fc5148e2bc092e6cda83d957f06c31cff38c90f760834.json
+  s_a8b24bcb194c1e::t_6c4f6d513a68ae 1-477
+fixtures/api/model.adjacency_judge.tier2/ad126275efc56eb3449f72cb390d6967ea3ec292af956447901d06897850b614.json
+  s_a8b24bcb194c1e::t_7a801e1b4eba63 1-477
+fixtures/api/model.adjacency_judge.tier2/afd3847a506e4f0fa28ceb0b10929722db906e5e7d9fe9bca5ce141d919c6a12.json
+  s_a8b24bcb194c1e::t_18dfeae53632c7 1-477
+fixtures/api/model.adjacency_judge.tier2/b27082925ea28e429fbfab0d2c914d70ce3a2e394266f20bee6ccc6dd8be2fb4.json
+  s_a8b24bcb194c1e::t_c1e76b85cbd8ea 1-468
+fixtures/api/model.adjacency_judge.tier2/bbd1af9f348b5ef51720ffeade3969c21428fb01504e397c3da71b9f3f204951.json
+  s_a8b24bcb194c1e::t_d323504b4793fc 1-477
+fixtures/api/model.adjacency_judge.tier2/c259dc0980117b5c56e210ee7f85d75eafa1d439d68988586c3729b96b6759ba.json
+  s_a8b24bcb194c1e::t_3a134e9eb3be40 1-477
+fixtures/api/model.adjacency_judge.tier2/c68edbf40497b30ce1d07587ce8e571885e19e3382f9ef0c152843c02d6944a3.json
+  s_a8b24bcb194c1e::t_ff71f6706aadc3 1-477
+fixtures/api/model.adjacency_judge.tier2/ec9539c1d16ecf8f50d32f3f3efa1414846d18733838b3e0d4369976aaf10d9f.json
+  s_a8b24bcb194c1e::t_f6ec5b94e370e0 1-477
+fixtures/api/model.adjacency_judge.tier2/fd1459d5f1bd7de71567afc48ad2cbe15702fccb8ccbaf7aa96203c725b3276c.json
+  s_a8b24bcb194c1e::t_8a317e06c3229e 1-468
+fixtures/api/model.raw_prompt_baseline.run1/a0d87896f120110d606891e1c5e06cf3a0b0420da3cdb2d6d769ec8af54d7082.json
+  s_a8b24bcb194c1e::t_8f9f6ec75c776d 1-401
+fixtures/api/model.raw_prompt_baseline.run2/052fdd82f6ac725d9f20b2aa6f2aa3a7c75047d8b02fcf07e66a02a49173c98b.json
+  s_a8b24bcb194c1e::t_7d4151d300860e 1-401
+fixtures/api/tool.x_search.inventory/2c3ed6cb71f237db446c0dda8f0d16b23d6a85fc5c90c4388c207f2dbfcbad43.json
+  s_a8b24bcb194c1e::t_21f388235bd27f 1-463
+fixtures/api/tool.x_search.inventory/5147629c1cdb89199d98e522bad0b98b1aeec2ffe57dd0f2560c8f5be940732e.json
+  s_a8b24bcb194c1e::t_0b5966a2185f8f 1-589
+fixtures/api/tool.x_search.inventory/60f5fa46d8c4f45971a31504b28b7647b545c43c3aeeeeb050225365aea9d975.json
+  s_a8b24bcb194c1e::t_2610f649d3eb2a 1-477
+fixtures/api/tool.x_search.inventory/79f3fdaca02fcd57110fc0a5b37e4ed1f98077b59d758f89203512d71f69087d.json
+  s_a8b24bcb194c1e::t_04e002257a7d59 1-953
+fixtures/api/tool.x_search.inventory/7dbd4e6317c49494411c9956821242b4be6c11e14e1c8b6b23018b4d4b10f92b.json
+  s_a8b24bcb194c1e::t_5e595e19be83c8 1-243
+fixtures/api/tool.x_search.inventory/85f291cb851deb80d23c6835d61f85f601777753b6207fc72647bdf2d0a50045.json
+  s_a8b24bcb194c1e::t_ecb44c0717d9b3 1-596
+fixtures/api/tool.x_search.inventory/d93a82dab35233f67f28143f0fdb43b2373dab6126f2f427f32ca30eb479cd8d.json
+  s_a8b24bcb194c1e::t_119e802fa08048 1-414
+fixtures/api/tool.x_search.inventory/d9d2672ad97324242cc22e6f7aa9c4fe9144f50dd62889e69a94a2efd0372802.json
+  s_a8b24bcb194c1e::t_b3002a39fc98fc 1-561
+fixtures/api/tool.x_search.inventory/dcc49726cafec843d4d01547e8917e7a6d5fbe7906834a91551f91e8d0ee0bdc.json
+  s_a8b24bcb194c1e::t_a6adb2da8e6a69 1-428
+fixtures/api/tool.x_search.inventory/ddd16a1508d525e6a97922738107c3eb197c8b8d1846111655547b32664deb3f.json
+  s_a8b24bcb194c1e::t_a1b8c9805e5780 1-456
+fixtures/api/tool.x_search.inventory/df1bb837e8a786c3e4271d43909096baef30353713c79acfe9cf593d916ce818.json
+  s_a8b24bcb194c1e::t_5f22df26f7eb53 1-526
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.20",
+  "base_commit_sha": "6d1c60019537de6d540df7bd73afc0b9be94a08c",
+  "prompts": {},
+  "sessions": {
+    "s_a8b24bcb194c1e": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019fc654-c310-7411-a428-5f83232f95b7",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Arun Sharma <arun08sharma@gmail.com>"
+    }
+  }
+}
