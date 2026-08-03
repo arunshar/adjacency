@@ -1,0 +1,58 @@
+scripts/build_ui_artifacts.py
+  s_a8b24bcb194c1e::t_ac254cff7926a1 1-64
+src/adjacency/contracts.py
+  s_a8b24bcb194c1e::t_9ea28263704656 306-308,310
+  s_a8b24bcb194c1e::t_6b0f263365caae 52,54
+pyproject.toml
+  s_a8b24bcb194c1e::t_102b40ba3355eb 24
+  s_a8b24bcb194c1e::t_b25a6e9b776d9b 21,25
+src/adjacency/autopsy.py
+  s_a8b24bcb194c1e::t_c09b35f0c659ed 71,242,310-312
+  s_a8b24bcb194c1e::t_21cec6eb5cbe49 204-208
+  s_a8b24bcb194c1e::t_9ea28263704656 1-70,72-203,209-241,243-309,313-337
+  s_a8b24bcb194c1e::t_7b4bd03c3d3a3d 338-340
+tests/test_delta.py
+  s_a8b24bcb194c1e::t_9ea28263704656 43-67
+src/adjacency/ui.py
+  s_a8b24bcb194c1e::t_6b0f263365caae 275
+  s_a8b24bcb194c1e::t_7552e2de044b0e 1-29,31-73,75,77-115,117-171,174-270,273-274,276-333,335-446,448-457
+  s_a8b24bcb194c1e::t_b25a6e9b776d9b 30,74,76,172-173,271-272
+  s_a8b24bcb194c1e::t_cacd0e8bfe1f9f 116,334,447
+README.md
+  s_a8b24bcb194c1e::t_01407151dd81d5 53-55,86-98,131,146,148,153-154
+artifacts/ui/economics_assumption.json
+  s_a8b24bcb194c1e::t_9ea28263704656 1-7
+.github/workflows/ci.yml
+  s_a8b24bcb194c1e::t_6cd78fb31dd84a 33
+tests/test_ui.py
+  s_a8b24bcb194c1e::t_7552e2de044b0e 1-12,16-21,25-34,37-40
+  s_a8b24bcb194c1e::t_1817dde3b7bbf9 13-15,22,35-36
+  s_a8b24bcb194c1e::t_6cd78fb31dd84a 23-24
+app.py
+  s_a8b24bcb194c1e::t_7552e2de044b0e 1-2,4-7
+  s_a8b24bcb194c1e::t_b25a6e9b776d9b 3,8
+tests/test_autopsy.py
+  s_a8b24bcb194c1e::t_5f906b96ecaa71 38,40
+  s_a8b24bcb194c1e::t_6b0f263365caae 11,35-37,39,41
+  s_a8b24bcb194c1e::t_ac254cff7926a1 1-10,12-34,42-46
+artifacts/ui/autopsy_snapshot.json
+  s_a8b24bcb194c1e::t_7c318bfdb39495 1-30
+tests/test_contracts.py
+  s_a8b24bcb194c1e::t_267ff752bc79d3 243,246
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.20",
+  "base_commit_sha": "c455600031899a3cbce5c307b4f4d03cff3ef435",
+  "prompts": {},
+  "sessions": {
+    "s_a8b24bcb194c1e": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019fc654-c310-7411-a428-5f83232f95b7",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Arun Sharma <arun08sharma@gmail.com>"
+    }
+  }
+}
