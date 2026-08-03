@@ -96,6 +96,32 @@ ALLOW-to-REVIEW transition visible. The over-block dollar counter uses an illust
 input from `artifacts/ui/economics_assumption.json`. It is not a measured revenue result. Rebuild
 the UI snapshot with `PYTHONPATH=src .venv/bin/python scripts/build_ui_artifacts.py`.
 
+### Optional durable HITL queue
+
+`ADJ_HITL_BACKEND` defaults to `in_process`. Temporal is an opt-in backend for the human-review
+queue only. The judge, gates, corpus, and Autopsy demo do not import it or connect to it. The
+Temporal surface is deliberately small: one `AdjacencyHITLReview` workflow, one `adjudicate` signal,
+and one `queue_state` query.
+
+Install the optional dependency and run the worker in a separate terminal:
+
+```bash
+.venv/bin/pip install -e ".[temporal]"
+export ADJ_HITL_BACKEND=temporal
+.venv/bin/python scripts/run_temporal_hitl_worker.py
+```
+
+The worker reads `TEMPORAL_API_KEY`, `TEMPORAL_ADDRESS`, and `TEMPORAL_NAMESPACE` from the
+environment. No credential is written to an artifact. To exercise the complete cloud transition
+with the frozen gate-fail review and write a credential-free proof:
+
+```bash
+PYTHONPATH=src .venv/bin/python scripts/prove_temporal_hitl.py
+```
+
+The recorded transition is in `artifacts/temporal/hitl_live_proof.json`. The integration-proof
+adjudication is protocol evidence only. It is explicitly not a human label.
+
 External calls replay from content-addressed fixtures by default. Set `ADJ_RECORD=1` only
 when intentionally recording live responses. `ADJ_FIXTURE_DIR` overrides the default
 `fixtures/api` path.
@@ -134,6 +160,7 @@ src/adjacency/
   delta.py       deterministic engine-versus-baseline comparison
   fixtures.py    content-addressed record and replay for external calls
   gates.py       the seven gates, all pure functions
+  hitl.py        queue contracts and the default in-process review backend
   inventory.py   recorded x_search discovery plus direct-status verification
   judge.py       deterministic, low-effort, and high-effort escalation ladder
   model_metrics.py  per-call latency, token, and cost measurements
@@ -142,6 +169,7 @@ src/adjacency/
   prompt_baseline.py  two raw free-text policy runs and strict comparison
   sources.py     the fixed ADJ_SOURCE switch
   synthetic_faults.py  seeded gate fault injection and measurement
+  temporal_hitl.py  opt-in Temporal workflow, signal, query, and client adapter
   tier_zero.py   zero-cost clean-text decisions
   ui.py          Gradio Autopsy layout and streaming interaction handlers
   xai.py         recorded raw client for the xAI Responses API
@@ -152,6 +180,8 @@ artifacts/wednesday/
   inventory_discovery.json, judge_report.json, judge_traces.json
 artifacts/ui/
   autopsy_snapshot.json, economics_assumption.json
+artifacts/temporal/
+  hitl_live_proof.json
 corpus/
   frozen/manifest.json, media/*.jpg
 evals/prompt_baseline/

@@ -1,0 +1,64 @@
+{
+  "credential_fields_recorded": [],
+  "execution": {
+    "closed_at": "2026-08-03T10:15:53.166759+00:00",
+    "run_id": "019fc71f-6a9f-7ce2-973c-49b8b47bf4e3",
+    "started_at": "2026-08-03T10:15:52.735845+00:00",
+    "status": "COMPLETED"
+  },
+  "namespace_sha256": "94f73a16cb1beef5d8cfcad00c7e46b7c31bd1f7d72cf6689035f1869575db1a",
+  "query_name": "queue_state",
+  "recorded_at": "2026-08-03T10:15:53.396755+00:00",
+  "schema_version": 1,
+  "sdk_version": "1.31.0",
+  "signal_name": "adjudicate",
+  "source_artifacts": [
+    "artifacts/ui/autopsy_snapshot.json",
+    "artifacts/wednesday/judge_traces.json",
+    "corpus/frozen/manifest.json"
+  ],
+  "state_after": {
+    "adjudication": {
+      "action": "ALLOW",
+      "adjudicator": "integration-proof",
+      "note": "Protocol proof only. This is not a human label.",
+      "request_id": "temporal-live-proof-665e926834e94d5d89a6a69b3d20c4fc"
+    },
+    "request": {
+      "corpus_hash": "91d93e38db8bb93c532f17ff3db4eeb02b68ca8179194ae0db899656d9e5e390",
+      "item_id": "x-2054959102195872231",
+      "policy_hash": "eb02d3e636c7ff1fdb43cf5ecc9dbfd8bbb2f5858382769a9e471dab72344512",
+      "proposed_action": "REVIEW",
+      "reason_codes": [
+        "G1_SPAN_NOT_FOUND"
+      ],
+      "request_id": "temporal-live-proof-665e926834e94d5d89a6a69b3d20c4fc",
+      "schema_version": 1,
+      "source_url": "https://x.com/tom_doerr/status/2054959102195872231",
+      "trace_id": "trace:x-2054959102195872231"
+    },
+    "signal_error": null,
+    "status": "ADJUDICATED"
+  },
+  "state_before": {
+    "adjudication": null,
+    "request": {
+      "corpus_hash": "91d93e38db8bb93c532f17ff3db4eeb02b68ca8179194ae0db899656d9e5e390",
+      "item_id": "x-2054959102195872231",
+      "policy_hash": "eb02d3e636c7ff1fdb43cf5ecc9dbfd8bbb2f5858382769a9e471dab72344512",
+      "proposed_action": "REVIEW",
+      "reason_codes": [
+        "G1_SPAN_NOT_FOUND"
+      ],
+      "request_id": "temporal-live-proof-665e926834e94d5d89a6a69b3d20c4fc",
+      "schema_version": 1,
+      "source_url": "https://x.com/tom_doerr/status/2054959102195872231",
+      "trace_id": "trace:x-2054959102195872231"
+    },
+    "signal_error": null,
+    "status": "PENDING"
+  },
+  "task_queue": "adjacency-hitl-v1",
+  "workflow_id": "adjacency-hitl-678027251582b55ab4efcfbbe8a350ca0682d64fa2ac29d2c7ddcce2c61aa47b",
+  "workflow_name": "AdjacencyHITLReview"
+}

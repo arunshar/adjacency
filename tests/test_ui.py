@@ -1,5 +1,8 @@
 from __future__ import annotations
 
+import os
+import subprocess
+import sys
 from pathlib import Path
 
 import pytest
@@ -38,3 +41,38 @@ def test_ui_rejects_non_demo_mode(monkeypatch):
 
     with pytest.raises(UIModeError, match="only demo"):
         create_app(root=Path(__file__).resolve().parents[1], step_delay_seconds=0)
+
+
+def test_demo_path_never_imports_or_connects_to_temporal():
+    root = Path(__file__).resolve().parents[1]
+    environment = os.environ.copy()
+    environment.update(
+        {
+            "ADJ_HITL_BACKEND": "temporal",
+            "TEMPORAL_ADDRESS": "unreachable.invalid:7233",
+            "TEMPORAL_NAMESPACE": "unreachable",
+            "TEMPORAL_API_KEY": "unused",
+        }
+    )
+    result = subprocess.run(
+        [
+            sys.executable,
+            "-c",
+            "\n".join(
+                (
+                    "import sys",
+                    "from adjacency.ui import create_app",
+                    f"create_app(root={str(root)!r}, step_delay_seconds=0)",
+                    "assert 'temporalio' not in sys.modules",
+                )
+            ),
+        ],
+        cwd=root,
+        env=environment,
+        check=False,
+        capture_output=True,
+        text=True,
+        timeout=20,
+    )
+
+    assert result.returncode == 0, result.stderr
