@@ -1,0 +1,19 @@
+docs/RETARGETING.md
+  s_012c1d33fe9afb::t_790573a801be2c 1-59
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.20",
+  "base_commit_sha": "cf92e80a9f8eb3f1785bf22b6058f25731da63d7",
+  "prompts": {},
+  "sessions": {
+    "s_012c1d33fe9afb": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "882918ec-65c5-45ef-97b9-857ad19b0fe5",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Arun Sharma <sharm485@umn.edu>"
+    }
+  }
+}
