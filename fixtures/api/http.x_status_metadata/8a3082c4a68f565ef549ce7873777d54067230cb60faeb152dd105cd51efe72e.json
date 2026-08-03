@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/mikeisx3300/status/2078419528820638002"
+  },
+  "request_sha256": "8a3082c4a68f565ef549ce7873777d54067230cb60faeb152dd105cd51efe72e",
+  "response": {
+    "author_handle": "@mikeisx3300",
+    "created_at": "July 18, 2026",
+    "media_height": null,
+    "media_url": null,
+    "media_width": null,
+    "source_url": "https://x.com/mikeisx3300/status/2078419528820638002",
+    "text": "This synthetic opioid is a serious threat to our neighborhoods. It's incredibly potent and can be mixed into other drugs without people knowing. \ud83d\udc94 The rise in overdoses linked to this substance is truly heartbreaking. We need to spread awareness and support for those affected.\u2026"
+  },
+  "response_sha256": "022142b69ce3ed05b32fd5c7ffed96bc96490b7e7fba5dc146516a02f9ed5b33",
+  "surface": "http.x_status_metadata"
+}

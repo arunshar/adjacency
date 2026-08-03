@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/rizzzye/status/2083704274299617611"
+  },
+  "request_sha256": "25609153bac8d15e73bbb3493c9c4d7a36b11d98f1804d523f98a837b838876e",
+  "response": {
+    "author_handle": "@rizzzye",
+    "created_at": "August 1, 2026",
+    "media_height": null,
+    "media_url": null,
+    "media_width": null,
+    "source_url": "https://x.com/rizzzye/status/2083704274299617611",
+    "text": "ai esse ray tentando entrosar ;-; bro think he's on time"
+  },
+  "response_sha256": "680089696b365d7d532556e772b683d2ca0a34bf44e38dab00e7c7015c50f0ef",
+  "surface": "http.x_status_metadata"
+}

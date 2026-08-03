@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/PaladinAshe/status/2075412071051923520"
+  },
+  "request_sha256": "5dcba05d5140eea0c011d635f931890d33351a5e998d35fa761c074073e8c544",
+  "response": {
+    "author_handle": "@PaladinAshe",
+    "created_at": "July 10, 2026",
+    "media_height": null,
+    "media_url": null,
+    "media_width": null,
+    "source_url": "https://x.com/PaladinAshe/status/2075412071051923520",
+    "text": "I unironically love Frieren and Goblin Slayer for these exact reasons, among other things. I still remember a \"discussion\" with a dude that went something like \"Is goblin slayer really about killing just goblins and are they really just evil and not simply misunderstood.\"\u2026 https://t.co/H0ZRcMu2Ds"
+  },
+  "response_sha256": "819b81cb035fb2139b5d5623c12b82e2dd72b0f2d433afcfa6c358be2f2f2025",
+  "surface": "http.x_status_metadata"
+}

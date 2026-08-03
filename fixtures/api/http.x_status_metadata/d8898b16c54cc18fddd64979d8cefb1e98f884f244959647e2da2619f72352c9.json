@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/CoastReports/status/2083703904274141656"
+  },
+  "request_sha256": "d8898b16c54cc18fddd64979d8cefb1e98f884f244959647e2da2619f72352c9",
+  "response": {
+    "author_handle": "@CoastReports",
+    "created_at": "August 1, 2026",
+    "media_height": null,
+    "media_url": null,
+    "media_width": null,
+    "source_url": "https://x.com/CoastReports/status/2083703904274141656",
+    "text": "The perpetrator of the Twin Falls, Idaho mass shooting has been KIA. Likely by concerned citizens!"
+  },
+  "response_sha256": "475284cfcbd256dddd4c9f037b7d4d12b737137f189987eb136c1e5254d9c261",
+  "surface": "http.x_status_metadata"
+}

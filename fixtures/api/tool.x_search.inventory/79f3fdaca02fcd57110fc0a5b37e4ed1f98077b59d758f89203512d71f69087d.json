@@ -1,0 +1,953 @@
+{
+  "format_version": 1,
+  "request": {
+    "input": [
+      {
+        "content": "Use x_search to find distinct public X posts matching the query. Return only posts you found through the tool. Use direct x.com status URLs, exact post text, the author handle, an ISO date or timestamp, and whether the post has attached media. Do not invent or reconstruct URLs. Prefer original posts over replies and reposts.\n\nQuery label: clean_travel_nature\nQuery: Original public posts from travel, nature, parks, weather, or space accounts. Prefer safe general-interest posts, and include attached photos when available.\nReturn at most 12 posts.",
+        "role": "user"
+      }
+    ],
+    "max_output_tokens": 8192,
+    "max_tool_calls": 6,
+    "model": "grok-4.5",
+    "reasoning": {
+      "effort": "low"
+    },
+    "store": false,
+    "text": {
+      "format": {
+        "name": "x_inventory_batch",
+        "schema": {
+          "$defs": {
+            "XSearchPost": {
+              "additionalProperties": false,
+              "properties": {
+                "author_handle": {
+                  "minLength": 1,
+                  "title": "Author Handle",
+                  "type": "string"
+                },
+                "created_at": {
+                  "minLength": 1,
+                  "title": "Created At",
+                  "type": "string"
+                },
+                "has_media": {
+                  "title": "Has Media",
+                  "type": "boolean"
+                },
+                "source_url": {
+                  "title": "Source Url",
+                  "type": "string"
+                },
+                "text": {
+                  "minLength": 1,
+                  "title": "Text",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "source_url",
+                "text",
+                "author_handle",
+                "created_at",
+                "has_media"
+              ],
+              "title": "XSearchPost",
+              "type": "object"
+            }
+          },
+          "additionalProperties": false,
+          "properties": {
+            "posts": {
+              "items": {
+                "$ref": "#/$defs/XSearchPost"
+              },
+              "maxItems": 20,
+              "minItems": 1,
+              "title": "Posts",
+              "type": "array"
+            }
+          },
+          "required": [
+            "posts"
+          ],
+          "title": "_XSearchBatch",
+          "type": "object"
+        },
+        "strict": true,
+        "type": "json_schema"
+      }
+    },
+    "tools": [
+      {
+        "from_date": "2026-01-01",
+        "to_date": "2026-08-02",
+        "type": "x_search"
+      }
+    ]
+  },
+  "request_sha256": "79f3fdaca02fcd57110fc0a5b37e4ed1f98077b59d758f89203512d71f69087d",
+  "response": {
+    "background": false,
+    "completed_at": 1785745107,
+    "created_at": 1785745107,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "id": "34ba3cc1-ec37-9ac9-a632-3708db4f52ed",
+    "incomplete_details": null,
+    "instructions": null,
+    "max_output_tokens": 8192,
+    "max_tool_calls": null,
+    "metadata": {
+      "system_fingerprint": "fp_a39489019fa99b6e"
+    },
+    "model": "grok-4.5",
+    "object": "response",
+    "output": [
+      {
+        "id": "rs_34ba3cc1-ec37-9ac9-a632-3708db4f52ed",
+        "status": "completed",
+        "summary": [
+          {
+            "text": "The user wants me to use x_search to find distinct public X posts matching the query: Original public posts from travel, nature, parks, weather, or space accounts. Prefer safe general-interest posts, ...",
+            "type": "summary_text"
+          }
+        ],
+        "type": "reasoning"
+      },
+      {
+        "call_id": "xs_call-a4824846-81e9-47e4-af82-59730462bc35-0",
+        "id": "ctc_34ba3cc1-ec37-9ac9-a632-3708db4f52ed_call-a4824846-81e9-47e4-af82-59730462bc35-0",
+        "input": "{\"query\":\"travel\",\"count\":\"5\"}",
+        "name": "x_user_search",
+        "status": "completed",
+        "type": "custom_tool_call"
+      },
+      {
+        "call_id": "xs_call-a4824846-81e9-47e4-af82-59730462bc35-1",
+        "id": "ctc_34ba3cc1-ec37-9ac9-a632-3708db4f52ed_call-a4824846-81e9-47e4-af82-59730462bc35-1",
+        "input": "{\"query\":\"nature\",\"count\":\"5\"}",
+        "name": "x_user_search",
+        "status": "completed",
+        "type": "custom_tool_call"
+      },
+      {
+        "call_id": "xs_call-a4824846-81e9-47e4-af82-59730462bc35-2",
+        "id": "ctc_34ba3cc1-ec37-9ac9-a632-3708db4f52ed_call-a4824846-81e9-47e4-af82-59730462bc35-2",
+        "input": "{\"query\":\"national parks\",\"count\":\"5\"}",
+        "name": "x_user_search",
+        "status": "completed",
+        "type": "custom_tool_call"
+      },
+      {
+        "id": "tco_34ba3cc1-ec37-9ac9-a632-3708db4f52ed_call-a4824846-81e9-47e4-af82-59730462bc35-0",
+        "status": "completed",
+        "summary": [],
+        "type": "reasoning"
+      },
+      {
+        "id": "tco_34ba3cc1-ec37-9ac9-a632-3708db4f52ed_call-a4824846-81e9-47e4-af82-59730462bc35-1",
+        "status": "completed",
+        "summary": [],
+        "type": "reasoning"
+      },
+      {
+        "id": "tco_34ba3cc1-ec37-9ac9-a632-3708db4f52ed_call-a4824846-81e9-47e4-af82-59730462bc35-2",
+        "status": "completed",
+        "summary": [],
+        "type": "reasoning"
+      },
+      {
+        "call_id": "xs_call-a4824846-81e9-47e4-af82-59730462bc35-3",
+        "id": "ctc_34ba3cc1-ec37-9ac9-a632-3708db4f52ed_call-a4824846-81e9-47e4-af82-59730462bc35-3",
+        "input": "{\"query\":\"weather\",\"count\":\"5\"}",
+        "name": "x_user_search",
+        "status": "completed",
+        "type": "custom_tool_call"
+      },
+      {
+        "call_id": "xs_call-a4824846-81e9-47e4-af82-59730462bc35-4",
+        "id": "ctc_34ba3cc1-ec37-9ac9-a632-3708db4f52ed_call-a4824846-81e9-47e4-af82-59730462bc35-4",
+        "input": "{\"query\":\"space\",\"count\":\"5\"}",
+        "name": "x_user_search",
+        "status": "completed",
+        "type": "custom_tool_call"
+      },
+      {
+        "call_id": "xs_call-a4824846-81e9-47e4-af82-59730462bc35-5",
+        "id": "ctc_34ba3cc1-ec37-9ac9-a632-3708db4f52ed_call-a4824846-81e9-47e4-af82-59730462bc35-5",
+        "input": "{\"query\":\"NASA\",\"count\":\"3\"}",
+        "name": "x_user_search",
+        "status": "completed",
+        "type": "custom_tool_call"
+      },
+      {
+        "id": "tco_34ba3cc1-ec37-9ac9-a632-3708db4f52ed_call-a4824846-81e9-47e4-af82-59730462bc35-3",
+        "status": "completed",
+        "summary": [],
+        "type": "reasoning"
+      },
+      {
+        "id": "tco_34ba3cc1-ec37-9ac9-a632-3708db4f52ed_call-a4824846-81e9-47e4-af82-59730462bc35-4",
+        "status": "completed",
+        "summary": [],
+        "type": "reasoning"
+      },
+      {
+        "id": "tco_34ba3cc1-ec37-9ac9-a632-3708db4f52ed_call-a4824846-81e9-47e4-af82-59730462bc35-5",
+        "status": "completed",
+        "summary": [],
+        "type": "reasoning"
+      },
+      {
+        "call_id": "xs_call-a4824846-81e9-47e4-af82-59730462bc35-6",
+        "id": "ctc_34ba3cc1-ec37-9ac9-a632-3708db4f52ed_call-a4824846-81e9-47e4-af82-59730462bc35-6",
+        "input": "{\"query\":\"from:NatGeoTravel filter:images -filter:replies\",\"limit\":\"5\",\"mode\":\"Latest\"}",
+        "name": "x_keyword_search",
+        "status": "completed",
+        "type": "custom_tool_call"
+      },
+      {
+        "call_id": "xs_call-a4824846-81e9-47e4-af82-59730462bc35-7",
+        "id": "ctc_34ba3cc1-ec37-9ac9-a632-3708db4f52ed_call-a4824846-81e9-47e4-af82-59730462bc35-7",
+        "input": "{\"query\":\"from:NatlParkService filter:images -filter:replies\",\"limit\":\"5\",\"mode\":\"Latest\"}",
+        "name": "x_keyword_search",
+        "status": "completed",
+        "type": "custom_tool_call"
+      },
+      {
+        "call_id": "xs_call-a4824846-81e9-47e4-af82-59730462bc35-8",
+        "id": "ctc_34ba3cc1-ec37-9ac9-a632-3708db4f52ed_call-a4824846-81e9-47e4-af82-59730462bc35-8",
+        "input": "{\"query\":\"from:NASA filter:images -filter:replies\",\"limit\":\"5\",\"mode\":\"Latest\"}",
+        "name": "x_keyword_search",
+        "status": "completed",
+        "type": "custom_tool_call"
+      },
+      {
+        "id": "tco_34ba3cc1-ec37-9ac9-a632-3708db4f52ed_call-a4824846-81e9-47e4-af82-59730462bc35-6",
+        "status": "completed",
+        "summary": [],
+        "type": "reasoning"
+      },
+      {
+        "id": "tco_34ba3cc1-ec37-9ac9-a632-3708db4f52ed_call-a4824846-81e9-47e4-af82-59730462bc35-7",
+        "status": "completed",
+        "summary": [],
+        "type": "reasoning"
+      },
+      {
+        "id": "tco_34ba3cc1-ec37-9ac9-a632-3708db4f52ed_call-a4824846-81e9-47e4-af82-59730462bc35-8",
+        "status": "completed",
+        "summary": [],
+        "type": "reasoning"
+      },
+      {
+        "call_id": "xs_call-a4824846-81e9-47e4-af82-59730462bc35-9",
+        "id": "ctc_34ba3cc1-ec37-9ac9-a632-3708db4f52ed_call-a4824846-81e9-47e4-af82-59730462bc35-9",
+        "input": "{\"query\":\"from:YellowstoneNPS filter:images -filter:replies\",\"limit\":\"4\",\"mode\":\"Latest\"}",
+        "name": "x_keyword_search",
+        "status": "completed",
+        "type": "custom_tool_call"
+      },
+      {
+        "call_id": "xs_call-a4824846-81e9-47e4-af82-59730462bc35-10",
+        "id": "ctc_34ba3cc1-ec37-9ac9-a632-3708db4f52ed_call-a4824846-81e9-47e4-af82-59730462bc35-10",
+        "input": "{\"query\":\"from:NASAHubble filter:images -filter:replies\",\"limit\":\"4\",\"mode\":\"Latest\"}",
+        "name": "x_keyword_search",
+        "status": "completed",
+        "type": "custom_tool_call"
+      },
+      {
+        "call_id": "xs_call-a4824846-81e9-47e4-af82-59730462bc35-11",
+        "id": "ctc_34ba3cc1-ec37-9ac9-a632-3708db4f52ed_call-a4824846-81e9-47e4-af82-59730462bc35-11",
+        "input": "{\"query\":\"from:AMAZlNGNATURE filter:images -filter:replies\",\"limit\":\"4\",\"mode\":\"Latest\"}",
+        "name": "x_keyword_search",
+        "status": "completed",
+        "type": "custom_tool_call"
+      },
+      {
+        "id": "tco_34ba3cc1-ec37-9ac9-a632-3708db4f52ed_call-a4824846-81e9-47e4-af82-59730462bc35-9",
+        "status": "completed",
+        "summary": [],
+        "type": "reasoning"
+      },
+      {
+        "id": "tco_34ba3cc1-ec37-9ac9-a632-3708db4f52ed_call-a4824846-81e9-47e4-af82-59730462bc35-10",
+        "status": "completed",
+        "summary": [],
+        "type": "reasoning"
+      },
+      {
+        "id": "tco_34ba3cc1-ec37-9ac9-a632-3708db4f52ed_call-a4824846-81e9-47e4-af82-59730462bc35-11",
+        "status": "completed",
+        "summary": [],
+        "type": "reasoning"
+      },
+      {
+        "call_id": "xs_call-a4824846-81e9-47e4-af82-59730462bc35-12",
+        "id": "ctc_34ba3cc1-ec37-9ac9-a632-3708db4f52ed_call-a4824846-81e9-47e4-af82-59730462bc35-12",
+        "input": "{\"query\":\"from:weatherchannel filter:images -filter:replies\",\"limit\":\"3\",\"mode\":\"Latest\"}",
+        "name": "x_keyword_search",
+        "status": "completed",
+        "type": "custom_tool_call"
+      },
+      {
+        "call_id": "xs_call-a4824846-81e9-47e4-af82-59730462bc35-13",
+        "id": "ctc_34ba3cc1-ec37-9ac9-a632-3708db4f52ed_call-a4824846-81e9-47e4-af82-59730462bc35-13",
+        "input": "{\"query\":\"from:Space_Station filter:images -filter:replies\",\"limit\":\"3\",\"mode\":\"Latest\"}",
+        "name": "x_keyword_search",
+        "status": "completed",
+        "type": "custom_tool_call"
+      },
+      {
+        "call_id": "xs_call-a4824846-81e9-47e4-af82-59730462bc35-14",
+        "id": "ctc_34ba3cc1-ec37-9ac9-a632-3708db4f52ed_call-a4824846-81e9-47e4-af82-59730462bc35-14",
+        "input": "{\"query\":\"from:NASAEarth filter:images -filter:replies\",\"limit\":\"3\",\"mode\":\"Latest\"}",
+        "name": "x_keyword_search",
+        "status": "completed",
+        "type": "custom_tool_call"
+      },
+      {
+        "id": "tco_34ba3cc1-ec37-9ac9-a632-3708db4f52ed_call-a4824846-81e9-47e4-af82-59730462bc35-12",
+        "status": "completed",
+        "summary": [],
+        "type": "reasoning"
+      },
+      {
+        "id": "tco_34ba3cc1-ec37-9ac9-a632-3708db4f52ed_call-a4824846-81e9-47e4-af82-59730462bc35-13",
+        "status": "completed",
+        "summary": [],
+        "type": "reasoning"
+      },
+      {
+        "id": "tco_34ba3cc1-ec37-9ac9-a632-3708db4f52ed_call-a4824846-81e9-47e4-af82-59730462bc35-14",
+        "status": "completed",
+        "summary": [],
+        "type": "reasoning"
+      },
+      {
+        "call_id": "xs_call-a4824846-81e9-47e4-af82-59730462bc35-15",
+        "id": "ctc_34ba3cc1-ec37-9ac9-a632-3708db4f52ed_call-a4824846-81e9-47e4-af82-59730462bc35-15",
+        "input": "{\"query\":\"from:YosemiteNPS filter:images -filter:replies\",\"limit\":\"2\",\"mode\":\"Latest\"}",
+        "name": "x_keyword_search",
+        "status": "completed",
+        "type": "custom_tool_call"
+      },
+      {
+        "call_id": "xs_call-a4824846-81e9-47e4-af82-59730462bc35-16",
+        "id": "ctc_34ba3cc1-ec37-9ac9-a632-3708db4f52ed_call-a4824846-81e9-47e4-af82-59730462bc35-16",
+        "input": "{\"query\":\"from:NWS filter:images -filter:replies\",\"limit\":\"2\",\"mode\":\"Latest\"}",
+        "name": "x_keyword_search",
+        "status": "completed",
+        "type": "custom_tool_call"
+      },
+      {
+        "id": "tco_34ba3cc1-ec37-9ac9-a632-3708db4f52ed_call-a4824846-81e9-47e4-af82-59730462bc35-15",
+        "status": "completed",
+        "summary": [],
+        "type": "reasoning"
+      },
+      {
+        "id": "tco_34ba3cc1-ec37-9ac9-a632-3708db4f52ed_call-a4824846-81e9-47e4-af82-59730462bc35-16",
+        "status": "completed",
+        "summary": [],
+        "type": "reasoning"
+      },
+      {
+        "content": [
+          {
+            "annotations": [
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/user/32887168",
+                "type": "url_citation",
+                "url": "https://x.com/i/user/32887168"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083591796332921314",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083591796332921314"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083620527361642625",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083620527361642625"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2082911174522257413",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2082911174522257413"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083245767687323925",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083245767687323925"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2081860978694594863",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2081860978694594863"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083619520715825663",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083619520715825663"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2069791645831209447",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2069791645831209447"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083682938735009817",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083682938735009817"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/user/24016767",
+                "type": "url_citation",
+                "url": "https://x.com/i/user/24016767"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083651229813764516",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083651229813764516"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/user/44992488",
+                "type": "url_citation",
+                "url": "https://x.com/i/user/44992488"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/user/16211434",
+                "type": "url_citation",
+                "url": "https://x.com/i/user/16211434"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2082255922164846821",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2082255922164846821"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2074128255154594078",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2074128255154594078"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083523337305596333",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083523337305596333"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2081452051188371899",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2081452051188371899"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083184046117458208",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083184046117458208"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/user/18726942",
+                "type": "url_citation",
+                "url": "https://x.com/i/user/18726942"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2082904065017590139",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2082904065017590139"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/user/293624877",
+                "type": "url_citation",
+                "url": "https://x.com/i/user/293624877"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2080035154530087096",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2080035154530087096"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2057129223156900152",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2057129223156900152"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2082927570488574202",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2082927570488574202"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2077761690272141534",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2077761690272141534"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/user/1564490038330916865",
+                "type": "url_citation",
+                "url": "https://x.com/i/user/1564490038330916865"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2073119585071501455",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2073119585071501455"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/user/1661523610111193088",
+                "type": "url_citation",
+                "url": "https://x.com/i/user/1661523610111193088"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/user/454313925",
+                "type": "url_citation",
+                "url": "https://x.com/i/user/454313925"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2071572669896511852",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2071572669896511852"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/user/38516217",
+                "type": "url_citation",
+                "url": "https://x.com/i/user/38516217"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2082194383063875634",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2082194383063875634"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2081405996136554940",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2081405996136554940"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083244542812201409",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083244542812201409"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2082907615332274428",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2082907615332274428"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/user/36184220",
+                "type": "url_citation",
+                "url": "https://x.com/i/user/36184220"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/user/50115087",
+                "type": "url_citation",
+                "url": "https://x.com/i/user/50115087"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2073377410620219590",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2073377410620219590"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/user/18638090",
+                "type": "url_citation",
+                "url": "https://x.com/i/user/18638090"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2082119970457063526",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2082119970457063526"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/user/34743251",
+                "type": "url_citation",
+                "url": "https://x.com/i/user/34743251"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083365134748041612",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083365134748041612"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2082931560098001342",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2082931560098001342"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/user/14363353",
+                "type": "url_citation",
+                "url": "https://x.com/i/user/14363353"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/user/11348282",
+                "type": "url_citation",
+                "url": "https://x.com/i/user/11348282"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2082916409252647333",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2082916409252647333"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2081856004237545809",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2081856004237545809"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/user/16580226",
+                "type": "url_citation",
+                "url": "https://x.com/i/user/16580226"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083214677291696596",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083214677291696596"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/user/14091091",
+                "type": "url_citation",
+                "url": "https://x.com/i/user/14091091"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083297312948781539",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083297312948781539"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2056812133304697223",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2056812133304697223"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083289440542208058",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083289440542208058"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/user/487833518",
+                "type": "url_citation",
+                "url": "https://x.com/i/user/487833518"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/user/19110632",
+                "type": "url_citation",
+                "url": "https://x.com/i/user/19110632"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2080654232886116631",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2080654232886116631"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/user/26003862",
+                "type": "url_citation",
+                "url": "https://x.com/i/user/26003862"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/user/36771809",
+                "type": "url_citation",
+                "url": "https://x.com/i/user/36771809"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/user/15862891",
+                "type": "url_citation",
+                "url": "https://x.com/i/user/15862891"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/user/2828212668",
+                "type": "url_citation",
+                "url": "https://x.com/i/user/2828212668"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/user/24919888",
+                "type": "url_citation",
+                "url": "https://x.com/i/user/24919888"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2079598277717086520",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2079598277717086520"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/user/20998647",
+                "type": "url_citation",
+                "url": "https://x.com/i/user/20998647"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/user/15309804",
+                "type": "url_citation",
+                "url": "https://x.com/i/user/15309804"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083302981907140799",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083302981907140799"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/user/1451773004",
+                "type": "url_citation",
+                "url": "https://x.com/i/user/1451773004"
+              }
+            ],
+            "logprobs": [],
+            "text": "{\n  \"posts\": [\n    {\n      \"source_url\": \"https://x.com/NatGeoTravel/status/2082904065017590139\",\n      \"text\": \"What\u2019s one historical place you\u2019ve visited that made the past feel real?\\n\\nExplore ancient Pompeii and Herculaneum in #PompeiiOutOfTime with Tom Hiddleston. Now streaming on @DisneyPlus and @Hulu.\",\n      \"author_handle\": \"NatGeoTravel\",\n      \"created_at\": \"2026-07-30T19:00:02Z\",\n      \"has_media\": true\n    },\n    {\n      \"source_url\": \"https://x.com/NatlParkService/status/2083214677291696596\",\n      \"text\": \"On World Ranger Day, we celebrate the dedication, courage, and commitment of rangers who protect and care for national parks and protected areas around the world.\",\n      \"author_handle\": \"NatlParkService\",\n      \"created_at\": \"2026-07-31T15:34:17Z\",\n      \"has_media\": true\n    },\n    {\n      \"source_url\": \"https://x.com/NASA/status/2082911174522257413\",\n      \"text\": \"Astronaut Deniz Burnham is heading to space for the first time!\\n\\n@astro_deniz, a former NASA intern, will lift off to the @Space_Station next spring aboard the Roscosmos Soyuz MS-30 spacecraft: https://www.nasa.gov/news-release/nasa-assigns-astronaut-deniz-burnham-to-first-space-station-mission/?utm_source=TWITTER&utm_medium=NASA&utm_campaign=NASASocial&linkId=987875312\",\n      \"author_handle\": \"NASA\",\n      \"created_at\": \"2026-07-30T19:28:17Z\",\n      \"has_media\": true\n    },\n    {\n      \"source_url\": \"https://x.com/YellowstoneNPS/status/2082907615332274428\",\n      \"text\": \"Pikas may be small, but they sure are mighty! They are one of few mammal species in the Lower 48 that can survive their entire lives above tree line in high-alpine, rocky terrain.\\n\\nThough they look like rodents, they're actually more closely related to rabbits and hares and only eat plants. In late summer, you might see them working diligently to gather mouthfuls of vegetation to sustain them through winter.\\n\\nListen for their distinct high-pitched calls - one of the most recognizable indicators of active pika habitat!\\n\\nNPS Photo / Jacob W. Frank\",\n      \"author_handle\": \"YellowstoneNPS\",\n      \"created_at\": \"2026-07-30T19:14:08Z\",\n      \"has_media\": true\n    },\n    {\n      \"source_url\": \"https://x.com/NASAHubble/status/2082194383063875634\",\n      \"text\": \"These galaxies are locked in.\\n\\nThe pair, known as ESO 550-2, is caught in a gravitational dance.\\n\\nThis interaction's already deformed one arm of the larger galaxy on the left, though star formation continues in it. Learn more: https://science.nasa.gov/asset/hubble/hubble-interacting-galaxy-eso-550-2/?utm_source=TWITTER&utm_medium=NASAHubble&utm_campaign=NASASocial&linkId=984737111\",\n      \"author_handle\": \"NASAHubble\",\n      \"created_at\": \"2026-07-28T20:00:00Z\",\n      \"has_media\": true\n    },\n    {\n      \"source_url\": \"https://x.com/AMAZlNGNATURE/status/2083651229813764516\",\n      \"text\": \"This flower turns transparent when it rains\\n\\nKnown as the Skeleton Flower, its white petals become almost clear when wet before turning white again as they dry\",\n      \"author_handle\": \"AMAZlNGNATURE\",\n      \"created_at\": \"2026-08-01T20:29:00Z\",\n      \"has_media\": true\n    },\n    {\n      \"source_url\": \"https://x.com/Space_Station/status/2083591796332921314\",\n      \"text\": \".@NASA astronaut Deniz Burnham is targeted to begin her first mission to the International Space Station, serving as an Expedition 76 flight engineer, in March 2027. More... https://www.nasa.gov/news-release/nasa-assigns-astronaut-deniz-burnham-to-first-space-station-mission/\",\n      \"author_handle\": \"Space_Station\",\n      \"created_at\": \"2026-08-01T16:32:50Z\",\n      \"has_media\": true\n    },\n    {\n      \"source_url\": \"https://x.com/NASAEarth/status/2083245767687323925\",\n      \"text\": \"Extremely hot and dry conditions in June and July enabled large fires to break out in Europe.\\n\\nSpain saw its largest fire on record in \u00c1vila, as shown in this Landsat 9 false color image. Unburned vegetation is light green and burned areas appear brown. https://science.nasa.gov/earth/earth-observatory/destructive-fires-char-western-europe/?utm_source=TWITTER&utm_medium=NASAEarth&utm_campaign=NASASocial&linkId=988136389\",\n      \"author_handle\": \"NASAEarth\",\n      \"created_at\": \"2026-07-31T17:37:50Z\",\n      \"has_media\": true\n    },\n    {\n      \"source_url\": \"https://x.com/YellowstoneNPS/status/2081452051188371899\",\n      \"text\": \"Step aside wolves, bison, bears, and geysers! Sometimes it's nice to slow down and notice the little things.\\n\\nPhotos (NPS / Jacob W. Frank and Neal Herbert):\\n1. Red squirrel hiding in a snag\\n2. Painted lady resting in the sun\\n3. Raindrops\\n4. Bison tracks in a bacterial mat\",\n      \"author_handle\": \"YellowstoneNPS\",\n      \"created_at\": \"2026-07-26T18:50:15Z\",\n      \"has_media\": true\n    },\n    {\n      \"source_url\": \"https://x.com/NASAHubble/status/2080654232886116631\",\n      \"text\": \"A one-sided spiral \ud83c\udf00\\n\\nLocated about 72 million light-years away, the spiral galaxy NGC 4654 belongs to the Virgo Cluster of galaxies.\\n\\nIts asymmetric shape is caused by pressure it encounters as the galaxy moves through gas in its cluster: https://science.nasa.gov/missions/hubble/hubble-spies-one-sided-spiral/?utm_source=TWITTER&utm_medium=NASAHubble&utm_campaign=NASASocial&linkId=984738482\",\n      \"author_handle\": \"NASAHubble\",\n      \"created_at\": \"2026-07-24T14:00:00Z\",\n      \"has_media\": true\n    },\n    {\n      \"source_url\": \"https://x.com/AMAZlNGNATURE/status/2083682938735009817\",\n      \"text\": \"This bird has been known to chase eagles out of the sky\\n\\nRavens often harass much larger birds of prey until they decide it's not worth the trouble\",\n      \"author_handle\": \"AMAZlNGNATURE\",\n      \"created_at\": \"2026-08-01T22:35:00Z\",\n      \"has_media\": true\n    },\n    {\n      \"source_url\": \"https://x.com/NatlParkService/status/2073377410620219590\",\n      \"text\": \"Happy Independence Day \ud83c\uddfa\ud83c\uddf8 \\n\\nFrom battlefields and memorials to parks and protected landscapes, the places cared for by the National Park Service help bring our shared history to life.\",\n      \"author_handle\": \"NatlParkService\",\n      \"created_at\": \"2026-07-04T12:04:30Z\",\n      \"has_media\": true\n    }\n  ]\n}",
+            "type": "output_text"
+          }
+        ],
+        "id": "msg_34ba3cc1-ec37-9ac9-a632-3708db4f52ed",
+        "role": "assistant",
+        "status": "completed",
+        "type": "message"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "reasoning": {
+      "effort": "low",
+      "summary": "detailed"
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "status": "completed",
+    "store": false,
+    "temperature": 0.7,
+    "text": {
+      "format": {
+        "schema": {
+          "$defs": {
+            "XSearchPost": {
+              "additionalProperties": false,
+              "properties": {
+                "author_handle": {
+                  "minLength": 1,
+                  "title": "Author Handle",
+                  "type": "string"
+                },
+                "created_at": {
+                  "minLength": 1,
+                  "title": "Created At",
+                  "type": "string"
+                },
+                "has_media": {
+                  "title": "Has Media",
+                  "type": "boolean"
+                },
+                "source_url": {
+                  "title": "Source Url",
+                  "type": "string"
+                },
+                "text": {
+                  "minLength": 1,
+                  "title": "Text",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "source_url",
+                "text",
+                "author_handle",
+                "created_at",
+                "has_media"
+              ],
+              "title": "XSearchPost",
+              "type": "object"
+            }
+          },
+          "additionalProperties": false,
+          "properties": {
+            "posts": {
+              "items": {
+                "$ref": "#/$defs/XSearchPost"
+              },
+              "maxItems": 20,
+              "minItems": 1,
+              "title": "Posts",
+              "type": "array"
+            }
+          },
+          "required": [
+            "posts"
+          ],
+          "title": "_XSearchBatch",
+          "type": "object"
+        },
+        "type": "json_schema"
+      }
+    },
+    "tool_choice": "auto",
+    "tools": [
+      {
+        "from_date": "2026-01-01",
+        "to_date": "2026-08-02",
+        "type": "x_search"
+      }
+    ],
+    "top_logprobs": 0,
+    "top_p": 0.95,
+    "truncation": "disabled",
+    "usage": {
+      "context_details": {
+        "input_tokens": 16756,
+        "output_tokens": 1986
+      },
+      "cost_in_usd_ticks": 1505232000,
+      "input_tokens": 65959,
+      "input_tokens_details": {
+        "cached_tokens": 50304
+      },
+      "num_server_side_tools_used": 17,
+      "num_sources_used": 0,
+      "output_tokens": 3187,
+      "output_tokens_details": {
+        "reasoning_tokens": 1300
+      },
+      "server_side_tool_usage_details": {
+        "code_interpreter_calls": 0,
+        "document_search_calls": 0,
+        "file_search_calls": 0,
+        "image_generation_calls": 0,
+        "mcp_calls": 0,
+        "web_search_calls": 0,
+        "x_search_calls": 17
+      },
+      "total_tokens": 69146
+    },
+    "user": null
+  },
+  "response_sha256": "a5221503c821492a98c851df9c3c0a66f59bdb6216be412ce090ef17bb4cb6ef",
+  "surface": "tool.x_search.inventory"
+}

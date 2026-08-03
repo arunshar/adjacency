@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/McDonaldHopkins/status/2082143677992804709"
+  },
+  "request_sha256": "fd2df1e0a5807756ab5e1f7eaa01adce7599db90c421ceed05a6fb0ca9dbf6d0",
+  "response": {
+    "author_handle": "@McDonaldHopkins",
+    "created_at": "July 28, 2026",
+    "media_height": null,
+    "media_url": null,
+    "media_width": null,
+    "source_url": "https://x.com/McDonaldHopkins/status/2082143677992804709",
+    "text": "Scammers are getting more sophisticated. The FBI is warning that criminals are now using AI-generated deepfake videos of senior FBI officials to make fraud schemes appear legitimate.https://t.co/i5TMDQPvFD"
+  },
+  "response_sha256": "f5a4558767de405cd6e5410d9222abcde1632d04a59daf81b6f3629d4c9d2e98",
+  "surface": "http.x_status_metadata"
+}

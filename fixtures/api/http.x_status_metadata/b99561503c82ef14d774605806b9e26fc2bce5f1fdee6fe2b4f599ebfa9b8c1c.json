@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/GovernorShapiro/status/2007829399920406898"
+  },
+  "request_sha256": "b99561503c82ef14d774605806b9e26fc2bce5f1fdee6fe2b4f599ebfa9b8c1c",
+  "response": {
+    "author_handle": "@GovernorShapiro",
+    "created_at": "January 4, 2026",
+    "media_height": 1350,
+    "media_url": "https://pbs.twimg.com/media/G90-MrAXMAI55vl.jpg:large",
+    "media_width": 1080,
+    "source_url": "https://x.com/GovernorShapiro/status/2007829399920406898",
+    "text": "If you don\u2019t think our two-pronged approach to public safety is working, you\u2019re not paying attention: Violent crime is down by 12% and fatal gun violence is down by 42% across our Commonwealth \u2014 and last year, Pittsburgh and Philadelphia saw the fewest homicides in decades.\u2026"
+  },
+  "response_sha256": "d7932d3f8ac957445dfdbeb2891568ec9af5c57696e23937f546967256179477",
+  "surface": "http.x_status_metadata"
+}

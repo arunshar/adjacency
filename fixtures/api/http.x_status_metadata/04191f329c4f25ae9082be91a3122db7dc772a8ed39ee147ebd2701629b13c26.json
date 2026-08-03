@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/AhiKeoKeo/status/2083686878545399955"
+  },
+  "request_sha256": "04191f329c4f25ae9082be91a3122db7dc772a8ed39ee147ebd2701629b13c26",
+  "response": {
+    "author_handle": "@AhiKeoKeo",
+    "created_at": "August 1, 2026",
+    "media_height": null,
+    "media_url": null,
+    "media_width": null,
+    "source_url": "https://x.com/AhiKeoKeo/status/2083686878545399955",
+    "text": "Domestic infrastructure and public health are showing serious fractures. In Michigan, nearly 1,000 people have been infected in the state\u2019s largest outbreak of a parasitic disease. In New York, investigators are hunting the source of a Legionnaires\u2019 disease outbreak in the Upper\u2026"
+  },
+  "response_sha256": "b09a257d2ae71abc6288e4948b73660afdfd1af288a8794765101791331a3b32",
+  "surface": "http.x_status_metadata"
+}

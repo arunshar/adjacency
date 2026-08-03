@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/EHeadshotz/status/2083704328578097471"
+  },
+  "request_sha256": "a23a7877d1b657ba77c5f3acde15914882d0e39529e1ad033fadf74d55ef40bf",
+  "response": {
+    "author_handle": "@EHeadshotz",
+    "created_at": "August 1, 2026",
+    "media_height": null,
+    "media_url": null,
+    "media_width": null,
+    "source_url": "https://x.com/EHeadshotz/status/2083704328578097471",
+    "text": "That's crazy the song \"Rain\" by Swv was supposed to been for Brandy"
+  },
+  "response_sha256": "5f86c9cb61a31784f1d1aa95c48dafd927dc2cc0575132af8d72f623a3ebdb34",
+  "surface": "http.x_status_metadata"
+}

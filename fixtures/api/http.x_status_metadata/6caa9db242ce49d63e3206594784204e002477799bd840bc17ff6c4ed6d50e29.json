@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/keribla/status/2069384568327536816"
+  },
+  "request_sha256": "6caa9db242ce49d63e3206594784204e002477799bd840bc17ff6c4ed6d50e29",
+  "response": {
+    "author_handle": "@keribla",
+    "created_at": "June 23, 2026",
+    "media_height": 766,
+    "media_url": "https://pbs.twimg.com/media/HLfuJSkbIAAWbJG.png:large",
+    "media_width": 1166,
+    "source_url": "https://x.com/keribla/status/2069384568327536816",
+    "text": "This explanation of how they got the story is bonkers https://t.co/NO8tegETD6 https://t.co/99gGeZqawo"
+  },
+  "response_sha256": "7c7f1e1be5142e95932e8b64512201c996f94e3d06a6199c05ecc0dd19961eb5",
+  "surface": "http.x_status_metadata"
+}

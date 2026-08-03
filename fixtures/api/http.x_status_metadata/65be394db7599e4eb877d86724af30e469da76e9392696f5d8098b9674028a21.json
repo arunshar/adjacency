@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/Malavoces/status/2082528027410334119"
+  },
+  "request_sha256": "65be394db7599e4eb877d86724af30e469da76e9392696f5d8098b9674028a21",
+  "response": {
+    "author_handle": "@Malavoces",
+    "created_at": "July 29, 2026",
+    "media_height": null,
+    "media_url": null,
+    "media_width": null,
+    "source_url": "https://x.com/Malavoces/status/2082528027410334119",
+    "text": "The Warrior \u201cThis is a weapon of terror. It\u2019s made to intimidate the enemy.\u201d \u201cThis is a weapon of war. Its purpose is to kill the enemy.\u201d The absolutely greatest and and most effective military lampshading scene in the history of Science Fiction. It\u2019s lamp-shading because\u2026"
+  },
+  "response_sha256": "7143de9823d441dd869601d61fc0b01df2b8657500b4d5403a53eef6a02948ca",
+  "surface": "http.x_status_metadata"
+}

@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/memecoin_trades/status/2083671524406661439"
+  },
+  "request_sha256": "a1d5f94200b8f0dbcf85640c303a6d94ad6ea35efe3cb53ca1a575f09a0219f0",
+  "response": {
+    "author_handle": "@memecoin_trades",
+    "created_at": "August 1, 2026",
+    "media_height": null,
+    "media_url": null,
+    "media_width": null,
+    "source_url": "https://x.com/memecoin_trades/status/2083671524406661439",
+    "text": "My drug policy is simple. Straight to jail. Minimum 15 years. You were a dealer? Life in prison or death penalty No tolerance. If rules are not backed my punishment, no one will respect them."
+  },
+  "response_sha256": "5f1ded2ce544919bedbb92774c623dec820f47e255261ef393c7cc2a3517e17b",
+  "surface": "http.x_status_metadata"
+}

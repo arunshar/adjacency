@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/trueaussieocca/status/2081194938700849456"
+  },
+  "request_sha256": "6b330d03916ecb5cd635edb5004c3199132d51a2ef7f0cdf737e7c5ae44254cd",
+  "response": {
+    "author_handle": "@trueaussieocca",
+    "created_at": "July 26, 2026",
+    "media_height": 400,
+    "media_url": "https://abs.twimg.com/sticky/default_profile_images/default_profile_200x200.png",
+    "media_width": 400,
+    "source_url": "https://x.com/trueaussieocca/status/2081194938700849456",
+    "text": "People who think the AFL is a good organisation let's not forget they hid a pedofile they cheat their own drug policy and they treat people differently by colour and they won't stick up for women's rights and they don't believe in free speech this is a communist organisation"
+  },
+  "response_sha256": "147228416ccf7a5a02d72d602257fca4487301de49541dc22595f0cec43206e2",
+  "surface": "http.x_status_metadata"
+}

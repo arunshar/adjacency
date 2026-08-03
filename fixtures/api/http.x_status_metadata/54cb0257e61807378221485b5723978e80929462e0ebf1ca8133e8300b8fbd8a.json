@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/DEC0L0NIZE/status/2083688145892339720"
+  },
+  "request_sha256": "54cb0257e61807378221485b5723978e80929462e0ebf1ca8133e8300b8fbd8a",
+  "response": {
+    "author_handle": "@DEC0L0NIZE",
+    "created_at": "August 1, 2026",
+    "media_height": null,
+    "media_url": null,
+    "media_width": null,
+    "source_url": "https://x.com/DEC0L0NIZE/status/2083688145892339720",
+    "text": "\u201ci can\u2019t believe society is like this!\u201d -covid forgetters/post pandemic pretenders who won\u2019t even mask for grandma, dad in chemo, and damn sure not strangers just trying to survive unmitigated airborne viruses in this post public health crisis"
+  },
+  "response_sha256": "ab5f270506d26b14d423114f68d8137c409de5513a04357bb0ffacc81a539815",
+  "surface": "http.x_status_metadata"
+}

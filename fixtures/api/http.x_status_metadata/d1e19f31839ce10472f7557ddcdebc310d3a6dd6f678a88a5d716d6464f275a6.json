@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/ABC/status/2083638898106761703"
+  },
+  "request_sha256": "d1e19f31839ce10472f7557ddcdebc310d3a6dd6f678a88a5d716d6464f275a6",
+  "response": {
+    "author_handle": "@ABC",
+    "created_at": "August 1, 2026",
+    "media_height": null,
+    "media_url": "https://pbs.twimg.com/card_img/2083629487099359232/cXeLmzr2?format=jpg&name=orig",
+    "media_width": null,
+    "source_url": "https://x.com/ABC/status/2083638898106761703",
+    "text": "Police in Rochester, New York, are looking for suspects after a woman was killed and two others were injured in a shooting after a Puerto Rican festival early Saturday morning. https://t.co/AmldR6Pf3O"
+  },
+  "response_sha256": "cdfee6db093143bf2d89c46bd77d8beed1678c840d36301cd8a1825147f74f29",
+  "surface": "http.x_status_metadata"
+}

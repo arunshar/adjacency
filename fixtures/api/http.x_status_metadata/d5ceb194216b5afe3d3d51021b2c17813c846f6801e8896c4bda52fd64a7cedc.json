@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/cknxnewstoday/status/2083212964623012294"
+  },
+  "request_sha256": "d5ceb194216b5afe3d3d51021b2c17813c846f6801e8896c4bda52fd64a7cedc",
+  "response": {
+    "author_handle": "@cknxnewstoday",
+    "created_at": "July 31, 2026",
+    "media_height": null,
+    "media_url": "https://pbs.twimg.com/card_img/2082690550021459968/jTiNQe4z?format=jpg&name=orig",
+    "media_width": null,
+    "source_url": "https://x.com/cknxnewstoday/status/2083212964623012294",
+    "text": "Grey Bruce Public Health is warning drug users in the region that a toxic level of fentanyl has been found in a sample of local meth.https://t.co/w5T9LSufpG"
+  },
+  "response_sha256": "ec7605b0f14d0dc9e18d1aaabbd1d098eb197cc9fdd0d6465ca0a0cfadde0f3d",
+  "surface": "http.x_status_metadata"
+}

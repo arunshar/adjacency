@@ -1,0 +1,596 @@
+{
+  "format_version": 1,
+  "request": {
+    "input": [
+      {
+        "content": "Use x_search to find distinct public X posts matching the query. Return only posts you found through the tool. Use direct x.com status URLs, exact post text, the author handle, an ISO date or timestamp, and whether the post has attached media. Do not invent or reconstruct URLs. Prefer original posts over replies and reposts.\n\nQuery label: neutral_violence_reporting\nQuery: Neutral news, public-safety, or violence-prevention reporting that mentions violence. Exclude content that celebrates harm and prefer non-graphic attached media.\nReturn at most 12 posts.",
+        "role": "user"
+      }
+    ],
+    "max_output_tokens": 8192,
+    "max_tool_calls": 6,
+    "model": "grok-4.5",
+    "reasoning": {
+      "effort": "low"
+    },
+    "store": false,
+    "text": {
+      "format": {
+        "name": "x_inventory_batch",
+        "schema": {
+          "$defs": {
+            "XSearchPost": {
+              "additionalProperties": false,
+              "properties": {
+                "author_handle": {
+                  "minLength": 1,
+                  "title": "Author Handle",
+                  "type": "string"
+                },
+                "created_at": {
+                  "minLength": 1,
+                  "title": "Created At",
+                  "type": "string"
+                },
+                "has_media": {
+                  "title": "Has Media",
+                  "type": "boolean"
+                },
+                "source_url": {
+                  "title": "Source Url",
+                  "type": "string"
+                },
+                "text": {
+                  "minLength": 1,
+                  "title": "Text",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "source_url",
+                "text",
+                "author_handle",
+                "created_at",
+                "has_media"
+              ],
+              "title": "XSearchPost",
+              "type": "object"
+            }
+          },
+          "additionalProperties": false,
+          "properties": {
+            "posts": {
+              "items": {
+                "$ref": "#/$defs/XSearchPost"
+              },
+              "maxItems": 20,
+              "minItems": 1,
+              "title": "Posts",
+              "type": "array"
+            }
+          },
+          "required": [
+            "posts"
+          ],
+          "title": "_XSearchBatch",
+          "type": "object"
+        },
+        "strict": true,
+        "type": "json_schema"
+      }
+    },
+    "tools": [
+      {
+        "from_date": "2026-01-01",
+        "to_date": "2026-08-02",
+        "type": "x_search"
+      }
+    ]
+  },
+  "request_sha256": "85f291cb851deb80d23c6835d61f85f601777753b6207fc72647bdf2d0a50045",
+  "response": {
+    "background": false,
+    "completed_at": 1785745230,
+    "created_at": 1785745230,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "id": "6f30f621-ea33-9956-8b92-96546b44ce2c",
+    "incomplete_details": null,
+    "instructions": null,
+    "max_output_tokens": 8192,
+    "max_tool_calls": null,
+    "metadata": {
+      "system_fingerprint": "fp_a39489019fa99b6e"
+    },
+    "model": "grok-4.5",
+    "object": "response",
+    "output": [
+      {
+        "id": "rs_6f30f621-ea33-9956-8b92-96546b44ce2c",
+        "status": "completed",
+        "summary": [
+          {
+            "text": "The user wants me to use x_search to find distinct public X posts matching the query: Neutral news, public-safety, or violence-prevention reporting that mentions violence. Exclude content that celebra...",
+            "type": "summary_text"
+          }
+        ],
+        "type": "reasoning"
+      },
+      {
+        "call_id": "xs_call-547038e0-8e29-4e39-85bb-7acfcba7bf20-0",
+        "id": "ctc_6f30f621-ea33-9956-8b92-96546b44ce2c_call-547038e0-8e29-4e39-85bb-7acfcba7bf20-0",
+        "input": "{\"query\":\"Neutral news, public-safety, or violence-prevention reporting that mentions violence. Exclude content that celebrates harm and prefer non-graphic attached media.\",\"limit\":\"10\",\"min_score_threshold\":\"0.1\"}",
+        "name": "x_semantic_search",
+        "status": "completed",
+        "type": "custom_tool_call"
+      },
+      {
+        "call_id": "xs_call-547038e0-8e29-4e39-85bb-7acfcba7bf20-1",
+        "id": "ctc_6f30f621-ea33-9956-8b92-96546b44ce2c_call-547038e0-8e29-4e39-85bb-7acfcba7bf20-1",
+        "input": "{\"query\":\"(\\\"violence\\\" OR \\\"violent\\\" OR \\\"assault\\\" OR \\\"shooting\\\" OR \\\"stabbing\\\") (news OR report OR \\\"public safety\\\" OR \\\"prevention\\\" OR police OR \\\"crime prevention\\\") -celebrate -glory -based filter:has_engagement\",\"limit\":\"10\",\"mode\":\"Latest\"}",
+        "name": "x_keyword_search",
+        "status": "completed",
+        "type": "custom_tool_call"
+      },
+      {
+        "id": "tco_6f30f621-ea33-9956-8b92-96546b44ce2c_call-547038e0-8e29-4e39-85bb-7acfcba7bf20-0",
+        "status": "completed",
+        "summary": [],
+        "type": "reasoning"
+      },
+      {
+        "id": "tco_6f30f621-ea33-9956-8b92-96546b44ce2c_call-547038e0-8e29-4e39-85bb-7acfcba7bf20-1",
+        "status": "completed",
+        "summary": [],
+        "type": "reasoning"
+      },
+      {
+        "call_id": "xs_call-547038e0-8e29-4e39-85bb-7acfcba7bf20-2",
+        "id": "ctc_6f30f621-ea33-9956-8b92-96546b44ce2c_call-547038e0-8e29-4e39-85bb-7acfcba7bf20-2",
+        "input": "{\"query\":\"(\\\"shooting\\\" OR \\\"violence\\\" OR \\\"assault\\\") (police OR \\\"public safety\\\" OR news OR report OR prevention) (from:nypost OR from:AP OR from:Reuters OR from:CNN OR from:BBC OR from:ABC OR from:CBSNews OR from:NBCNews OR from:FoxNews OR from:DHSgov OR from:FBI OR from:sesamestreet)\",\"limit\":\"10\",\"mode\":\"Latest\"}",
+        "name": "x_keyword_search",
+        "status": "completed",
+        "type": "custom_tool_call"
+      },
+      {
+        "call_id": "xs_call-547038e0-8e29-4e39-85bb-7acfcba7bf20-3",
+        "id": "ctc_6f30f621-ea33-9956-8b92-96546b44ce2c_call-547038e0-8e29-4e39-85bb-7acfcba7bf20-3",
+        "input": "{\"query\":\"neutral news report on violence or shooting public safety prevention\",\"limit\":\"5\"}",
+        "name": "x_semantic_search",
+        "status": "completed",
+        "type": "custom_tool_call"
+      },
+      {
+        "id": "tco_6f30f621-ea33-9956-8b92-96546b44ce2c_call-547038e0-8e29-4e39-85bb-7acfcba7bf20-2",
+        "status": "completed",
+        "summary": [],
+        "type": "reasoning"
+      },
+      {
+        "id": "tco_6f30f621-ea33-9956-8b92-96546b44ce2c_call-547038e0-8e29-4e39-85bb-7acfcba7bf20-3",
+        "status": "completed",
+        "summary": [],
+        "type": "reasoning"
+      },
+      {
+        "call_id": "xs_call-547038e0-8e29-4e39-85bb-7acfcba7bf20-4",
+        "id": "ctc_6f30f621-ea33-9956-8b92-96546b44ce2c_call-547038e0-8e29-4e39-85bb-7acfcba7bf20-4",
+        "input": "{\"query\":\"\\\"violence prevention\\\" OR \\\"public safety\\\" violence OR shooting report OR news\",\"limit\":\"5\",\"mode\":\"Latest\"}",
+        "name": "x_keyword_search",
+        "status": "completed",
+        "type": "custom_tool_call"
+      },
+      {
+        "call_id": "xs_call-547038e0-8e29-4e39-85bb-7acfcba7bf20-5",
+        "id": "ctc_6f30f621-ea33-9956-8b92-96546b44ce2c_call-547038e0-8e29-4e39-85bb-7acfcba7bf20-5",
+        "input": "{\"query\":\"from:sesamestreet violence\",\"limit\":\"3\",\"mode\":\"Latest\"}",
+        "name": "x_keyword_search",
+        "status": "completed",
+        "type": "custom_tool_call"
+      },
+      {
+        "id": "tco_6f30f621-ea33-9956-8b92-96546b44ce2c_call-547038e0-8e29-4e39-85bb-7acfcba7bf20-4",
+        "status": "completed",
+        "summary": [],
+        "type": "reasoning"
+      },
+      {
+        "id": "tco_6f30f621-ea33-9956-8b92-96546b44ce2c_call-547038e0-8e29-4e39-85bb-7acfcba7bf20-5",
+        "status": "completed",
+        "summary": [],
+        "type": "reasoning"
+      },
+      {
+        "content": [
+          {
+            "annotations": [
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083703997098229820",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083703997098229820"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2016885909178794188",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2016885909178794188"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2015938009670062552",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2015938009670062552"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083703751404028286",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083703751404028286"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2007829399920406898",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2007829399920406898"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083266532042539243",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083266532042539243"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083638898106761703",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083638898106761703"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2066711136917979586",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2066711136917979586"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083621347767251025",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083621347767251025"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083703733285015615",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083703733285015615"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083540076022182140",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083540076022182140"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083199475397321077",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083199475397321077"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083603259181170912",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083603259181170912"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083591411606134905",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083591411606134905"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083613775169516012",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083613775169516012"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083703724661154129",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083703724661154129"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083670978056409412",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083670978056409412"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2026801998935298375",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2026801998935298375"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2021298689969430554",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2021298689969430554"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083538067118559461",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083538067118559461"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083587863061348550",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083587863061348550"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2081873837017141538",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2081873837017141538"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083261428081848573",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083261428081848573"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083703813521686674",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083703813521686674"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083586217988218930",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083586217988218930"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083692181492060523",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083692181492060523"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083704281665007626",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083704281665007626"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083257164223631747",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083257164223631747"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083317835816644689",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083317835816644689"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083584341423104183",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083584341423104183"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2082207283694407694",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2082207283694407694"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083703929624461756",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083703929624461756"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083703685234786376",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083703685234786376"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2020939429565911529",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2020939429565911529"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2081913965571924146",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2081913965571924146"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083704102836437489",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083704102836437489"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083704280767189153",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083704280767189153"
+              }
+            ],
+            "logprobs": [],
+            "text": "{\n  \"posts\": [\n    {\n      \"source_url\": \"https://x.com/sesamestreet/status/2015938009670062552\",\n      \"text\": \"When little ones hear about violent events on the news or in their communities, it can be hard to help them understand and cope with what happened. Limiting media exposure and making space for them to express big feelings can help children feel safer and more secure.\\n \\nCheck here for more free resources supporting families affected by violence:\",\n      \"author_handle\": \"sesamestreet\",\n      \"created_at\": \"2026-01-27T00:00:50Z\",\n      \"has_media\": true\n    },\n    {\n      \"source_url\": \"https://x.com/NBCNews/status/2083692181492060523\",\n      \"text\": \"BREAKING: At least three dead and two injured in a shooting in Twin Falls, Idaho, authorities say. https://www.nbcnews.com/news/us-news/dead-injured-shooting-twin-falls-idaho-rcna590420?cid=sm_npd_nn_tw_ma&taid=6a6e7d2f06e58b00018fba39&utm_campaign=trueanthem&utm_medium=social&utm_source=twitter\",\n      \"author_handle\": \"NBCNews\",\n      \"created_at\": \"2026-08-01T23:11:43Z\",\n      \"has_media\": false\n    },\n    {\n      \"source_url\": \"https://x.com/ABC/status/2083638898106761703\",\n      \"text\": \"Police in Rochester, New York, are looking for suspects after a woman was killed and two others were injured in a shooting after a Puerto Rican festival early Saturday morning. https://abcnews.com/US/rochester-police-searching-clues-after-woman-fatally-shot/story?id=135290808&cid=social_twitter_abcn\",\n      \"author_handle\": \"ABC\",\n      \"created_at\": \"2026-08-01T19:40:00Z\",\n      \"has_media\": false\n    },\n    {\n      \"source_url\": \"https://x.com/News_8/status/2083703685234786376\",\n      \"text\": \"BREAKING UPDATE: RPD has identified 14-year-old Zahnia Barr as the victim of last night's fatal N. Clinton shooting. No suspects are in custody yet. https://www.rochesterfirst.com/news/local-news/female-fatally-shot-during-crowd-dispersal-on-n-clinton-avenue/\",\n      \"author_handle\": \"News_8\",\n      \"created_at\": \"2026-08-01T23:57:26Z\",\n      \"has_media\": false\n    },\n    {\n      \"source_url\": \"https://x.com/GovernorShapiro/status/2007829399920406898\",\n      \"text\": \"If you don\u2019t think our two-pronged approach to public safety is working, you\u2019re not paying attention:\\n \\nViolent crime is down by 12% and fatal gun violence is down by 42% across our Commonwealth \u2014 and last year, Pittsburgh and Philadelphia saw the fewest homicides in decades.\\n \\nThat\u2019s called GSD.\",\n      \"author_handle\": \"GovernorShapiro\",\n      \"created_at\": \"2026-01-04T15:00:07Z\",\n      \"has_media\": true\n    },\n    {\n      \"source_url\": \"https://x.com/ABC/status/2083670978056409412\",\n      \"text\": \"James Farthing, who won a $167.3 million prize in Kentucky's Powerball in 2025, was arrested on domestic-violence-related charges for an alleged incident that occurred on Sunday, according to county authorities. https://abcnews.com/US/winner-167m-lottery-arrested-domestic-violence-related-charges/story?id=135191015&cid=social_twitter_abcn\",\n      \"author_handle\": \"ABC\",\n      \"created_at\": \"2026-08-01T21:47:28Z\",\n      \"has_media\": false\n    },\n    {\n      \"source_url\": \"https://x.com/sacbee_news/status/2083621347767251025\",\n      \"text\": \"Sacramento funds youth violence prevention with little oversight. What to know https://www.sacbee.com/csa-content/article316688474.html?taid=6a6e3b3706e58b00018fb826&utm_campaign=trueanthem&utm_medium=social&utm_source=twitter\",\n      \"author_handle\": \"sacbee_news\",\n      \"created_at\": \"2026-08-01T18:30:15Z\",\n      \"has_media\": false\n    },\n    {\n      \"source_url\": \"https://x.com/lookner/status/2083703751404028286\",\n      \"text\": \"Suspected shooter in Idaho In-N-Out shooting is dead, police are working on identifying him and figuring out the motivation\\n\\n(from press conference)\",\n      \"author_handle\": \"lookner\",\n      \"created_at\": \"2026-08-01T23:57:42Z\",\n      \"has_media\": false\n    },\n    {\n      \"source_url\": \"https://x.com/TheCCShowcast/status/2083703813521686674\",\n      \"text\": \"\ud83d\udd34 Shooter DEAD- Shooting suspect at Twin Falls, Idaho In-N-Out Burger is deceased. \\n\\nPolice say no further threat to the public.\",\n      \"author_handle\": \"TheCCShowcast\",\n      \"created_at\": \"2026-08-01T23:57:57Z\",\n      \"has_media\": true\n    },\n    {\n      \"source_url\": \"https://x.com/WarHorizon/status/2083704281665007626\",\n      \"text\": \"Police confirm the suspect in the Twin Falls, Idaho, shooting is deceased and the threat is no longer active.\\n\\nvia - @newsnoteworthy\",\n      \"author_handle\": \"WarHorizon\",\n      \"created_at\": \"2026-08-01T23:59:48Z\",\n      \"has_media\": true\n    },\n    {\n      \"source_url\": \"https://x.com/NBCNews/status/2083613775169516012\",\n      \"text\": \"The sentencing of the man who gifted his son an assault rifle used in a mass shooting at a Georgia high school in 2024 could embolden prosecutors to hold more parents legally accountable for their children\u2019s crimes, experts say. https://www.nbcnews.com/news/us-news/dads-sentencing-school-shooting-affirms-legal-jeopardy-parents-rcna590049?cid=sm_npd_nn_tw_ma&taid=6a6e342aef02360001bd1c4c&utm_campaign=trueanthem&utm_medium=social&utm_source=twitter\",\n      \"author_handle\": \"NBCNews\",\n      \"created_at\": \"2026-08-01T18:00:10Z\",\n      \"has_media\": false\n    },\n    {\n      \"source_url\": \"https://x.com/ABC/status/2083540076022182140\",\n      \"text\": \"A 15-year-old Indiana boy has been sentenced to 100 years in prison after being convicted in a 2025 gang-related shooting that left one woman dead, another wounded and a third injured when she was hit by a car fleeing the gunfire, prosecutors said. https://abcnews.com/US/15-year-convicted-murderer-sentenced-100-years-prison/story?id=135221500&cid=social_twitter_abcn\",\n      \"author_handle\": \"ABC\",\n      \"created_at\": \"2026-08-01T13:07:19Z\",\n      \"has_media\": false\n    }\n  ]\n}",
+            "type": "output_text"
+          }
+        ],
+        "id": "msg_6f30f621-ea33-9956-8b92-96546b44ce2c",
+        "role": "assistant",
+        "status": "completed",
+        "type": "message"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "reasoning": {
+      "effort": "low",
+      "summary": "detailed"
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "status": "completed",
+    "store": false,
+    "temperature": 0.7,
+    "text": {
+      "format": {
+        "schema": {
+          "$defs": {
+            "XSearchPost": {
+              "additionalProperties": false,
+              "properties": {
+                "author_handle": {
+                  "minLength": 1,
+                  "title": "Author Handle",
+                  "type": "string"
+                },
+                "created_at": {
+                  "minLength": 1,
+                  "title": "Created At",
+                  "type": "string"
+                },
+                "has_media": {
+                  "title": "Has Media",
+                  "type": "boolean"
+                },
+                "source_url": {
+                  "title": "Source Url",
+                  "type": "string"
+                },
+                "text": {
+                  "minLength": 1,
+                  "title": "Text",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "source_url",
+                "text",
+                "author_handle",
+                "created_at",
+                "has_media"
+              ],
+              "title": "XSearchPost",
+              "type": "object"
+            }
+          },
+          "additionalProperties": false,
+          "properties": {
+            "posts": {
+              "items": {
+                "$ref": "#/$defs/XSearchPost"
+              },
+              "maxItems": 20,
+              "minItems": 1,
+              "title": "Posts",
+              "type": "array"
+            }
+          },
+          "required": [
+            "posts"
+          ],
+          "title": "_XSearchBatch",
+          "type": "object"
+        },
+        "type": "json_schema"
+      }
+    },
+    "tool_choice": "auto",
+    "tools": [
+      {
+        "from_date": "2026-01-01",
+        "to_date": "2026-08-02",
+        "type": "x_search"
+      }
+    ],
+    "top_logprobs": 0,
+    "top_p": 0.95,
+    "truncation": "disabled",
+    "usage": {
+      "context_details": {
+        "input_tokens": 13459,
+        "output_tokens": 2199
+      },
+      "cost_in_usd_ticks": 811808000,
+      "input_tokens": 34267,
+      "input_tokens_details": {
+        "cached_tokens": 20736
+      },
+      "num_server_side_tools_used": 6,
+      "num_sources_used": 0,
+      "output_tokens": 2983,
+      "output_tokens_details": {
+        "reasoning_tokens": 1129
+      },
+      "server_side_tool_usage_details": {
+        "code_interpreter_calls": 0,
+        "document_search_calls": 0,
+        "file_search_calls": 0,
+        "image_generation_calls": 0,
+        "mcp_calls": 0,
+        "web_search_calls": 0,
+        "x_search_calls": 6
+      },
+      "total_tokens": 37250
+    },
+    "user": null
+  },
+  "response_sha256": "6bb73eb7870181de2fc3970628612bf6787e9ea86928924b75a4357482e713d4",
+  "surface": "tool.x_search.inventory"
+}

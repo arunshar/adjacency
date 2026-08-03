@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/NBCNews/status/2083692181492060523"
+  },
+  "request_sha256": "5140b461b266d2fcb651f1b1f59250eaa1a811c4539fede3758a783ce960d94e",
+  "response": {
+    "author_handle": "@NBCNews",
+    "created_at": "August 1, 2026",
+    "media_height": null,
+    "media_url": "https://pbs.twimg.com/card_img/2083692155491483649/AouvQ7yP?format=png&name=orig",
+    "media_width": null,
+    "source_url": "https://x.com/NBCNews/status/2083692181492060523",
+    "text": "BREAKING: At least three dead and two injured in a shooting in Twin Falls, Idaho, authorities say. https://t.co/3OQVkBYL5k"
+  },
+  "response_sha256": "6b4f5f1e6902559282da303499ce85ef414b7bf8c6914b797dbd3b81b621781b",
+  "surface": "http.x_status_metadata"
+}

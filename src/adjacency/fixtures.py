@@ -99,10 +99,21 @@ def _reject_secrets(value: Any, path: str = "request") -> None:
 class FixtureStore:
     """Record or replay one external surface by content hash."""
 
-    def __init__(self, root: Path | str | None = None, *, record: bool | None = None):
+    def __init__(
+        self,
+        root: Path | str | None = None,
+        *,
+        record: bool | None = None,
+        reuse_existing: bool | None = None,
+    ):
         configured_root = root or os.environ.get("ADJ_FIXTURE_DIR") or "fixtures/api"
         self.root = Path(configured_root)
         self.record = os.environ.get("ADJ_RECORD") == "1" if record is None else record
+        self.reuse_existing = (
+            os.environ.get("ADJ_REUSE_FIXTURES") == "1"
+            if reuse_existing is None
+            else reuse_existing
+        )
 
     def request_hash(self, surface: str, request: Any) -> str:
         self._validate_surface(surface)
@@ -136,6 +147,8 @@ class FixtureStore:
         normalized_request = _jsonable(request)
         path = self.fixture_path(surface, normalized_request)
         if self.record:
+            if self.reuse_existing and path.is_file():
+                return self._replay(path, surface, normalized_request)
             if invoke is None:
                 raise ValueError("record mode requires an invoke callable")
             normalized_response = _jsonable(invoke())
@@ -173,7 +186,7 @@ class FixtureStore:
                 suffix=".tmp",
             ) as handle:
                 temporary_path = Path(handle.name)
-                json.dump(document, handle, ensure_ascii=False, indent=2, sort_keys=True)
+                json.dump(document, handle, ensure_ascii=True, indent=2, sort_keys=True)
                 handle.write("\n")
                 handle.flush()
                 os.fsync(handle.fileno())

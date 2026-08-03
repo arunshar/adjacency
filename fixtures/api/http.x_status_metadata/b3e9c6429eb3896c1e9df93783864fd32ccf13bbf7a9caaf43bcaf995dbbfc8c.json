@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/PIB_India/status/2082769468292501886"
+  },
+  "request_sha256": "b3e9c6429eb3896c1e9df93783864fd32ccf13bbf7a9caaf43bcaf995dbbfc8c",
+  "response": {
+    "author_handle": "@PIB_India",
+    "created_at": "July 30, 2026",
+    "media_height": 1600,
+    "media_url": "https://pbs.twimg.com/media/HOd7wJ0bkAAJfG-.jpg:large",
+    "media_width": 1422,
+    "source_url": "https://x.com/PIB_India/status/2082769468292501886",
+    "text": "\ud83d\udca0Government Strengthens Framework to Counter AI-Generated Deepfakes through Legal Safeguards, Platform Accountability and Citizen Protection \ud83d\udca013 Responsible AI Projects Approved for Deepfake Detection as Over 11.37 Lakh People Benefit from 6,650 Cyber Security Awareness\u2026"
+  },
+  "response_sha256": "620dc0517843546ca3a6298386b7a1924acc8ec447fb3b9a083ae7643c94d1b9",
+  "surface": "http.x_status_metadata"
+}

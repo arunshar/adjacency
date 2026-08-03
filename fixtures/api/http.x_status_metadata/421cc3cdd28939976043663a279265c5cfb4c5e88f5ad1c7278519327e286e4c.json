@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/ClimateBen/status/2083623510165934575"
+  },
+  "request_sha256": "421cc3cdd28939976043663a279265c5cfb4c5e88f5ad1c7278519327e286e4c",
+  "response": {
+    "author_handle": "@ClimateBen",
+    "created_at": "August 1, 2026",
+    "media_height": 528,
+    "media_url": "https://pbs.twimg.com/media/HOqDGV1WcAAOgTf.jpg:large",
+    "media_width": 1068,
+    "source_url": "https://x.com/ClimateBen/status/2083623510165934575",
+    "text": "21ST CENTURY MASS EXTINCTION: people think species will simply move into cooler areas as heat extremes hit, but a new study showed more than 70% of species have not been doing so * tropical and temperate species are both in more danger than is commonly recognised"
+  },
+  "response_sha256": "617d2b64c80ab24de44c6a4fd2b7fb59775fda4e9f68deef62dacb6526132937",
+  "surface": "http.x_status_metadata"
+}

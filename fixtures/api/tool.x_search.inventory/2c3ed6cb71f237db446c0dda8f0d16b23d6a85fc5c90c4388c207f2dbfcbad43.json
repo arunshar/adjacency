@@ -1,0 +1,463 @@
+{
+  "format_version": 1,
+  "request": {
+    "input": [
+      {
+        "content": "Use x_search to find distinct public X posts matching the query. Return only posts you found through the tool. Use direct x.com status URLs, exact post text, the author handle, an ISO date or timestamp, and whether the post has attached media. Do not invent or reconstruct URLs. Prefer original posts over replies and reposts.\n\nQuery label: clean_text_only\nQuery: Original text-only public posts about weather, travel, science, daily life, or technology. Require no attached photo, video, GIF, link preview, or quoted post.\nReturn at most 20 posts.",
+        "role": "user"
+      }
+    ],
+    "max_output_tokens": 8192,
+    "max_tool_calls": 6,
+    "model": "grok-4.5",
+    "reasoning": {
+      "effort": "low"
+    },
+    "store": false,
+    "text": {
+      "format": {
+        "name": "x_inventory_batch",
+        "schema": {
+          "$defs": {
+            "XSearchPost": {
+              "additionalProperties": false,
+              "properties": {
+                "author_handle": {
+                  "minLength": 1,
+                  "title": "Author Handle",
+                  "type": "string"
+                },
+                "created_at": {
+                  "minLength": 1,
+                  "title": "Created At",
+                  "type": "string"
+                },
+                "has_media": {
+                  "title": "Has Media",
+                  "type": "boolean"
+                },
+                "source_url": {
+                  "title": "Source Url",
+                  "type": "string"
+                },
+                "text": {
+                  "minLength": 1,
+                  "title": "Text",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "source_url",
+                "text",
+                "author_handle",
+                "created_at",
+                "has_media"
+              ],
+              "title": "XSearchPost",
+              "type": "object"
+            }
+          },
+          "additionalProperties": false,
+          "properties": {
+            "posts": {
+              "items": {
+                "$ref": "#/$defs/XSearchPost"
+              },
+              "maxItems": 20,
+              "minItems": 1,
+              "title": "Posts",
+              "type": "array"
+            }
+          },
+          "required": [
+            "posts"
+          ],
+          "title": "_XSearchBatch",
+          "type": "object"
+        },
+        "strict": true,
+        "type": "json_schema"
+      }
+    },
+    "tools": [
+      {
+        "from_date": "2026-01-01",
+        "to_date": "2026-08-02",
+        "type": "x_search"
+      }
+    ]
+  },
+  "request_sha256": "2c3ed6cb71f237db446c0dda8f0d16b23d6a85fc5c90c4388c207f2dbfcbad43",
+  "response": {
+    "background": false,
+    "completed_at": 1785745881,
+    "created_at": 1785745881,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "id": "a3d31c0f-c8d7-936d-9356-bd8af3881c29",
+    "incomplete_details": null,
+    "instructions": null,
+    "max_output_tokens": 8192,
+    "max_tool_calls": null,
+    "metadata": {
+      "system_fingerprint": "fp_a39489019fa99b6e"
+    },
+    "model": "grok-4.5",
+    "object": "response",
+    "output": [
+      {
+        "id": "rs_a3d31c0f-c8d7-936d-9356-bd8af3881c29",
+        "status": "completed",
+        "summary": [
+          {
+            "text": "The user wants me to use x_search to find distinct public X posts matching the query. I must return only posts found through the tool, in a specific JSON format.\n",
+            "type": "summary_text"
+          }
+        ],
+        "type": "reasoning"
+      },
+      {
+        "call_id": "xs_call-442b605f-99a4-4215-a4b1-bb26c7c302c5-0",
+        "id": "ctc_a3d31c0f-c8d7-936d-9356-bd8af3881c29_call-442b605f-99a4-4215-a4b1-bb26c7c302c5-0",
+        "input": "{\"query\":\"(weather OR travel OR science OR \\\"daily life\\\" OR technology OR tech) -filter:media -filter:links -filter:quote -filter:replies -filter:retweets lang:en\",\"limit\":\"10\",\"mode\":\"Latest\"}",
+        "name": "x_keyword_search",
+        "status": "completed",
+        "type": "custom_tool_call"
+      },
+      {
+        "call_id": "xs_call-442b605f-99a4-4215-a4b1-bb26c7c302c5-1",
+        "id": "ctc_a3d31c0f-c8d7-936d-9356-bd8af3881c29_call-442b605f-99a4-4215-a4b1-bb26c7c302c5-1",
+        "input": "{\"query\":\"(weather OR sunny OR rainy OR travel OR trip OR science OR research OR technology OR AI OR \\\"daily life\\\" OR morning OR coffee) -filter:media -filter:links -filter:quotes -filter:replies lang:en\",\"limit\":\"10\",\"mode\":\"Latest\"}",
+        "name": "x_keyword_search",
+        "status": "completed",
+        "type": "custom_tool_call"
+      },
+      {
+        "id": "tco_a3d31c0f-c8d7-936d-9356-bd8af3881c29_call-442b605f-99a4-4215-a4b1-bb26c7c302c5-0",
+        "status": "completed",
+        "summary": [],
+        "type": "reasoning"
+      },
+      {
+        "id": "tco_a3d31c0f-c8d7-936d-9356-bd8af3881c29_call-442b605f-99a4-4215-a4b1-bb26c7c302c5-1",
+        "status": "completed",
+        "summary": [],
+        "type": "reasoning"
+      },
+      {
+        "call_id": "xs_call-442b605f-99a4-4215-a4b1-bb26c7c302c5-2",
+        "id": "ctc_a3d31c0f-c8d7-936d-9356-bd8af3881c29_call-442b605f-99a4-4215-a4b1-bb26c7c302c5-2",
+        "input": "{\"query\":\"(weather OR forecast OR sunny OR rain OR travel OR vacation OR science OR physics OR biology OR technology OR AI OR \\\"machine learning\\\" OR \\\"daily life\\\" OR \\\"good morning\\\" OR coffee OR commute) -filter:media -filter:links -filter:quote -filter:replies -filter:retweets lang:en\",\"limit\":\"10\",\"mode\":\"Latest\"}",
+        "name": "x_keyword_search",
+        "status": "completed",
+        "type": "custom_tool_call"
+      },
+      {
+        "call_id": "xs_call-442b605f-99a4-4215-a4b1-bb26c7c302c5-3",
+        "id": "ctc_a3d31c0f-c8d7-936d-9356-bd8af3881c29_call-442b605f-99a4-4215-a4b1-bb26c7c302c5-3",
+        "input": "{\"query\":\"(\\\"the weather\\\" OR \\\"it's raining\\\" OR \\\"traveling to\\\" OR \\\"science is\\\" OR \\\"new tech\\\" OR \\\"my day\\\" OR \\\"woke up\\\") -filter:media -filter:links -filter:quotes -filter:replies lang:en\",\"limit\":\"5\",\"mode\":\"Latest\"}",
+        "name": "x_keyword_search",
+        "status": "completed",
+        "type": "custom_tool_call"
+      },
+      {
+        "id": "tco_a3d31c0f-c8d7-936d-9356-bd8af3881c29_call-442b605f-99a4-4215-a4b1-bb26c7c302c5-2",
+        "status": "completed",
+        "summary": [],
+        "type": "reasoning"
+      },
+      {
+        "id": "tco_a3d31c0f-c8d7-936d-9356-bd8af3881c29_call-442b605f-99a4-4215-a4b1-bb26c7c302c5-3",
+        "status": "completed",
+        "summary": [],
+        "type": "reasoning"
+      },
+      {
+        "content": [
+          {
+            "annotations": [
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083704271409697278",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083704271409697278"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083704231106658492",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083704231106658492"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083704307015430570",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083704307015430570"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083704179718254916",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083704179718254916"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083704314187653153",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083704314187653153"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083704311285244277",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083704311285244277"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083704271480954964",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083704271480954964"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083704328578097471",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083704328578097471"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083704292330922110",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083704292330922110"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083704311792738366",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083704311792738366"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083704288400798039",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083704288400798039"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083704230448402788",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083704230448402788"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083704286446264655",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083704286446264655"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083704188282831228",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083704188282831228"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083704103046127828",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083704103046127828"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083704235317977549",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083704235317977549"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083704047459004612",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083704047459004612"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083704178061238598",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083704178061238598"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083704113557074341",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083704113557074341"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083704037388546261",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083704037388546261"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083704274299617611",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083704274299617611"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083704186609549694",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083704186609549694"
+              }
+            ],
+            "logprobs": [],
+            "text": "{\n  \"posts\": [\n    {\n      \"source_url\": \"https://x.com/BratislavaSK/status/2083704271409697278\",\n      \"text\": \"temperature down 28\u00b0C \u21e2 24\u00b0C\\nhumidity up 41% \u21e2 53%\",\n      \"author_handle\": \"BratislavaSK\",\n      \"created_at\": \"2026-08-01T23:59:46Z\",\n      \"has_media\": false\n    },\n    {\n      \"source_url\": \"https://x.com/geopoliticsnow_/status/2083704235317977549\",\n      \"text\": \"\ud83d\udea8 JUST IN\\n\\nU.S. Embassies across the Middle East just issued new security alerts warning Americans:\\n\\n\u27a1\ufe0f Reconsider travel\\n\u27a1\ufe0f If you\u2019re already there\u2026 consider coming HOME\\n\\nThe war with Iran is now in its SIXTH MONTH.\",\n      \"author_handle\": \"geopoliticsnow_\",\n      \"created_at\": \"2026-08-01T23:59:37Z\",\n      \"has_media\": false\n    },\n    {\n      \"source_url\": \"https://x.com/rchrd_hndrxx/status/2083704231106658492\",\n      \"text\": \"might as well start bull posting @variational_io \\n\\nI don't have a ref to shill...yet. I'm already using the platform, should at least defend my bag\ud83d\ude02 \\n\\nfirst off, variational is generational. sounds like a simple statement, but it is indeed. amazing tech fr.\",\n      \"author_handle\": \"rchrd_hndrxx\",\n      \"created_at\": \"2026-08-01T23:59:36Z\",\n      \"has_media\": false\n    },\n    {\n      \"source_url\": \"https://x.com/_SantaFeNM/status/2083704178061238598\",\n      \"text\": \"temperature down 85\u00b0F \u21e2 82\u00b0F\\nwind 12 mph \u2190\ufe0e \u21e2 17 mph \u2193\ufe0e\",\n      \"author_handle\": \"_SantaFeNM\",\n      \"created_at\": \"2026-08-01T23:59:24Z\",\n      \"has_media\": false\n    },\n    {\n      \"source_url\": \"https://x.com/Yekaterinburg/status/2083704113557074341\",\n      \"text\": \"\ud83c\udf05 4:59 am: Sunrise\\nSunset at 9:08 pm\\n\\nToday: thunderstorms \u26c8\ufe0f, 21/15\u00b0C, UV index 4\\nTomorrow: light showers \ud83c\udf26\ufe0f, 22/17\u00b0C\",\n      \"author_handle\": \"Yekaterinburg\",\n      \"created_at\": \"2026-08-01T23:59:08Z\",\n      \"has_media\": false\n    },\n    {\n      \"source_url\": \"https://x.com/_SantaAnaCA/status/2083704047459004612\",\n      \"text\": \"temperature up 83\u00b0F \u21e2 85\u00b0F\\nwind 7 mph \u2199\ufe0e \u21e2 13 mph \u2199\ufe0e\",\n      \"author_handle\": \"_SantaAnaCA\",\n      \"created_at\": \"2026-08-01T23:58:52Z\",\n      \"has_media\": false\n    },\n    {\n      \"source_url\": \"https://x.com/tomarryuri/status/2083704314187653153\",\n      \"text\": \"good morning tomarry nation\",\n      \"author_handle\": \"tomarryuri\",\n      \"created_at\": \"2026-08-01T23:59:56Z\",\n      \"has_media\": false\n    },\n    {\n      \"source_url\": \"https://x.com/manthabrit/status/2083704311792738366\",\n      \"text\": \"Today is supposed to be fckn ME day, ME ME ME, then here comes my sister and I can't say no........ Such a fail day early morning.\",\n      \"author_handle\": \"manthabrit\",\n      \"created_at\": \"2026-08-01T23:59:55Z\",\n      \"has_media\": false\n    },\n    {\n      \"source_url\": \"https://x.com/gyulavdor/status/2083704311285244277\",\n      \"text\": \"Good morning\",\n      \"author_handle\": \"gyulavdor\",\n      \"created_at\": \"2026-08-01T23:59:55Z\",\n      \"has_media\": false\n    },\n    {\n      \"source_url\": \"https://x.com/polsia/status/2083704307015430570\",\n      \"text\": \"Hawaii's small businesses run on a thin carrier market where one outage can shut down an island. Built Alakai: an AI advisor that watches the stack, sources procurement from Hawaiian Telcom, Spectrum, and beyond, and works vendor escalations 24/7. Coming live.\",\n      \"author_handle\": \"polsia\",\n      \"created_at\": \"2026-08-01T23:59:54Z\",\n      \"has_media\": false\n    },\n    {\n      \"source_url\": \"https://x.com/TheMobileBroker/status/2083704292330922110\",\n      \"text\": \"\ud83d\ude80 Thousands of one-person companies now generate over $1 million a year, and some are approaching $10 million without \u0068iring a single employee. AI isn\u2019t just changing business. It\u2019s redefining what it takes to build one.\\n\\n#AI #Entrepreneurship #FutureOfWork\",\n      \"author_handle\": \"TheMobileBroker\",\n      \"created_at\": \"2026-08-01T23:59:51Z\",\n      \"has_media\": false\n    },\n    {\n      \"source_url\": \"https://x.com/tedatsx/status/2083704288400798039\",\n      \"text\": \"You guys know we have AI now right?\",\n      \"author_handle\": \"tedatsx\",\n      \"created_at\": \"2026-08-01T23:59:50Z\",\n      \"has_media\": false\n    },\n    {\n      \"source_url\": \"https://x.com/im2hai/status/2083704188282831228\",\n      \"text\": \"i had a girlfriend and then i woke up \\ni had a job and then i woke up\\ni had sex and then i woke up\",\n      \"author_handle\": \"im2hai\",\n      \"created_at\": \"2026-08-01T23:59:26Z\",\n      \"has_media\": false\n    },\n    {\n      \"source_url\": \"https://x.com/Carlpeng729/status/2083704186609549694\",\n      \"text\": \"Day 105\\nI will write my daily summary entirely in English and use AI tools to help me polish it. OK, let's start my Day 105 summary.\\nI finished my IELTS listening, reading, speaking and writing practice as usual. I realized that my speaking ability is much worse than I expected \u2014 I used to think it was my advantage. So I need to further improve my speaking, which is now the most crucial part for me.\\nStay disciplined and keep working harder.\",\n      \"author_handle\": \"Carlpeng729\",\n      \"created_at\": \"2026-08-01T23:59:26Z\",\n      \"has_media\": false\n    },\n    {\n      \"source_url\": \"https://x.com/Weinnoiserie/status/2083704103046127828\",\n      \"text\": \"nevermind my day got ruined in two seconds, sorry for being chopped and a good night to everyone\",\n      \"author_handle\": \"Weinnoiserie\",\n      \"created_at\": \"2026-08-01T23:59:06Z\",\n      \"has_media\": false\n    },\n    {\n      \"source_url\": \"https://x.com/EHeadshotz/status/2083704328578097471\",\n      \"text\": \"That's crazy the song \\\"Rain\\\" by Swv was supposed to been for Brandy\",\n      \"author_handle\": \"EHeadshotz\",\n      \"created_at\": \"2026-08-01T23:59:59Z\",\n      \"has_media\": false\n    },\n    {\n      \"source_url\": \"https://x.com/Rustafarian585/status/2083704271480954964\",\n      \"text\": \"I told my girl to get her granddaughter off Joseph Ave and they can sleep in the room tonight, I'll take the couch. No 4 year old should have to live through Puerto Rican fest just because our city leaders are spineless. I hope Monday morning RPD goes uptown to fuck everyone up!\",\n      \"author_handle\": \"Rustafarian585\",\n      \"created_at\": \"2026-08-01T23:59:46Z\",\n      \"has_media\": false\n    },\n    {\n      \"source_url\": \"https://x.com/TutorAcade51721/status/2083704286446264655\",\n      \"text\": \"Contact us to help you with:\\n\\nSpring classes \\nEssay write\\nAssignment due\\nOnline class\\nMath\\nHomework\\nCalculus\\nStatistics\\nPhysics\\nResearch projects\\nEconometric\",\n      \"author_handle\": \"TutorAcade51721\",\n      \"created_at\": \"2026-08-01T23:59:49Z\",\n      \"has_media\": false\n    },\n    {\n      \"source_url\": \"https://x.com/StanChi_Tech/status/2083704037388546261\",\n      \"text\": \"My salary came as a view once\",\n      \"author_handle\": \"StanChi_Tech\",\n      \"created_at\": \"2026-08-01T23:58:50Z\",\n      \"has_media\": false\n    },\n    {\n      \"source_url\": \"https://x.com/rizzzye/status/2083704274299617611\",\n      \"text\": \"ai esse ray tentando entrosar ;-; bro think he's on time\",\n      \"author_handle\": \"rizzzye\",\n      \"created_at\": \"2026-08-01T23:59:47Z\",\n      \"has_media\": false\n    }\n  ]\n}",
+            "type": "output_text"
+          }
+        ],
+        "id": "msg_a3d31c0f-c8d7-936d-9356-bd8af3881c29",
+        "role": "assistant",
+        "status": "completed",
+        "type": "message"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "reasoning": {
+      "effort": "low",
+      "summary": "detailed"
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "status": "completed",
+    "store": false,
+    "temperature": 0.7,
+    "text": {
+      "format": {
+        "schema": {
+          "$defs": {
+            "XSearchPost": {
+              "additionalProperties": false,
+              "properties": {
+                "author_handle": {
+                  "minLength": 1,
+                  "title": "Author Handle",
+                  "type": "string"
+                },
+                "created_at": {
+                  "minLength": 1,
+                  "title": "Created At",
+                  "type": "string"
+                },
+                "has_media": {
+                  "title": "Has Media",
+                  "type": "boolean"
+                },
+                "source_url": {
+                  "title": "Source Url",
+                  "type": "string"
+                },
+                "text": {
+                  "minLength": 1,
+                  "title": "Text",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "source_url",
+                "text",
+                "author_handle",
+                "created_at",
+                "has_media"
+              ],
+              "title": "XSearchPost",
+              "type": "object"
+            }
+          },
+          "additionalProperties": false,
+          "properties": {
+            "posts": {
+              "items": {
+                "$ref": "#/$defs/XSearchPost"
+              },
+              "maxItems": 20,
+              "minItems": 1,
+              "title": "Posts",
+              "type": "array"
+            }
+          },
+          "required": [
+            "posts"
+          ],
+          "title": "_XSearchBatch",
+          "type": "object"
+        },
+        "type": "json_schema"
+      }
+    },
+    "tool_choice": "auto",
+    "tools": [
+      {
+        "from_date": "2026-01-01",
+        "to_date": "2026-08-02",
+        "type": "x_search"
+      }
+    ],
+    "top_logprobs": 0,
+    "top_p": 0.95,
+    "truncation": "disabled",
+    "usage": {
+      "context_details": {
+        "input_tokens": 9297,
+        "output_tokens": 2745
+      },
+      "cost_in_usd_ticks": 627264000,
+      "input_tokens": 17774,
+      "input_tokens_details": {
+        "cached_tokens": 8448
+      },
+      "num_server_side_tools_used": 4,
+      "num_sources_used": 0,
+      "output_tokens": 3590,
+      "output_tokens_details": {
+        "reasoning_tokens": 1209
+      },
+      "server_side_tool_usage_details": {
+        "code_interpreter_calls": 0,
+        "document_search_calls": 0,
+        "file_search_calls": 0,
+        "image_generation_calls": 0,
+        "mcp_calls": 0,
+        "web_search_calls": 0,
+        "x_search_calls": 4
+      },
+      "total_tokens": 21364
+    },
+    "user": null
+  },
+  "response_sha256": "6bfdc6c6471fc991b415517ffae6b4e5f41b78be66788ef28dff80c8733a9baf",
+  "surface": "tool.x_search.inventory"
+}

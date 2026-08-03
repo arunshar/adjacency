@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/PersonaShield/status/2082844076102001148"
+  },
+  "request_sha256": "9221cc57ffbfd1ef90278c4f32ed5e6e792109d789aa213767e86ed264d32c0d",
+  "response": {
+    "author_handle": "@PersonaShield",
+    "created_at": "July 30, 2026",
+    "media_height": null,
+    "media_url": "https://pbs.twimg.com/card_img/2083860622840668161/Y4pRbV_8?format=jpg&name=orig",
+    "media_width": null,
+    "source_url": "https://x.com/PersonaShield/status/2082844076102001148",
+    "text": "TikTok is testing an opt-in deepfake detection tool. Creators verify their identity through Jumio by uploading a government ID and a live selfie, then TikTok scans the platform for AI-generated content matching their face. Opt-in is a good start, and built-in detection helps the\u2026"
+  },
+  "response_sha256": "936a85539218c833bb99417354cf99feb12278d3b08966b6c3125ebb333db2a0",
+  "surface": "http.x_status_metadata"
+}

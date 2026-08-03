@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/NASAHubble/status/2082194383063875634"
+  },
+  "request_sha256": "70891114591ccc7c0f086cf82e26556cd1ca71ab39ef13a2f59d4e2f7beff179",
+  "response": {
+    "author_handle": "@NASAHubble",
+    "created_at": "July 28, 2026",
+    "media_height": 2152,
+    "media_url": "https://pbs.twimg.com/media/HORbwF6WkAA5Tnr.jpg:large",
+    "media_width": 2152,
+    "source_url": "https://x.com/NASAHubble/status/2082194383063875634",
+    "text": "These galaxies are locked in. The pair, known as ESO 550-2, is caught in a gravitational dance. This interaction's already deformed one arm of the larger galaxy on the left, though star formation continues in it. Learn more: https://t.co/WLjjagEv1E"
+  },
+  "response_sha256": "3ffdb132cfa2d34b3a0e9742e908f932db76eaa5ae2a0652890d15c56779c5e0",
+  "surface": "http.x_status_metadata"
+}

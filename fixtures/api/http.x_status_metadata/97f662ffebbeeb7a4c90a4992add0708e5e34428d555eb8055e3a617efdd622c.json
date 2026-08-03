@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/NBCNews/status/2083613775169516012"
+  },
+  "request_sha256": "97f662ffebbeeb7a4c90a4992add0708e5e34428d555eb8055e3a617efdd622c",
+  "response": {
+    "author_handle": "@NBCNews",
+    "created_at": "August 1, 2026",
+    "media_height": null,
+    "media_url": "https://pbs.twimg.com/card_img/2083613776369135617/WD_hlS_1?format=jpg&name=orig",
+    "media_width": null,
+    "source_url": "https://x.com/NBCNews/status/2083613775169516012",
+    "text": "The sentencing of the man who gifted his son an assault rifle used in a mass shooting at a Georgia high school in 2024 could embolden prosecutors to hold more parents legally accountable for their children\u2019s crimes, experts say. https://t.co/yBZ2EmJYib"
+  },
+  "response_sha256": "50d14deb4ab1e6ffe4fed8e338b1838651adf25257295a8900b1b29f726d06dd",
+  "surface": "http.x_status_metadata"
+}

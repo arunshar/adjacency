@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/rimmel_f/status/2083703977464750367"
+  },
+  "request_sha256": "94f3d902e9238b54adcbdcd12a4ef7f9825f3ee5fd7cde68b8cf675128070185",
+  "response": {
+    "author_handle": "@rimmel_f",
+    "created_at": "August 1, 2026",
+    "media_height": null,
+    "media_url": null,
+    "media_width": null,
+    "source_url": "https://x.com/rimmel_f/status/2083703977464750367",
+    "text": "As of now, wifi and cellular network are working in the Muzaffarabad division (the city and Jhelum Valley). What is suspended is the cellular internet. Please do not amplify fake news for two minutes of relevance in this attention economy."
+  },
+  "response_sha256": "72483082b1e805fb1182dd33b02bc59f78a7d65633c76f611793153a084b1327",
+  "surface": "http.x_status_metadata"
+}

@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/DunaryBear/status/2083277664110973320"
+  },
+  "request_sha256": "16414ddc41b1332de900221d32994002193c2dddd1b23b8e41909574cb7724d4",
+  "response": {
+    "author_handle": "@DunaryBear",
+    "created_at": "July 31, 2026",
+    "media_height": 335,
+    "media_url": "https://pbs.twimg.com/media/HOlJ_lHWQAAPLT0.jpg:large",
+    "media_width": 596,
+    "source_url": "https://x.com/DunaryBear/status/2083277664110973320",
+    "text": "If you take Invincible as an example. It has examples of good and bad of this. With the bad, after the whole series hypes up how unstoppable viltrumites are they have random bugs make him struggle which takes you out of the story because the core conflict is around fighting"
+  },
+  "response_sha256": "fb1c29858504fa974eb8dc7150c11dacb46a69c3efdd063f074c72436d1146ec",
+  "surface": "http.x_status_metadata"
+}

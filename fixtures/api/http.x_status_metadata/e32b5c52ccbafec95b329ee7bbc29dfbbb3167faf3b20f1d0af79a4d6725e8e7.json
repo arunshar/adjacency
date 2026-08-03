@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/sacbee_news/status/2083621347767251025"
+  },
+  "request_sha256": "e32b5c52ccbafec95b329ee7bbc29dfbbb3167faf3b20f1d0af79a4d6725e8e7",
+  "response": {
+    "author_handle": "@sacbee_news",
+    "created_at": "August 1, 2026",
+    "media_height": null,
+    "media_url": "https://pbs.twimg.com/card_img/2083377555764133888/YwqPbls2?format=jpg&name=orig",
+    "media_width": null,
+    "source_url": "https://x.com/sacbee_news/status/2083621347767251025",
+    "text": "Sacramento funds youth violence prevention with little oversight. What to know https://t.co/s638OZXZzb"
+  },
+  "response_sha256": "8c541cb5dba09e28d958e1ecaf0038d6cc12d40c7e7438ad1052eaf767fcb5d3",
+  "surface": "http.x_status_metadata"
+}

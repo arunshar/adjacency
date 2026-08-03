@@ -1,0 +1,428 @@
+{
+  "format_version": 1,
+  "request": {
+    "input": [
+      {
+        "content": "Use x_search to find distinct public X posts matching the query. Return only posts you found through the tool. Use direct x.com status URLs, exact post text, the author handle, an ISO date or timestamp, and whether the post has attached media. Do not invent or reconstruct URLs. Prefer original posts over replies and reposts.\n\nQuery label: fictional_violence_context\nQuery: Public posts discussing fictional action in films, television, games, or books. Prefer reviews and commentary that make the fictional context clear.\nReturn at most 12 posts.",
+        "role": "user"
+      }
+    ],
+    "max_output_tokens": 8192,
+    "max_tool_calls": 6,
+    "model": "grok-4.5",
+    "reasoning": {
+      "effort": "low"
+    },
+    "store": false,
+    "text": {
+      "format": {
+        "name": "x_inventory_batch",
+        "schema": {
+          "$defs": {
+            "XSearchPost": {
+              "additionalProperties": false,
+              "properties": {
+                "author_handle": {
+                  "minLength": 1,
+                  "title": "Author Handle",
+                  "type": "string"
+                },
+                "created_at": {
+                  "minLength": 1,
+                  "title": "Created At",
+                  "type": "string"
+                },
+                "has_media": {
+                  "title": "Has Media",
+                  "type": "boolean"
+                },
+                "source_url": {
+                  "title": "Source Url",
+                  "type": "string"
+                },
+                "text": {
+                  "minLength": 1,
+                  "title": "Text",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "source_url",
+                "text",
+                "author_handle",
+                "created_at",
+                "has_media"
+              ],
+              "title": "XSearchPost",
+              "type": "object"
+            }
+          },
+          "additionalProperties": false,
+          "properties": {
+            "posts": {
+              "items": {
+                "$ref": "#/$defs/XSearchPost"
+              },
+              "maxItems": 20,
+              "minItems": 1,
+              "title": "Posts",
+              "type": "array"
+            }
+          },
+          "required": [
+            "posts"
+          ],
+          "title": "_XSearchBatch",
+          "type": "object"
+        },
+        "strict": true,
+        "type": "json_schema"
+      }
+    },
+    "tools": [
+      {
+        "from_date": "2026-01-01",
+        "to_date": "2026-08-02",
+        "type": "x_search"
+      }
+    ]
+  },
+  "request_sha256": "dcc49726cafec843d4d01547e8917e7a6d5fbe7906834a91551f91e8d0ee0bdc",
+  "response": {
+    "background": false,
+    "completed_at": 1785745307,
+    "created_at": 1785745307,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "id": "ac4e0433-4db3-9243-b1fb-083d9622a9b6",
+    "incomplete_details": null,
+    "instructions": null,
+    "max_output_tokens": 8192,
+    "max_tool_calls": null,
+    "metadata": {
+      "system_fingerprint": "fp_a39489019fa99b6e"
+    },
+    "model": "grok-4.5",
+    "object": "response",
+    "output": [
+      {
+        "id": "rs_ac4e0433-4db3-9243-b1fb-083d9622a9b6",
+        "status": "completed",
+        "summary": [
+          {
+            "text": "The user wants me to use x_search to find distinct public X posts matching the query: Public posts discussing fictional action in films, television, games, or books. Prefer reviews and commentary that...",
+            "type": "summary_text"
+          }
+        ],
+        "type": "reasoning"
+      },
+      {
+        "call_id": "xs_call-2496b6c8-8664-4cf8-ae92-54ae8d1d5ccf-0",
+        "id": "ctc_ac4e0433-4db3-9243-b1fb-083d9622a9b6_call-2496b6c8-8664-4cf8-ae92-54ae8d1d5ccf-0",
+        "input": "{\"query\":\"Public posts discussing fictional action in films, television, games, or books. Prefer reviews and commentary that make the fictional context clear.\",\"limit\":\"10\"}",
+        "name": "x_semantic_search",
+        "status": "completed",
+        "type": "custom_tool_call"
+      },
+      {
+        "call_id": "xs_call-2496b6c8-8664-4cf8-ae92-54ae8d1d5ccf-1",
+        "id": "ctc_ac4e0433-4db3-9243-b1fb-083d9622a9b6_call-2496b6c8-8664-4cf8-ae92-54ae8d1d5ccf-1",
+        "input": "{\"query\":\"(\\\"fictional violence\\\" OR \\\"movie fight\\\" OR \\\"game combat\\\" OR \\\"book battle\\\" OR \\\"TV action scene\\\") (review OR commentary OR \\\"in the film\\\" OR \\\"in the movie\\\" OR \\\"in the game\\\" OR \\\"in the book\\\") -filter:replies\",\"limit\":\"10\",\"mode\":\"Latest\"}",
+        "name": "x_keyword_search",
+        "status": "completed",
+        "type": "custom_tool_call"
+      },
+      {
+        "call_id": "xs_call-2496b6c8-8664-4cf8-ae92-54ae8d1d5ccf-2",
+        "id": "ctc_ac4e0433-4db3-9243-b1fb-083d9622a9b6_call-2496b6c8-8664-4cf8-ae92-54ae8d1d5ccf-2",
+        "input": "{\"query\":\"(\\\"action scene\\\" OR \\\"fight scene\\\" OR \\\"battle sequence\\\") (movie OR film OR game OR book OR TV OR series) (review OR thoughts OR discussion) filter:has_engagement\",\"limit\":\"5\",\"mode\":\"Top\"}",
+        "name": "x_keyword_search",
+        "status": "completed",
+        "type": "custom_tool_call"
+      },
+      {
+        "id": "tco_ac4e0433-4db3-9243-b1fb-083d9622a9b6_call-2496b6c8-8664-4cf8-ae92-54ae8d1d5ccf-0",
+        "status": "completed",
+        "summary": [],
+        "type": "reasoning"
+      },
+      {
+        "id": "tco_ac4e0433-4db3-9243-b1fb-083d9622a9b6_call-2496b6c8-8664-4cf8-ae92-54ae8d1d5ccf-1",
+        "status": "completed",
+        "summary": [],
+        "type": "reasoning"
+      },
+      {
+        "id": "tco_ac4e0433-4db3-9243-b1fb-083d9622a9b6_call-2496b6c8-8664-4cf8-ae92-54ae8d1d5ccf-2",
+        "status": "completed",
+        "summary": [],
+        "type": "reasoning"
+      },
+      {
+        "content": [
+          {
+            "annotations": [
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2082014669011587549",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2082014669011587549"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2075412071051923520",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2075412071051923520"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2042355650538221946",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2042355650538221946"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2078673732290421167",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2078673732290421167"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2082127583307874468",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2082127583307874468"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083119950353559561",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083119950353559561"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083257031662665964",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083257031662665964"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2082781721196741021",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2082781721196741021"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2035401055568326956",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2035401055568326956"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2009017572486692982",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2009017572486692982"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2073704095844556822",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2073704095844556822"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2043289030268195143",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2043289030268195143"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083277664110973320",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083277664110973320"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2067800241387024715",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2067800241387024715"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2059745290878615668",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2059745290878615668"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2073324363118768605",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2073324363118768605"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2082757457756233974",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2082757457756233974"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2082528027410334119",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2082528027410334119"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083325404191109530",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083325404191109530"
+              }
+            ],
+            "logprobs": [],
+            "text": "{\n  \"posts\": [\n    {\n      \"source_url\": \"https://x.com/FictionWrite/status/2082757457756233974\",\n      \"text\": \"The heroes just come home from defeating the greatest evil and oppressive super power of their age, and what do they find in the Shire? A washed out wizard and a king's advisor assaulting their village, despite having been defeated in the second book.\\n\\nThats the equivalent of Goku and his friends just beating Frieza on Namek in DBZ, then coming home to find Ginyu and Guldo holding their families hostage and have to fight them.\\n\\nOr Superman just beating Darkside, saving the universe, and returning to Metropolis to find Granny Goodness has taken over his city.\\n\\nOr Luke Skywalker just beating Vader and escaping the Death Star explosion, only to find Admiral Piette has taken Endor and needs to deal with him to finish the movie.\\n\\nOr Odysseus returning fron his voyage to his palace, only to find the Cyclops Polyphemus' brother has taken up residence and wants a piece of him...\\n\\nShould I go on?\",\n      \"author_handle\": \"FictionWrite\",\n      \"created_at\": \"2026-07-30T09:17:28Z\",\n      \"has_media\": false\n    },\n    {\n      \"source_url\": \"https://x.com/Knightly_Hist/status/2035401055568326956\",\n      \"text\": \"By far my favoruite example is in Legend of the Galactic Heroes.\\n\\nThe use of spreadable particles that ignite when a gun is fired in their vacinity, forces boarding crews to equip themselves in armor and wield axes.\\n\\nIt also helps that it's very well choreographed.\",\n      \"author_handle\": \"Knightly_Hist\",\n      \"created_at\": \"2026-03-21T17:00:02Z\",\n      \"has_media\": true\n    },\n    {\n      \"source_url\": \"https://x.com/DunaryBear/status/2083277664110973320\",\n      \"text\": \"If you take Invincible as an example. It has examples of good and bad of this. With the bad, after the whole series hypes up how unstoppable viltrumites are they have random bugs make him struggle which takes you out of the story because the core conflict is around fighting\",\n      \"author_handle\": \"DunaryBear\",\n      \"created_at\": \"2026-07-31T19:44:35Z\",\n      \"has_media\": true\n    },\n    {\n      \"source_url\": \"https://x.com/PaladinAshe/status/2075412071051923520\",\n      \"text\": \"I unironically love Frieren and Goblin Slayer for these exact reasons, among other things. \\n\\nI still remember a \\\"discussion\\\" with a dude that went something like \\\"Is goblin slayer really about killing just goblins and are they really just evil and not simply misunderstood.\\\" \\n\\nThis line of questions went cyclically for an hour where me and a bunch of other friends were like, \\\"Yes, and yes.\\\" The dude revisited his initial questions several times, hence the length of time. That's where we're at with the, \\\"actually they're misunderstood\\\" reveal and how expected it is.\\n\\nTo say nothing of how self-indulgent it feels in this day and age when a movie centered on a dead trope is trotted out to beat its corpse over the head like its a present day offender, e.g. the movie Damsel.\",\n      \"author_handle\": \"PaladinAshe\",\n      \"created_at\": \"2026-07-10T02:49:31Z\",\n      \"has_media\": false\n    },\n    {\n      \"source_url\": \"https://x.com/Malavoces/status/2082528027410334119\",\n      \"text\": \"The Warrior\\n\\n\u201cThis is a weapon of terror. It\u2019s made to intimidate the enemy.\u201d\\n\u201cThis is a weapon of war. Its purpose is to kill the enemy.\u201d\\n\\nThe absolutely greatest and and most effective military lampshading scene in the history of Science Fiction. It\u2019s lamp-shading because sometimes what you\u2019re writing is a big fucking lamp that\u2019s being misconstrued.\\n\\nIn a single scene you eliminated all accusations of the \u201cImperial Stormtrooper Marksmanship Academy\u201d for the Jaffa, showing that they miss a lot becasue their primary weapon sucked at being a weapon, and all their tech is hobbled by its religious dual-purpose. Simultaneously you justified the Air Force wiping the floor with a multi-planetary empire that stole technology and didn\u2019t earn its place because it only beat up on the defenseless. We have military doctrine, logistics, and professional planning and execution taken from a history of evolving warfare. The Threat are cosplayers who steal technology and turn it all into the tools of narcissism.\\n\\nIt\u2019s one of my absolutely favorite episodes on the strength of the writing that properly dusts off and paints five seasons of framing in hunter orange so everyone can see it clearly.  If I was a prop collector I\u2019d put that fucking thing in my living room.\",\n      \"author_handle\": \"Malavoces\",\n      \"created_at\": \"2026-07-29T18:05:47Z\",\n      \"has_media\": false\n    },\n    {\n      \"source_url\": \"https://x.com/baalzamon35/status/2042355650538221946\",\n      \"text\": \"Started and dropped: The Warrior Princess and Barbarian King.\\n\\nCouldn't make it 5 minuets. The barbarians, with their weak technology and metal working can cleave through the steel of the empire's armored troops in a single sword swing and their cheap iron helmets deflect bullets. The fight looks obviously CG. Soldiers wait their turn to fight, standing around awkwardly until the script calls for them to die. Both sides immediately stop fighting whenever someone important talks. There is no weight to any movement or action.\\n\\nI could eat a bowl of Alphabet Soup and shit a better script for a fight scene.\\n\\nHave I been ruined by good anime?\",\n      \"author_handle\": \"baalzamon35\",\n      \"created_at\": \"2026-04-09T21:35:06Z\",\n      \"has_media\": true\n    },\n    {\n      \"source_url\": \"https://x.com/Critical_Scribe/status/2009017572486692982\",\n      \"text\": \"Something I\u2019ve noticed about the vocal audience on here is that they operate off of basic enemy/ally distinction.\\n\\nIf it\u2019s an \u201cenemy\u201d, aka someone in the protagonist\u2019s way, it\u2019s ok if the \u201chero\u201d kills them. Because they\u2019re the hero! They have their reasons.\\n\\nIf they\u2019re with the \u201chero\u201d, then they\u2019re an ally and anything that happens to them is a tragedy to be focused on.\\n\\nPeople are gonna argue that Eleven here is justified because these men were part of the military, which experimented on her, and they were in her way, so ergo, it\u2019s ok for her to kill them because she deserves that catharsis. The military are the bad guys, so it\u2019s ok, it\u2019s fine, don\u2019t think about it, this is storytelling.\\n\\nHowever, if any of Eleven\u2019s friends were to be killed in this manner, completely overwhelmed while they were getting in the way of someone else, then it\u2019ll be a travesty and \u201ctoo brutal\u201d.\\n\\n\u201cIt\u2019s not that deep, bruh.\u201d\\n\\nThis is more addressing a wider issue with how people miss any sort of nuance whatsoever. It\u2019s why if a hero has a \u201cno kill\u201d or \u201cminimize death\u201d rule there is an increasing amount of people that just go \u201cwhy shouldn\u2019t these people die? They\u2019re the enemy!\u201d Because media has allowed things to degrade to such a manner.\\n\\nIf she has the power to so effortlessly snap their necks and also make a guy shoot himself, she could have just as easily knocked them out. This indicates a level of nuance to her portrayal to where she is conscious of all life, not just those with her. I am also aware that they were trying to kidnap her and what was happening with the pregnant women. Even then, she had the drop on them, she could have shown restraint for the higher ideal of a heroic figure.\\n\\nWere they active shooting her in this scene and she had to put them down? Completely fair, but these basic portrayals do a lot in shaping the overall morality of the characters we see.\\n\\nEspecially when we get takes like this who just go \u201cwooo yeah! This is so satisfying!\u201d As the \u201chero\u201d demonstrates no restraint and just kills people in her way.\\n\\nIf I was going to write this scene to make Eleven not come off as so careless about life, I would have had the soldiers actively shooting at her as she takes cover/stop the bullets so she is forced to used lethal force to defend herself. This doesn\u2019t change the outcome, but now it changes the portrayal. Everyone gets a more nuanced portrayal, and people can still clap like seals.\\n\\nI again await everyone telling me that I\u2019m thinking too much about this and I should just shut my brain off to enjoy things.\",\n      \"author_handle\": \"Critical_Scribe\",\n      \"created_at\": \"2026-01-07T21:41:29Z\",\n      \"has_media\": false\n    },\n    {\n      \"source_url\": \"https://x.com/UltimoLegend/status/2083325404191109530\",\n      \"text\": \"Spider-Man Brand New Day (2026) review:\\n\\nI enjoyed it overall even though I had some issues with some things that happened in the movie. Fight scenes were cool. Scenes with Peter and Frank were nice. Bruce reverting back to classic Hulk was great and has been long overdue, even for just a little bit. Movie needed more Spider-Man villains in it more than just in the opening montage. The main bad in the movie should\u2019ve been one of them and not who they went with, and what will happen going on in future movies because of them.\",\n      \"author_handle\": \"UltimoLegend\",\n      \"created_at\": \"2026-07-31T22:54:17Z\",\n      \"has_media\": true\n    },\n    {\n      \"source_url\": \"https://x.com/Sam_was_herexx/status/2082781721196741021\",\n      \"text\": \"Spider-Man: Brand New Day Spoiler Free Review: \\n\\n10/10 Street Level Movie. Fight Sequencing is perfect and so is the Colour Grading. I love the conclusion of Peter and MJ Love and Ned's friendship. Swinging scenes were Amazing but not as AMAZING as TASM2. \\n#Spiderman #MCU\",\n      \"author_handle\": \"Sam_was_herexx\",\n      \"created_at\": \"2026-07-30T10:53:53Z\",\n      \"has_media\": true\n    },\n    {\n      \"source_url\": \"https://x.com/GOTDAYUMMM1/status/2078673732290421167\",\n      \"text\": \"Bloodsport is a damn good movie that I can constantly rewatch.\\n\\nBut why did they have to make the black fighter in the movie fight like a monkey \ud83d\ude2d\ud83d\ude2d\",\n      \"author_handle\": \"GOTDAYUMMM1\",\n      \"created_at\": \"2026-07-19T02:50:12Z\",\n      \"has_media\": true\n    },\n    {\n      \"source_url\": \"https://x.com/zweiwalker89607/status/2043289030268195143\",\n      \"text\": \"The TLJ \\\"From A Certain Point of View\\\" book will tell the Throne Room fight scene from the perspective of this guy and it will include a sentence where he feels his off hand weapon dematerialize out of his grip. His last thoughts will be a bewildered \\\"Huh?\\\" before Rey kills him.\",\n      \"author_handle\": \"zweiwalker89607\",\n      \"created_at\": \"2026-04-12T11:24:01Z\",\n      \"has_media\": true\n    },\n    {\n      \"source_url\": \"https://x.com/theKamraan/status/2073324363118768605\",\n      \"text\": \"Alpha Full Review :- \\n\\nI genuinely loved #Alpha. Barring a few shots in the climax & few dialogues, I had a great time watching it.\\n\\nThe second half is just as engaging as the first. The emotional and character driven conversations between Alia Bhatt, Sharvari, and Anil Kapoor are surprisingly well-written and leave a strong impact. Alia's acting, attitude, screen presence, and intensity stand out throughout the film. From her entry to the climax, she completely owns the screen and delivers one of her most powerful performances.\\n\\nAs Sita and Durga, Alia & Sharvari share excellent chemistry. Their hand-to-hand combat sequence is, in my opinion, the best I've ever seen in Indian cinema. It feels raw, intense, and beautifully choreographed. Almost every hand to hand fight and action sequence is top-notch and keeps you invested.\\n\\nThe only action scene that didn't completely work for me was Kabir's cameo fight. That said, Kabir's screen presence is absolutely phenomenal. The moment he appears, he completely commands the screen with his charisma, swag, and aura. Even with limited screen time, he leaves a lasting impact and reminds you why he's one of the most iconic characters in the YRF Spy Universe. \\n\\nThe Sita vs. Fateh hand-to-hand combat sequence is another major highlight and is executed brilliantly.\\n\\nThe songs are okay overall, but Haniya Ve and Massacre are visually stunning. Both Alia and Sharvari look gorgeous, and I genuinely couldn't take my eyes off Alia in both the songs.\\n\\nSharvari as Durga looks gorgeous throughout the film and has a strong screen presence. She performs well in both the emotional and action scenes.\\n\\nAnil Kapoor as Kaul delivers a solid performance. His scenes with Alia and Sharvari are well-executed & add emotional weight to the story.\\n\\nBobby Deol as Fateh is a convincing antagonist with a strong screen presence. His Haryanvi accent worked well for me and suited the character.\\n\\nOverall, I had a fantastic time with the film. It's an entertaining action thriller with strong performances, stylish action, and plenty of crowd pleasing moments. It's not a perfect movie, but it's absolutely worth watching if you're looking for a fun big-screen experience.\\n\\nI'll definitely be watching it again, especially for my sunshine, @aliaa08 \u2665\ufe0f\\n\\nRating: 3.5/5 \u2b50\\n\\nP.S. - as a regular moviegoer, I absolutely loved this film. It's a perfect popcorn entertainer, and I genuinely think most audiences will enjoy it. Don't believe all the negativity surrounding it, it honestly feels like a paid campaign to me, it's definitely not a 1.5-star movie in my opinion!\",\n      \"author_handle\": \"theKamraan\",\n      \"created_at\": \"2026-07-04T08:33:43Z\",\n      \"has_media\": true\n    }\n  ]\n}",
+            "type": "output_text"
+          }
+        ],
+        "id": "msg_ac4e0433-4db3-9243-b1fb-083d9622a9b6",
+        "role": "assistant",
+        "status": "completed",
+        "type": "message"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "reasoning": {
+      "effort": "low",
+      "summary": "detailed"
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "status": "completed",
+    "store": false,
+    "temperature": 0.7,
+    "text": {
+      "format": {
+        "schema": {
+          "$defs": {
+            "XSearchPost": {
+              "additionalProperties": false,
+              "properties": {
+                "author_handle": {
+                  "minLength": 1,
+                  "title": "Author Handle",
+                  "type": "string"
+                },
+                "created_at": {
+                  "minLength": 1,
+                  "title": "Created At",
+                  "type": "string"
+                },
+                "has_media": {
+                  "title": "Has Media",
+                  "type": "boolean"
+                },
+                "source_url": {
+                  "title": "Source Url",
+                  "type": "string"
+                },
+                "text": {
+                  "minLength": 1,
+                  "title": "Text",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "source_url",
+                "text",
+                "author_handle",
+                "created_at",
+                "has_media"
+              ],
+              "title": "XSearchPost",
+              "type": "object"
+            }
+          },
+          "additionalProperties": false,
+          "properties": {
+            "posts": {
+              "items": {
+                "$ref": "#/$defs/XSearchPost"
+              },
+              "maxItems": 20,
+              "minItems": 1,
+              "title": "Posts",
+              "type": "array"
+            }
+          },
+          "required": [
+            "posts"
+          ],
+          "title": "_XSearchBatch",
+          "type": "object"
+        },
+        "type": "json_schema"
+      }
+    },
+    "tool_choice": "auto",
+    "tools": [
+      {
+        "from_date": "2026-01-01",
+        "to_date": "2026-08-02",
+        "type": "x_search"
+      }
+    ],
+    "top_logprobs": 0,
+    "top_p": 0.95,
+    "truncation": "disabled",
+    "usage": {
+      "context_details": {
+        "input_tokens": 9773,
+        "output_tokens": 4226
+      },
+      "cost_in_usd_ticks": 627084000,
+      "input_tokens": 11777,
+      "input_tokens_details": {
+        "cached_tokens": 2048
+      },
+      "num_server_side_tools_used": 3,
+      "num_sources_used": 0,
+      "output_tokens": 4606,
+      "output_tokens_details": {
+        "reasoning_tokens": 1207
+      },
+      "server_side_tool_usage_details": {
+        "code_interpreter_calls": 0,
+        "document_search_calls": 0,
+        "file_search_calls": 0,
+        "image_generation_calls": 0,
+        "mcp_calls": 0,
+        "web_search_calls": 0,
+        "x_search_calls": 3
+      },
+      "total_tokens": 16383
+    },
+    "user": null
+  },
+  "response_sha256": "7731d22073caa34c21fb6b7c9f365b8ea5203307cc73c8a23105f28197d32199",
+  "surface": "tool.x_search.inventory"
+}

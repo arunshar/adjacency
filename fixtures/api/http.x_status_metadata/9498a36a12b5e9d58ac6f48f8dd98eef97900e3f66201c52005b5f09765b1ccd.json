@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/FrontGastro_BMJ/status/2083635399616864695"
+  },
+  "request_sha256": "9498a36a12b5e9d58ac6f48f8dd98eef97900e3f66201c52005b5f09765b1ccd",
+  "response": {
+    "author_handle": "@FrontGastro_BMJ",
+    "created_at": "August 1, 2026",
+    "media_height": 1270,
+    "media_url": "https://pbs.twimg.com/media/HOqPVlqWMAE_04p.jpg:large",
+    "media_width": 1280,
+    "source_url": "https://x.com/FrontGastro_BMJ/status/2083635399616864695",
+    "text": "\ud83e\ude7a Regular surveillance is vital for detecting hepatocellular carcinoma (HCC) early\u2014but how well are we measuring adherence? \ud83d\udcca This new study in @FrontGastro_BMJ shows that proportion of time covered is an important real-world measure of HCC surveillance adherence and is\u2026"
+  },
+  "response_sha256": "859a71254694a02a6062e0eadde00eded63e043bafd6879fad2889bb6a8ddc4c",
+  "surface": "http.x_status_metadata"
+}

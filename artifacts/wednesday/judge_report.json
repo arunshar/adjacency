@@ -1,0 +1,40 @@
+{
+  "action_counts": {
+    "ALLOW": 41,
+    "BLOCK": 0,
+    "REVIEW": 9
+  },
+  "blended_cost_per_1000_decisions_usd": 6.117936000000001,
+  "corpus_hash": "91d93e38db8bb93c532f17ff3db4eeb02b68ca8179194ae0db899656d9e5e390",
+  "gate_failure_code_counts": {
+    "G1_SPAN_NOT_FOUND": 8,
+    "G6_EFFORT_DISAGREEMENT": 1
+  },
+  "items_with_gate_failures": 9,
+  "items_with_model_errors": 0,
+  "model_call_count": 46,
+  "model_latency_ms": {
+    "p50": 6690.023521000512,
+    "p90": 11221.043145501426,
+    "p99": 50291.39472254967
+  },
+  "near_duplicate_group_count": 0,
+  "policy_hash": "eb02d3e636c7ff1fdb43cf5ecc9dbfd8bbb2f5858382769a9e471dab72344512",
+  "tier_distribution": {
+    "0": {
+      "count": 26,
+      "fraction": 0.52
+    },
+    "1": {
+      "count": 2,
+      "fraction": 0.04
+    },
+    "2": {
+      "count": 22,
+      "fraction": 0.44
+    }
+  },
+  "total_cost_in_usd_ticks": 3058968000,
+  "total_cost_usd": 0.3058968,
+  "total_items": 50
+}

@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/samtilston/status/2082058501980045644"
+  },
+  "request_sha256": "0197f655adba0fd8cca6cfb3cb5131091a7bf2d8f5b320bb16fd010085242b76",
+  "response": {
+    "author_handle": "@samtilston",
+    "created_at": "July 28, 2026",
+    "media_height": null,
+    "media_url": null,
+    "media_width": null,
+    "source_url": "https://x.com/samtilston/status/2082058501980045644",
+    "text": "We talk about deepfakes as if they're the frontier of synthetic media They're not Synthetic text at scale \u2014 AI-generated comment sections, fake op-eds, manufactured \"expert consensus\" \u2014 is already deployed and largely undetected The face gets the headlines The words do the\u2026"
+  },
+  "response_sha256": "0ded77462e79f00da353fb61797e13827706d07fc53b0129ec2f3a7e32b3a092",
+  "surface": "http.x_status_metadata"
+}

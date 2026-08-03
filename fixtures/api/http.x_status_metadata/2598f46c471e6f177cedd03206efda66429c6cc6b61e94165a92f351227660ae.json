@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/TheOriginalBPP/status/2082207283694407694"
+  },
+  "request_sha256": "2598f46c471e6f177cedd03206efda66429c6cc6b61e94165a92f351227660ae",
+  "response": {
+    "author_handle": "@TheOriginalBPP",
+    "created_at": "July 28, 2026",
+    "media_height": null,
+    "media_url": null,
+    "media_width": null,
+    "source_url": "https://x.com/TheOriginalBPP/status/2082207283694407694",
+    "text": "They need to just stay out of politics and report the news, e.g. illegal immigrant violent attacks, Jews being targeted by Muslim extremists, senior government officials telling the public one thing and the documenting something different, listening to an ex CIC share classified\u2026"
+  },
+  "response_sha256": "ff050391fb6871cd17aa80a38390635454a94946336fc6b996a55d2517edc962",
+  "surface": "http.x_status_metadata"
+}

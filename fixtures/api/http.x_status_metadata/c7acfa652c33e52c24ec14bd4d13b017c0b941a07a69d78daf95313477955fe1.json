@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/tetsuoai/status/2069959210834776313"
+  },
+  "request_sha256": "c7acfa652c33e52c24ec14bd4d13b017c0b941a07a69d78daf95313477955fe1",
+  "response": {
+    "author_handle": "@tetsuoai",
+    "created_at": "June 25, 2026",
+    "media_height": 1440,
+    "media_url": "https://pbs.twimg.com/amplify_video_thumb/2069958958350311424/img/islV01w-WANL2U6Q.jpg",
+    "media_width": 2560,
+    "source_url": "https://x.com/tetsuoai/status/2069959210834776313",
+    "text": "Interactive web visualisation for a compact multi-layer perceptron trained on the MNIST handwritten digit dataset. Draw a digit, watch activations propagate through the network in 3D, and inspect real-time prediction probabilities. github/DFin/Neural-Network-Visualisation"
+  },
+  "response_sha256": "ec2c90e80f8134e73751dee37b127bdfae5711707511f58c14d45e00010d2f71",
+  "surface": "http.x_status_metadata"
+}

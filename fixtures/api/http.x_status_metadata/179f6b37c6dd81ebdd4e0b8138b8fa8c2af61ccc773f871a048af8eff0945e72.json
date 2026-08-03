@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/AustinDavisPA/status/2083224129734369699"
+  },
+  "request_sha256": "179f6b37c6dd81ebdd4e0b8138b8fa8c2af61ccc773f871a048af8eff0945e72",
+  "response": {
+    "author_handle": "@AustinDavisPA",
+    "created_at": "July 31, 2026",
+    "media_height": null,
+    "media_url": null,
+    "media_width": null,
+    "source_url": "https://x.com/AustinDavisPA/status/2083224129734369699",
+    "text": "Every Pennsylvanian deserves to be safe and feel safe in the place they call home. During our first term in office, @JoshShapiroPA and I have delivered historic funding for the police officers and gun violence prevention programs working to keep our communities safe \u2014 and it\u2019s\u2026"
+  },
+  "response_sha256": "ff8044f199f2eb1b5fd27ce1aba4ad4610972061f698957e5963706b2899d272",
+  "surface": "http.x_status_metadata"
+}

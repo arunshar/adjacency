@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/mbruggelivecom1/status/2082479572122001909"
+  },
+  "request_sha256": "3bfb6870e7088fe9270710f9e683878f1d8594064a1540023afc22eef0419e9e",
+  "response": {
+    "author_handle": "@mbruggelivecom1",
+    "created_at": "July 29, 2026",
+    "media_height": null,
+    "media_url": null,
+    "media_width": null,
+    "source_url": "https://x.com/mbruggelivecom1/status/2082479572122001909",
+    "text": "Team Trump at DEA have been making real progress on the fentanyl front. A lot of work remains, and partnerships with blue states is needed to make additional gains. Read the post from Dr. Emrani, and check the DEA press release from last December.https://t.co/6k7GF4lN7h https://t.co/Qyc1wS4qrV"
+  },
+  "response_sha256": "2b7c35967f4aabeb26b527070165a76a99280eb1c81074eb2e587c9e11f0b0af",
+  "surface": "http.x_status_metadata"
+}

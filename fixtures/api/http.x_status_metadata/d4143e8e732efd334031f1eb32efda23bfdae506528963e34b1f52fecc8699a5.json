@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/LPNewBrunswick/status/2083686862661521782"
+  },
+  "request_sha256": "d4143e8e732efd334031f1eb32efda23bfdae506528963e34b1f52fecc8699a5",
+  "response": {
+    "author_handle": "@LPNewBrunswick",
+    "created_at": "August 1, 2026",
+    "media_height": null,
+    "media_url": null,
+    "media_width": null,
+    "source_url": "https://x.com/LPNewBrunswick/status/2083686862661521782",
+    "text": "It's aggravating being male in Canada; \"Is there a support group for relatives dealing with a loved one's alcoholism and addictions?\" \"Yes, but it's only for women dealing with a man's alcoholism and addictions\" \"Half of domestic violence is against men, any supports?\" \"None\""
+  },
+  "response_sha256": "660105ed2f129d8cceb9015bef484f1d167831a1531ca427559543e4ccee5c8b",
+  "surface": "http.x_status_metadata"
+}

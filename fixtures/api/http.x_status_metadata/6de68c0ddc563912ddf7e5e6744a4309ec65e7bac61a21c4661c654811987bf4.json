@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/Rustafarian585/status/2083704271480954964"
+  },
+  "request_sha256": "6de68c0ddc563912ddf7e5e6744a4309ec65e7bac61a21c4661c654811987bf4",
+  "response": {
+    "author_handle": "@Rustafarian585",
+    "created_at": "August 1, 2026",
+    "media_height": null,
+    "media_url": null,
+    "media_width": null,
+    "source_url": "https://x.com/Rustafarian585/status/2083704271480954964",
+    "text": "I told my girl to get her granddaughter off Joseph Ave and they can sleep in the room tonight, I'll take the couch. No 4 year old should have to live through Puerto Rican fest just because our city leaders are spineless. I hope Monday morning RPD goes uptown to fuck everyone up!"
+  },
+  "response_sha256": "56cc2296c461a18ee9039d04c4d035d0ba088b72b8d141018812b8b1e6dd78a8",
+  "surface": "http.x_status_metadata"
+}

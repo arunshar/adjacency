@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/Osint613/status/2012099407341076637"
+  },
+  "request_sha256": "74733349328d328da1cdc21f6b4d7b91b354b30efe42fd3e1b6beb5d7dbaf86c",
+  "response": {
+    "author_handle": "@Osint613",
+    "created_at": "January 16, 2026",
+    "media_height": 1096,
+    "media_url": "https://pbs.twimg.com/media/G-xoxeqbEAA6sS5.jpg:large",
+    "media_width": 1100,
+    "source_url": "https://x.com/Osint613/status/2012099407341076637",
+    "text": "Trump administration reports a 25% drop in national overdose deaths through early 2025, citing reduced fentanyl supply from Mexico and expanded treatment access, according to provisional CDC data."
+  },
+  "response_sha256": "490c9532e76589dbc1fb5d0d849c4d0c8196e4c181c3219f10a19050463d4f8e",
+  "surface": "http.x_status_metadata"
+}

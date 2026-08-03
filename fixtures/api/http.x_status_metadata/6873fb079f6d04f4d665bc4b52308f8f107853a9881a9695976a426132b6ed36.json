@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/WarHorizon/status/2083704281665007626"
+  },
+  "request_sha256": "6873fb079f6d04f4d665bc4b52308f8f107853a9881a9695976a426132b6ed36",
+  "response": {
+    "author_handle": "@WarHorizon",
+    "created_at": "August 1, 2026",
+    "media_height": 738,
+    "media_url": "https://pbs.twimg.com/amplify_video_thumb/2083703880366329856/img/RVu7Wd8CObkK2xtK.jpg",
+    "media_width": 1320,
+    "source_url": "https://x.com/WarHorizon/status/2083704281665007626",
+    "text": "Police confirm the suspect in the Twin Falls, Idaho, shooting is deceased and the threat is no longer active. via - @newsnoteworthy"
+  },
+  "response_sha256": "54b7c460e2be6d90b2608eaf2f41991929b9290867ad337f96db8a272c76f6f4",
+  "surface": "http.x_status_metadata"
+}

@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/FBIDirectorKash/status/2008928613165408265"
+  },
+  "request_sha256": "5cfaed1fe7d86de90060a491ae4270fed4b56b958c668987df8991012b6ef063",
+  "response": {
+    "author_handle": "@FBIDirectorKash",
+    "created_at": "January 7, 2026",
+    "media_height": 877,
+    "media_url": "https://pbs.twimg.com/media/G-El7CJXYAA0HpF.jpg:large",
+    "media_width": 1771,
+    "source_url": "https://x.com/FBIDirectorKash/status/2008928613165408265",
+    "text": "Lawmakers can lie. FBI results don\u2019t. Since January 2025, @NewYorkFBI has made 1,700 plus violent crime arrests and seized over 8 kilograms of fentanyl, preventing more than 600,000 potential deaths. 125 firearms seized. Major drug networks disrupted. Public safety isn\u2019t\u2026"
+  },
+  "response_sha256": "2deea1f86ce387e25ba5ef814faf80890d0a55749397b77a86d295a1440b5e1e",
+  "surface": "http.x_status_metadata"
+}

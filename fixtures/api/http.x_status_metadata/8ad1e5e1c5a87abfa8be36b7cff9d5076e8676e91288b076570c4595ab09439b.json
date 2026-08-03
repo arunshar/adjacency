@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/springkiseki/status/2083704129424359920"
+  },
+  "request_sha256": "8ad1e5e1c5a87abfa8be36b7cff9d5076e8676e91288b076570c4595ab09439b",
+  "response": {
+    "author_handle": "@springkiseki",
+    "created_at": "August 1, 2026",
+    "media_height": null,
+    "media_url": null,
+    "media_width": null,
+    "source_url": "https://x.com/springkiseki/status/2083704129424359920",
+    "text": "ppl using harmless selfie photo for deepfakes disgusting af. fucking shameless."
+  },
+  "response_sha256": "ed2d4782b2e92b3aefb67627977ef668384209be266da09d98069e51269099fc",
+  "surface": "http.x_status_metadata"
+}

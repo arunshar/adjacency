@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/QuantaMagazine/status/2021329608667259105"
+  },
+  "request_sha256": "759e4ffeb31aeaf3d2ff4ca6a8edd94af7f72e351d37bf000a7901ad6a8d05fb",
+  "response": {
+    "author_handle": "@QuantaMagazine",
+    "created_at": "February 10, 2026",
+    "media_height": 1800,
+    "media_url": "https://pbs.twimg.com/media/HA00jRDXIAEaRqq.jpg:large",
+    "media_width": 1440,
+    "source_url": "https://x.com/QuantaMagazine/status/2021329608667259105",
+    "text": "Biologists have fed genetic data from millions of mouse brain cells into a custom machine learning algorithm. The program delivered maps of the brain with unprecedented detail, revealing a thousand-plus novel regions. https://t.co/ZhqbQCSCfX"
+  },
+  "response_sha256": "a65ca3c988cc523ea3c69c06993af80272f29ceca793b5fa3c4078ddcd11d64a",
+  "surface": "http.x_status_metadata"
+}

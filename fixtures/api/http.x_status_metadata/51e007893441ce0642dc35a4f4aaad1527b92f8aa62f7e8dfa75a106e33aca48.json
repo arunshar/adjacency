@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/Carlpeng729/status/2083704186609549694"
+  },
+  "request_sha256": "51e007893441ce0642dc35a4f4aaad1527b92f8aa62f7e8dfa75a106e33aca48",
+  "response": {
+    "author_handle": "@Carlpeng729",
+    "created_at": "August 1, 2026",
+    "media_height": null,
+    "media_url": null,
+    "media_width": null,
+    "source_url": "https://x.com/Carlpeng729/status/2083704186609549694",
+    "text": "Day 105 I will write my daily summary entirely in English and use AI tools to help me polish it. OK, let's start my Day 105 summary. I finished my IELTS listening, reading, speaking and writing practice as usual. I realized that my speaking ability is much worse than I expected \u2014\u2026"
+  },
+  "response_sha256": "fb6c86f715a9acd9a967cfb6dfa2192db0230f12db10c4c7a969e8a7fe58af72",
+  "surface": "http.x_status_metadata"
+}

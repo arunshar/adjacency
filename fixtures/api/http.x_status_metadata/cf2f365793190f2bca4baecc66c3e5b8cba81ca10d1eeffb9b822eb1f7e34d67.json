@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/DDNewslive/status/2082808938488070249"
+  },
+  "request_sha256": "cf2f365793190f2bca4baecc66c3e5b8cba81ca10d1eeffb9b822eb1f7e34d67",
+  "response": {
+    "author_handle": "@DDNewslive",
+    "created_at": "July 30, 2026",
+    "media_height": 816,
+    "media_url": "https://pbs.twimg.com/media/HOefXBoaEAAb2Yb.png:large",
+    "media_width": 753,
+    "source_url": "https://x.com/DDNewslive/status/2082808938488070249",
+    "text": "Government Strengthens Framework to Counter AI-Generated Deepfakes through Legal Safeguards, Platform Accountability and Citizen Protection 13 Responsible AI Projects Approved for Deepfake Detection as Over 11.37 Lakh People Benefit from 6,650 Cyber Security Awareness Workshops\u2026"
+  },
+  "response_sha256": "2a2c41c2801c0f669bd84bd6a5048c8d85674c319da97859590418c0d203e70f",
+  "surface": "http.x_status_metadata"
+}

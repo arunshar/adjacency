@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/_SantaFeNM/status/2083704178061238598"
+  },
+  "request_sha256": "6fa61ba84b4eda045f269ee4ac64baa729b0fb90f63142f489690cf6db10657b",
+  "response": {
+    "author_handle": "@_SantaFeNM",
+    "created_at": "August 1, 2026",
+    "media_height": null,
+    "media_url": null,
+    "media_width": null,
+    "source_url": "https://x.com/_SantaFeNM/status/2083704178061238598",
+    "text": "temperature down 85\u00b0F \u21e2 82\u00b0F wind 12 mph \u2190\ufe0e \u21e2 17 mph \u2193\ufe0e"
+  },
+  "response_sha256": "e73172b762b4f668b2c8f10943c8a3cf01b963c0d916a7d296e94afa1e92b90e",
+  "surface": "http.x_status_metadata"
+}

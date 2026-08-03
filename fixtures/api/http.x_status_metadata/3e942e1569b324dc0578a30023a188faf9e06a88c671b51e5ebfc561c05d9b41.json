@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/im_serPAI/status/2083681742888505523"
+  },
+  "request_sha256": "3e942e1569b324dc0578a30023a188faf9e06a88c671b51e5ebfc561c05d9b41",
+  "response": {
+    "author_handle": "@im_serPAI",
+    "created_at": "August 1, 2026",
+    "media_height": null,
+    "media_url": null,
+    "media_width": null,
+    "source_url": "https://x.com/im_serPAI/status/2083681742888505523",
+    "text": "AI deepfakes are about to wreck crypto security harder than any smart contract bug ever did SOL foundation's new CISO put it straight: \"Eventually, you will be fooled because the cons are that good.\" Stack your defenses. When layer one fails, layer two saves you."
+  },
+  "response_sha256": "6f9af8012ed3b04a5e7e5973c6ab376903333d5539ed8128e91a593892c9b597",
+  "surface": "http.x_status_metadata"
+}

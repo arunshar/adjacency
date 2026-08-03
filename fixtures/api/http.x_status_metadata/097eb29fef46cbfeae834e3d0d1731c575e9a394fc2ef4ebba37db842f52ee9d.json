@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/_SantaAnaCA/status/2083704047459004612"
+  },
+  "request_sha256": "097eb29fef46cbfeae834e3d0d1731c575e9a394fc2ef4ebba37db842f52ee9d",
+  "response": {
+    "author_handle": "@_SantaAnaCA",
+    "created_at": "August 1, 2026",
+    "media_height": null,
+    "media_url": null,
+    "media_width": null,
+    "source_url": "https://x.com/_SantaAnaCA/status/2083704047459004612",
+    "text": "temperature up 83\u00b0F \u21e2 85\u00b0F wind 7 mph \u2199\ufe0e \u21e2 13 mph \u2199\ufe0e"
+  },
+  "response_sha256": "eae06dbdeaccf572ce7b95cb371107f3b18a224a5038078a6cd9c0835735c06d",
+  "surface": "http.x_status_metadata"
+}

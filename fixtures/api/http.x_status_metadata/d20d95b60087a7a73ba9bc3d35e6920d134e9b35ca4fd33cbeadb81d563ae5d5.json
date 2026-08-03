@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/NASAHubble/status/2080654232886116631"
+  },
+  "request_sha256": "d20d95b60087a7a73ba9bc3d35e6920d134e9b35ca4fd33cbeadb81d563ae5d5",
+  "response": {
+    "author_handle": "@NASAHubble",
+    "created_at": "July 24, 2026",
+    "media_height": 3825,
+    "media_url": "https://pbs.twimg.com/media/HN7BH9XXAAA9H5c.jpg:large",
+    "media_width": 3984,
+    "source_url": "https://x.com/NASAHubble/status/2080654232886116631",
+    "text": "A one-sided spiral \ud83c\udf00 Located about 72 million light-years away, the spiral galaxy NGC 4654 belongs to the Virgo Cluster of galaxies. Its asymmetric shape is caused by pressure it encounters as the galaxy moves through gas in its cluster: https://t.co/eN12F6Zn7p"
+  },
+  "response_sha256": "67d755bc57d45575ca256de9d53baf7dd8370ac8a5332937faacbe6d11e0ccea",
+  "surface": "http.x_status_metadata"
+}

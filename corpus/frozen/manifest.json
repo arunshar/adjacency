@@ -1,0 +1,978 @@
+{
+  "corpus": {
+    "frozen_on": "2026-08-03",
+    "records": [
+      {
+        "item": {
+          "author_handle": "@Critical_Scribe",
+          "created_at": "January 7, 2026",
+          "item_id": "x-2009017572486692982",
+          "media": [],
+          "text": "Something I\u2019ve noticed about the vocal audience on here is that they operate off of basic enemy/ally distinction. If it\u2019s an \u201cenemy\u201d, aka someone in the protagonist\u2019s way, it\u2019s ok if the \u201chero\u201d kills them. Because they\u2019re the hero! They have their reasons. If they\u2019re with the\u2026 https://t.co/JnBn8juuMt"
+        },
+        "media_records": [],
+        "source_query": "fictional_violence_context",
+        "source_url": "https://x.com/Critical_Scribe/status/2009017572486692982"
+      },
+      {
+        "item": {
+          "author_handle": "@tom_doerr",
+          "created_at": "February 7, 2026",
+          "item_id": "x-2020027665223127418",
+          "media": [
+            {
+              "height": 525,
+              "kind": "image",
+              "local_path": "corpus/media/2020027665223127418.jpg",
+              "media_id": "x-2020027665223127418-media-1",
+              "url": "https://pbs.twimg.com/media/HAiUdO_XoAAybYB.png:large",
+              "width": 516
+            }
+          ],
+          "text": "Research agent framework for scientific paradigm generationhttps://t.co/D7SlDZ0ZcF"
+        },
+        "media_records": [
+          {
+            "local_path": "corpus/media/2020027665223127418.jpg",
+            "media_id": "x-2020027665223127418-media-1",
+            "perceptual_hash": 13767452318730235196,
+            "sha256": "70dbe9f4c47772c0783ac21470b9cdbacc118f7a315a0bc2bed5f8b0b706d266",
+            "source_url": "https://pbs.twimg.com/media/HAiUdO_XoAAybYB.png:large"
+          }
+        ],
+        "source_query": "clean_science_technology",
+        "source_url": "https://x.com/tom_doerr/status/2020027665223127418"
+      },
+      {
+        "item": {
+          "author_handle": "@tom_doerr",
+          "created_at": "February 14, 2026",
+          "item_id": "x-2022809940105089429",
+          "media": [
+            {
+              "height": 449,
+              "kind": "image",
+              "local_path": "corpus/media/2022809940105089429.jpg",
+              "media_id": "x-2022809940105089429-media-1",
+              "url": "https://pbs.twimg.com/media/HBJ26-NXQAE1XIp.png:large",
+              "width": 448
+            }
+          ],
+          "text": "Generates scientific diagrams from text or papershttps://t.co/exf7I4zild"
+        },
+        "media_records": [
+          {
+            "local_path": "corpus/media/2022809940105089429.jpg",
+            "media_id": "x-2022809940105089429-media-1",
+            "perceptual_hash": 18051609058592403743,
+            "sha256": "aaa6e61e99ea812c5fde5d83145c68542917ab397468b0c3fcee9f1c5424d84d",
+            "source_url": "https://pbs.twimg.com/media/HBJ26-NXQAE1XIp.png:large"
+          }
+        ],
+        "source_query": "clean_science_technology",
+        "source_url": "https://x.com/tom_doerr/status/2022809940105089429"
+      },
+      {
+        "item": {
+          "author_handle": "@tom_doerr",
+          "created_at": "March 13, 2026",
+          "item_id": "x-2032455308677669313",
+          "media": [
+            {
+              "height": 761,
+              "kind": "image",
+              "local_path": "corpus/media/2032455308677669313.jpg",
+              "media_id": "x-2032455308677669313-media-1",
+              "url": "https://pbs.twimg.com/media/HDS7VOrW0AAunZj.jpg:large",
+              "width": 768
+            }
+          ],
+          "text": "Generates publication-ready scientific illustrations from texthttps://t.co/tYlL8OpJIs"
+        },
+        "media_records": [
+          {
+            "local_path": "corpus/media/2032455308677669313.jpg",
+            "media_id": "x-2032455308677669313-media-1",
+            "perceptual_hash": 12933014082183169988,
+            "sha256": "8830f2619b3797715b6bfe55ccdf4eaf4dbfec94379435cf4a9b884f26cabab5",
+            "source_url": "https://pbs.twimg.com/media/HDS7VOrW0AAunZj.jpg:large"
+          }
+        ],
+        "source_query": "clean_science_technology",
+        "source_url": "https://x.com/tom_doerr/status/2032455308677669313"
+      },
+      {
+        "item": {
+          "author_handle": "@tom_doerr",
+          "created_at": "May 14, 2026",
+          "item_id": "x-2054959102195872231",
+          "media": [
+            {
+              "height": 658,
+              "kind": "image",
+              "local_path": "corpus/media/2054959102195872231.jpg",
+              "media_id": "x-2054959102195872231-media-1",
+              "url": "https://pbs.twimg.com/media/HISuac1WcAIrb5M.jpg:large",
+              "width": 768
+            }
+          ],
+          "text": "Collection of 127 scientific diagrams for physics and MLhttps://t.co/NipJXOAP0h"
+        },
+        "media_records": [
+          {
+            "local_path": "corpus/media/2054959102195872231.jpg",
+            "media_id": "x-2054959102195872231-media-1",
+            "perceptual_hash": 10390716545449810778,
+            "sha256": "c8d8ae2eee6084e85b9bfec9350aaff218d32247a93ae8bc5d4bd01bcaf74dde",
+            "source_url": "https://pbs.twimg.com/media/HISuac1WcAIrb5M.jpg:large"
+          }
+        ],
+        "source_query": "clean_science_technology",
+        "source_url": "https://x.com/tom_doerr/status/2054959102195872231"
+      },
+      {
+        "item": {
+          "author_handle": "@Patrickwebb",
+          "created_at": "June 24, 2026",
+          "item_id": "x-2069804700174574040",
+          "media": [],
+          "text": "BREAKING: The DEA allegedly allowed more than 1.8 million fentanyl pills in monitored shipments and deliveries to go unseized between 2023 and 2025, potentially contributing to overdose deaths, per AP."
+        },
+        "media_records": [],
+        "source_query": "neutral_public_health",
+        "source_url": "https://x.com/Patrickwebb/status/2069804700174574040"
+      },
+      {
+        "item": {
+          "author_handle": "@tetsuoai",
+          "created_at": "June 25, 2026",
+          "item_id": "x-2069959210834776313",
+          "media": [
+            {
+              "height": 432,
+              "kind": "image",
+              "local_path": "corpus/media/2069959210834776313.jpg",
+              "media_id": "x-2069959210834776313-media-1",
+              "url": "https://pbs.twimg.com/amplify_video_thumb/2069958958350311424/img/islV01w-WANL2U6Q.jpg",
+              "width": 768
+            }
+          ],
+          "text": "Interactive web visualisation for a compact multi-layer perceptron trained on the MNIST handwritten digit dataset. Draw a digit, watch activations propagate through the network in 3D, and inspect real-time prediction probabilities. github/DFin/Neural-Network-Visualisation"
+        },
+        "media_records": [
+          {
+            "local_path": "corpus/media/2069959210834776313.jpg",
+            "media_id": "x-2069959210834776313-media-1",
+            "perceptual_hash": 14754693538136427612,
+            "sha256": "0d09a69f072d06fe754fc9501f566d3328c27ff35b81d430d76cf01572b33af8",
+            "source_url": "https://pbs.twimg.com/amplify_video_thumb/2069958958350311424/img/islV01w-WANL2U6Q.jpg"
+          }
+        ],
+        "source_query": "clean_science_technology",
+        "source_url": "https://x.com/tetsuoai/status/2069959210834776313"
+      },
+      {
+        "item": {
+          "author_handle": "@NatlParkService",
+          "created_at": "July 4, 2026",
+          "item_id": "x-2073377410620219590",
+          "media": [
+            {
+              "height": 768,
+              "kind": "image",
+              "local_path": "corpus/media/2073377410620219590.jpg",
+              "media_id": "x-2073377410620219590-media-1",
+              "url": "https://pbs.twimg.com/media/HMYdw85W4AAe_WB.jpg:large",
+              "width": 512
+            }
+          ],
+          "text": "Happy Independence Day \ud83c\uddfa\ud83c\uddf8 From battlefields and memorials to parks and protected landscapes, the places cared for by the National Park Service help bring our shared history to life."
+        },
+        "media_records": [
+          {
+            "local_path": "corpus/media/2073377410620219590.jpg",
+            "media_id": "x-2073377410620219590-media-1",
+            "perceptual_hash": 15046165915404830550,
+            "sha256": "c2b5e64e42aa290f7d8c8ed9f5ab155b609d605eeb7b14eb52aa3d6a2b90d018",
+            "source_url": "https://pbs.twimg.com/media/HMYdw85W4AAe_WB.jpg:large"
+          }
+        ],
+        "source_query": "clean_travel_nature",
+        "source_url": "https://x.com/NatlParkService/status/2073377410620219590"
+      },
+      {
+        "item": {
+          "author_handle": "@PaladinAshe",
+          "created_at": "July 10, 2026",
+          "item_id": "x-2075412071051923520",
+          "media": [],
+          "text": "I unironically love Frieren and Goblin Slayer for these exact reasons, among other things. I still remember a \"discussion\" with a dude that went something like \"Is goblin slayer really about killing just goblins and are they really just evil and not simply misunderstood.\"\u2026 https://t.co/H0ZRcMu2Ds"
+        },
+        "media_records": [],
+        "source_query": "fictional_violence_context",
+        "source_url": "https://x.com/PaladinAshe/status/2075412071051923520"
+      },
+      {
+        "item": {
+          "author_handle": "@AISafetyGuides",
+          "created_at": "July 16, 2026",
+          "item_id": "x-2077650614012539130",
+          "media": [],
+          "text": "Deepfakes awareness is not enough The Deepfake awareness helps families prepare for synthetic voice, image, video, and impersonation risks if combined with practical verification steps, response habits, and household protocols. The point is not fear mongering. The point is a\u2026"
+        },
+        "media_records": [],
+        "source_query": "ambiguous_context",
+        "source_url": "https://x.com/AISafetyGuides/status/2077650614012539130"
+      },
+      {
+        "item": {
+          "author_handle": "@mikeisx3300",
+          "created_at": "July 18, 2026",
+          "item_id": "x-2078419528820638002",
+          "media": [],
+          "text": "This synthetic opioid is a serious threat to our neighborhoods. It's incredibly potent and can be mixed into other drugs without people knowing. \ud83d\udc94 The rise in overdoses linked to this substance is truly heartbreaking. We need to spread awareness and support for those affected.\u2026"
+        },
+        "media_records": [],
+        "source_query": "ambiguous_context",
+        "source_url": "https://x.com/mikeisx3300/status/2078419528820638002"
+      },
+      {
+        "item": {
+          "author_handle": "@NASAHubble",
+          "created_at": "July 24, 2026",
+          "item_id": "x-2080654232886116631",
+          "media": [
+            {
+              "height": 737,
+              "kind": "image",
+              "local_path": "corpus/media/2080654232886116631.jpg",
+              "media_id": "x-2080654232886116631-media-1",
+              "url": "https://pbs.twimg.com/media/HN7BH9XXAAA9H5c.jpg:large",
+              "width": 768
+            }
+          ],
+          "text": "A one-sided spiral \ud83c\udf00 Located about 72 million light-years away, the spiral galaxy NGC 4654 belongs to the Virgo Cluster of galaxies. Its asymmetric shape is caused by pressure it encounters as the galaxy moves through gas in its cluster: https://t.co/eN12F6Zn7p"
+        },
+        "media_records": [
+          {
+            "local_path": "corpus/media/2080654232886116631.jpg",
+            "media_id": "x-2080654232886116631-media-1",
+            "perceptual_hash": 15104268201367714963,
+            "sha256": "0d2fe80660320a667c3fe13685de77b12f7c2f217bfe64525fb35ca1e9c56323",
+            "source_url": "https://pbs.twimg.com/media/HN7BH9XXAAA9H5c.jpg:large"
+          }
+        ],
+        "source_query": "clean_travel_nature",
+        "source_url": "https://x.com/NASAHubble/status/2080654232886116631"
+      },
+      {
+        "item": {
+          "author_handle": "@YellowstoneNPS",
+          "created_at": "July 26, 2026",
+          "item_id": "x-2081452051188371899",
+          "media": [
+            {
+              "height": 512,
+              "kind": "image",
+              "local_path": "corpus/media/2081452051188371899.jpg",
+              "media_id": "x-2081452051188371899-media-1",
+              "url": "https://pbs.twimg.com/media/HOLNm8wXUAAa7Zr.jpg:large",
+              "width": 768
+            }
+          ],
+          "text": "Step aside wolves, bison, bears, and geysers! Sometimes it's nice to slow down and notice the little things. Photos (NPS / Jacob W. Frank and Neal Herbert): 1. Red squirrel hiding in a snag 2. Painted lady resting in the sun 3. Raindrops 4. Bison tracks in a bacterial mat"
+        },
+        "media_records": [
+          {
+            "local_path": "corpus/media/2081452051188371899.jpg",
+            "media_id": "x-2081452051188371899-media-1",
+            "perceptual_hash": 10674719187990716380,
+            "sha256": "1c32dd4926239d11378ac2630de421742478e13987d94113e66c1e573f2997d6",
+            "source_url": "https://pbs.twimg.com/media/HOLNm8wXUAAa7Zr.jpg:large"
+          }
+        ],
+        "source_query": "clean_travel_nature",
+        "source_url": "https://x.com/YellowstoneNPS/status/2081452051188371899"
+      },
+      {
+        "item": {
+          "author_handle": "@samtilston",
+          "created_at": "July 28, 2026",
+          "item_id": "x-2082058501980045644",
+          "media": [],
+          "text": "We talk about deepfakes as if they're the frontier of synthetic media They're not Synthetic text at scale \u2014 AI-generated comment sections, fake op-eds, manufactured \"expert consensus\" \u2014 is already deployed and largely undetected The face gets the headlines The words do the\u2026"
+        },
+        "media_records": [],
+        "source_query": "synthetic_media_policy",
+        "source_url": "https://x.com/samtilston/status/2082058501980045644"
+      },
+      {
+        "item": {
+          "author_handle": "@McDonaldHopkins",
+          "created_at": "July 28, 2026",
+          "item_id": "x-2082143677992804709",
+          "media": [],
+          "text": "Scammers are getting more sophisticated. The FBI is warning that criminals are now using AI-generated deepfake videos of senior FBI officials to make fraud schemes appear legitimate.https://t.co/i5TMDQPvFD"
+        },
+        "media_records": [],
+        "source_query": "synthetic_media_policy",
+        "source_url": "https://x.com/McDonaldHopkins/status/2082143677992804709"
+      },
+      {
+        "item": {
+          "author_handle": "@NASAHubble",
+          "created_at": "July 28, 2026",
+          "item_id": "x-2082194383063875634",
+          "media": [
+            {
+              "height": 768,
+              "kind": "image",
+              "local_path": "corpus/media/2082194383063875634.jpg",
+              "media_id": "x-2082194383063875634-media-1",
+              "url": "https://pbs.twimg.com/media/HORbwF6WkAA5Tnr.jpg:large",
+              "width": 768
+            }
+          ],
+          "text": "These galaxies are locked in. The pair, known as ESO 550-2, is caught in a gravitational dance. This interaction's already deformed one arm of the larger galaxy on the left, though star formation continues in it. Learn more: https://t.co/WLjjagEv1E"
+        },
+        "media_records": [
+          {
+            "local_path": "corpus/media/2082194383063875634.jpg",
+            "media_id": "x-2082194383063875634-media-1",
+            "perceptual_hash": 14902185980974736177,
+            "sha256": "5fb6ffb137076eeec2e8b98df3ede5ce83ff5200d697265beab691cc1aa347e5",
+            "source_url": "https://pbs.twimg.com/media/HORbwF6WkAA5Tnr.jpg:large"
+          }
+        ],
+        "source_query": "clean_travel_nature",
+        "source_url": "https://x.com/NASAHubble/status/2082194383063875634"
+      },
+      {
+        "item": {
+          "author_handle": "@mbruggelivecom1",
+          "created_at": "July 29, 2026",
+          "item_id": "x-2082479572122001909",
+          "media": [],
+          "text": "Team Trump at DEA have been making real progress on the fentanyl front. A lot of work remains, and partnerships with blue states is needed to make additional gains. Read the post from Dr. Emrani, and check the DEA press release from last December.https://t.co/6k7GF4lN7h https://t.co/Qyc1wS4qrV"
+        },
+        "media_records": [],
+        "source_query": "neutral_public_health",
+        "source_url": "https://x.com/mbruggelivecom1/status/2082479572122001909"
+      },
+      {
+        "item": {
+          "author_handle": "@Malavoces",
+          "created_at": "July 29, 2026",
+          "item_id": "x-2082528027410334119",
+          "media": [],
+          "text": "The Warrior \u201cThis is a weapon of terror. It\u2019s made to intimidate the enemy.\u201d \u201cThis is a weapon of war. Its purpose is to kill the enemy.\u201d The absolutely greatest and and most effective military lampshading scene in the history of Science Fiction. It\u2019s lamp-shading because\u2026"
+        },
+        "media_records": [],
+        "source_query": "fictional_violence_context",
+        "source_url": "https://x.com/Malavoces/status/2082528027410334119"
+      },
+      {
+        "item": {
+          "author_handle": "@SenateAging",
+          "created_at": "July 29, 2026",
+          "item_id": "x-2082551906228912361",
+          "media": [],
+          "text": "The AI Deception Machine: Deepfakes, Chatbots, and the New Frontier of Senior Fraud https://t.co/9bvwL9iJTp"
+        },
+        "media_records": [],
+        "source_query": "synthetic_media_policy",
+        "source_url": "https://x.com/SenateAging/status/2082551906228912361"
+      },
+      {
+        "item": {
+          "author_handle": "@FictionWrite",
+          "created_at": "July 30, 2026",
+          "item_id": "x-2082757457756233974",
+          "media": [],
+          "text": "The heroes just come home from defeating the greatest evil and oppressive super power of their age, and what do they find in the Shire? A washed out wizard and a king's advisor assaulting their village, despite having been defeated in the second book. Thats the equivalent of\u2026"
+        },
+        "media_records": [],
+        "source_query": "fictional_violence_context",
+        "source_url": "https://x.com/FictionWrite/status/2082757457756233974"
+      },
+      {
+        "item": {
+          "author_handle": "@LilyInBloom3",
+          "created_at": "July 30, 2026",
+          "item_id": "x-2082784079616131521",
+          "media": [],
+          "text": "\"Seeing is believing\" is no more relevant \u25ab\ufe0fTechniques like diffusion models, 3D NeRFs, and zero shot voice cloning have rendered synthetic media indistinguishable from reality. While this unlocks massive creative potential, it presents critical enterprise risks; from executive\u2026"
+        },
+        "media_records": [],
+        "source_query": "synthetic_media_policy",
+        "source_url": "https://x.com/LilyInBloom3/status/2082784079616131521"
+      },
+      {
+        "item": {
+          "author_handle": "@simplykashif",
+          "created_at": "July 30, 2026",
+          "item_id": "x-2082799958860665265",
+          "media": [],
+          "text": "\ud83c\uddee\ud83c\uddf3 Indian government is planning a new law that would make \"AI DEEPFAKE\" and \"DIGITAL ARREST\" scams separate criminal offences. Proposal is expected to be discussed during the current parliament session. -> 12.7 lakh+ cyber fraud complaints reported in January to June 2026 ->\u2026"
+        },
+        "media_records": [],
+        "source_query": "synthetic_media_policy",
+        "source_url": "https://x.com/simplykashif/status/2082799958860665265"
+      },
+      {
+        "item": {
+          "author_handle": "@TheStatsRobot",
+          "created_at": "July 30, 2026",
+          "item_id": "x-2082872571490599192",
+          "media": [],
+          "text": "My father scrolling facebook reels genuinely scares me. Short form video is already a toxic narcotic for your brain, and now he's mainlining synthetic fentanyl. https://t.co/LlbctTJWKT"
+        },
+        "media_records": [],
+        "source_query": "ambiguous_context",
+        "source_url": "https://x.com/TheStatsRobot/status/2082872571490599192"
+      },
+      {
+        "item": {
+          "author_handle": "@NatGeoTravel",
+          "created_at": "July 30, 2026",
+          "item_id": "x-2082904065017590139",
+          "media": [
+            {
+              "height": 576,
+              "kind": "image",
+              "local_path": "corpus/media/2082904065017590139.jpg",
+              "media_id": "x-2082904065017590139-media-1",
+              "url": "https://pbs.twimg.com/media/HOf2NRqWsAAByh4.jpg:large",
+              "width": 768
+            }
+          ],
+          "text": "What\u2019s one historical place you\u2019ve visited that made the past feel real? Explore ancient Pompeii and Herculaneum in #PompeiiOutOfTime with Tom Hiddleston. Now streaming on @DisneyPlus and @Hulu."
+        },
+        "media_records": [
+          {
+            "local_path": "corpus/media/2082904065017590139.jpg",
+            "media_id": "x-2082904065017590139-media-1",
+            "perceptual_hash": 10342305959760807628,
+            "sha256": "2051a745c79bb49f761609942532c74e5a05d24192b4227d355944110d86e1c4",
+            "source_url": "https://pbs.twimg.com/media/HOf2NRqWsAAByh4.jpg:large"
+          }
+        ],
+        "source_query": "clean_travel_nature",
+        "source_url": "https://x.com/NatGeoTravel/status/2082904065017590139"
+      },
+      {
+        "item": {
+          "author_handle": "@YellowstoneNPS",
+          "created_at": "July 30, 2026",
+          "item_id": "x-2082907615332274428",
+          "media": [
+            {
+              "height": 512,
+              "kind": "image",
+              "local_path": "corpus/media/2082907615332274428.jpg",
+              "media_id": "x-2082907615332274428-media-1",
+              "url": "https://pbs.twimg.com/media/HOf5b9IXcAAYzm6.jpg:large",
+              "width": 768
+            }
+          ],
+          "text": "Pikas may be small, but they sure are mighty! They are one of few mammal species in the Lower 48 that can survive their entire lives above tree line in high-alpine, rocky terrain. Though they look like rodents, they're actually more closely related to rabbits and hares and only\u2026"
+        },
+        "media_records": [
+          {
+            "local_path": "corpus/media/2082907615332274428.jpg",
+            "media_id": "x-2082907615332274428-media-1",
+            "perceptual_hash": 9714998026458051946,
+            "sha256": "78420e50f4d8bd9be61da4b761e0fbce459b577e8bb0cd73a764e6fcdcd14756",
+            "source_url": "https://pbs.twimg.com/media/HOf5b9IXcAAYzm6.jpg:large"
+          }
+        ],
+        "source_query": "clean_travel_nature",
+        "source_url": "https://x.com/YellowstoneNPS/status/2082907615332274428"
+      },
+      {
+        "item": {
+          "author_handle": "@NASA",
+          "created_at": "July 30, 2026",
+          "item_id": "x-2082911174522257413",
+          "media": [
+            {
+              "height": 768,
+              "kind": "image",
+              "local_path": "corpus/media/2082911174522257413.jpg",
+              "media_id": "x-2082911174522257413-media-1",
+              "url": "https://pbs.twimg.com/media/HOf8qfAWcAABA1c.jpg:large",
+              "width": 512
+            }
+          ],
+          "text": "Astronaut Deniz Burnham is heading to space for the first time!@astro_deniz, a former NASA intern, will lift off to the @Space_Station next spring aboard the Roscosmos Soyuz MS-30 spacecraft: https://t.co/bFhlDDiqzK"
+        },
+        "media_records": [
+          {
+            "local_path": "corpus/media/2082911174522257413.jpg",
+            "media_id": "x-2082911174522257413-media-1",
+            "perceptual_hash": 11212600113227035194,
+            "sha256": "e0fc5bc98c526be7838f102e666f31a0e7f99808249e095df8bfd1bf6230c296",
+            "source_url": "https://pbs.twimg.com/media/HOf8qfAWcAABA1c.jpg:large"
+          }
+        ],
+        "source_query": "clean_travel_nature",
+        "source_url": "https://x.com/NASA/status/2082911174522257413"
+      },
+      {
+        "item": {
+          "author_handle": "@moja26",
+          "created_at": "July 31, 2026",
+          "item_id": "x-2083005530893959648",
+          "media": [
+            {
+              "height": 432,
+              "kind": "image",
+              "local_path": "corpus/media/2083005530893959648.jpg",
+              "media_id": "x-2083005530893959648-media-1",
+              "url": "https://pbs.twimg.com/media/HOhSSFZaoAAfUFh.jpg:large",
+              "width": 768
+            }
+          ],
+          "text": "Ai could be a powerful tool to help and progress human scientific achievement if we just use our imaginations and ask it the right questions like for with this example of an electrohydrodynamic chain of momentum transfer diagram that it drew. Choose your field, Ai can analyze\u2026"
+        },
+        "media_records": [
+          {
+            "local_path": "corpus/media/2083005530893959648.jpg",
+            "media_id": "x-2083005530893959648-media-1",
+            "perceptual_hash": 15013153358717949967,
+            "sha256": "077ee70511c02a599645c9d929144f98f35d033c4d11657690b75c163ea4b4f2",
+            "source_url": "https://pbs.twimg.com/media/HOhSSFZaoAAfUFh.jpg:large"
+          }
+        ],
+        "source_query": "clean_science_technology",
+        "source_url": "https://x.com/moja26/status/2083005530893959648"
+      },
+      {
+        "item": {
+          "author_handle": "@NatlParkService",
+          "created_at": "July 31, 2026",
+          "item_id": "x-2083214677291696596",
+          "media": [
+            {
+              "height": 768,
+              "kind": "image",
+              "local_path": "corpus/media/2083214677291696596.jpg",
+              "media_id": "x-2083214677291696596-media-1",
+              "url": "https://pbs.twimg.com/media/HOkQtU6b0AAHP3k.jpg:large",
+              "width": 594
+            }
+          ],
+          "text": "On World Ranger Day, we celebrate the dedication, courage, and commitment of rangers who protect and care for national parks and protected areas around the world."
+        },
+        "media_records": [
+          {
+            "local_path": "corpus/media/2083214677291696596.jpg",
+            "media_id": "x-2083214677291696596-media-1",
+            "perceptual_hash": 11139769579732384940,
+            "sha256": "3df51da1f6620c03708af832cf281aa2823b61af74fedbd85a6978c8d2a79ba9",
+            "source_url": "https://pbs.twimg.com/media/HOkQtU6b0AAHP3k.jpg:large"
+          }
+        ],
+        "source_query": "clean_travel_nature",
+        "source_url": "https://x.com/NatlParkService/status/2083214677291696596"
+      },
+      {
+        "item": {
+          "author_handle": "@NASAEarth",
+          "created_at": "July 31, 2026",
+          "item_id": "x-2083245767687323925",
+          "media": [
+            {
+              "height": 512,
+              "kind": "image",
+              "local_path": "corpus/media/2083245767687323925.jpg",
+              "media_id": "x-2083245767687323925-media-1",
+              "url": "https://pbs.twimg.com/media/HOks_EgWsAEpXoy.jpg:large",
+              "width": 768
+            }
+          ],
+          "text": "Extremely hot and dry conditions in June and July enabled large fires to break out in Europe. Spain saw its largest fire on record in \u00c1vila, as shown in this Landsat 9 false color image. Unburned vegetation is light green and burned areas appear brown. https://t.co/G4RJHG0fQu"
+        },
+        "media_records": [
+          {
+            "local_path": "corpus/media/2083245767687323925.jpg",
+            "media_id": "x-2083245767687323925-media-1",
+            "perceptual_hash": 16853251598021938383,
+            "sha256": "a949bbfe293257a6ae50a2d917f764798047fbcb48741e58c9ef99b09692032d",
+            "source_url": "https://pbs.twimg.com/media/HOks_EgWsAEpXoy.jpg:large"
+          }
+        ],
+        "source_query": "clean_travel_nature",
+        "source_url": "https://x.com/NASAEarth/status/2083245767687323925"
+      },
+      {
+        "item": {
+          "author_handle": "@Space_Station",
+          "created_at": "August 1, 2026",
+          "item_id": "x-2083591796332921314",
+          "media": [
+            {
+              "height": 768,
+              "kind": "image",
+              "local_path": "corpus/media/2083591796332921314.jpg",
+              "media_id": "x-2083591796332921314-media-1",
+              "url": "https://pbs.twimg.com/media/HOpni-5WAAAdBLW.jpg:large",
+              "width": 576
+            }
+          ],
+          "text": ".@NASA astronaut Deniz Burnham is targeted to begin her first mission to the International Space Station, serving as an Expedition 76 flight engineer, in March 2027. More... https://t.co/Zv9Vn7Pnmo"
+        },
+        "media_records": [
+          {
+            "local_path": "corpus/media/2083591796332921314.jpg",
+            "media_id": "x-2083591796332921314-media-1",
+            "perceptual_hash": 11230690407831776324,
+            "sha256": "6f26abcc8bee8725d2e42be1673666edbb222820529bc4671346cb853e4e36c4",
+            "source_url": "https://pbs.twimg.com/media/HOpni-5WAAAdBLW.jpg:large"
+          }
+        ],
+        "source_query": "clean_travel_nature",
+        "source_url": "https://x.com/Space_Station/status/2083591796332921314"
+      },
+      {
+        "item": {
+          "author_handle": "@AMAZlNGNATURE",
+          "created_at": "August 1, 2026",
+          "item_id": "x-2083651229813764516",
+          "media": [
+            {
+              "height": 600,
+              "kind": "image",
+              "local_path": "corpus/media/2083651229813764516.jpg",
+              "media_id": "x-2083651229813764516-media-1",
+              "url": "https://pbs.twimg.com/media/HOJNOp0XcAAJJT5.png:large",
+              "width": 600
+            }
+          ],
+          "text": "This flower turns transparent when it rains Known as the Skeleton Flower, its white petals become almost clear when wet before turning white again as they dry"
+        },
+        "media_records": [
+          {
+            "local_path": "corpus/media/2083651229813764516.jpg",
+            "media_id": "x-2083651229813764516-media-1",
+            "perceptual_hash": 14310588236227106461,
+            "sha256": "27fbc4b07b65708e9e79c13706c3ff312f1b294bf0f9885fd702ec42380c6b0a",
+            "source_url": "https://pbs.twimg.com/media/HOJNOp0XcAAJJT5.png:large"
+          }
+        ],
+        "source_query": "clean_travel_nature",
+        "source_url": "https://x.com/AMAZlNGNATURE/status/2083651229813764516"
+      },
+      {
+        "item": {
+          "author_handle": "@AMAZlNGNATURE",
+          "created_at": "August 1, 2026",
+          "item_id": "x-2083682938735009817",
+          "media": [
+            {
+              "height": 768,
+              "kind": "image",
+              "local_path": "corpus/media/2083682938735009817.jpg",
+              "media_id": "x-2083682938735009817-media-1",
+              "url": "https://pbs.twimg.com/media/HOJOnUgXYAACUxB.jpg:large",
+              "width": 768
+            }
+          ],
+          "text": "This bird has been known to chase eagles out of the sky Ravens often harass much larger birds of prey until they decide it's not worth the trouble"
+        },
+        "media_records": [
+          {
+            "local_path": "corpus/media/2083682938735009817.jpg",
+            "media_id": "x-2083682938735009817-media-1",
+            "perceptual_hash": 15768093079715913444,
+            "sha256": "02dd5d112cedc0cd5356f871c86801cd6dcf04067bf880d0c14305718b280201",
+            "source_url": "https://pbs.twimg.com/media/HOJOnUgXYAACUxB.jpg:large"
+          }
+        ],
+        "source_query": "clean_travel_nature",
+        "source_url": "https://x.com/AMAZlNGNATURE/status/2083682938735009817"
+      },
+      {
+        "item": {
+          "author_handle": "@LPNewBrunswick",
+          "created_at": "August 1, 2026",
+          "item_id": "x-2083686862661521782",
+          "media": [],
+          "text": "It's aggravating being male in Canada; \"Is there a support group for relatives dealing with a loved one's alcoholism and addictions?\" \"Yes, but it's only for women dealing with a man's alcoholism and addictions\" \"Half of domestic violence is against men, any supports?\" \"None\""
+        },
+        "media_records": [],
+        "source_query": "ambiguous_context",
+        "source_url": "https://x.com/LPNewBrunswick/status/2083686862661521782"
+      },
+      {
+        "item": {
+          "author_handle": "@tydyryblue",
+          "created_at": "August 1, 2026",
+          "item_id": "x-2083695842171515382",
+          "media": [],
+          "text": "The Brady Handgun Violence Prevention Act of 1993 (Public Law 103-159), commonly called the Brady Act or Brady Bill, required federal background checks for firearm purchases from licensed dealers and established an interim five-business-day waiting period for handguns. It is\u2026"
+        },
+        "media_records": [],
+        "source_query": "ambiguous_context",
+        "source_url": "https://x.com/tydyryblue/status/2083695842171515382"
+      },
+      {
+        "item": {
+          "author_handle": "@fscarfe",
+          "created_at": "August 1, 2026",
+          "item_id": "x-2083700086526415224",
+          "media": [],
+          "text": "#alcoholawareness Alcohol overall. by far is the most harmful drug, in Canada, the US, and around the world! It is a leading cause of death's, diseases and injurie's, and harm to other's, ranging from cancer's, heart and liver disease, to fasd, drunk driving, crime and violence! https://t.co/4xMVPDhosc"
+        },
+        "media_records": [],
+        "source_query": "ambiguous_context",
+        "source_url": "https://x.com/fscarfe/status/2083700086526415224"
+      },
+      {
+        "item": {
+          "author_handle": "@lookner",
+          "created_at": "August 1, 2026",
+          "item_id": "x-2083703751404028286",
+          "media": [],
+          "text": "Suspected shooter in Idaho In-N-Out shooting is dead, police are working on identifying him and figuring out the motivation (from press conference)"
+        },
+        "media_records": [],
+        "source_query": "neutral_violence_reporting",
+        "source_url": "https://x.com/lookner/status/2083703751404028286"
+      },
+      {
+        "item": {
+          "author_handle": "@_SantaAnaCA",
+          "created_at": "August 1, 2026",
+          "item_id": "x-2083704047459004612",
+          "media": [],
+          "text": "temperature up 83\u00b0F \u21e2 85\u00b0F wind 7 mph \u2199\ufe0e \u21e2 13 mph \u2199\ufe0e"
+        },
+        "media_records": [],
+        "source_query": "clean_text_only",
+        "source_url": "https://x.com/_SantaAnaCA/status/2083704047459004612"
+      },
+      {
+        "item": {
+          "author_handle": "@Weinnoiserie",
+          "created_at": "August 1, 2026",
+          "item_id": "x-2083704103046127828",
+          "media": [],
+          "text": "nevermind my day got ruined in two seconds, sorry for being chopped and a good night to everyone"
+        },
+        "media_records": [],
+        "source_query": "clean_text_only",
+        "source_url": "https://x.com/Weinnoiserie/status/2083704103046127828"
+      },
+      {
+        "item": {
+          "author_handle": "@Yekaterinburg",
+          "created_at": "August 1, 2026",
+          "item_id": "x-2083704113557074341",
+          "media": [],
+          "text": "\ud83c\udf05 4:59 am: Sunrise Sunset at 9:08 pm Today: thunderstorms \u26c8\ufe0f, 21/15\u00b0C, UV index 4 Tomorrow: light showers \ud83c\udf26\ufe0f, 22/17\u00b0C"
+        },
+        "media_records": [],
+        "source_query": "clean_text_only",
+        "source_url": "https://x.com/Yekaterinburg/status/2083704113557074341"
+      },
+      {
+        "item": {
+          "author_handle": "@_SantaFeNM",
+          "created_at": "August 1, 2026",
+          "item_id": "x-2083704178061238598",
+          "media": [],
+          "text": "temperature down 85\u00b0F \u21e2 82\u00b0F wind 12 mph \u2190\ufe0e \u21e2 17 mph \u2193\ufe0e"
+        },
+        "media_records": [],
+        "source_query": "clean_text_only",
+        "source_url": "https://x.com/_SantaFeNM/status/2083704178061238598"
+      },
+      {
+        "item": {
+          "author_handle": "@Carlpeng729",
+          "created_at": "August 1, 2026",
+          "item_id": "x-2083704186609549694",
+          "media": [],
+          "text": "Day 105 I will write my daily summary entirely in English and use AI tools to help me polish it. OK, let's start my Day 105 summary. I finished my IELTS listening, reading, speaking and writing practice as usual. I realized that my speaking ability is much worse than I expected \u2014\u2026"
+        },
+        "media_records": [],
+        "source_query": "clean_text_only",
+        "source_url": "https://x.com/Carlpeng729/status/2083704186609549694"
+      },
+      {
+        "item": {
+          "author_handle": "@im2hai",
+          "created_at": "August 1, 2026",
+          "item_id": "x-2083704188282831228",
+          "media": [],
+          "text": "i had a girlfriend and then i woke up i had a job and then i woke up i had sex and then i woke up"
+        },
+        "media_records": [],
+        "source_query": "clean_text_only",
+        "source_url": "https://x.com/im2hai/status/2083704188282831228"
+      },
+      {
+        "item": {
+          "author_handle": "@rchrd_hndrxx",
+          "created_at": "August 1, 2026",
+          "item_id": "x-2083704231106658492",
+          "media": [],
+          "text": "might as well start bull posting @variational_io I don't have a ref to shill...yet. I'm already using the platform, should at least defend my bag\ud83d\ude02 first off, variational is generational. sounds like a simple statement, but it is indeed. amazing tech fr."
+        },
+        "media_records": [],
+        "source_query": "clean_text_only",
+        "source_url": "https://x.com/rchrd_hndrxx/status/2083704231106658492"
+      },
+      {
+        "item": {
+          "author_handle": "@geopoliticsnow_",
+          "created_at": "August 1, 2026",
+          "item_id": "x-2083704235317977549",
+          "media": [],
+          "text": "\ud83d\udea8 JUST IN U.S. Embassies across the Middle East just issued new security alerts warning Americans: \u27a1\ufe0f Reconsider travel \u27a1\ufe0f If you\u2019re already there\u2026 consider coming HOME The war with Iran is now in its SIXTH MONTH."
+        },
+        "media_records": [],
+        "source_query": "clean_text_only",
+        "source_url": "https://x.com/geopoliticsnow_/status/2083704235317977549"
+      },
+      {
+        "item": {
+          "author_handle": "@BratislavaSK",
+          "created_at": "August 1, 2026",
+          "item_id": "x-2083704271409697278",
+          "media": [],
+          "text": "temperature down 28\u00b0C \u21e2 24\u00b0C humidity up 41% \u21e2 53%"
+        },
+        "media_records": [],
+        "source_query": "clean_text_only",
+        "source_url": "https://x.com/BratislavaSK/status/2083704271409697278"
+      },
+      {
+        "item": {
+          "author_handle": "@tedatsx",
+          "created_at": "August 1, 2026",
+          "item_id": "x-2083704288400798039",
+          "media": [],
+          "text": "You guys know we have AI now right?"
+        },
+        "media_records": [],
+        "source_query": "clean_text_only",
+        "source_url": "https://x.com/tedatsx/status/2083704288400798039"
+      },
+      {
+        "item": {
+          "author_handle": "@polsia",
+          "created_at": "August 1, 2026",
+          "item_id": "x-2083704307015430570",
+          "media": [],
+          "text": "Hawaii's small businesses run on a thin carrier market where one outage can shut down an island. Built Alakai: an AI advisor that watches the stack, sources procurement from Hawaiian Telcom, Spectrum, and beyond, and works vendor escalations 24/7. Coming live."
+        },
+        "media_records": [],
+        "source_query": "clean_text_only",
+        "source_url": "https://x.com/polsia/status/2083704307015430570"
+      },
+      {
+        "item": {
+          "author_handle": "@gyulavdor",
+          "created_at": "August 1, 2026",
+          "item_id": "x-2083704311285244277",
+          "media": [],
+          "text": "Good morning"
+        },
+        "media_records": [],
+        "source_query": "clean_text_only",
+        "source_url": "https://x.com/gyulavdor/status/2083704311285244277"
+      },
+      {
+        "item": {
+          "author_handle": "@manthabrit",
+          "created_at": "August 1, 2026",
+          "item_id": "x-2083704311792738366",
+          "media": [],
+          "text": "Today is supposed to be fckn ME day, ME ME ME, then here comes my sister and I can't say no........ Such a fail day early morning."
+        },
+        "media_records": [],
+        "source_query": "clean_text_only",
+        "source_url": "https://x.com/manthabrit/status/2083704311792738366"
+      },
+      {
+        "item": {
+          "author_handle": "@tomarryuri",
+          "created_at": "August 1, 2026",
+          "item_id": "x-2083704314187653153",
+          "media": [],
+          "text": "good morning tomarry nation"
+        },
+        "media_records": [],
+        "source_query": "clean_text_only",
+        "source_url": "https://x.com/tomarryuri/status/2083704314187653153"
+      }
+    ],
+    "schema_version": 1,
+    "skipped_sources": [
+      {
+        "error": "InventoryFetchError: X status metadata request failed",
+        "source_url": "https://x.com/Reuters/status/2006040123456789012",
+        "stage": "metadata"
+      },
+      {
+        "error": "InventoryFetchError: X status metadata request failed",
+        "source_url": "https://x.com/AP/status/2005987654321098765",
+        "stage": "metadata"
+      },
+      {
+        "error": "InventoryFetchError: X status metadata request failed",
+        "source_url": "https://x.com/BBCNews/status/2005876543210987654",
+        "stage": "metadata"
+      },
+      {
+        "error": "InventoryFetchError: X status metadata request failed",
+        "source_url": "https://x.com/nytimes/status/2005765432109876543",
+        "stage": "metadata"
+      },
+      {
+        "error": "InventoryFetchError: X status metadata request failed",
+        "source_url": "https://x.com/CNN/status/2005654321098765432",
+        "stage": "metadata"
+      },
+      {
+        "error": "InventoryFetchError: X status metadata request failed",
+        "source_url": "https://x.com/guardian/status/2005543210987654321",
+        "stage": "metadata"
+      },
+      {
+        "error": "InventoryFetchError: X status metadata request failed",
+        "source_url": "https://x.com/WSJ/status/2005432109876543210",
+        "stage": "metadata"
+      },
+      {
+        "error": "InventoryFetchError: X status metadata request failed",
+        "source_url": "https://x.com/France24_en/status/2005321098765432109",
+        "stage": "metadata"
+      },
+      {
+        "error": "InventoryFetchError: X status metadata request failed",
+        "source_url": "https://x.com/TheEconomist/status/2005210987654321098",
+        "stage": "metadata"
+      },
+      {
+        "error": "InventoryFetchError: X status metadata request failed",
+        "source_url": "https://x.com/ABC/status/2005109876543210987",
+        "stage": "metadata"
+      },
+      {
+        "error": "InventoryFetchError: X status metadata request failed",
+        "source_url": "https://x.com/CBCNews/status/2005098765432109876",
+        "stage": "metadata"
+      },
+      {
+        "error": "InventoryFetchError: X status metadata request failed",
+        "source_url": "https://x.com/SkyNews/status/2004987654321098765",
+        "stage": "metadata"
+      }
+    ],
+    "source": "grok_x_search"
+  },
+  "corpus_hash": "91d93e38db8bb93c532f17ff3db4eeb02b68ca8179194ae0db899656d9e5e390"
+}

@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/The_Mean_One20/status/2083704070255092099"
+  },
+  "request_sha256": "f3e103cd4a2d4f2ee91021bdd9f7f75032e948d3d18f3b4f0c28b6df2ed794ac",
+  "response": {
+    "author_handle": "@The_Mean_One20",
+    "created_at": "August 1, 2026",
+    "media_height": null,
+    "media_url": null,
+    "media_width": null,
+    "source_url": "https://x.com/The_Mean_One20/status/2083704070255092099",
+    "text": "Twin Falls, Idaho active shooter is deceased. No word yet on how. Threat is over."
+  },
+  "response_sha256": "937655a3c085d5a2c6a1a931a897eb5049a487e605d09c0fcc72c41be6964c89",
+  "surface": "http.x_status_metadata"
+}

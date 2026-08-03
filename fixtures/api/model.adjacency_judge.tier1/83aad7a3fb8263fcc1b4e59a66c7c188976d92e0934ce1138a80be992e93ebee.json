@@ -1,0 +1,468 @@
+{
+  "format_version": 1,
+  "request": {
+    "input": [
+      {
+        "content": [
+          {
+            "text": "Judge whether the inventory item is safe for the advertiser policy. Return exactly one Verdict. The action must follow severity 0 or 1 to ALLOW, 2 to REVIEW, and 3 or 4 to BLOCK. Cite only exact text spans from the item or bounding boxes within the provided media dimensions. Use only clause ids from the PolicySpec. The rationale is display-only. Do not claim synthetic-media detection accuracy.\n\nRequired item_id: x-2082799958860665265\nRequired policy_version: 1\nRequired tier: 1\nPolicySpec:\n{\"version\":1,\"advertiser\":\"Demo Travel Co.\",\"prose\":\"Do not place our ads next to content that celebrates graphic violence or promotes illegal drug sales. Allow neutral news reporting and public-health discussion of those topics. Route suspected synthetic media impersonating public officials to review.\",\"clauses\":[{\"clause_id\":\"block-graphic-violence\",\"category\":\"graphic_violence\",\"severity\":4,\"description\":\"Do not place ads next to content that celebrates graphic violence\",\"source_text\":\"Do not place our ads next to content that celebrates graphic violence or promotes illegal drug sales.\",\"source_start\":0,\"source_end\":101},{\"clause_id\":\"block-illegal-drug-sales\",\"category\":\"illegal_drug_sales\",\"severity\":4,\"description\":\"Do not place ads next to content that promotes illegal drug sales\",\"source_text\":\"Do not place our ads next to content that celebrates graphic violence or promotes illegal drug sales.\",\"source_start\":0,\"source_end\":101},{\"clause_id\":\"allow-news-public-health\",\"category\":\"news_and_public_health\",\"severity\":1,\"description\":\"Allow neutral news reporting and public-health discussion of those topics\",\"source_text\":\"Allow neutral news reporting and public-health discussion of those topics.\",\"source_start\":102,\"source_end\":176},{\"clause_id\":\"review-synthetic-media\",\"category\":\"synthetic_media\",\"severity\":2,\"description\":\"Route suspected synthetic media impersonating public officials to review\",\"source_text\":\"Route suspected synthetic media impersonating public officials to review.\",\"source_start\":177,\"source_end\":250}]}\n\nInventory text:\n\ud83c\uddee\ud83c\uddf3 Indian government is planning a new law that would make \"AI DEEPFAKE\" and \"DIGITAL ARREST\" scams separate criminal offences. Proposal is expected to be discussed during the current parliament session. -> 12.7 lakh+ cyber fraud complaints reported in January to June 2026 ->\u2026\n",
+            "type": "input_text"
+          }
+        ],
+        "role": "user"
+      }
+    ],
+    "max_output_tokens": 4096,
+    "model": "grok-4.5",
+    "reasoning": {
+      "effort": "low"
+    },
+    "store": false,
+    "text": {
+      "format": {
+        "name": "verdict",
+        "schema": {
+          "$defs": {
+            "Action": {
+              "description": "What the engine decides to do with a piece of inventory.",
+              "enum": [
+                "ALLOW",
+                "BLOCK",
+                "REVIEW"
+              ],
+              "title": "Action",
+              "type": "string"
+            },
+            "ImageEvidence": {
+              "additionalProperties": false,
+              "description": "A claim about a region of a specific piece of media.\n\nBox is (x, y, w, h) in pixels, origin top-left.",
+              "properties": {
+                "h": {
+                  "exclusiveMinimum": 0,
+                  "title": "H",
+                  "type": "integer"
+                },
+                "kind": {
+                  "const": "image",
+                  "default": "image",
+                  "title": "Kind",
+                  "type": "string"
+                },
+                "media_id": {
+                  "minLength": 1,
+                  "title": "Media Id",
+                  "type": "string"
+                },
+                "note": {
+                  "default": "",
+                  "title": "Note",
+                  "type": "string"
+                },
+                "w": {
+                  "exclusiveMinimum": 0,
+                  "title": "W",
+                  "type": "integer"
+                },
+                "x": {
+                  "minimum": 0,
+                  "title": "X",
+                  "type": "integer"
+                },
+                "y": {
+                  "minimum": 0,
+                  "title": "Y",
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "media_id",
+                "x",
+                "y",
+                "w",
+                "h"
+              ],
+              "title": "ImageEvidence",
+              "type": "object"
+            },
+            "TextEvidence": {
+              "additionalProperties": false,
+              "description": "A claim that `quote` appears at [start, end) in the item's text.",
+              "properties": {
+                "end": {
+                  "minimum": 0,
+                  "title": "End",
+                  "type": "integer"
+                },
+                "kind": {
+                  "const": "text",
+                  "default": "text",
+                  "title": "Kind",
+                  "type": "string"
+                },
+                "quote": {
+                  "minLength": 1,
+                  "title": "Quote",
+                  "type": "string"
+                },
+                "start": {
+                  "minimum": 0,
+                  "title": "Start",
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "quote",
+                "start",
+                "end"
+              ],
+              "title": "TextEvidence",
+              "type": "object"
+            }
+          },
+          "additionalProperties": false,
+          "description": "The engine's decision on one item.\n\n`rationale` is rendered to humans and read by no gate. Everything a gate checks is\na structured field.",
+          "properties": {
+            "action": {
+              "$ref": "#/$defs/Action"
+            },
+            "clause_ids": {
+              "default": [],
+              "items": {
+                "type": "string"
+              },
+              "title": "Clause Ids",
+              "type": "array"
+            },
+            "confidence": {
+              "maximum": 1.0,
+              "minimum": 0.0,
+              "title": "Confidence",
+              "type": "number"
+            },
+            "evidence": {
+              "default": [],
+              "items": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/TextEvidence"
+                  },
+                  {
+                    "$ref": "#/$defs/ImageEvidence"
+                  }
+                ]
+              },
+              "title": "Evidence",
+              "type": "array"
+            },
+            "item_id": {
+              "minLength": 1,
+              "title": "Item Id",
+              "type": "string"
+            },
+            "policy_version": {
+              "minimum": 1,
+              "title": "Policy Version",
+              "type": "integer"
+            },
+            "rationale": {
+              "default": "",
+              "title": "Rationale",
+              "type": "string"
+            },
+            "severity": {
+              "maximum": 4,
+              "minimum": 0,
+              "title": "Severity",
+              "type": "integer"
+            },
+            "tier": {
+              "default": 0,
+              "enum": [
+                0,
+                1,
+                2
+              ],
+              "title": "Tier",
+              "type": "integer"
+            }
+          },
+          "required": [
+            "item_id",
+            "action",
+            "severity",
+            "confidence",
+            "policy_version"
+          ],
+          "title": "Verdict",
+          "type": "object"
+        },
+        "strict": true,
+        "type": "json_schema"
+      }
+    }
+  },
+  "request_sha256": "83aad7a3fb8263fcc1b4e59a66c7c188976d92e0934ce1138a80be992e93ebee",
+  "response": {
+    "background": false,
+    "completed_at": 1785746405,
+    "created_at": 1785746399,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "id": "0d9ebbc4-2d79-9261-bd95-2453198697cc",
+    "incomplete_details": null,
+    "instructions": null,
+    "max_output_tokens": 4096,
+    "max_tool_calls": null,
+    "metadata": {
+      "system_fingerprint": "fp_a39489019fa99b6e"
+    },
+    "model": "grok-4.5",
+    "object": "response",
+    "output": [
+      {
+        "id": "rs_0d9ebbc4-2d79-9261-bd95-2453198697cc",
+        "status": "completed",
+        "summary": [
+          {
+            "text": "The user wants me to judge an inventory item against an advertiser policy and return a JSON Verdict.\n",
+            "type": "summary_text"
+          }
+        ],
+        "type": "reasoning"
+      },
+      {
+        "content": [
+          {
+            "annotations": [],
+            "logprobs": [],
+            "text": "{\"item_id\":\"x-2082799958860665265\",\"action\":\"ALLOW\",\"severity\":1,\"confidence\":0.95,\"policy_version\":1,\"clause_ids\":[\"allow-news-public-health\"],\"evidence\":[{\"quote\":\"Indian government is planning a new law that would make \\\"AI DEEPFAKE\\\" and \\\"DIGITAL ARREST\\\" scams separate criminal offences.\",\"start\":3,\"end\":122,\"kind\":\"text\"}],\"tier\":1,\"rationale\":\"Neutral news reporting on proposed legislation and cyber-fraud statistics; does not celebrate violence, promote illegal drugs, or present synthetic media impersonating officials.\"}",
+            "type": "output_text"
+          }
+        ],
+        "id": "msg_0d9ebbc4-2d79-9261-bd95-2453198697cc",
+        "role": "assistant",
+        "status": "completed",
+        "type": "message"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "reasoning": {
+      "effort": "low",
+      "summary": "detailed"
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "status": "completed",
+    "store": false,
+    "temperature": 0.7,
+    "text": {
+      "format": {
+        "schema": {
+          "$defs": {
+            "Action": {
+              "description": "What the engine decides to do with a piece of inventory.",
+              "enum": [
+                "ALLOW",
+                "BLOCK",
+                "REVIEW"
+              ],
+              "title": "Action",
+              "type": "string"
+            },
+            "ImageEvidence": {
+              "additionalProperties": false,
+              "description": "A claim about a region of a specific piece of media.\n\nBox is (x, y, w, h) in pixels, origin top-left.",
+              "properties": {
+                "h": {
+                  "exclusiveMinimum": 0,
+                  "title": "H",
+                  "type": "integer"
+                },
+                "kind": {
+                  "const": "image",
+                  "default": "image",
+                  "title": "Kind",
+                  "type": "string"
+                },
+                "media_id": {
+                  "minLength": 1,
+                  "title": "Media Id",
+                  "type": "string"
+                },
+                "note": {
+                  "default": "",
+                  "title": "Note",
+                  "type": "string"
+                },
+                "w": {
+                  "exclusiveMinimum": 0,
+                  "title": "W",
+                  "type": "integer"
+                },
+                "x": {
+                  "minimum": 0,
+                  "title": "X",
+                  "type": "integer"
+                },
+                "y": {
+                  "minimum": 0,
+                  "title": "Y",
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "media_id",
+                "x",
+                "y",
+                "w",
+                "h"
+              ],
+              "title": "ImageEvidence",
+              "type": "object"
+            },
+            "TextEvidence": {
+              "additionalProperties": false,
+              "description": "A claim that `quote` appears at [start, end) in the item's text.",
+              "properties": {
+                "end": {
+                  "minimum": 0,
+                  "title": "End",
+                  "type": "integer"
+                },
+                "kind": {
+                  "const": "text",
+                  "default": "text",
+                  "title": "Kind",
+                  "type": "string"
+                },
+                "quote": {
+                  "minLength": 1,
+                  "title": "Quote",
+                  "type": "string"
+                },
+                "start": {
+                  "minimum": 0,
+                  "title": "Start",
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "quote",
+                "start",
+                "end"
+              ],
+              "title": "TextEvidence",
+              "type": "object"
+            }
+          },
+          "additionalProperties": false,
+          "description": "The engine's decision on one item.\n\n`rationale` is rendered to humans and read by no gate. Everything a gate checks is\na structured field.",
+          "properties": {
+            "action": {
+              "$ref": "#/$defs/Action"
+            },
+            "clause_ids": {
+              "default": [],
+              "items": {
+                "type": "string"
+              },
+              "title": "Clause Ids",
+              "type": "array"
+            },
+            "confidence": {
+              "maximum": 1.0,
+              "minimum": 0.0,
+              "title": "Confidence",
+              "type": "number"
+            },
+            "evidence": {
+              "default": [],
+              "items": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/TextEvidence"
+                  },
+                  {
+                    "$ref": "#/$defs/ImageEvidence"
+                  }
+                ]
+              },
+              "title": "Evidence",
+              "type": "array"
+            },
+            "item_id": {
+              "minLength": 1,
+              "title": "Item Id",
+              "type": "string"
+            },
+            "policy_version": {
+              "minimum": 1,
+              "title": "Policy Version",
+              "type": "integer"
+            },
+            "rationale": {
+              "default": "",
+              "title": "Rationale",
+              "type": "string"
+            },
+            "severity": {
+              "maximum": 4,
+              "minimum": 0,
+              "title": "Severity",
+              "type": "integer"
+            },
+            "tier": {
+              "default": 0,
+              "enum": [
+                0,
+                1,
+                2
+              ],
+              "title": "Tier",
+              "type": "integer"
+            }
+          },
+          "required": [
+            "item_id",
+            "action",
+            "severity",
+            "confidence",
+            "policy_version"
+          ],
+          "title": "Verdict",
+          "type": "object"
+        },
+        "type": "json_schema"
+      }
+    },
+    "tool_choice": "auto",
+    "tools": [],
+    "top_logprobs": 0,
+    "top_p": 0.95,
+    "truncation": "disabled",
+    "usage": {
+      "context_details": {
+        "input_tokens": 1474,
+        "output_tokens": 459
+      },
+      "cost_in_usd_ticks": 54844000,
+      "input_tokens": 1474,
+      "input_tokens_details": {
+        "cached_tokens": 128
+      },
+      "num_server_side_tools_used": 0,
+      "num_sources_used": 0,
+      "output_tokens": 459,
+      "output_tokens_details": {
+        "reasoning_tokens": 319
+      },
+      "total_tokens": 1933
+    },
+    "user": null
+  },
+  "response_sha256": "175ec83a8860bcc143e82175ce767c0ecc450e3fb3a7ec4c5bb6426e15695af6",
+  "surface": "model.adjacency_judge.tier1"
+}

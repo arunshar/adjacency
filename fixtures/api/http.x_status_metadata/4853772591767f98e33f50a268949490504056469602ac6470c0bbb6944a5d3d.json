@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/Akashi203/status/2083653884044890617"
+  },
+  "request_sha256": "4853772591767f98e33f50a268949490504056469602ac6470c0bbb6944a5d3d",
+  "response": {
+    "author_handle": "@Akashi203",
+    "created_at": "August 1, 2026",
+    "media_height": 1235,
+    "media_url": "https://pbs.twimg.com/media/HOqf0VTWEAA-anq.jpg:large",
+    "media_width": 2157,
+    "source_url": "https://x.com/Akashi203/status/2083653884044890617",
+    "text": "Memory Caching (arXiv 2602.24281) caches memory checkpoints per segment and retrieves across them at read time. The write rule doesn't change. It's a read-side fix and it works I tested the write side and it failed Memoir is four weight tiers on different update intervals. W0\u2026 https://t.co/IDozjUSbb6"
+  },
+  "response_sha256": "8516b566f90d3e18c3ada3c3165385ce97682063496cae7a5829ccf8207d981b",
+  "surface": "http.x_status_metadata"
+}

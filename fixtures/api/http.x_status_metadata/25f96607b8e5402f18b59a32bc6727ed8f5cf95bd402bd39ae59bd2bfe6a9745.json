@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/tom_doerr/status/2032455308677669313"
+  },
+  "request_sha256": "25f96607b8e5402f18b59a32bc6727ed8f5cf95bd402bd39ae59bd2bfe6a9745",
+  "response": {
+    "author_handle": "@tom_doerr",
+    "created_at": "March 13, 2026",
+    "media_height": 1238,
+    "media_url": "https://pbs.twimg.com/media/HDS7VOrW0AAunZj.jpg:large",
+    "media_width": 1250,
+    "source_url": "https://x.com/tom_doerr/status/2032455308677669313",
+    "text": "Generates publication-ready scientific illustrations from texthttps://t.co/tYlL8OpJIs"
+  },
+  "response_sha256": "705b5493faac9d8a6e24bab422f611db2aeba5c0e73a15c631d89fc0c2a6714d",
+  "surface": "http.x_status_metadata"
+}

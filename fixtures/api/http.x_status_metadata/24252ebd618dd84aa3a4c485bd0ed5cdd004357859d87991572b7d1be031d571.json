@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/Brettski_aus/status/2083704204812828982"
+  },
+  "request_sha256": "24252ebd618dd84aa3a4c485bd0ed5cdd004357859d87991572b7d1be031d571",
+  "response": {
+    "author_handle": "@Brettski_aus",
+    "created_at": "August 1, 2026",
+    "media_height": null,
+    "media_url": null,
+    "media_width": null,
+    "source_url": "https://x.com/Brettski_aus/status/2083704204812828982",
+    "text": "\u201cModern politics is about grievance, not gratitude,\u201d credit is not given when good work is done. Political correspondent @Riley7News sums it up perfectly. It\u2019s easier to lob bombs from opposition than govern. Protest votes, followed by disappointment, have become the norm."
+  },
+  "response_sha256": "04000f5b2919ab604b16e268bc8c31f58ff61570588ecc74bee9cdc80ec80f20",
+  "surface": "http.x_status_metadata"
+}

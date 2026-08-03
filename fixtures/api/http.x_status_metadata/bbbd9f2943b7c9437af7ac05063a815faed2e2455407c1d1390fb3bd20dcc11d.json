@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/LilyInBloom3/status/2082784079616131521"
+  },
+  "request_sha256": "bbbd9f2943b7c9437af7ac05063a815faed2e2455407c1d1390fb3bd20dcc11d",
+  "response": {
+    "author_handle": "@LilyInBloom3",
+    "created_at": "July 30, 2026",
+    "media_height": null,
+    "media_url": null,
+    "media_width": null,
+    "source_url": "https://x.com/LilyInBloom3/status/2082784079616131521",
+    "text": "\"Seeing is believing\" is no more relevant \u25ab\ufe0fTechniques like diffusion models, 3D NeRFs, and zero shot voice cloning have rendered synthetic media indistinguishable from reality. While this unlocks massive creative potential, it presents critical enterprise risks; from executive\u2026"
+  },
+  "response_sha256": "fd71ffb42617cf16bb9e229f43511ef4d16204c181975c4a50472c9fd7878a52",
+  "surface": "http.x_status_metadata"
+}

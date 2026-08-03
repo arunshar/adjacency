@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/NASAEarth/status/2083245767687323925"
+  },
+  "request_sha256": "c7e81207c89dca5194d51999e64877a823714238cacdafd544b1499da33c9704",
+  "response": {
+    "author_handle": "@NASAEarth",
+    "created_at": "July 31, 2026",
+    "media_height": 960,
+    "media_url": "https://pbs.twimg.com/media/HOks_EgWsAEpXoy.jpg:large",
+    "media_width": 1440,
+    "source_url": "https://x.com/NASAEarth/status/2083245767687323925",
+    "text": "Extremely hot and dry conditions in June and July enabled large fires to break out in Europe. Spain saw its largest fire on record in \u00c1vila, as shown in this Landsat 9 false color image. Unburned vegetation is light green and burned areas appear brown. https://t.co/G4RJHG0fQu"
+  },
+  "response_sha256": "1085856a5b32eba6c4dc2b26b2677c14be83989d08da1e636d66a6032ce2dadc",
+  "surface": "http.x_status_metadata"
+}

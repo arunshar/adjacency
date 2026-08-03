@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/bankpolicy/status/2083221876071977226"
+  },
+  "request_sha256": "6d86e1a41a58fa681719cafeb4b5f41037ce297dbb2120affdee57895fa53120",
+  "response": {
+    "author_handle": "@bankpolicy",
+    "created_at": "July 31, 2026",
+    "media_height": null,
+    "media_url": "https://pbs.twimg.com/card_img/2081788243281149952/xdeELuor?format=png&name=orig",
+    "media_width": null,
+    "source_url": "https://x.com/bankpolicy/status/2083221876071977226",
+    "text": "Reducing online impersonation scams is like a math equation. Read how government + banking, social media and telecom industry collaboration = fewer scams.https://t.co/PcPLwOdClD"
+  },
+  "response_sha256": "affee17f54bd9c2f2d1ec7b56079400d60b8fb1a7e5a79516030fff553f95a5b",
+  "surface": "http.x_status_metadata"
+}

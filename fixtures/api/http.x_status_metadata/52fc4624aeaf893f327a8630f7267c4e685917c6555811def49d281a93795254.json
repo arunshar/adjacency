@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/GOTDAYUMMM1/status/2078673732290421167"
+  },
+  "request_sha256": "52fc4624aeaf893f327a8630f7267c4e685917c6555811def49d281a93795254",
+  "response": {
+    "author_handle": "@GOTDAYUMMM1",
+    "created_at": "July 19, 2026",
+    "media_height": 1080,
+    "media_url": "https://pbs.twimg.com/amplify_video_thumb/2078673608084488192/img/Gd83hk37_O6ekG5-.jpg",
+    "media_width": 1920,
+    "source_url": "https://x.com/GOTDAYUMMM1/status/2078673732290421167",
+    "text": "Bloodsport is a damn good movie that I can constantly rewatch. But why did they have to make the black fighter in the movie fight like a monkey \ud83d\ude2d\ud83d\ude2d"
+  },
+  "response_sha256": "ba09ebe01a02b1addff0de7336fead0efe29b960a6ffbe4c492679573a66c370",
+  "surface": "http.x_status_metadata"
+}

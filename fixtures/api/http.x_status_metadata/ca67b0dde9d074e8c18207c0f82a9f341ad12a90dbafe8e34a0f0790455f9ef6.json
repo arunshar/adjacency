@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/PoliMarketer/status/2083538238916956669"
+  },
+  "request_sha256": "ca67b0dde9d074e8c18207c0f82a9f341ad12a90dbafe8e34a0f0790455f9ef6",
+  "response": {
+    "author_handle": "@PoliMarketer",
+    "created_at": "August 1, 2026",
+    "media_height": 1448,
+    "media_url": "https://pbs.twimg.com/media/HOnT2n1bYAAnlKQ.jpg:large",
+    "media_width": 1086,
+    "source_url": "https://x.com/PoliMarketer/status/2083538238916956669",
+    "text": "Deepfake rapid response units are facing algorithmic attacks. Automated audio verification is being used to check spectral patterns, voice consistency, AI manipulation, and source reliability.#DeepfakeDetection #RapidResponse #AudioVerification #CrisisCommunication"
+  },
+  "response_sha256": "0c53d07a882eb0052fbba29b746eccf0a95e341efdc4848f7ca05a32c72f32ec",
+  "surface": "http.x_status_metadata"
+}

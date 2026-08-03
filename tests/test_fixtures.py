@@ -53,3 +53,19 @@ def test_recorder_rejects_credentials_before_invocation(tmp_path):
             {"api_key": "not-written"},
             lambda: pytest.fail("credential validation happened too late"),
         )
+
+
+def test_record_mode_can_reuse_an_existing_fixture(tmp_path):
+    request = {"input": "same"}
+    FixtureStore(tmp_path, record=True).call(
+        "model.judge",
+        request,
+        lambda: {"response": "recorded"},
+    )
+    reused = FixtureStore(tmp_path, record=True, reuse_existing=True).call(
+        "model.judge",
+        request,
+        lambda: pytest.fail("existing fixture was not reused"),
+    )
+
+    assert reused == {"response": "recorded"}

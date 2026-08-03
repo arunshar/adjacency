@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/chiefofautism/status/2024048736322629745"
+  },
+  "request_sha256": "da497a32b889ac9a9964cea84959731e9fdb9609d1e436f86335a0390a10681f",
+  "response": {
+    "author_handle": "@chiefofautism",
+    "created_at": "February 18, 2026",
+    "media_height": 1440,
+    "media_url": "https://pbs.twimg.com/amplify_video_thumb/2024047504380121089/img/im-b3iJGVAAb9k-2.jpg",
+    "media_width": 2560,
+    "source_url": "https://x.com/chiefofautism/status/2024048736322629745",
+    "text": "someone built a tool that puts ANY FACE on your webcam in REAL TIME called DOT - deepfake offensive toolkit, open source, works right now dot injects a real-time deepfake into your virtual camera zoom, google meet, teams, any video call app sees the fake face as your real\u2026"
+  },
+  "response_sha256": "8b310d410827a366df12698d026558769deb1c666eb3d2cd2402cb8c4d35183a",
+  "surface": "http.x_status_metadata"
+}

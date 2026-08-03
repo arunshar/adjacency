@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/sesamestreet/status/2015938009670062552"
+  },
+  "request_sha256": "0384223ee9917466b729d871219205845f2f1e794fe794b9098b098fe9b3d560",
+  "response": {
+    "author_handle": "@sesamestreet",
+    "created_at": "January 27, 2026",
+    "media_height": 5000,
+    "media_url": "https://pbs.twimg.com/media/G_oM7d0WMAEx54S.jpg:large",
+    "media_width": 5000,
+    "source_url": "https://x.com/sesamestreet/status/2015938009670062552",
+    "text": "When little ones hear about violent events on the news or in their communities, it can be hard to help them understand and cope with what happened. Limiting media exposure and making space for them to express big feelings can help children feel safer and more secure. Check here\u2026"
+  },
+  "response_sha256": "3579112add67445a45f0ed3da12c9e2f43bd19b2f79d2b0a31287abff396aedd",
+  "surface": "http.x_status_metadata"
+}

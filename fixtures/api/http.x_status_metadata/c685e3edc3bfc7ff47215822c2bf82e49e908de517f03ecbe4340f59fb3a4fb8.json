@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/AISafetyGuides/status/2077650614012539130"
+  },
+  "request_sha256": "c685e3edc3bfc7ff47215822c2bf82e49e908de517f03ecbe4340f59fb3a4fb8",
+  "response": {
+    "author_handle": "@AISafetyGuides",
+    "created_at": "July 16, 2026",
+    "media_height": null,
+    "media_url": null,
+    "media_width": null,
+    "source_url": "https://x.com/AISafetyGuides/status/2077650614012539130",
+    "text": "Deepfakes awareness is not enough The Deepfake awareness helps families prepare for synthetic voice, image, video, and impersonation risks if combined with practical verification steps, response habits, and household protocols. The point is not fear mongering. The point is a\u2026"
+  },
+  "response_sha256": "1afe24e12e437307ec23d1b2c0e0c17c71750db3cebbf791ca6f3ce91dddbce6",
+  "surface": "http.x_status_metadata"
+}

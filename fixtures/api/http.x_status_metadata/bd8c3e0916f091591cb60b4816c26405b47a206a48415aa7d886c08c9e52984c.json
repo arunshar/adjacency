@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/Crease19NEWS/status/2083704096801140842"
+  },
+  "request_sha256": "bd8c3e0916f091591cb60b4816c26405b47a206a48415aa7d886c08c9e52984c",
+  "response": {
+    "author_handle": "@Crease19NEWS",
+    "created_at": "August 1, 2026",
+    "media_height": null,
+    "media_url": null,
+    "media_width": null,
+    "source_url": "https://x.com/Crease19NEWS/status/2083704096801140842",
+    "text": "UPDATE: 3 dead and 2 injured after a shooting in Twin Falls, Idaho#IDAHO #SHOOTING"
+  },
+  "response_sha256": "562d94c0096e3e712fb991e26953696bb2593467e37f4bda0f815c4f9b7da1fa",
+  "surface": "http.x_status_metadata"
+}

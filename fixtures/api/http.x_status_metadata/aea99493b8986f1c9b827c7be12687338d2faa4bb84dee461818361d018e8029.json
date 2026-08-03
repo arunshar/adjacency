@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/ABC/status/2083670978056409412"
+  },
+  "request_sha256": "aea99493b8986f1c9b827c7be12687338d2faa4bb84dee461818361d018e8029",
+  "response": {
+    "author_handle": "@ABC",
+    "created_at": "August 1, 2026",
+    "media_height": null,
+    "media_url": "https://pbs.twimg.com/card_img/2082567832433238016/lHzbf03g?format=jpg&name=orig",
+    "media_width": null,
+    "source_url": "https://x.com/ABC/status/2083670978056409412",
+    "text": "James Farthing, who won a $167.3 million prize in Kentucky's Powerball in 2025, was arrested on domestic-violence-related charges for an alleged incident that occurred on Sunday, according to county authorities. https://t.co/8H4mIPwL6S"
+  },
+  "response_sha256": "0662a003c926d15e8e338d44225f5ccb7666a582db811a4265c8397255e7c05c",
+  "surface": "http.x_status_metadata"
+}

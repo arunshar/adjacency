@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/faith_nabushawo/status/2082113428391338251"
+  },
+  "request_sha256": "66808cd4cf07e4e97112d1486b7e4e45864a58c0cda998ef0caec8c13f06dfa8",
+  "response": {
+    "author_handle": "@faith_nabushawo",
+    "created_at": "July 28, 2026",
+    "media_height": null,
+    "media_url": null,
+    "media_width": null,
+    "source_url": "https://x.com/faith_nabushawo/status/2082113428391338251",
+    "text": "Dear Hon. Minister, I kindly request that we separate politics from the realities on the ground and give the public accurate information about medicines in our health facilities. The Uganda National Drug Policy does not even promise that every medicine in existence will be\u2026"
+  },
+  "response_sha256": "76df03fdc84302d8856250299c825e4fdb0f6e4c178ffce91dbb01f8142ea76c",
+  "surface": "http.x_status_metadata"
+}

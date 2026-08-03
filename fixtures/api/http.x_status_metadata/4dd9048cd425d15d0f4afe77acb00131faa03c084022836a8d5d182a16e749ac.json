@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/Critical_Scribe/status/2009017572486692982"
+  },
+  "request_sha256": "4dd9048cd425d15d0f4afe77acb00131faa03c084022836a8d5d182a16e749ac",
+  "response": {
+    "author_handle": "@Critical_Scribe",
+    "created_at": "January 7, 2026",
+    "media_height": null,
+    "media_url": null,
+    "media_width": null,
+    "source_url": "https://x.com/Critical_Scribe/status/2009017572486692982",
+    "text": "Something I\u2019ve noticed about the vocal audience on here is that they operate off of basic enemy/ally distinction. If it\u2019s an \u201cenemy\u201d, aka someone in the protagonist\u2019s way, it\u2019s ok if the \u201chero\u201d kills them. Because they\u2019re the hero! They have their reasons. If they\u2019re with the\u2026 https://t.co/JnBn8juuMt"
+  },
+  "response_sha256": "425f531fb8404016aabfae0c4156f6ca27cd01e0ff8e53d4d3f64469e0890dcb",
+  "surface": "http.x_status_metadata"
+}

@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/tom_doerr/status/2022809940105089429"
+  },
+  "request_sha256": "0408d6571df872b53f581f638afeb769a1645cd1e2fc67544b667a0966fbbdb6",
+  "response": {
+    "author_handle": "@tom_doerr",
+    "created_at": "February 14, 2026",
+    "media_height": 449,
+    "media_url": "https://pbs.twimg.com/media/HBJ26-NXQAE1XIp.png:large",
+    "media_width": 448,
+    "source_url": "https://x.com/tom_doerr/status/2022809940105089429",
+    "text": "Generates scientific diagrams from text or papershttps://t.co/exf7I4zild"
+  },
+  "response_sha256": "9a03dd0d2c2478296a358021c63f38335ce47787f031d27b48485900c1cdb291",
+  "surface": "http.x_status_metadata"
+}

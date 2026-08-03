@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/cgmarketwatch/status/2083681790426751163"
+  },
+  "request_sha256": "3c5dc8c12b6e0c24af09f9be9657cbfe2d415868a19024640a990d6fe4e36061",
+  "response": {
+    "author_handle": "@cgmarketwatch",
+    "created_at": "August 1, 2026",
+    "media_height": null,
+    "media_url": null,
+    "media_width": null,
+    "source_url": "https://x.com/cgmarketwatch/status/2083681790426751163",
+    "text": "Solana Foundation's new CISO is clear: the next big crypto threat isn't a smart contract bug. It's AI-powered social engineering. Deepfake calls. Fake identities. Tools so convincing that \"eventually, you will be fooled.\"$SOL is already evaluating post-quantum cryptography."
+  },
+  "response_sha256": "b0b1ddb08c8be199049e035d764cdff866fbf1714b2e61023cccb6e587d6f4cc",
+  "surface": "http.x_status_metadata"
+}

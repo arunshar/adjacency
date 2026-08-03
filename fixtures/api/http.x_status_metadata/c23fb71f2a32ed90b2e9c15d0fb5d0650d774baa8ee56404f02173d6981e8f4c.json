@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/anesthesianews/status/2082827354586354020"
+  },
+  "request_sha256": "c23fb71f2a32ed90b2e9c15d0fb5d0650d774baa8ee56404f02173d6981e8f4c",
+  "response": {
+    "author_handle": "@anesthesianews",
+    "created_at": "July 30, 2026",
+    "media_height": 150,
+    "media_url": "https://pbs.twimg.com/media/HOewcSaXcAEuJw5.jpg:large",
+    "media_width": 150,
+    "source_url": "https://x.com/anesthesianews/status/2082827354586354020",
+    "text": "Can AI help build safer healthcare AI? Researchers developed a tool that instantly creates clinical system design diagrams from text or code, streamlining collaboration and documentation: https://t.co/C5HrbyI0Pg #AI #Anesthesiology"
+  },
+  "response_sha256": "bb038a4e7d75f84a7578333f5fd034c440e43a6876793cc2d5112d0a886fa851",
+  "surface": "http.x_status_metadata"
+}

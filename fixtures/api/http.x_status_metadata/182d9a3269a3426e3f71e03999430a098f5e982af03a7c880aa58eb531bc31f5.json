@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/AMAZlNGNATURE/status/2083682938735009817"
+  },
+  "request_sha256": "182d9a3269a3426e3f71e03999430a098f5e982af03a7c880aa58eb531bc31f5",
+  "response": {
+    "author_handle": "@AMAZlNGNATURE",
+    "created_at": "August 1, 2026",
+    "media_height": 1000,
+    "media_url": "https://pbs.twimg.com/media/HOJOnUgXYAACUxB.jpg:large",
+    "media_width": 1000,
+    "source_url": "https://x.com/AMAZlNGNATURE/status/2083682938735009817",
+    "text": "This bird has been known to chase eagles out of the sky Ravens often harass much larger birds of prey until they decide it's not worth the trouble"
+  },
+  "response_sha256": "b15c11701bdc31434416d807f55fdb7836e6d74d0489187569c6775edd3cb5ca",
+  "surface": "http.x_status_metadata"
+}

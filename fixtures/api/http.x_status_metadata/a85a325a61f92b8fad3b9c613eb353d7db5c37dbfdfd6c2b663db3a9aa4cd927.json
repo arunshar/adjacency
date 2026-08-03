@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/RideIndego/status/2083699358692753514"
+  },
+  "request_sha256": "a85a325a61f92b8fad3b9c613eb353d7db5c37dbfdfd6c2b663db3a9aa4cd927",
+  "response": {
+    "author_handle": "@RideIndego",
+    "created_at": "August 1, 2026",
+    "media_height": 675,
+    "media_url": "https://pbs.twimg.com/media/HOrJhhzW4AA2-fq.jpg:large",
+    "media_width": 1200,
+    "source_url": "https://x.com/RideIndego/status/2083699358692753514",
+    "text": "The next Pedal for Peace ride with the 12th District PPD is happening Saturday, 8/8! Together, we\u2019ll ride through Southwest Philly to promote public safety, highlight local safe spaces, and bring awareness to the senseless violence impacting our communities. Ride rolls out at 9\u2026"
+  },
+  "response_sha256": "259b4d26ce8394768e0c6d6eced0a4dba772e42d4c882326eb2dc21aabb4ebc0",
+  "surface": "http.x_status_metadata"
+}

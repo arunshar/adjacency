@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/NatlParkService/status/2083214677291696596"
+  },
+  "request_sha256": "a6362d9e80d3b8cb20710fe6b1743d41fc848c35e1d8b990b9a753a93ed96191",
+  "response": {
+    "author_handle": "@NatlParkService",
+    "created_at": "July 31, 2026",
+    "media_height": 1035,
+    "media_url": "https://pbs.twimg.com/media/HOkQtU6b0AAHP3k.jpg:large",
+    "media_width": 800,
+    "source_url": "https://x.com/NatlParkService/status/2083214677291696596",
+    "text": "On World Ranger Day, we celebrate the dedication, courage, and commitment of rangers who protect and care for national parks and protected areas around the world."
+  },
+  "response_sha256": "5771eebf2c9b559c1e73cd40d69974e88577b71d115f2577abbd67da318c6ee3",
+  "surface": "http.x_status_metadata"
+}

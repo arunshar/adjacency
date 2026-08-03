@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/NatlParkService/status/2073377410620219590"
+  },
+  "request_sha256": "aa8607454d30dc4d0fd64d341d1d5623b1dd3c41f24e0061fb304e07eeac600a",
+  "response": {
+    "author_handle": "@NatlParkService",
+    "created_at": "July 4, 2026",
+    "media_height": 2048,
+    "media_url": "https://pbs.twimg.com/media/HMYdw85W4AAe_WB.jpg:large",
+    "media_width": 1366,
+    "source_url": "https://x.com/NatlParkService/status/2073377410620219590",
+    "text": "Happy Independence Day \ud83c\uddfa\ud83c\uddf8 From battlefields and memorials to parks and protected landscapes, the places cared for by the National Park Service help bring our shared history to life."
+  },
+  "response_sha256": "58cd72115843c4611a25eb17c9a9bf51d50b05a2d162cee1edc70037142d90df",
+  "surface": "http.x_status_metadata"
+}

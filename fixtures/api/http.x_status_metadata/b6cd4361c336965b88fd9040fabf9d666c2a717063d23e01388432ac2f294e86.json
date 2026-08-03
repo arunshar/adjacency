@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/GaryShe11708952/status/2083690303769170406"
+  },
+  "request_sha256": "b6cd4361c336965b88fd9040fabf9d666c2a717063d23e01388432ac2f294e86",
+  "response": {
+    "author_handle": "@GaryShe11708952",
+    "created_at": "August 1, 2026",
+    "media_height": null,
+    "media_url": null,
+    "media_width": null,
+    "source_url": "https://x.com/GaryShe11708952/status/2083690303769170406",
+    "text": "It is time we ask President Trump to send in the National Guard to protect safety, property, business owners, and their employees. The public health is being threatened.@POTUS"
+  },
+  "response_sha256": "a06289ddf71a890a1ebedab64bd73c20464521f377c85121ce36eb44542bb59e",
+  "surface": "http.x_status_metadata"
+}

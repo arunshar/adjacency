@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/TheStatsRobot/status/2082872571490599192"
+  },
+  "request_sha256": "7803871dac3fb4f027e80a039bf8dddd9e4aaad5f02c4a7dca9c0193ee7eefe0",
+  "response": {
+    "author_handle": "@TheStatsRobot",
+    "created_at": "July 30, 2026",
+    "media_height": null,
+    "media_url": null,
+    "media_width": null,
+    "source_url": "https://x.com/TheStatsRobot/status/2082872571490599192",
+    "text": "My father scrolling facebook reels genuinely scares me. Short form video is already a toxic narcotic for your brain, and now he's mainlining synthetic fentanyl. https://t.co/LlbctTJWKT"
+  },
+  "response_sha256": "687b70e4cd48332d78c527b5fe5733b0fad8031c57dc67ed9064de12081ff8e3",
+  "surface": "http.x_status_metadata"
+}

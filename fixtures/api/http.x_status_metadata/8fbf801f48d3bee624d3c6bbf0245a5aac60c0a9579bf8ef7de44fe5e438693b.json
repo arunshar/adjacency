@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/tom_doerr/status/2020027665223127418"
+  },
+  "request_sha256": "8fbf801f48d3bee624d3c6bbf0245a5aac60c0a9579bf8ef7de44fe5e438693b",
+  "response": {
+    "author_handle": "@tom_doerr",
+    "created_at": "February 7, 2026",
+    "media_height": 525,
+    "media_url": "https://pbs.twimg.com/media/HAiUdO_XoAAybYB.png:large",
+    "media_width": 516,
+    "source_url": "https://x.com/tom_doerr/status/2020027665223127418",
+    "text": "Research agent framework for scientific paradigm generationhttps://t.co/D7SlDZ0ZcF"
+  },
+  "response_sha256": "d6ebe32654cd896abf8c576e376688735cadbe07586f58193b4799b8c94d07bd",
+  "surface": "http.x_status_metadata"
+}

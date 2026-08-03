@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/stoptheVOID/status/2081802131632439565"
+  },
+  "request_sha256": "36ab587e98a84c046877816939543c652038a68ff1c6203bc0d0001a0c479b7a",
+  "response": {
+    "author_handle": "@stoptheVOID",
+    "created_at": "July 27, 2026",
+    "media_height": 1254,
+    "media_url": "https://pbs.twimg.com/media/HOQMAUObEAA8ifV.jpg:large",
+    "media_width": 1254,
+    "source_url": "https://x.com/stoptheVOID/status/2081802131632439565",
+    "text": "The latest report from the National Drug Early Warning System should concern every parent, educator and public-health professional. NDEWS recorded 16,335 suspected nonfatal overdose-related EMS encounters involving MDMA, commonly sold as Ecstasy or Molly, between January 1,\u2026"
+  },
+  "response_sha256": "078c62992e60a2b20f29d90c18c74788e58d40a94d5b2207abd3ff5d73fa9db8",
+  "surface": "http.x_status_metadata"
+}

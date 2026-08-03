@@ -1,0 +1,589 @@
+{
+  "format_version": 1,
+  "request": {
+    "input": [
+      {
+        "content": "Use x_search to find distinct public X posts matching the query. Return only posts you found through the tool. Use direct x.com status URLs, exact post text, the author handle, an ISO date or timestamp, and whether the post has attached media. Do not invent or reconstruct URLs. Prefer original posts over replies and reposts.\n\nQuery label: news_text_only\nQuery: Original text-only public commentary on current events, journalism, or public safety. Require no attached media, external link, link card, or quoted post.\nReturn at most 20 posts.",
+        "role": "user"
+      }
+    ],
+    "max_output_tokens": 8192,
+    "max_tool_calls": 6,
+    "model": "grok-4.5",
+    "reasoning": {
+      "effort": "low"
+    },
+    "store": false,
+    "text": {
+      "format": {
+        "name": "x_inventory_batch",
+        "schema": {
+          "$defs": {
+            "XSearchPost": {
+              "additionalProperties": false,
+              "properties": {
+                "author_handle": {
+                  "minLength": 1,
+                  "title": "Author Handle",
+                  "type": "string"
+                },
+                "created_at": {
+                  "minLength": 1,
+                  "title": "Created At",
+                  "type": "string"
+                },
+                "has_media": {
+                  "title": "Has Media",
+                  "type": "boolean"
+                },
+                "source_url": {
+                  "title": "Source Url",
+                  "type": "string"
+                },
+                "text": {
+                  "minLength": 1,
+                  "title": "Text",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "source_url",
+                "text",
+                "author_handle",
+                "created_at",
+                "has_media"
+              ],
+              "title": "XSearchPost",
+              "type": "object"
+            }
+          },
+          "additionalProperties": false,
+          "properties": {
+            "posts": {
+              "items": {
+                "$ref": "#/$defs/XSearchPost"
+              },
+              "maxItems": 20,
+              "minItems": 1,
+              "title": "Posts",
+              "type": "array"
+            }
+          },
+          "required": [
+            "posts"
+          ],
+          "title": "_XSearchBatch",
+          "type": "object"
+        },
+        "strict": true,
+        "type": "json_schema"
+      }
+    },
+    "tools": [
+      {
+        "from_date": "2026-01-01",
+        "to_date": "2026-08-02",
+        "type": "x_search"
+      }
+    ]
+  },
+  "request_sha256": "5147629c1cdb89199d98e522bad0b98b1aeec2ffe57dd0f2560c8f5be940732e",
+  "response": {
+    "background": false,
+    "completed_at": 1785746010,
+    "created_at": 1785746010,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "id": "b6b73930-2768-99ff-b3ad-a2cb68610434",
+    "incomplete_details": null,
+    "instructions": null,
+    "max_output_tokens": 8192,
+    "max_tool_calls": null,
+    "metadata": {
+      "system_fingerprint": "fp_a39489019fa99b6e"
+    },
+    "model": "grok-4.5",
+    "object": "response",
+    "output": [
+      {
+        "id": "rs_b6b73930-2768-99ff-b3ad-a2cb68610434",
+        "status": "completed",
+        "summary": [
+          {
+            "text": "The user wants me to use x_search to find distinct public X posts matching the query: Original text-only public commentary on current events, journalism, or public safety. Require no attached media, e...",
+            "type": "summary_text"
+          }
+        ],
+        "type": "reasoning"
+      },
+      {
+        "call_id": "xs_call-e4facbc8-5e93-43b2-946a-b8a0a1fadf76-0",
+        "id": "ctc_b6b73930-2768-99ff-b3ad-a2cb68610434_call-e4facbc8-5e93-43b2-946a-b8a0a1fadf76-0",
+        "input": "{\"query\":\"(\\\"current events\\\" OR journalism OR \\\"public safety\\\" OR news OR politics OR \\\"breaking news\\\") -filter:media -filter:links -filter:quote -filter:replies -filter:images -filter:videos lang:en\",\"limit\":\"10\",\"mode\":\"Latest\"}",
+        "name": "x_keyword_search",
+        "status": "completed",
+        "type": "custom_tool_call"
+      },
+      {
+        "call_id": "xs_call-e4facbc8-5e93-43b2-946a-b8a0a1fadf76-1",
+        "id": "ctc_b6b73930-2768-99ff-b3ad-a2cb68610434_call-e4facbc8-5e93-43b2-946a-b8a0a1fadf76-1",
+        "input": "{\"query\":\"original text-only commentary on current events journalism or public safety no media no links\",\"limit\":\"10\",\"min_score_threshold\":\"0.1\"}",
+        "name": "x_semantic_search",
+        "status": "completed",
+        "type": "custom_tool_call"
+      },
+      {
+        "id": "tco_b6b73930-2768-99ff-b3ad-a2cb68610434_call-e4facbc8-5e93-43b2-946a-b8a0a1fadf76-0",
+        "status": "completed",
+        "summary": [],
+        "type": "reasoning"
+      },
+      {
+        "id": "tco_b6b73930-2768-99ff-b3ad-a2cb68610434_call-e4facbc8-5e93-43b2-946a-b8a0a1fadf76-1",
+        "status": "completed",
+        "summary": [],
+        "type": "reasoning"
+      },
+      {
+        "call_id": "xs_call-e4facbc8-5e93-43b2-946a-b8a0a1fadf76-2",
+        "id": "ctc_b6b73930-2768-99ff-b3ad-a2cb68610434_call-e4facbc8-5e93-43b2-946a-b8a0a1fadf76-2",
+        "input": "{\"query\":\"(\\\"public safety\\\" OR journalism OR \\\"current events\\\" OR \\\"breaking news\\\" OR shooting OR crime OR politics) -filter:media -filter:links -filter:quote -filter:replies -filter:images -filter:videos -filter:card lang:en\",\"limit\":\"10\",\"mode\":\"Latest\"}",
+        "name": "x_keyword_search",
+        "status": "completed",
+        "type": "custom_tool_call"
+      },
+      {
+        "call_id": "xs_call-e4facbc8-5e93-43b2-946a-b8a0a1fadf76-3",
+        "id": "ctc_b6b73930-2768-99ff-b3ad-a2cb68610434_call-e4facbc8-5e93-43b2-946a-b8a0a1fadf76-3",
+        "input": "{\"query\":\"(\\\"public safety\\\" OR \\\"news media\\\" OR journalist OR \\\"press freedom\\\" OR \\\"police\\\" OR emergency) -filter:media -filter:links -filter:quote -filter:replies lang:en\",\"limit\":\"5\",\"mode\":\"Latest\"}",
+        "name": "x_keyword_search",
+        "status": "completed",
+        "type": "custom_tool_call"
+      },
+      {
+        "id": "tco_b6b73930-2768-99ff-b3ad-a2cb68610434_call-e4facbc8-5e93-43b2-946a-b8a0a1fadf76-2",
+        "status": "completed",
+        "summary": [],
+        "type": "reasoning"
+      },
+      {
+        "id": "tco_b6b73930-2768-99ff-b3ad-a2cb68610434_call-e4facbc8-5e93-43b2-946a-b8a0a1fadf76-3",
+        "status": "completed",
+        "summary": [],
+        "type": "reasoning"
+      },
+      {
+        "call_id": "xs_call-e4facbc8-5e93-43b2-946a-b8a0a1fadf76-4",
+        "id": "ctc_b6b73930-2768-99ff-b3ad-a2cb68610434_call-e4facbc8-5e93-43b2-946a-b8a0a1fadf76-4",
+        "input": "{\"query\":\"(\\\"Idaho\\\" shooting OR shooter) -filter:media -filter:links -filter:quote -filter:replies lang:en\",\"limit\":\"5\",\"mode\":\"Latest\"}",
+        "name": "x_keyword_search",
+        "status": "completed",
+        "type": "custom_tool_call"
+      },
+      {
+        "call_id": "xs_call-e4facbc8-5e93-43b2-946a-b8a0a1fadf76-5",
+        "id": "ctc_b6b73930-2768-99ff-b3ad-a2cb68610434_call-e4facbc8-5e93-43b2-946a-b8a0a1fadf76-5",
+        "input": "{\"query\":\"text commentary on journalism ethics or public safety incidents without links or media\",\"limit\":\"5\"}",
+        "name": "x_semantic_search",
+        "status": "completed",
+        "type": "custom_tool_call"
+      },
+      {
+        "id": "tco_b6b73930-2768-99ff-b3ad-a2cb68610434_call-e4facbc8-5e93-43b2-946a-b8a0a1fadf76-4",
+        "status": "completed",
+        "summary": [],
+        "type": "reasoning"
+      },
+      {
+        "id": "tco_b6b73930-2768-99ff-b3ad-a2cb68610434_call-e4facbc8-5e93-43b2-946a-b8a0a1fadf76-5",
+        "status": "completed",
+        "summary": [],
+        "type": "reasoning"
+      },
+      {
+        "content": [
+          {
+            "annotations": [
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083704106586190106",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083704106586190106"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083704204812828982",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083704204812828982"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2082631396619600217",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2082631396619600217"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083703977464750367",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083703977464750367"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083703849122951401",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083703849122951401"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083704041679343759",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083704041679343759"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083704058561351923",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083704058561351923"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2081694717243519464",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2081694717243519464"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2074041718479999255",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2074041718479999255"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083704096801140842",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083704096801140842"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083703789962285384",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083703789962285384"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083704115386036517",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083704115386036517"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2057252747796218333",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2057252747796218333"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2081736085563183562",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2081736085563183562"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2043140628020686854",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2043140628020686854"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083703960435863602",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083703960435863602"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2081965417237721480",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2081965417237721480"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2013046688496136622",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2013046688496136622"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083704249221861813",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083704249221861813"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2082114384927801380",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2082114384927801380"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083703763056128167",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083703763056128167"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2081873837017141538",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2081873837017141538"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2014817429625381084",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2014817429625381084"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2034430977083138224",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2034430977083138224"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083703904274141656",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083703904274141656"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2082207283694407694",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2082207283694407694"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083703975249924353",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083703975249924353"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2082271647059349650",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2082271647059349650"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083704028601463228",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083704028601463228"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083703751404028286",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083703751404028286"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083703861584290125",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083703861584290125"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083704145853272353",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083704145853272353"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2019761363405480270",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2019761363405480270"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083704191650865178",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083704191650865178"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083703672467300460",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083703672467300460"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083704070255092099",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083704070255092099"
+              }
+            ],
+            "logprobs": [],
+            "text": "{\n  \"posts\": [\n    {\n      \"source_url\": \"https://x.com/Brettski_aus/status/2083704204812828982\",\n      \"text\": \"\u201cModern politics is about grievance, not gratitude,\u201d credit is not given when good work is done. Political correspondent @Riley7News sums it up perfectly. It\u2019s easier to lob bombs from opposition than govern. Protest votes, followed by disappointment, have become the norm.\",\n      \"author_handle\": \"Brettski_aus\",\n      \"created_at\": \"2026-08-01T23:59:30Z\",\n      \"has_media\": false\n    },\n    {\n      \"source_url\": \"https://x.com/Crease19NEWS/status/2083704096801140842\",\n      \"text\": \"UPDATE: 3 dead and 2 injured after a shooting in Twin Falls, Idaho\\n#IDAHO #SHOOTING\",\n      \"author_handle\": \"Crease19NEWS\",\n      \"created_at\": \"2026-08-01T23:59:04Z\",\n      \"has_media\": false\n    },\n    {\n      \"source_url\": \"https://x.com/TRAVISRMASON/status/2083704106586190106\",\n      \"text\": \"WE Are under Attack in America these Shootings are due to one of 3 things and that trifecta is killing the Nation Rapidly \\nThe Islamic Jihad\\nThe Police tyranny \\nThe Insane Left\\nThe trifecta\",\n      \"author_handle\": \"TRAVISRMASON\",\n      \"created_at\": \"2026-08-01T23:59:07Z\",\n      \"has_media\": false\n    },\n    {\n      \"source_url\": \"https://x.com/The_Mean_One20/status/2083704070255092099\",\n      \"text\": \"Twin Falls, Idaho active shooter is deceased. No word yet on how. Threat is over.\",\n      \"author_handle\": \"The_Mean_One20\",\n      \"created_at\": \"2026-08-01T23:58:58Z\",\n      \"has_media\": false\n    },\n    {\n      \"source_url\": \"https://x.com/hefty_j16677/status/2083704041679343759\",\n      \"text\": \"Breaking:  The shooter in the active shooter situation in Idaho is dead.  Unknown how many are dead and injured.\",\n      \"author_handle\": \"hefty_j16677\",\n      \"created_at\": \"2026-08-01T23:58:51Z\",\n      \"has_media\": false\n    },\n    {\n      \"source_url\": \"https://x.com/rimmel_f/status/2083703977464750367\",\n      \"text\": \"As of now, wifi and cellular network are working in the Muzaffarabad division (the city and Jhelum Valley). What is suspended is the cellular internet.\\n\\nPlease do not amplify fake news for two minutes of relevance in this attention economy.\",\n      \"author_handle\": \"rimmel_f\",\n      \"created_at\": \"2026-08-01T23:58:36Z\",\n      \"has_media\": false\n    },\n    {\n      \"source_url\": \"https://x.com/dstedham511/status/2083703960435863602\",\n      \"text\": \"Reports are coming in that the Idaho Falls shooter has been terminated forever...\",\n      \"author_handle\": \"dstedham511\",\n      \"created_at\": \"2026-08-01T23:58:32Z\",\n      \"has_media\": false\n    },\n    {\n      \"source_url\": \"https://x.com/CoastReports/status/2083703904274141656\",\n      \"text\": \"The perpetrator of the Twin Falls, Idaho mass shooting has been KIA.  Likely by concerned citizens!\",\n      \"author_handle\": \"CoastReports\",\n      \"created_at\": \"2026-08-01T23:58:18Z\",\n      \"has_media\": false\n    },\n    {\n      \"source_url\": \"https://x.com/_RaeTheMartian_/status/2083703861584290125\",\n      \"text\": \"There's a lot of distractions in the news\",\n      \"author_handle\": \"_RaeTheMartian_\",\n      \"created_at\": \"2026-08-01T23:58:08Z\",\n      \"has_media\": false\n    },\n    {\n      \"source_url\": \"https://x.com/Crease19NEWS/status/2083703849122951401\",\n      \"text\": \"UPDATE: IDAHO SHOOTER IS DEAD... NO MORE THREAT TO THE PUBLIC..  SAFE TO COME OUT...\\n#IDAHO #SHOOTING\",\n      \"author_handle\": \"Crease19NEWS\",\n      \"created_at\": \"2026-08-01T23:58:05Z\",\n      \"has_media\": false\n    },\n    {\n      \"source_url\": \"https://x.com/lookner/status/2083703751404028286\",\n      \"text\": \"Suspected shooter in Idaho In-N-Out shooting is dead, police are working on identifying him and figuring out the motivation\\n\\n(from press conference)\",\n      \"author_handle\": \"lookner\",\n      \"created_at\": \"2026-08-01T23:57:42Z\",\n      \"has_media\": false\n    },\n    {\n      \"source_url\": \"https://x.com/ohthisis/status/2081694717243519464\",\n      \"text\": \"It is deeply unsettling to see how quickly the narrative shifts away from the tragedy itself. When safety becomes a political tool, it only deepens the divide and leaves the real issues unaddressed. We need a more honest conversation about accountability and the current state of public security.\",\n      \"author_handle\": \"ohthisis\",\n      \"created_at\": \"2026-07-27T10:54:31Z\",\n      \"has_media\": false\n    },\n    {\n      \"source_url\": \"https://x.com/TheOriginalBPP/status/2082207283694407694\",\n      \"text\": \"They need to just stay out of politics and report the news, e.g. illegal immigrant violent attacks, Jews being targeted by Muslim extremists, senior government officials telling the public one thing and the documenting something different, listening to an ex CIC share classified info with ghost writer.\",\n      \"author_handle\": \"TheOriginalBPP\",\n      \"created_at\": \"2026-07-28T20:51:16Z\",\n      \"has_media\": false\n    },\n    {\n      \"source_url\": \"https://x.com/JaquanTheLibra/status/2082271647059349650\",\n      \"text\": \"Was a local news writer:\\n\\n1. Woman called in during a prison riot, said her son was going to be killed. She didn\u2019t know what to do about the situation so I just talked to her for 30 minutes. He was killed.\\n\\n2. A baby got shot. As soon as I walked in, the news director was eager for me to write the story to beat the competition. I quit that week.\",\n      \"author_handle\": \"JaquanTheLibra\",\n      \"created_at\": \"2026-07-29T01:07:02Z\",\n      \"has_media\": false\n    },\n    {\n      \"source_url\": \"https://x.com/JasminLaine/status/2014817429625381084\",\n      \"text\": \"We live in a world where panic reactions are praised. Emotional outrage is rewarded, and\\ninstant \\\"hot\\\" takes are treated like trustworthy insight.\\n\\nMeanwhile, critical thinking is dismissed as weakness and nuance is treated like hesitation.\\n\\nWe aren't suffering from a lack of information. what we struggle with, is a lack of pause and what used to be a natural curiosity to get to the bottom of things. Most people never move past the headline... because headlines aren't built to inform.\\n\\nThey're built to trigger.\",\n      \"author_handle\": \"JasminLaine\",\n      \"created_at\": \"2026-01-23T21:48:03Z\",\n      \"has_media\": false\n    },\n    {\n      \"source_url\": \"https://x.com/eastdakota/status/2057252747796218333\",\n      \"text\": \"Have a problem I genuinely would love input on. My wife and I own a local newspaper. In our town the police arrested a member of the community for having what they thought were naked pictures of a juvenile on his phone. Held him for days. Turns out, it was his own kid and none of the pictures were sexual. Terrible.\\n\\nNewspaper we own reports on it. Just the facts. Also report on when he\u2019s released and there are no charges. Exactly what local news should do.\\n\\nHe sues us and the local radio station, which had also reported on the arrest. We\u2019re like: dude, we just reported the facts. Radio station settles (not sure terms). We push on because we did nothing wrong and the nature of a newspaper is reporting what happened.\\n\\nSo we win. No cause of action against the paper. And then we, under statute, get awarded attorneys fees. They amount to tens of thousands of dollars.\\n\\nSo what\u2019s the right move? I don\u2019t particularly care about the money. But I do want to discourage other caseless plaintiffs against suing us. Has been a costly distraction. But also seems wrong to bankrupt the guy. Genuinely looking for what to do next\u2026\",\n      \"author_handle\": \"eastdakota\",\n      \"created_at\": \"2026-05-21T00:10:51Z\",\n      \"has_media\": false\n    }\n  ]\n}",
+            "type": "output_text"
+          }
+        ],
+        "id": "msg_b6b73930-2768-99ff-b3ad-a2cb68610434",
+        "role": "assistant",
+        "status": "completed",
+        "type": "message"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "reasoning": {
+      "effort": "low",
+      "summary": "detailed"
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "status": "completed",
+    "store": false,
+    "temperature": 0.7,
+    "text": {
+      "format": {
+        "schema": {
+          "$defs": {
+            "XSearchPost": {
+              "additionalProperties": false,
+              "properties": {
+                "author_handle": {
+                  "minLength": 1,
+                  "title": "Author Handle",
+                  "type": "string"
+                },
+                "created_at": {
+                  "minLength": 1,
+                  "title": "Created At",
+                  "type": "string"
+                },
+                "has_media": {
+                  "title": "Has Media",
+                  "type": "boolean"
+                },
+                "source_url": {
+                  "title": "Source Url",
+                  "type": "string"
+                },
+                "text": {
+                  "minLength": 1,
+                  "title": "Text",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "source_url",
+                "text",
+                "author_handle",
+                "created_at",
+                "has_media"
+              ],
+              "title": "XSearchPost",
+              "type": "object"
+            }
+          },
+          "additionalProperties": false,
+          "properties": {
+            "posts": {
+              "items": {
+                "$ref": "#/$defs/XSearchPost"
+              },
+              "maxItems": 20,
+              "minItems": 1,
+              "title": "Posts",
+              "type": "array"
+            }
+          },
+          "required": [
+            "posts"
+          ],
+          "title": "_XSearchBatch",
+          "type": "object"
+        },
+        "type": "json_schema"
+      }
+    },
+    "tool_choice": "auto",
+    "tools": [
+      {
+        "from_date": "2026-01-01",
+        "to_date": "2026-08-02",
+        "type": "x_search"
+      }
+    ],
+    "top_logprobs": 0,
+    "top_p": 0.95,
+    "truncation": "disabled",
+    "usage": {
+      "context_details": {
+        "input_tokens": 13538,
+        "output_tokens": 3555
+      },
+      "cost_in_usd_ticks": 1063840000,
+      "input_tokens": 32018,
+      "input_tokens_details": {
+        "cached_tokens": 11520
+      },
+      "num_server_side_tools_used": 6,
+      "num_sources_used": 0,
+      "output_tokens": 5322,
+      "output_tokens_details": {
+        "reasoning_tokens": 3086
+      },
+      "server_side_tool_usage_details": {
+        "code_interpreter_calls": 0,
+        "document_search_calls": 0,
+        "file_search_calls": 0,
+        "image_generation_calls": 0,
+        "mcp_calls": 0,
+        "web_search_calls": 0,
+        "x_search_calls": 6
+      },
+      "total_tokens": 37340
+    },
+    "user": null
+  },
+  "response_sha256": "fc16d0a33019205f4360343f5be17f56cf457a3e310edeff540f35412ded40a4",
+  "surface": "tool.x_search.inventory"
+}

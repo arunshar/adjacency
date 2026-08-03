@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/News_8/status/2083703685234786376"
+  },
+  "request_sha256": "4682f2d14d23b5705cce299f59abbeeae0db7c8782ff680904d52a7291a8a727",
+  "response": {
+    "author_handle": "@News_8",
+    "created_at": "August 1, 2026",
+    "media_height": null,
+    "media_url": "https://pbs.twimg.com/card_img/2083528238630924289/NwoiL2bi?format=jpg&name=orig",
+    "media_width": null,
+    "source_url": "https://x.com/News_8/status/2083703685234786376",
+    "text": "BREAKING UPDATE: RPD has identified 14-year-old Zahnia Barr as the victim of last night's fatal N. Clinton shooting. No suspects are in custody yet. https://t.co/4x3cXqvIJ1"
+  },
+  "response_sha256": "52ae647fc05060abd5176b2774bd9de8816749d9358df3d861d3bfc8eeeb8a59",
+  "surface": "http.x_status_metadata"
+}

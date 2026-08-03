@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/eastdakota/status/2057252747796218333"
+  },
+  "request_sha256": "ca01542d815deaa60411fa778f8d910ff36e65652f289ea5966d2b680f981b9c",
+  "response": {
+    "author_handle": "@eastdakota",
+    "created_at": "May 21, 2026",
+    "media_height": null,
+    "media_url": null,
+    "media_width": null,
+    "source_url": "https://x.com/eastdakota/status/2057252747796218333",
+    "text": "Have a problem I genuinely would love input on. My wife and I own a local newspaper. In our town the police arrested a member of the community for having what they thought were naked pictures of a juvenile on his phone. Held him for days. Turns out, it was his own kid and none of\u2026"
+  },
+  "response_sha256": "3606b48ace20b3f0a2e9dd5e1d7f9d578a52ed4e9a43bc5381bcbdba64b12a85",
+  "surface": "http.x_status_metadata"
+}

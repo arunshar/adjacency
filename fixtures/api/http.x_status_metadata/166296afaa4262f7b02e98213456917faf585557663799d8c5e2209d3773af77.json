@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/TutorAcade51721/status/2083704286446264655"
+  },
+  "request_sha256": "166296afaa4262f7b02e98213456917faf585557663799d8c5e2209d3773af77",
+  "response": {
+    "author_handle": "@TutorAcade51721",
+    "created_at": "August 1, 2026",
+    "media_height": null,
+    "media_url": null,
+    "media_width": null,
+    "source_url": "https://x.com/TutorAcade51721/status/2083704286446264655",
+    "text": "Contact us to help you with: Spring classes Essay write Assignment due Online class Math Homework Calculus Statistics Physics Research projects Econometric"
+  },
+  "response_sha256": "dc8dd9a2e4a7a75492576834be3bbdb76f3adf6f659a66def98fbb5f2ba3381d",
+  "surface": "http.x_status_metadata"
+}

@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/zweiwalker89607/status/2043289030268195143"
+  },
+  "request_sha256": "feb3bb651caf0e4bbbd3754183e19d27e9b09d6adaa6aa0c15c877fc07ed1896",
+  "response": {
+    "author_handle": "@zweiwalker89607",
+    "created_at": "April 12, 2026",
+    "media_height": 1938,
+    "media_url": "https://pbs.twimg.com/media/HFs4i55WcAAjf0t.jpg:large",
+    "media_width": 1151,
+    "source_url": "https://x.com/zweiwalker89607/status/2043289030268195143",
+    "text": "The TLJ \"From A Certain Point of View\" book will tell the Throne Room fight scene from the perspective of this guy and it will include a sentence where he feels his off hand weapon dematerialize out of his grip. His last thoughts will be a bewildered \"Huh?\" before Rey kills him."
+  },
+  "response_sha256": "6b0253358e8f5807f4f05a3dbac1bfb816094b45488b2c06c007772cab24ad68",
+  "surface": "http.x_status_metadata"
+}

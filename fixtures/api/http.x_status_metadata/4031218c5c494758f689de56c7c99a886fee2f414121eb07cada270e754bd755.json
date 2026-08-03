@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/baalzamon35/status/2042355650538221946"
+  },
+  "request_sha256": "4031218c5c494758f689de56c7c99a886fee2f414121eb07cada270e754bd755",
+  "response": {
+    "author_handle": "@baalzamon35",
+    "created_at": "April 9, 2026",
+    "media_height": 1521,
+    "media_url": "https://pbs.twimg.com/media/HFfno-BW8AAT8b-.jpg:large",
+    "media_width": 1067,
+    "source_url": "https://x.com/baalzamon35/status/2042355650538221946",
+    "text": "Started and dropped: The Warrior Princess and Barbarian King. Couldn't make it 5 minuets. The barbarians, with their weak technology and metal working can cleave through the steel of the empire's armored troops in a single sword swing and their cheap iron helmets deflect\u2026"
+  },
+  "response_sha256": "a67c480629cfdff6ec2be78866ee4395d0ba6a1ba2dffb0ea4429dc64c568040",
+  "surface": "http.x_status_metadata"
+}

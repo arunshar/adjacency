@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/moja26/status/2083005530893959648"
+  },
+  "request_sha256": "f94047f684b1daf7a1c8193568b898021a6687a71269130153abd680d5cf4feb",
+  "response": {
+    "author_handle": "@moja26",
+    "created_at": "July 31, 2026",
+    "media_height": 1080,
+    "media_url": "https://pbs.twimg.com/media/HOhSSFZaoAAfUFh.jpg:large",
+    "media_width": 1920,
+    "source_url": "https://x.com/moja26/status/2083005530893959648",
+    "text": "Ai could be a powerful tool to help and progress human scientific achievement if we just use our imaginations and ask it the right questions like for with this example of an electrohydrodynamic chain of momentum transfer diagram that it drew. Choose your field, Ai can analyze\u2026"
+  },
+  "response_sha256": "7ddb0d62677a3d456d3e861109c2f3a2e658c23890045b6a9929c0e04a7a59d1",
+  "surface": "http.x_status_metadata"
+}

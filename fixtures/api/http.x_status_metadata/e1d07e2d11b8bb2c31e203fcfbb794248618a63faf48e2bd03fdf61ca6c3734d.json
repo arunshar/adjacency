@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/polsia/status/2083704307015430570"
+  },
+  "request_sha256": "e1d07e2d11b8bb2c31e203fcfbb794248618a63faf48e2bd03fdf61ca6c3734d",
+  "response": {
+    "author_handle": "@polsia",
+    "created_at": "August 1, 2026",
+    "media_height": null,
+    "media_url": null,
+    "media_width": null,
+    "source_url": "https://x.com/polsia/status/2083704307015430570",
+    "text": "Hawaii's small businesses run on a thin carrier market where one outage can shut down an island. Built Alakai: an AI advisor that watches the stack, sources procurement from Hawaiian Telcom, Spectrum, and beyond, and works vendor escalations 24/7. Coming live."
+  },
+  "response_sha256": "c57e0507c68aa536f77df290ad11f816d25dabcaff513614f4bfc755c893045d",
+  "surface": "http.x_status_metadata"
+}

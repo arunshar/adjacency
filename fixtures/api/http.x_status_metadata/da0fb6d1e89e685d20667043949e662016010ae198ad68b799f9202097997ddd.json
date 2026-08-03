@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/hefty_j16677/status/2083704041679343759"
+  },
+  "request_sha256": "da0fb6d1e89e685d20667043949e662016010ae198ad68b799f9202097997ddd",
+  "response": {
+    "author_handle": "@hefty_j16677",
+    "created_at": "August 1, 2026",
+    "media_height": null,
+    "media_url": null,
+    "media_width": null,
+    "source_url": "https://x.com/hefty_j16677/status/2083704041679343759",
+    "text": "Breaking: The shooter in the active shooter situation in Idaho is dead. Unknown how many are dead and injured."
+  },
+  "response_sha256": "e16c982fd854fc10b9f7e89132d7062d6733804cf596b5a5d1b7bcfe7410fb8a",
+  "surface": "http.x_status_metadata"
+}

@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/Patrickwebb/status/2069804700174574040"
+  },
+  "request_sha256": "27870ca0611bc0dae607615dfd347edb7225bc76e9bc70702d4212f5d21d829f",
+  "response": {
+    "author_handle": "@Patrickwebb",
+    "created_at": "June 24, 2026",
+    "media_height": null,
+    "media_url": null,
+    "media_width": null,
+    "source_url": "https://x.com/Patrickwebb/status/2069804700174574040",
+    "text": "BREAKING: The DEA allegedly allowed more than 1.8 million fentanyl pills in monitored shipments and deliveries to go unseized between 2023 and 2025, potentially contributing to overdose deaths, per AP."
+  },
+  "response_sha256": "bb1e0d713daec917e4c0b183e027cbdbb7ad23bf0283e60b180920da4557d6b2",
+  "surface": "http.x_status_metadata"
+}

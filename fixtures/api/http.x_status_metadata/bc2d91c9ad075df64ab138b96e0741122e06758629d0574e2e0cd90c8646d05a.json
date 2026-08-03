@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/fscarfe/status/2083700086526415224"
+  },
+  "request_sha256": "bc2d91c9ad075df64ab138b96e0741122e06758629d0574e2e0cd90c8646d05a",
+  "response": {
+    "author_handle": "@fscarfe",
+    "created_at": "August 1, 2026",
+    "media_height": null,
+    "media_url": null,
+    "media_width": null,
+    "source_url": "https://x.com/fscarfe/status/2083700086526415224",
+    "text": "#alcoholawareness Alcohol overall. by far is the most harmful drug, in Canada, the US, and around the world! It is a leading cause of death's, diseases and injurie's, and harm to other's, ranging from cancer's, heart and liver disease, to fasd, drunk driving, crime and violence! https://t.co/4xMVPDhosc"
+  },
+  "response_sha256": "f340802601cbd299c27043eef1aee182a8e1107dc5af0fbec29088811ff522c9",
+  "surface": "http.x_status_metadata"
+}

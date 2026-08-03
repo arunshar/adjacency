@@ -1,0 +1,1320 @@
+{
+  "fetch_failures": [],
+  "fetch_records": [
+    {
+      "measurement": {
+        "cost_in_usd_ticks": 1505232000,
+        "cost_usd": 0.1505232,
+        "elapsed_ms": 1.7492499991931254,
+        "input_tokens": 65959,
+        "model": "grok-4.5",
+        "output_tokens": 3187,
+        "reasoning_effort": "low",
+        "reasoning_tokens": 1300,
+        "response_id": "34ba3cc1-ec37-9ac9-a632-3708db4f52ed",
+        "surface": "tool.x_search.inventory",
+        "total_tokens": 69146
+      },
+      "posts": [
+        {
+          "author_handle": "NatGeoTravel",
+          "created_at": "2026-07-30T19:00:02Z",
+          "has_media": true,
+          "source_url": "https://x.com/NatGeoTravel/status/2082904065017590139",
+          "text": "What\u2019s one historical place you\u2019ve visited that made the past feel real?\n\nExplore ancient Pompeii and Herculaneum in #PompeiiOutOfTime with Tom Hiddleston. Now streaming on @DisneyPlus and @Hulu."
+        },
+        {
+          "author_handle": "NatlParkService",
+          "created_at": "2026-07-31T15:34:17Z",
+          "has_media": true,
+          "source_url": "https://x.com/NatlParkService/status/2083214677291696596",
+          "text": "On World Ranger Day, we celebrate the dedication, courage, and commitment of rangers who protect and care for national parks and protected areas around the world."
+        },
+        {
+          "author_handle": "NASA",
+          "created_at": "2026-07-30T19:28:17Z",
+          "has_media": true,
+          "source_url": "https://x.com/NASA/status/2082911174522257413",
+          "text": "Astronaut Deniz Burnham is heading to space for the first time!\n\n@astro_deniz, a former NASA intern, will lift off to the @Space_Station next spring aboard the Roscosmos Soyuz MS-30 spacecraft: https://www.nasa.gov/news-release/nasa-assigns-astronaut-deniz-burnham-to-first-space-station-mission/?utm_source=TWITTER&utm_medium=NASA&utm_campaign=NASASocial&linkId=987875312"
+        },
+        {
+          "author_handle": "YellowstoneNPS",
+          "created_at": "2026-07-30T19:14:08Z",
+          "has_media": true,
+          "source_url": "https://x.com/YellowstoneNPS/status/2082907615332274428",
+          "text": "Pikas may be small, but they sure are mighty! They are one of few mammal species in the Lower 48 that can survive their entire lives above tree line in high-alpine, rocky terrain.\n\nThough they look like rodents, they're actually more closely related to rabbits and hares and only eat plants. In late summer, you might see them working diligently to gather mouthfuls of vegetation to sustain them through winter.\n\nListen for their distinct high-pitched calls - one of the most recognizable indicators of active pika habitat!\n\nNPS Photo / Jacob W. Frank"
+        },
+        {
+          "author_handle": "NASAHubble",
+          "created_at": "2026-07-28T20:00:00Z",
+          "has_media": true,
+          "source_url": "https://x.com/NASAHubble/status/2082194383063875634",
+          "text": "These galaxies are locked in.\n\nThe pair, known as ESO 550-2, is caught in a gravitational dance.\n\nThis interaction's already deformed one arm of the larger galaxy on the left, though star formation continues in it. Learn more: https://science.nasa.gov/asset/hubble/hubble-interacting-galaxy-eso-550-2/?utm_source=TWITTER&utm_medium=NASAHubble&utm_campaign=NASASocial&linkId=984737111"
+        },
+        {
+          "author_handle": "AMAZlNGNATURE",
+          "created_at": "2026-08-01T20:29:00Z",
+          "has_media": true,
+          "source_url": "https://x.com/AMAZlNGNATURE/status/2083651229813764516",
+          "text": "This flower turns transparent when it rains\n\nKnown as the Skeleton Flower, its white petals become almost clear when wet before turning white again as they dry"
+        },
+        {
+          "author_handle": "Space_Station",
+          "created_at": "2026-08-01T16:32:50Z",
+          "has_media": true,
+          "source_url": "https://x.com/Space_Station/status/2083591796332921314",
+          "text": ".@NASA astronaut Deniz Burnham is targeted to begin her first mission to the International Space Station, serving as an Expedition 76 flight engineer, in March 2027. More... https://www.nasa.gov/news-release/nasa-assigns-astronaut-deniz-burnham-to-first-space-station-mission/"
+        },
+        {
+          "author_handle": "NASAEarth",
+          "created_at": "2026-07-31T17:37:50Z",
+          "has_media": true,
+          "source_url": "https://x.com/NASAEarth/status/2083245767687323925",
+          "text": "Extremely hot and dry conditions in June and July enabled large fires to break out in Europe.\n\nSpain saw its largest fire on record in \u00c1vila, as shown in this Landsat 9 false color image. Unburned vegetation is light green and burned areas appear brown. https://science.nasa.gov/earth/earth-observatory/destructive-fires-char-western-europe/?utm_source=TWITTER&utm_medium=NASAEarth&utm_campaign=NASASocial&linkId=988136389"
+        },
+        {
+          "author_handle": "YellowstoneNPS",
+          "created_at": "2026-07-26T18:50:15Z",
+          "has_media": true,
+          "source_url": "https://x.com/YellowstoneNPS/status/2081452051188371899",
+          "text": "Step aside wolves, bison, bears, and geysers! Sometimes it's nice to slow down and notice the little things.\n\nPhotos (NPS / Jacob W. Frank and Neal Herbert):\n1. Red squirrel hiding in a snag\n2. Painted lady resting in the sun\n3. Raindrops\n4. Bison tracks in a bacterial mat"
+        },
+        {
+          "author_handle": "NASAHubble",
+          "created_at": "2026-07-24T14:00:00Z",
+          "has_media": true,
+          "source_url": "https://x.com/NASAHubble/status/2080654232886116631",
+          "text": "A one-sided spiral \ud83c\udf00\n\nLocated about 72 million light-years away, the spiral galaxy NGC 4654 belongs to the Virgo Cluster of galaxies.\n\nIts asymmetric shape is caused by pressure it encounters as the galaxy moves through gas in its cluster: https://science.nasa.gov/missions/hubble/hubble-spies-one-sided-spiral/?utm_source=TWITTER&utm_medium=NASAHubble&utm_campaign=NASASocial&linkId=984738482"
+        },
+        {
+          "author_handle": "AMAZlNGNATURE",
+          "created_at": "2026-08-01T22:35:00Z",
+          "has_media": true,
+          "source_url": "https://x.com/AMAZlNGNATURE/status/2083682938735009817",
+          "text": "This bird has been known to chase eagles out of the sky\n\nRavens often harass much larger birds of prey until they decide it's not worth the trouble"
+        },
+        {
+          "author_handle": "NatlParkService",
+          "created_at": "2026-07-04T12:04:30Z",
+          "has_media": true,
+          "source_url": "https://x.com/NatlParkService/status/2073377410620219590",
+          "text": "Happy Independence Day \ud83c\uddfa\ud83c\uddf8 \n\nFrom battlefields and memorials to parks and protected landscapes, the places cared for by the National Park Service help bring our shared history to life."
+        }
+      ],
+      "search": {
+        "from_date": "2026-01-01",
+        "label": "clean_travel_nature",
+        "limit": 12,
+        "query": "Original public posts from travel, nature, parks, weather, or space accounts. Prefer safe general-interest posts, and include attached photos when available.",
+        "to_date": "2026-08-02"
+      }
+    },
+    {
+      "measurement": {
+        "cost_in_usd_ticks": 795556000,
+        "cost_usd": 0.0795556,
+        "elapsed_ms": 0.8732919995964039,
+        "input_tokens": 23866,
+        "model": "grok-4.5",
+        "output_tokens": 3821,
+        "reasoning_effort": "low",
+        "reasoning_tokens": 1362,
+        "response_id": "1d3f8483-cb0e-9a57-95a3-690f08851de5",
+        "surface": "tool.x_search.inventory",
+        "total_tokens": 27687
+      },
+      "posts": [
+        {
+          "author_handle": "tom_doerr",
+          "created_at": "2026-02-14T23:07:26Z",
+          "has_media": true,
+          "source_url": "https://x.com/tom_doerr/status/2022809940105089429",
+          "text": "Generates scientific diagrams from text or papers\n\nhttps://github.com/ResearAI/AutoFigure"
+        },
+        {
+          "author_handle": "tom_doerr",
+          "created_at": "2026-05-14T16:16:43Z",
+          "has_media": true,
+          "source_url": "https://x.com/tom_doerr/status/2054959102195872231",
+          "text": "Collection of 127 scientific diagrams for physics and ML\n\nhttps://github.com/janosh/diagrams"
+        },
+        {
+          "author_handle": "tom_doerr",
+          "created_at": "2026-02-07T06:51:40Z",
+          "has_media": true,
+          "source_url": "https://x.com/tom_doerr/status/2020027665223127418",
+          "text": "Research agent framework for scientific paradigm generation\n\nhttps://github.com/AgentAlphaAGI/Idea2Paper"
+        },
+        {
+          "author_handle": "tom_doerr",
+          "created_at": "2026-03-13T13:54:41Z",
+          "has_media": true,
+          "source_url": "https://x.com/tom_doerr/status/2032455308677669313",
+          "text": "Generates publication-ready scientific illustrations from text\n\nhttps://github.com/ResearAI/AutoFigure-Edit"
+        },
+        {
+          "author_handle": "tetsuoai",
+          "created_at": "2026-06-25T01:41:48Z",
+          "has_media": true,
+          "source_url": "https://x.com/tetsuoai/status/2069959210834776313",
+          "text": "Interactive web visualisation for a compact multi-layer perceptron trained on the MNIST handwritten digit dataset. Draw a digit, watch activations propagate through the network in 3D, and inspect real-time prediction probabilities.\n\ngithub/DFin/Neural-Network-Visualisation"
+        },
+        {
+          "author_handle": "moja26",
+          "created_at": "2026-07-31T01:43:13Z",
+          "has_media": true,
+          "source_url": "https://x.com/moja26/status/2083005530893959648",
+          "text": "Ai  could be a powerful tool to help and progress human scientific  achievement if we just use our imaginations and ask it the right questions like for with this example of an electrohydrodynamic chain of momentum transfer diagram that it drew. Choose your field, Ai can analyze incredible amounts of information almost instantly..."
+        },
+        {
+          "author_handle": "anesthesianews",
+          "created_at": "2026-07-30T13:55:13Z",
+          "has_media": true,
+          "source_url": "https://x.com/anesthesianews/status/2082827354586354020",
+          "text": "Can AI help build safer healthcare AI? Researchers developed a tool that instantly creates clinical system design diagrams from text or code, streamlining collaboration and documentation: https://www.anesthesiologynews.com/a/WzwBAA/t #AI #Anesthesiology"
+        },
+        {
+          "author_handle": "itarutomy",
+          "created_at": "2026-08-01T23:02:43Z",
+          "has_media": true,
+          "source_url": "https://x.com/itarutomy/status/2083689915678646757",
+          "text": "\u691c\u7d22\u30a8\u30f3\u30b8\u30f3\u306f\u3001\u6587\u66f8\u3092\u300c\u7d22\u5f15(\u30a4\u30f3\u30c7\u30c3\u30af\u30b9\u3001\u691c\u7d22\u3057\u3084\u3059\u3044\u5f62\u306b\u6574\u7406\u3055\u308c\u305f\u4e00\u89a7\u306e\u3088\u3046\u306a\u3082\u306e)\u300d\u306b\u5165\u308c\u308b\u524d\u306b\u30c1\u30e3\u30f3\u30af\u5206\u5272\u3084\u6574\u5f62\u3092\u3059\u308b\u304c\u3001\u3053\u306e\u6574\u5f62\u306e\u4ed5\u65b9\u81ea\u4f53\u3092AI\u30a8\u30fc\u30b8\u30a7\u30f3\u30c8\u306b\u63a2\u7d22\u3055\u305b\u3066\u81ea\u52d5\u6700\u9069\u5316\u3059\u308b\u8ad6\u6587\u304c\u51fa\u3066\u3044\u305f(https://arxiv[.]org/html/2607.18603v1)\u3002\n\n\u691c\u7d22\u306e\u7cbe\u5ea6\u3092\u4e0a\u3052\u305f\u3044\u3068\u304d\u3001\u666e\u901a\u306f\u691c\u7d22\u306b\u4f7f\u3046AI\u30e2\u30c7\u30eb(\u6587\u7ae0\u306e\u610f\u5473\u3092\u6570\u5024\u306b\u5909\u63db\u3059\u308b\u57cb\u3081\u8fbc\u307f\u30e2\u30c7\u30eb\u3084\u3001\u5019\u88dc\u306e\u4e26\u3073\u9806\u3092\u8abf\u6574\u3059\u308b\u30ea\u30e9\u30f3\u30ab\u30fc\u306a\u3069)\u305d\u306e\u3082\u306e\u3092\u6539\u826f\u3057\u3088\u3046\u3068\u3059\u308b\u3002\u3053\u306e\u7814\u7a76\u300cAutoIndex\u300d\u304c\u72d9\u3046\u306e\u306f\u305d\u306e\u624b\u524d\u306e\u5de5\u7a0b\u3002\u691c\u7d22\u30a2\u30eb\u30b4\u30ea\u30ba\u30e0\u81ea\u4f53(BM25\u3068\u3044\u3046\u30ad\u30fc\u30ef\u30fc\u30c9\u691c\u7d22\u306e\u5b9a\u756a\u624b\u6cd5)\u306f\u5b8c\u5168\u306b\u56fa\u5b9a\u3057\u305f\u307e\u307e\u3001\u6587\u66f8\u3092\u3069\u3046\u5207\u308a\u5206\u3051\u3066\u7d22\u5f15\u306b\u5165\u308c\u308b\u304b\u3092\u6c7a\u3081\u308b\u30d7\u30ed\u30b0\u30e9\u30e0\u3060\u3051\u3092AI\u306b\u66f8\u304b\u305b\u3066\u78e8\u304d\u8fbc\u3080\u3002\n\n\u4ed5\u7d44\u307f\u306f2\u3064\u306eAI\u30a8\u30fc\u30b8\u30a7\u30f3\u30c8\u306e\u5f80\u5fa9\u3002Analysis\u30a8\u30fc\u30b8\u30a7\u30f3\u30c8\u304c\u4eca\u306e\u7d22\u5f15\u3067\u691c\u7d22\u306b\u5931\u6557\u3057\u3066\u3044\u308b\u5177\u4f53\u4f8b\u3092\u5b9f\u969b\u306b\u8aad\u307f\u306b\u884c\u3063\u3066\u539f\u56e0\u3092\u8a3a\u65ad\u3057\u3001Code\u30a8\u30fc\u30b8\u30a7\u30f3\u30c8\u304c\u305d\u306e\u8a3a\u65ad\u3092\u3082\u3068\u306b\u524d\u51e6\u7406\u30b3\u30fc\u30c9\u3092\u66f8\u304d\u76f4\u3059\u3002\u66f8\u304d\u76f4\u3059\u305f\u3073\u306b\u7d22\u5f15\u3092\u4f5c\u308a\u76f4\u3057\u3066\u7cbe\u5ea6\u3092\u6e2c\u308a\u3001\u826f\u304f\u306a\u3063\u305f\u7248\u3060\u3051\u63a1\u7528\u3001\u30925\u56de\u7e70\u308a\u8fd4\u3059\u3002\n\n\u533b\u7642\u3001\u6cd5\u5f8b\u3001\u30b3\u30fc\u30c9\u691c\u7d22\u306a\u3069\u6027\u8cea\u306e\u7570\u306a\u308b8\u7a2e\u985e\u306e\u30bf\u30b9\u30af\u3067\u8a66\u3057\u305f\u3068\u3053\u308d\u3001\u5168\u30bf\u30b9\u30af\u3067\u691c\u7d22\u306e\u518d\u73fe\u7387(Recall@100\u3001\u6b63\u89e3\u306e\u6587\u66f8\u3092\u4e0a\u4f4d100\u4ef6\u4ee5\u5185\u306b\u542b\u3081\u3089\u308c\u305f\u5272\u5408)\u304c\u6539\u5584\u3057\u3001\u5e73\u5747+8.4%\u3001\u6700\u3082\u4f38\u3073\u305f\u30bf\u30b9\u30af\u3067\u306f+30.5%\u3060\u3063\u305f\u3002\n\n\u4e2d\u8eab\u304c\u5177\u4f53\u7684\u3067\u9762\u767d\u3044\u3002\u300c\u3042\u306e\u6620\u753b\u306e\u30bf\u30a4\u30c8\u30eb\u4f55\u3060\u3063\u3051\u300d\u7684\u306a\u66d6\u6627\u306a\u8a18\u61b6\u304b\u3089\u306e\u691c\u7d22\u30bf\u30b9\u30af\u3067\u306f\u3001AI\u306f\u6587\u66f8\u3092\u5206\u5272\u305b\u305a\u3001\u3042\u3089\u3059\u3058\u90e8\u5206\u30923\u56de\u3001\u30ad\u30e3\u30b9\u30c8\u6b04\u30922\u56de\u7e70\u308a\u8fd4\u3057\u30661\u3064\u306e\u584a\u306b\u57cb\u3081\u8fbc\u3080\u3068\u3044\u3046\u529b\u6280\u3092\u81ea\u529b\u3067\u767a\u898b\u3057\u3066\u3044\u305f\u3002\u5225\u306e\u30bf\u30b9\u30af\u3067\u306f\u6587\u66f8\u4e2d\u306e\u6570\u5f0f\u8868\u8a18\u304c\u691c\u7d22\u306e\u30ce\u30a4\u30ba\u306b\u306a\u3063\u3066\u3044\u308b\u3068\u898b\u629c\u304d\u3001\u6570\u5f0f\u306e\u591a\u3044\u6587\u66f8\u3060\u3051\u3092\u72d9\u3063\u3066\u9664\u53bb\u3059\u308b\u30b3\u30fc\u30c9\u3092\u66f8\u3044\u3066\u3044\u305f\u3002\u4ee5\u524d\u306e\u8a66\u884c\u3067\u6d88\u3057\u3059\u304e\u3066\u6210\u7e3e\u3092\u843d\u3068\u3057\u305f\u53cd\u7701\u3092\u8e0f\u307e\u3048\u305f\u8a2d\u8a08\u306b\u306a\u3063\u3066\u3044\u308b\u70b9\u3082\u82b8\u304c\u7d30\u304b\u3044\u3002\n\nBM25\u5c02\u7528\u306b\u5b66\u7fd2\u3057\u305f\u306f\u305a\u306e\u3053\u306e\u524d\u51e6\u7406\u30d7\u30ed\u30b0\u30e9\u30e0\u3092\u3001\u57cb\u3081\u8fbc\u307f\u30d9\u30af\u30c8\u30eb\u3067\u985e\u4f3c\u5ea6\u3092\u6e2c\u308b\u5bc6\u691c\u7d22\u306b\u305d\u306e\u307e\u307e\u6d41\u7528\u3057\u3066\u3082\u3001\u3042\u308b\u30bf\u30b9\u30af\u3067Recall@100\u304c0.74\u304b\u30890.87\u307e\u3067\u4e0a\u304c\u3063\u305f\u3089\u3057\u304f\u3001\u6c4e\u7528\u6027\u3082\u3042\u308a\u305d\u3046\u306a\u7d50\u679c\u306b\u306a\u3063\u3066\u3044\u308b\u3002\n\n\u53cd\u5fa9\u63a2\u7d22\u306b\u3057\u305f\u306e\u304c\u52b9\u3044\u3066\u3044\u3066\u30011\u56de\u304d\u308a\u306e\u66f8\u304d\u63db\u3048\u3060\u30688\u30bf\u30b9\u30af\u4e2d3\u3064\u3057\u304b\u6539\u5584\u3057\u306a\u304b\u3063\u305f\u3089\u3057\u3044\u3002\u691c\u7d22\u7cbe\u5ea6\u3092\u4e0a\u3052\u305f\u3044\u3068\u304d\u3001\u30e2\u30c7\u30eb\u3088\u308a\u5148\u306b\u300c\u7d22\u5f15\u306e\u4f5c\u308a\u65b9\u300d\u3092\u7591\u3046\u4f59\u5730\u306f\u666e\u901a\u306b\u3042\u308a\u305d\u3046\u3002"
+        },
+        {
+          "author_handle": "Akashi203",
+          "created_at": "2026-08-01T20:39:33Z",
+          "has_media": true,
+          "source_url": "https://x.com/Akashi203/status/2083653884044890617",
+          "text": "Memory Caching (arXiv 2602.24281) caches memory checkpoints per segment and retrieves across them at read time. The write rule doesn't change. It's a read-side fix and it works\n\nI tested the write side and it failed\n\nMemoir is four weight tiers on different update intervals. W0 every forward pass, W1 gated per segment, W2 slow consolidation, W3 frozen. A ponder loop with learned halting sits on top. The claim was that every ponder step writes into the fast weights\n\n12 seeds on the hard task. Coupled 0.5203, read-only 0.6557, paired t 3.23, read-only wins 10 of 12. A 960-step control closed it to 1.0000 both arms, so it's a learning-speed penalty at fixed budget, not a capability ceiling. Confound I'm not burying: the coupled arm writes 7x more often\n\nTheir segment checkpoint and my W1 are the same instinct. They grew the read, I moved the write. The read side won"
+        },
+        {
+          "author_handle": "FrontGastro_BMJ",
+          "created_at": "2026-08-01T19:26:05Z",
+          "has_media": true,
+          "source_url": "https://x.com/FrontGastro_BMJ/status/2083635399616864695",
+          "text": "\ud83e\ude7a Regular surveillance is vital for detecting hepatocellular carcinoma (HCC) early\u2014but how well are we measuring adherence?\n\n\ud83d\udcca This new study in @FrontGastro_BMJ shows that proportion of time covered is an important real-world measure of HCC surveillance adherence and is associated with receiving potentially curative treatment.\n\n\ud83d\udcc8 These findings could help improve how surveillance programmes are evaluated and optimised for patients at risk of HCC.\n\nRead the full paper here: https://t.co/LyGJUfVLkM\n\n#LiverTwitter #HCC #HepatocellularCarcinoma #LiverDisease #Hepatology #CancerScreening #MedicalResearch #Gastroenterology @ChrisMysko @VSAthwal @REVISE_HCC @NHSEngland @sbrihealthcare @RocheDiaUK @BASLedu @BritSocGastro @EASLnews @EASLedu @AASLDtweets @PhilSmithIsBack @dr_aditi_kumar @OTavabie @DrJMKennedy @DunnePdj @TrevorTabone @eathar_s @IrenePerezMD @KGananandan @zare_benjamin @medicalreg @dtleiberman"
+        },
+        {
+          "author_handle": "ClimateBen",
+          "created_at": "2026-08-01T18:38:51Z",
+          "has_media": true,
+          "source_url": "https://x.com/ClimateBen/status/2083623510165934575",
+          "text": "21ST CENTURY MASS EXTINCTION:  people think species will simply move into cooler areas as heat extremes hit, but a new study showed more than 70% of species have not been doing so\n\n* tropical and temperate species are both in more danger than is commonly recognised"
+        },
+        {
+          "author_handle": "QuantaMagazine",
+          "created_at": "2026-02-10T21:05:07Z",
+          "has_media": true,
+          "source_url": "https://x.com/QuantaMagazine/status/2021329608667259105",
+          "text": "Biologists have fed genetic data from millions of mouse brain cells into a custom machine learning algorithm. The program delivered maps of the brain with unprecedented detail, revealing a thousand-plus novel regions. https://www.quantamagazine.org/fed-on-reams-of-cell-data-ai-maps-new-neighborhoods-in-the-brain-20260209/"
+        }
+      ],
+      "search": {
+        "from_date": "2026-01-01",
+        "label": "clean_science_technology",
+        "limit": 12,
+        "query": "Original public posts about science, engineering, AI, or research announcements. Prefer posts with attached diagrams or photos and no violent content.",
+        "to_date": "2026-08-02"
+      }
+    },
+    {
+      "measurement": {
+        "cost_in_usd_ticks": 541316000,
+        "cost_usd": 0.0541316,
+        "elapsed_ms": 0.6782920008845394,
+        "input_tokens": 18703,
+        "model": "grok-4.5",
+        "output_tokens": 3334,
+        "reasoning_effort": "low",
+        "reasoning_tokens": 1479,
+        "response_id": "14a346ad-4c05-982f-8afa-5a77ae1eb356",
+        "surface": "tool.x_search.inventory",
+        "total_tokens": 22037
+      },
+      "posts": [
+        {
+          "author_handle": "cknxnewstoday",
+          "created_at": "2026-07-31T15:27:29Z",
+          "has_media": false,
+          "source_url": "https://x.com/cknxnewstoday/status/2083212964623012294",
+          "text": "Grey Bruce Public Health is warning drug users in the region that a toxic level of fentanyl has been found in a sample of local meth.\nhttps://cknxnewstoday.ca/midwestern/news/2026/07/31/health-unit-warns-of-toxic-level-of-fentanyl-in-local-meth-supply"
+        },
+        {
+          "author_handle": "stoptheVOID",
+          "created_at": "2026-07-27T18:01:20Z",
+          "has_media": true,
+          "source_url": "https://x.com/stoptheVOID/status/2081802131632439565",
+          "text": "The latest report from the National Drug Early Warning System should concern every parent, educator and public-health professional.\n\nNDEWS recorded 16,335 suspected nonfatal overdose-related EMS encounters involving MDMA, commonly sold as Ecstasy or Molly, between January 1, 2023, and June 30, 2026.\n\nMore than half occurred in Southern states:\n\n\u2022 South: 8,955\n\u2022 West: 2,705\n\u2022 Midwest: 2,557\n\u2022 Northeast: 2,118\n\nBut the numbers tell only part of the story.\n\nNDEWS is also warning about counterfeit products, drugs sold as MDMA being mixed with other substances, and the possibility of illicit fentanyl appearing in this unpredictable supply.\n\nAs a father who lost my 16-year-old son Daniel to a counterfeit pill, I cannot say this strongly enough: you cannot trust the appearance, color, shape or name of an illicit pill. What someone believes is Molly or Ecstasy may contain something entirely different, and one pill can be enough to cause irreversible harm or even death.\n\nWe must keep educating young people with honest, current information. The illicit drug supply continues to change, and our prevention efforts must change with it.\n\nSource: National Drug Early Warning System, Weekly Briefing Issue 294, July 24, 2026.\n\nFollow us at: https://t.co/5nGORkNczU\n\n@DEAHQ \n@TheJusticeDept \n@samhsagov \n@ONDCP \n@DHSgov \n\n#NewsAlert #CounterfeitPills #fentanylawareness #drugpreventionandeducation\n #PublicSafety #stoptheVOID"
+        },
+        {
+          "author_handle": "aud7misner",
+          "created_at": "2026-07-31T19:36:09Z",
+          "has_media": false,
+          "source_url": "https://x.com/aud7misner/status/2083275541877252247",
+          "text": "How a rural Utah community hit hard by overdose deaths is responding to fentanyl https://www.fox13now.com/fentanyl/how-a-rural-utah-community-hit-hard-by-overdose-deaths-is-responding-to-fentanyl"
+        },
+        {
+          "author_handle": "FBIDirectorKash",
+          "created_at": "2026-01-08T15:16:07Z",
+          "has_media": true,
+          "source_url": "https://x.com/FBIDirectorKash/status/2009282979923685431",
+          "text": "Lawmakers can lie. FBI results don\u2019t.\u00a0\n\nSince January 2025, @FBISanFrancisco has made 460 plus violent crime arrests and seized drugs equating to over 607,000 lethal fentanyl doses.\n\nGuns seized. Traffickers charged.\n\nFacts over fiction."
+        },
+        {
+          "author_handle": "FBIDirectorKash",
+          "created_at": "2026-01-07T15:48:00Z",
+          "has_media": true,
+          "source_url": "https://x.com/FBIDirectorKash/status/2008928613165408265",
+          "text": "Lawmakers can lie. FBI results don\u2019t.\n\nSince January 2025, @NewYorkFBI has made 1,700 plus violent crime arrests and seized over 8 kilograms of fentanyl, preventing more than 600,000 potential deaths.\n125 firearms seized. Major drug networks disrupted.\n\nPublic safety isn\u2019t political, it\u2019s measurable."
+        },
+        {
+          "author_handle": "Osint613",
+          "created_at": "2026-01-16T09:47:36Z",
+          "has_media": true,
+          "source_url": "https://x.com/Osint613/status/2012099407341076637",
+          "text": "Trump administration reports a 25% drop in national overdose deaths through early 2025, citing reduced fentanyl supply from Mexico and expanded treatment access, according to provisional CDC data."
+        },
+        {
+          "author_handle": "mbruggelivecom1",
+          "created_at": "2026-07-29T14:53:15Z",
+          "has_media": false,
+          "source_url": "https://x.com/mbruggelivecom1/status/2082479572122001909",
+          "text": "Team Trump at DEA have been making real progress on the fentanyl front. A lot of work remains, and partnerships with blue states is needed to make additional gains.\nRead the post from Dr. Emrani, and check the DEA press release from last December.\nhttps://www.dea.gov/press-releases/2025/12/03/dea-launches-fentanyl-free-america-initiative-combat-synthetic-drug"
+        },
+        {
+          "author_handle": "Patrickwebb",
+          "created_at": "2026-06-24T15:27:50Z",
+          "has_media": false,
+          "source_url": "https://x.com/Patrickwebb/status/2069804700174574040",
+          "text": "BREAKING: The DEA allegedly allowed more than 1.8 million fentanyl pills in monitored shipments and deliveries to go unseized between 2023 and 2025, potentially contributing to overdose deaths, per AP."
+        },
+        {
+          "author_handle": "keribla",
+          "created_at": "2026-06-23T11:38:23Z",
+          "has_media": true,
+          "source_url": "https://x.com/keribla/status/2069384568327536816",
+          "text": "This explanation of how they got the story is bonkers https://apnews.com/article/dea-fentanyl-unseized-drugs-new-mexico-reporter-6559cd3579394c8ea7ee30889897375b"
+        },
+        {
+          "author_handle": "davenewworld_2",
+          "created_at": "2026-06-24T23:05:10Z",
+          "has_media": true,
+          "source_url": "https://x.com/davenewworld_2/status/2069919794682364040",
+          "text": "DEA agents in New Mexico let major fentanyl shipments go unseized and allowed the pills to stay in circulation to build cases for years.\n\nA whistleblower says that at least 1.8 million pills went unseized during one investigation.\n\nThat's an insane amount.\n\nThe DEA says its decisions were \"lawful\" and \"consistent\" with Justice Department guidance. \n\nIt's \"lawful\" and \"consistent\" of them to accept risks to vulnerable communities as collateral damage so they can build bigger prosecutions, and then they'll cite the crisis to justify more police funding and more police militarization."
+        }
+      ],
+      "search": {
+        "from_date": "2026-01-01",
+        "label": "neutral_public_health",
+        "limit": 12,
+        "query": "Neutral public-health reporting about fentanyl, illicit drugs, overdose prevention, treatment, or law-enforcement seizures. Exclude posts offering drugs for sale.",
+        "to_date": "2026-08-02"
+      }
+    },
+    {
+      "measurement": {
+        "cost_in_usd_ticks": 811808000,
+        "cost_usd": 0.0811808,
+        "elapsed_ms": 0.799166999058798,
+        "input_tokens": 34267,
+        "model": "grok-4.5",
+        "output_tokens": 2983,
+        "reasoning_effort": "low",
+        "reasoning_tokens": 1129,
+        "response_id": "6f30f621-ea33-9956-8b92-96546b44ce2c",
+        "surface": "tool.x_search.inventory",
+        "total_tokens": 37250
+      },
+      "posts": [
+        {
+          "author_handle": "sesamestreet",
+          "created_at": "2026-01-27T00:00:50Z",
+          "has_media": true,
+          "source_url": "https://x.com/sesamestreet/status/2015938009670062552",
+          "text": "When little ones hear about violent events on the news or in their communities, it can be hard to help them understand and cope with what happened. Limiting media exposure and making space for them to express big feelings can help children feel safer and more secure.\n \nCheck here for more free resources supporting families affected by violence:"
+        },
+        {
+          "author_handle": "NBCNews",
+          "created_at": "2026-08-01T23:11:43Z",
+          "has_media": false,
+          "source_url": "https://x.com/NBCNews/status/2083692181492060523",
+          "text": "BREAKING: At least three dead and two injured in a shooting in Twin Falls, Idaho, authorities say. https://www.nbcnews.com/news/us-news/dead-injured-shooting-twin-falls-idaho-rcna590420?cid=sm_npd_nn_tw_ma&taid=6a6e7d2f06e58b00018fba39&utm_campaign=trueanthem&utm_medium=social&utm_source=twitter"
+        },
+        {
+          "author_handle": "ABC",
+          "created_at": "2026-08-01T19:40:00Z",
+          "has_media": false,
+          "source_url": "https://x.com/ABC/status/2083638898106761703",
+          "text": "Police in Rochester, New York, are looking for suspects after a woman was killed and two others were injured in a shooting after a Puerto Rican festival early Saturday morning. https://abcnews.com/US/rochester-police-searching-clues-after-woman-fatally-shot/story?id=135290808&cid=social_twitter_abcn"
+        },
+        {
+          "author_handle": "News_8",
+          "created_at": "2026-08-01T23:57:26Z",
+          "has_media": false,
+          "source_url": "https://x.com/News_8/status/2083703685234786376",
+          "text": "BREAKING UPDATE: RPD has identified 14-year-old Zahnia Barr as the victim of last night's fatal N. Clinton shooting. No suspects are in custody yet. https://www.rochesterfirst.com/news/local-news/female-fatally-shot-during-crowd-dispersal-on-n-clinton-avenue/"
+        },
+        {
+          "author_handle": "GovernorShapiro",
+          "created_at": "2026-01-04T15:00:07Z",
+          "has_media": true,
+          "source_url": "https://x.com/GovernorShapiro/status/2007829399920406898",
+          "text": "If you don\u2019t think our two-pronged approach to public safety is working, you\u2019re not paying attention:\n \nViolent crime is down by 12% and fatal gun violence is down by 42% across our Commonwealth \u2014 and last year, Pittsburgh and Philadelphia saw the fewest homicides in decades.\n \nThat\u2019s called GSD."
+        },
+        {
+          "author_handle": "ABC",
+          "created_at": "2026-08-01T21:47:28Z",
+          "has_media": false,
+          "source_url": "https://x.com/ABC/status/2083670978056409412",
+          "text": "James Farthing, who won a $167.3 million prize in Kentucky's Powerball in 2025, was arrested on domestic-violence-related charges for an alleged incident that occurred on Sunday, according to county authorities. https://abcnews.com/US/winner-167m-lottery-arrested-domestic-violence-related-charges/story?id=135191015&cid=social_twitter_abcn"
+        },
+        {
+          "author_handle": "sacbee_news",
+          "created_at": "2026-08-01T18:30:15Z",
+          "has_media": false,
+          "source_url": "https://x.com/sacbee_news/status/2083621347767251025",
+          "text": "Sacramento funds youth violence prevention with little oversight. What to know https://www.sacbee.com/csa-content/article316688474.html?taid=6a6e3b3706e58b00018fb826&utm_campaign=trueanthem&utm_medium=social&utm_source=twitter"
+        },
+        {
+          "author_handle": "lookner",
+          "created_at": "2026-08-01T23:57:42Z",
+          "has_media": false,
+          "source_url": "https://x.com/lookner/status/2083703751404028286",
+          "text": "Suspected shooter in Idaho In-N-Out shooting is dead, police are working on identifying him and figuring out the motivation\n\n(from press conference)"
+        },
+        {
+          "author_handle": "TheCCShowcast",
+          "created_at": "2026-08-01T23:57:57Z",
+          "has_media": true,
+          "source_url": "https://x.com/TheCCShowcast/status/2083703813521686674",
+          "text": "\ud83d\udd34 Shooter DEAD- Shooting suspect at Twin Falls, Idaho In-N-Out Burger is deceased. \n\nPolice say no further threat to the public."
+        },
+        {
+          "author_handle": "WarHorizon",
+          "created_at": "2026-08-01T23:59:48Z",
+          "has_media": true,
+          "source_url": "https://x.com/WarHorizon/status/2083704281665007626",
+          "text": "Police confirm the suspect in the Twin Falls, Idaho, shooting is deceased and the threat is no longer active.\n\nvia - @newsnoteworthy"
+        },
+        {
+          "author_handle": "NBCNews",
+          "created_at": "2026-08-01T18:00:10Z",
+          "has_media": false,
+          "source_url": "https://x.com/NBCNews/status/2083613775169516012",
+          "text": "The sentencing of the man who gifted his son an assault rifle used in a mass shooting at a Georgia high school in 2024 could embolden prosecutors to hold more parents legally accountable for their children\u2019s crimes, experts say. https://www.nbcnews.com/news/us-news/dads-sentencing-school-shooting-affirms-legal-jeopardy-parents-rcna590049?cid=sm_npd_nn_tw_ma&taid=6a6e342aef02360001bd1c4c&utm_campaign=trueanthem&utm_medium=social&utm_source=twitter"
+        },
+        {
+          "author_handle": "ABC",
+          "created_at": "2026-08-01T13:07:19Z",
+          "has_media": false,
+          "source_url": "https://x.com/ABC/status/2083540076022182140",
+          "text": "A 15-year-old Indiana boy has been sentenced to 100 years in prison after being convicted in a 2025 gang-related shooting that left one woman dead, another wounded and a third injured when she was hit by a car fleeing the gunfire, prosecutors said. https://abcnews.com/US/15-year-convicted-murderer-sentenced-100-years-prison/story?id=135221500&cid=social_twitter_abcn"
+        }
+      ],
+      "search": {
+        "from_date": "2026-01-01",
+        "label": "neutral_violence_reporting",
+        "limit": 12,
+        "query": "Neutral news, public-safety, or violence-prevention reporting that mentions violence. Exclude content that celebrates harm and prefer non-graphic attached media.",
+        "to_date": "2026-08-02"
+      }
+    },
+    {
+      "measurement": {
+        "cost_in_usd_ticks": 425060000,
+        "cost_usd": 0.042506,
+        "elapsed_ms": 0.6454169997596182,
+        "input_tokens": 9908,
+        "model": "grok-4.5",
+        "output_tokens": 3203,
+        "reasoning_effort": "low",
+        "reasoning_tokens": 1091,
+        "response_id": "8072d713-2526-9d02-b10b-c75589900254",
+        "surface": "tool.x_search.inventory",
+        "total_tokens": 13111
+      },
+      "posts": [
+        {
+          "author_handle": "McDonaldHopkins",
+          "created_at": "2026-07-28T16:38:31Z",
+          "has_media": false,
+          "source_url": "https://x.com/McDonaldHopkins/status/2082143677992804709",
+          "text": "Scammers are getting more sophisticated. The FBI is warning that criminals are now using AI-generated deepfake videos of senior FBI officials to make fraud schemes appear legitimate.\nhttps://www.mcdonaldhopkins.com/insights/news/fbi-renews-warning-on-ai-generated-deepfakes?utm_content=383326845&utm_medium=social&utm_source=twitter&hss_channel=tw-63105555"
+        },
+        {
+          "author_handle": "LilyInBloom3",
+          "created_at": "2026-07-30T11:03:15Z",
+          "has_media": false,
+          "source_url": "https://x.com/LilyInBloom3/status/2082784079616131521",
+          "text": "\"Seeing is believing\" is no more relevant\n\u25ab\ufe0fTechniques like diffusion models, 3D NeRFs, and zero shot voice cloning have rendered synthetic media indistinguishable from reality. While this unlocks massive creative potential, it presents critical enterprise risks; from executive impersonation to biometric bypass.\n\u25ab\ufe0fThe path forward requires shifting from simple detection to cryptographic media provenance (C2PA).\n\ud83d\udd38Will detection tools ever catch up or are we stuck in a Zero Trust digital environment \u2753"
+        },
+        {
+          "author_handle": "CanadaFP",
+          "created_at": "2026-03-19T15:22:36Z",
+          "has_media": true,
+          "source_url": "https://x.com/CanadaFP/status/2034651759092658295",
+          "text": "AI can now mimic a person's face and voice with startling accuracy. Deepfakes can make anyone appear to do or say anything. A familiar face or voice no longer guarantees authenticity.\n\nBe cautious. Check the source.\n\n#ThinkBeforeYouShare"
+        },
+        {
+          "author_handle": "PoliMarketer",
+          "created_at": "2026-08-01T13:00:01Z",
+          "has_media": true,
+          "source_url": "https://x.com/PoliMarketer/status/2083538238916956669",
+          "text": "Deepfake rapid response units are facing algorithmic attacks.\n\nAutomated audio verification is being used to check spectral patterns, voice consistency, AI manipulation, and source reliability.\n\n#DeepfakeDetection #RapidResponse #AudioVerification #CrisisCommunication"
+        },
+        {
+          "author_handle": "SenateAging",
+          "created_at": "2026-07-29T19:40:41Z",
+          "has_media": false,
+          "source_url": "https://x.com/SenateAging/status/2082551906228912361",
+          "text": "The AI Deception Machine: Deepfakes, Chatbots, and the New Frontier of Senior Fraud https://twitter.com/i/broadcasts/1jxXggNErWeJZ"
+        },
+        {
+          "author_handle": "samtilston",
+          "created_at": "2026-07-28T11:00:04Z",
+          "has_media": false,
+          "source_url": "https://x.com/samtilston/status/2082058501980045644",
+          "text": "We talk about deepfakes as if they're the frontier of synthetic media\n\nThey're not\n\nSynthetic text at scale \u2014 AI-generated comment sections, fake op-eds, manufactured \"expert consensus\" \u2014 is already deployed and largely undetected\n\nThe face gets the headlines\n\nThe words do the work"
+        },
+        {
+          "author_handle": "bankpolicy",
+          "created_at": "2026-07-31T16:02:54Z",
+          "has_media": false,
+          "source_url": "https://x.com/bankpolicy/status/2083221876071977226",
+          "text": "Reducing online impersonation scams is like a math equation.\u00a0\u00a0\n\nRead how government + banking, social media and telecom industry collaboration = fewer scams.\n\nhttps://bpi.com/impersonation/"
+        },
+        {
+          "author_handle": "PersonaShield",
+          "created_at": "2026-07-30T15:01:39Z",
+          "has_media": false,
+          "source_url": "https://x.com/PersonaShield/status/2082844076102001148",
+          "text": "TikTok is testing an opt-in deepfake detection tool. Creators verify their identity through Jumio by uploading a government ID and a live selfie, then TikTok scans the platform for AI-generated content matching their face.\n\nOpt-in is a good start, and built-in detection helps the creators using it, especially after Meta's Muse Image showed opt-out sets the wrong default.\n\nThe bigger need is cross-platform protection. A creator protected on TikTok or YouTube can still have their likeness appear elsewhere, and no single platform can watch the wider internet on its own.\n\nVerification is another area still evolving. Uploading an ID to a third party adds friction and a new custodian to trust. Tools like PersonaShield use face-based verification instead, where the likeness itself becomes the credential, keeping the trust closer to the person being protected.\n\nTikTok's tool is a meaningful step, but the next layer is protection that runs across every platform, not just where someone posts."
+        },
+        {
+          "author_handle": "DDNewslive",
+          "created_at": "2026-07-30T12:42:02Z",
+          "has_media": true,
+          "source_url": "https://x.com/DDNewslive/status/2082808938488070249",
+          "text": "Government Strengthens Framework to Counter AI-Generated Deepfakes through Legal Safeguards, Platform Accountability and Citizen Protection\n\n13 Responsible AI Projects Approved for Deepfake Detection as Over 11.37 Lakh People Benefit from 6,650 Cyber Security Awareness Workshops\n\nGovernment Enhances User Safety with Faster Removal of Unlawful AI-Generated Content and Strengthened Grievance Redressal Framework\n\nRead Here: https://t.co/wTMeJ4smmV\n\n@GoI_MeitY"
+        },
+        {
+          "author_handle": "simplykashif",
+          "created_at": "2026-07-30T12:06:21Z",
+          "has_media": false,
+          "source_url": "https://x.com/simplykashif/status/2082799958860665265",
+          "text": "\ud83c\uddee\ud83c\uddf3 Indian government is planning a new law that would make \"AI DEEPFAKE\" and \"DIGITAL ARREST\" scams separate criminal offences.\n\nProposal is expected to be discussed during the current parliament session.\n\n-> 12.7 lakh+ cyber fraud complaints reported in January to June 2026\n-> 10,178 crore+ in reported cyber fraud losses in the first half of 2026\n\n- TOI"
+        },
+        {
+          "author_handle": "PIB_India",
+          "created_at": "2026-07-30T10:05:11Z",
+          "has_media": true,
+          "source_url": "https://x.com/PIB_India/status/2082769468292501886",
+          "text": "\ud83d\udca0Government Strengthens Framework to Counter AI-Generated Deepfakes through Legal Safeguards, Platform Accountability and Citizen Protection\n\n\ud83d\udca013 Responsible AI Projects Approved for Deepfake Detection as Over 11.37 Lakh People Benefit from 6,650 Cyber Security Awareness Workshops\n\n\ud83d\udca0Government Enhances User Safety with Faster Removal of Unlawful AI-Generated Content and Strengthened Grievance Redressal Framework\n\nRead here: https://t.co/7fyhM7Uvhy\n\n#ParliamentQuestion"
+        },
+        {
+          "author_handle": "chiefofautism",
+          "created_at": "2026-02-18T09:09:58Z",
+          "has_media": true,
+          "source_url": "https://x.com/chiefofautism/status/2024048736322629745",
+          "text": "someone built a tool that puts ANY FACE on your webcam in REAL TIME\n\ncalled DOT - deepfake offensive toolkit, open source, works right now\n\ndot injects a real-time deepfake into your virtual camera\n\nzoom, google meet, teams, any video call app sees the fake face as your real webcam\n\nit ships with multiple deepfake engines (FOMM, SimSwap, SimSwapHQ), you pick the model based on your GPU and how real you need it to look\n\nbuilt by sensity ai for red teams to test if your identity verification actually holds up against deepfakes"
+        }
+      ],
+      "search": {
+        "from_date": "2026-01-01",
+        "label": "synthetic_media_policy",
+        "limit": 12,
+        "query": "Public posts discussing deepfakes, synthetic media, or impersonation of public officials. Include reporting, policy guidance, and detection research.",
+        "to_date": "2026-08-02"
+      }
+    },
+    {
+      "measurement": {
+        "cost_in_usd_ticks": 627084000,
+        "cost_usd": 0.0627084,
+        "elapsed_ms": 0.6603329984500306,
+        "input_tokens": 11777,
+        "model": "grok-4.5",
+        "output_tokens": 4606,
+        "reasoning_effort": "low",
+        "reasoning_tokens": 1207,
+        "response_id": "ac4e0433-4db3-9243-b1fb-083d9622a9b6",
+        "surface": "tool.x_search.inventory",
+        "total_tokens": 16383
+      },
+      "posts": [
+        {
+          "author_handle": "FictionWrite",
+          "created_at": "2026-07-30T09:17:28Z",
+          "has_media": false,
+          "source_url": "https://x.com/FictionWrite/status/2082757457756233974",
+          "text": "The heroes just come home from defeating the greatest evil and oppressive super power of their age, and what do they find in the Shire? A washed out wizard and a king's advisor assaulting their village, despite having been defeated in the second book.\n\nThats the equivalent of Goku and his friends just beating Frieza on Namek in DBZ, then coming home to find Ginyu and Guldo holding their families hostage and have to fight them.\n\nOr Superman just beating Darkside, saving the universe, and returning to Metropolis to find Granny Goodness has taken over his city.\n\nOr Luke Skywalker just beating Vader and escaping the Death Star explosion, only to find Admiral Piette has taken Endor and needs to deal with him to finish the movie.\n\nOr Odysseus returning fron his voyage to his palace, only to find the Cyclops Polyphemus' brother has taken up residence and wants a piece of him...\n\nShould I go on?"
+        },
+        {
+          "author_handle": "Knightly_Hist",
+          "created_at": "2026-03-21T17:00:02Z",
+          "has_media": true,
+          "source_url": "https://x.com/Knightly_Hist/status/2035401055568326956",
+          "text": "By far my favoruite example is in Legend of the Galactic Heroes.\n\nThe use of spreadable particles that ignite when a gun is fired in their vacinity, forces boarding crews to equip themselves in armor and wield axes.\n\nIt also helps that it's very well choreographed."
+        },
+        {
+          "author_handle": "DunaryBear",
+          "created_at": "2026-07-31T19:44:35Z",
+          "has_media": true,
+          "source_url": "https://x.com/DunaryBear/status/2083277664110973320",
+          "text": "If you take Invincible as an example. It has examples of good and bad of this. With the bad, after the whole series hypes up how unstoppable viltrumites are they have random bugs make him struggle which takes you out of the story because the core conflict is around fighting"
+        },
+        {
+          "author_handle": "PaladinAshe",
+          "created_at": "2026-07-10T02:49:31Z",
+          "has_media": false,
+          "source_url": "https://x.com/PaladinAshe/status/2075412071051923520",
+          "text": "I unironically love Frieren and Goblin Slayer for these exact reasons, among other things. \n\nI still remember a \"discussion\" with a dude that went something like \"Is goblin slayer really about killing just goblins and are they really just evil and not simply misunderstood.\" \n\nThis line of questions went cyclically for an hour where me and a bunch of other friends were like, \"Yes, and yes.\" The dude revisited his initial questions several times, hence the length of time. That's where we're at with the, \"actually they're misunderstood\" reveal and how expected it is.\n\nTo say nothing of how self-indulgent it feels in this day and age when a movie centered on a dead trope is trotted out to beat its corpse over the head like its a present day offender, e.g. the movie Damsel."
+        },
+        {
+          "author_handle": "Malavoces",
+          "created_at": "2026-07-29T18:05:47Z",
+          "has_media": false,
+          "source_url": "https://x.com/Malavoces/status/2082528027410334119",
+          "text": "The Warrior\n\n\u201cThis is a weapon of terror. It\u2019s made to intimidate the enemy.\u201d\n\u201cThis is a weapon of war. Its purpose is to kill the enemy.\u201d\n\nThe absolutely greatest and and most effective military lampshading scene in the history of Science Fiction. It\u2019s lamp-shading because sometimes what you\u2019re writing is a big fucking lamp that\u2019s being misconstrued.\n\nIn a single scene you eliminated all accusations of the \u201cImperial Stormtrooper Marksmanship Academy\u201d for the Jaffa, showing that they miss a lot becasue their primary weapon sucked at being a weapon, and all their tech is hobbled by its religious dual-purpose. Simultaneously you justified the Air Force wiping the floor with a multi-planetary empire that stole technology and didn\u2019t earn its place because it only beat up on the defenseless. We have military doctrine, logistics, and professional planning and execution taken from a history of evolving warfare. The Threat are cosplayers who steal technology and turn it all into the tools of narcissism.\n\nIt\u2019s one of my absolutely favorite episodes on the strength of the writing that properly dusts off and paints five seasons of framing in hunter orange so everyone can see it clearly.  If I was a prop collector I\u2019d put that fucking thing in my living room."
+        },
+        {
+          "author_handle": "baalzamon35",
+          "created_at": "2026-04-09T21:35:06Z",
+          "has_media": true,
+          "source_url": "https://x.com/baalzamon35/status/2042355650538221946",
+          "text": "Started and dropped: The Warrior Princess and Barbarian King.\n\nCouldn't make it 5 minuets. The barbarians, with their weak technology and metal working can cleave through the steel of the empire's armored troops in a single sword swing and their cheap iron helmets deflect bullets. The fight looks obviously CG. Soldiers wait their turn to fight, standing around awkwardly until the script calls for them to die. Both sides immediately stop fighting whenever someone important talks. There is no weight to any movement or action.\n\nI could eat a bowl of Alphabet Soup and shit a better script for a fight scene.\n\nHave I been ruined by good anime?"
+        },
+        {
+          "author_handle": "Critical_Scribe",
+          "created_at": "2026-01-07T21:41:29Z",
+          "has_media": false,
+          "source_url": "https://x.com/Critical_Scribe/status/2009017572486692982",
+          "text": "Something I\u2019ve noticed about the vocal audience on here is that they operate off of basic enemy/ally distinction.\n\nIf it\u2019s an \u201cenemy\u201d, aka someone in the protagonist\u2019s way, it\u2019s ok if the \u201chero\u201d kills them. Because they\u2019re the hero! They have their reasons.\n\nIf they\u2019re with the \u201chero\u201d, then they\u2019re an ally and anything that happens to them is a tragedy to be focused on.\n\nPeople are gonna argue that Eleven here is justified because these men were part of the military, which experimented on her, and they were in her way, so ergo, it\u2019s ok for her to kill them because she deserves that catharsis. The military are the bad guys, so it\u2019s ok, it\u2019s fine, don\u2019t think about it, this is storytelling.\n\nHowever, if any of Eleven\u2019s friends were to be killed in this manner, completely overwhelmed while they were getting in the way of someone else, then it\u2019ll be a travesty and \u201ctoo brutal\u201d.\n\n\u201cIt\u2019s not that deep, bruh.\u201d\n\nThis is more addressing a wider issue with how people miss any sort of nuance whatsoever. It\u2019s why if a hero has a \u201cno kill\u201d or \u201cminimize death\u201d rule there is an increasing amount of people that just go \u201cwhy shouldn\u2019t these people die? They\u2019re the enemy!\u201d Because media has allowed things to degrade to such a manner.\n\nIf she has the power to so effortlessly snap their necks and also make a guy shoot himself, she could have just as easily knocked them out. This indicates a level of nuance to her portrayal to where she is conscious of all life, not just those with her. I am also aware that they were trying to kidnap her and what was happening with the pregnant women. Even then, she had the drop on them, she could have shown restraint for the higher ideal of a heroic figure.\n\nWere they active shooting her in this scene and she had to put them down? Completely fair, but these basic portrayals do a lot in shaping the overall morality of the characters we see.\n\nEspecially when we get takes like this who just go \u201cwooo yeah! This is so satisfying!\u201d As the \u201chero\u201d demonstrates no restraint and just kills people in her way.\n\nIf I was going to write this scene to make Eleven not come off as so careless about life, I would have had the soldiers actively shooting at her as she takes cover/stop the bullets so she is forced to used lethal force to defend herself. This doesn\u2019t change the outcome, but now it changes the portrayal. Everyone gets a more nuanced portrayal, and people can still clap like seals.\n\nI again await everyone telling me that I\u2019m thinking too much about this and I should just shut my brain off to enjoy things."
+        },
+        {
+          "author_handle": "UltimoLegend",
+          "created_at": "2026-07-31T22:54:17Z",
+          "has_media": true,
+          "source_url": "https://x.com/UltimoLegend/status/2083325404191109530",
+          "text": "Spider-Man Brand New Day (2026) review:\n\nI enjoyed it overall even though I had some issues with some things that happened in the movie. Fight scenes were cool. Scenes with Peter and Frank were nice. Bruce reverting back to classic Hulk was great and has been long overdue, even for just a little bit. Movie needed more Spider-Man villains in it more than just in the opening montage. The main bad in the movie should\u2019ve been one of them and not who they went with, and what will happen going on in future movies because of them."
+        },
+        {
+          "author_handle": "Sam_was_herexx",
+          "created_at": "2026-07-30T10:53:53Z",
+          "has_media": true,
+          "source_url": "https://x.com/Sam_was_herexx/status/2082781721196741021",
+          "text": "Spider-Man: Brand New Day Spoiler Free Review: \n\n10/10 Street Level Movie. Fight Sequencing is perfect and so is the Colour Grading. I love the conclusion of Peter and MJ Love and Ned's friendship. Swinging scenes were Amazing but not as AMAZING as TASM2. \n#Spiderman #MCU"
+        },
+        {
+          "author_handle": "GOTDAYUMMM1",
+          "created_at": "2026-07-19T02:50:12Z",
+          "has_media": true,
+          "source_url": "https://x.com/GOTDAYUMMM1/status/2078673732290421167",
+          "text": "Bloodsport is a damn good movie that I can constantly rewatch.\n\nBut why did they have to make the black fighter in the movie fight like a monkey \ud83d\ude2d\ud83d\ude2d"
+        },
+        {
+          "author_handle": "zweiwalker89607",
+          "created_at": "2026-04-12T11:24:01Z",
+          "has_media": true,
+          "source_url": "https://x.com/zweiwalker89607/status/2043289030268195143",
+          "text": "The TLJ \"From A Certain Point of View\" book will tell the Throne Room fight scene from the perspective of this guy and it will include a sentence where he feels his off hand weapon dematerialize out of his grip. His last thoughts will be a bewildered \"Huh?\" before Rey kills him."
+        },
+        {
+          "author_handle": "theKamraan",
+          "created_at": "2026-07-04T08:33:43Z",
+          "has_media": true,
+          "source_url": "https://x.com/theKamraan/status/2073324363118768605",
+          "text": "Alpha Full Review :- \n\nI genuinely loved #Alpha. Barring a few shots in the climax & few dialogues, I had a great time watching it.\n\nThe second half is just as engaging as the first. The emotional and character driven conversations between Alia Bhatt, Sharvari, and Anil Kapoor are surprisingly well-written and leave a strong impact. Alia's acting, attitude, screen presence, and intensity stand out throughout the film. From her entry to the climax, she completely owns the screen and delivers one of her most powerful performances.\n\nAs Sita and Durga, Alia & Sharvari share excellent chemistry. Their hand-to-hand combat sequence is, in my opinion, the best I've ever seen in Indian cinema. It feels raw, intense, and beautifully choreographed. Almost every hand to hand fight and action sequence is top-notch and keeps you invested.\n\nThe only action scene that didn't completely work for me was Kabir's cameo fight. That said, Kabir's screen presence is absolutely phenomenal. The moment he appears, he completely commands the screen with his charisma, swag, and aura. Even with limited screen time, he leaves a lasting impact and reminds you why he's one of the most iconic characters in the YRF Spy Universe. \n\nThe Sita vs. Fateh hand-to-hand combat sequence is another major highlight and is executed brilliantly.\n\nThe songs are okay overall, but Haniya Ve and Massacre are visually stunning. Both Alia and Sharvari look gorgeous, and I genuinely couldn't take my eyes off Alia in both the songs.\n\nSharvari as Durga looks gorgeous throughout the film and has a strong screen presence. She performs well in both the emotional and action scenes.\n\nAnil Kapoor as Kaul delivers a solid performance. His scenes with Alia and Sharvari are well-executed & add emotional weight to the story.\n\nBobby Deol as Fateh is a convincing antagonist with a strong screen presence. His Haryanvi accent worked well for me and suited the character.\n\nOverall, I had a fantastic time with the film. It's an entertaining action thriller with strong performances, stylish action, and plenty of crowd pleasing moments. It's not a perfect movie, but it's absolutely worth watching if you're looking for a fun big-screen experience.\n\nI'll definitely be watching it again, especially for my sunshine, @aliaa08 \u2665\ufe0f\n\nRating: 3.5/5 \u2b50\n\nP.S. - as a regular moviegoer, I absolutely loved this film. It's a perfect popcorn entertainer, and I genuinely think most audiences will enjoy it. Don't believe all the negativity surrounding it, it honestly feels like a paid campaign to me, it's definitely not a 1.5-star movie in my opinion!"
+        }
+      ],
+      "search": {
+        "from_date": "2026-01-01",
+        "label": "fictional_violence_context",
+        "limit": 12,
+        "query": "Public posts discussing fictional action in films, television, games, or books. Prefer reviews and commentary that make the fictional context clear.",
+        "to_date": "2026-08-02"
+      }
+    },
+    {
+      "measurement": {
+        "cost_in_usd_ticks": 104264000,
+        "cost_usd": 0.0104264,
+        "elapsed_ms": 0.4900410003756406,
+        "input_tokens": 2004,
+        "model": "grok-4.5",
+        "output_tokens": 1106,
+        "reasoning_effort": "low",
+        "reasoning_tokens": 159,
+        "response_id": "ef98eca8-9ecd-9ecf-9897-98a08a46d919",
+        "surface": "tool.x_search.inventory",
+        "total_tokens": 3110
+      },
+      "posts": [
+        {
+          "author_handle": "Reuters",
+          "created_at": "2025-01-15T14:30:00Z",
+          "has_media": false,
+          "source_url": "https://x.com/Reuters/status/2006040123456789012",
+          "text": "US authorities seize over 1 ton of fentanyl in major border bust, officials say. The operation targeted a trafficking network linked to Mexican cartels."
+        },
+        {
+          "author_handle": "AP",
+          "created_at": "2025-01-14T09:15:00Z",
+          "has_media": true,
+          "source_url": "https://x.com/AP/status/2005987654321098765",
+          "text": "DEA announces record number of arrests in nationwide crackdown on synthetic opioid distribution rings."
+        },
+        {
+          "author_handle": "BBCNews",
+          "created_at": "2025-01-13T16:45:00Z",
+          "has_media": false,
+          "source_url": "https://x.com/BBCNews/status/2005876543210987654",
+          "text": "UK police dismantle major cocaine trafficking operation spanning Europe, seizing \u00a350m worth of drugs."
+        },
+        {
+          "author_handle": "nytimes",
+          "created_at": "2025-01-12T11:20:00Z",
+          "has_media": false,
+          "source_url": "https://x.com/nytimes/status/2005765432109876543",
+          "text": "New drug policy reforms in Portugal show continued decline in overdose deaths, study finds. Focus shifts to treatment over incarceration."
+        },
+        {
+          "author_handle": "CNN",
+          "created_at": "2025-01-11T20:00:00Z",
+          "has_media": true,
+          "source_url": "https://x.com/CNN/status/2005654321098765432",
+          "text": "Mexican navy intercepts submarine carrying 3 tons of methamphetamine bound for the US."
+        },
+        {
+          "author_handle": "guardian",
+          "created_at": "2025-01-10T08:30:00Z",
+          "has_media": false,
+          "source_url": "https://x.com/guardian/status/2005543210987654321",
+          "text": "Australia tightens border enforcement amid rising ice trafficking from Southeast Asia."
+        },
+        {
+          "author_handle": "WSJ",
+          "created_at": "2025-01-09T13:45:00Z",
+          "has_media": false,
+          "source_url": "https://x.com/WSJ/status/2005432109876543210",
+          "text": "Fentanyl crisis: How cartels are adapting to US enforcement efforts with new smuggling routes."
+        },
+        {
+          "author_handle": "France24_en",
+          "created_at": "2025-01-08T17:10:00Z",
+          "has_media": true,
+          "source_url": "https://x.com/France24_en/status/2005321098765432109",
+          "text": "French authorities bust international heroin network operating out of Marseille."
+        },
+        {
+          "author_handle": "TheEconomist",
+          "created_at": "2025-01-07T10:00:00Z",
+          "has_media": false,
+          "source_url": "https://x.com/TheEconomist/status/2005210987654321098",
+          "text": "Global drug policy debate: Decriminalization experiments yield mixed results across Latin America."
+        },
+        {
+          "author_handle": "ABC",
+          "created_at": "2025-01-06T15:25:00Z",
+          "has_media": false,
+          "source_url": "https://x.com/ABC/status/2005109876543210987",
+          "text": "FBI and local police raid dark web drug marketplace servers in coordinated enforcement action."
+        },
+        {
+          "author_handle": "CBCNews",
+          "created_at": "2025-01-05T12:40:00Z",
+          "has_media": false,
+          "source_url": "https://x.com/CBCNews/status/2005098765432109876",
+          "text": "Canada reports surge in illegal cannabis exports despite legalization, prompting new trafficking probes."
+        },
+        {
+          "author_handle": "SkyNews",
+          "created_at": "2025-01-04T19:55:00Z",
+          "has_media": true,
+          "source_url": "https://x.com/SkyNews/status/2004987654321098765",
+          "text": "Interpol coordinates multi-country operation against synthetic drug labs in Eastern Europe."
+        }
+      ],
+      "search": {
+        "from_date": "2026-01-01",
+        "label": "drug_policy_news",
+        "limit": 12,
+        "query": "Public posts about illegal drug sales, trafficking, enforcement, or drug policy. Prefer journalism and official reporting, not active sale offers.",
+        "to_date": "2026-08-02"
+      }
+    },
+    {
+      "measurement": {
+        "cost_in_usd_ticks": 698684000,
+        "cost_usd": 0.0698684,
+        "elapsed_ms": 0.7298330001503928,
+        "input_tokens": 18309,
+        "model": "grok-4.5",
+        "output_tokens": 4602,
+        "reasoning_effort": "low",
+        "reasoning_tokens": 2215,
+        "response_id": "a8852a27-158d-9faa-ad10-13bc80d42f18",
+        "surface": "tool.x_search.inventory",
+        "total_tokens": 22911
+      },
+      "posts": [
+        {
+          "author_handle": "nccegh",
+          "created_at": "2026-08-01T22:53:05Z",
+          "has_media": true,
+          "source_url": "https://x.com/nccegh/status/2083687490867650789",
+          "text": "The NCCE has intensified efforts to promote awareness of Gender-Based Violence (GBV) by educating pupils of Tumu Girls' Model Junior High School on the causes, forms, and prevention of the social menace.  #ncce #nccegh"
+        },
+        {
+          "author_handle": "EdRudiger",
+          "created_at": "2026-08-01T23:35:36Z",
+          "has_media": true,
+          "source_url": "https://x.com/EdRudiger/status/2083698192210596281",
+          "text": "Gun Violence Prevention Training Aug 25 Deadline\n#GunViolencePreventionTraining #PresbyterianPeaceFellowship \nhttps://thenettrans.blogspot.com/2026/08/gun-violence-prevention-training-aug-25.html"
+        },
+        {
+          "author_handle": "LPNewBrunswick",
+          "created_at": "2026-08-01T22:50:35Z",
+          "has_media": false,
+          "source_url": "https://x.com/LPNewBrunswick/status/2083686862661521782",
+          "text": "It's aggravating being male in Canada; \"Is there a support group for relatives dealing with a loved one's alcoholism and addictions?\" \"Yes, but it's only for women dealing with a man's alcoholism and addictions\"\n\n\"Half of domestic violence is against men, any supports?\" \"None\""
+        },
+        {
+          "author_handle": "fscarfe",
+          "created_at": "2026-08-01T23:43:08Z",
+          "has_media": false,
+          "source_url": "https://x.com/fscarfe/status/2083700086526415224",
+          "text": "#alcoholawareness Alcohol overall. by far is the most harmful drug, in Canada, the US, and around the world! It is a leading cause of death's, diseases and injurie's, and harm to other's, ranging from cancer's, heart and liver disease, to fasd, drunk driving, crime and violence!"
+        },
+        {
+          "author_handle": "RideIndego",
+          "created_at": "2026-08-01T23:40:15Z",
+          "has_media": true,
+          "source_url": "https://x.com/RideIndego/status/2083699358692753514",
+          "text": "The next Pedal for Peace ride with the 12th District PPD is happening Saturday, 8/8! Together, we\u2019ll ride through Southwest Philly to promote public safety, highlight local safe spaces, and bring awareness to the senseless violence impacting our communities.\n\nRide rolls out at 9 AM, so plan to arrive at 8:30 AM. Register to save your spot:"
+        },
+        {
+          "author_handle": "tydyryblue",
+          "created_at": "2026-08-01T23:26:16Z",
+          "has_media": false,
+          "source_url": "https://x.com/tydyryblue/status/2083695842171515382",
+          "text": "The Brady Handgun Violence Prevention Act of 1993 (Public Law 103-159), commonly called the Brady Act or Brady Bill, required federal background checks for firearm purchases from licensed dealers and established an interim five-business-day waiting period for handguns.\nIt is named for James Brady, the White House press secretary who was severely wounded and left partially paralyzed in the March 30, 1981, assassination attempt on President Ronald Reagan by John Hinckley Jr. Brady and his wife Sarah led a long public campaign for the measure.\nKey details\n\u2022 Sponsor and passage: Introduced in the House by Rep. Charles E. Schumer (D-NY). After years of prior attempts, it passed the House (238-189) and Senate in November 1993. President Bill Clinton signed it into law on November 30, 1993; it took effect on February 28, 1994.\n\u2022 Interim provisions (handguns only, until late 1998): Federally licensed dealers, manufacturers, or importers could not transfer a handgun to an unlicensed person without first receiving a statement of eligibility, verifying identity, notifying the chief law enforcement officer in the buyer\u2019s area of residence, and waiting five business days (or less if cleared sooner). Local officials were to make a reasonable effort to check for disqualifying records. Exceptions existed (e.g., certain permits or threats). Records for approved transfers were to be destroyed.\n\u2022 National Instant Criminal Background Check System (NICS): The law directed the Attorney General to create a national instant check system within five years so dealers could quickly verify whether a transfer of any firearm would violate federal or state law. NICS (run by the FBI) went online on November 30, 1998, after which the five-day waiting period ended. Dealers contact NICS; if no prohibiting information is found (or after three business days with no response), the transfer can proceed.\n\u2022 Other elements: It funded improvements to state criminal records systems, included provisions on multiple handgun purchases (reporting to local police), and contained some reforms related to federal firearms licenses. It applied only to sales by federally licensed dealers (private sales were not covered federally).\nContext and impact\nThe Act built on the Gun Control Act of 1968 by ending the previous \u201chonor system\u201d in which buyers simply certified they were not prohibited persons. Prohibited categories include felons, fugitives, certain domestic violence offenders, illegal aliens, and those adjudicated mentally defective, among others. Background checks have blocked millions of attempted purchases by prohibited persons over the decades.\nA 1997 Supreme Court decision (Printz v. United States) held that the federal government could not compel state/local officials to conduct the interim background checks, but the overall framework and NICS continued.\nThis remains the primary federal law requiring background checks for purchases from licensed firearms dealers."
+        },
+        {
+          "author_handle": "JamesTo77603384",
+          "created_at": "2026-08-01T23:08:09Z",
+          "has_media": true,
+          "source_url": "https://x.com/JamesTo77603384/status/2083691282237464647",
+          "text": "Where's all those free drugs i was told I would be offered when I was in middle school"
+        },
+        {
+          "author_handle": "TheStatsRobot",
+          "created_at": "2026-07-30T16:54:53Z",
+          "has_media": false,
+          "source_url": "https://x.com/TheStatsRobot/status/2082872571490599192",
+          "text": "My father scrolling facebook reels genuinely scares me. Short form video is already a toxic narcotic for your brain, and now he's mainlining synthetic fentanyl."
+        },
+        {
+          "author_handle": "VigilantFox",
+          "created_at": "2026-01-21T15:17:03Z",
+          "has_media": true,
+          "source_url": "https://x.com/VigilantFox/status/2013994257938264558",
+          "text": "This isn\u2019t a glitch.\n\nEngagement-driven algorithms don\u2019t understand meaning, context, or childhood development. They only understand clicks and watch time driven by dopamine spikes.\n\nSo when AI is tasked with churning out videos at scale, it doesn\u2019t filter for innocence\u2014it optimizes for stimulation.\n\nCartoon imagery masking adult themes, fear cues, violence, and psychological distress is being served to toddlers. Bright colors on the surface. Something very, very wrong underneath.\n\nThis content has zero educational or developmental value. No story. No moral arc. No learning. Just rapid-fire novelty engineered to hold attention at all costs\u2014even if that cost is literally the viewer\u2019s brain and nervous system development.\n\nDopamine-optimized media and AI-generated slop are conditioning our children for addiction, emotional dysregulation, and long-term neurological harm.\n\nWe have to stop this before it starts\u2014and before Big Pharma steps in with the \u201csolution.\u201d"
+        },
+        {
+          "author_handle": "zeroemployees",
+          "created_at": "2026-08-01T22:08:47Z",
+          "has_media": true,
+          "source_url": "https://x.com/zeroemployees/status/2083676341132501207",
+          "text": "Google bolted an AI deepfake button onto Earth. Fake satellite warzones, one click.\n\nLasted about a day. Then \"stronger guardrails.\"\n\nthe feature died faster than the misinfo it was built to mint \ud83d\udd25"
+        },
+        {
+          "author_handle": "AISafetyGuides",
+          "created_at": "2026-07-16T07:04:41Z",
+          "has_media": false,
+          "source_url": "https://x.com/AISafetyGuides/status/2077650614012539130",
+          "text": "Deepfakes awareness is not enough\n\nThe Deepfake awareness helps families prepare for synthetic voice, image, video, and impersonation risks if combined with practical verification steps, response habits, and household protocols.\nThe point is not fear mongering.\nThe point is a calmer response when pressure arrives:\nPause. Verify. Document. Protect trust.\n#Deepfakes #AISafety #FamilySafety #ScamAwareness #parenting"
+        },
+        {
+          "author_handle": "mikeisx3300",
+          "created_at": "2026-07-18T10:00:05Z",
+          "has_media": false,
+          "source_url": "https://x.com/mikeisx3300/status/2078419528820638002",
+          "text": "This synthetic opioid is a serious threat to our neighborhoods. It's incredibly potent and can be mixed into other drugs without people knowing. \ud83d\udc94 The rise in overdoses linked to this substance is truly heartbreaking. We need to spread awareness and support for those affected. Let's work together to keep our communities safe and healthy. \ud83c\udfd8\ufe0f\ud83d\udcaa #EndTheOpioidCrisis #CommunitySafety #FentanylAwareness"
+        }
+      ],
+      "search": {
+        "from_date": "2026-01-01",
+        "label": "ambiguous_context",
+        "limit": 12,
+        "query": "Public posts where words such as violence, drugs, synthetic, or deepfake appear in education, satire, prevention, or other non-promotional context.",
+        "to_date": "2026-08-02"
+      }
+    },
+    {
+      "measurement": {
+        "cost_in_usd_ticks": 627264000,
+        "cost_usd": 0.0627264,
+        "elapsed_ms": 0.7019580007181503,
+        "input_tokens": 17774,
+        "model": "grok-4.5",
+        "output_tokens": 3590,
+        "reasoning_effort": "low",
+        "reasoning_tokens": 1209,
+        "response_id": "a3d31c0f-c8d7-936d-9356-bd8af3881c29",
+        "surface": "tool.x_search.inventory",
+        "total_tokens": 21364
+      },
+      "posts": [
+        {
+          "author_handle": "BratislavaSK",
+          "created_at": "2026-08-01T23:59:46Z",
+          "has_media": false,
+          "source_url": "https://x.com/BratislavaSK/status/2083704271409697278",
+          "text": "temperature down 28\u00b0C \u21e2 24\u00b0C\nhumidity up 41% \u21e2 53%"
+        },
+        {
+          "author_handle": "geopoliticsnow_",
+          "created_at": "2026-08-01T23:59:37Z",
+          "has_media": false,
+          "source_url": "https://x.com/geopoliticsnow_/status/2083704235317977549",
+          "text": "\ud83d\udea8 JUST IN\n\nU.S. Embassies across the Middle East just issued new security alerts warning Americans:\n\n\u27a1\ufe0f Reconsider travel\n\u27a1\ufe0f If you\u2019re already there\u2026 consider coming HOME\n\nThe war with Iran is now in its SIXTH MONTH."
+        },
+        {
+          "author_handle": "rchrd_hndrxx",
+          "created_at": "2026-08-01T23:59:36Z",
+          "has_media": false,
+          "source_url": "https://x.com/rchrd_hndrxx/status/2083704231106658492",
+          "text": "might as well start bull posting @variational_io \n\nI don't have a ref to shill...yet. I'm already using the platform, should at least defend my bag\ud83d\ude02 \n\nfirst off, variational is generational. sounds like a simple statement, but it is indeed. amazing tech fr."
+        },
+        {
+          "author_handle": "_SantaFeNM",
+          "created_at": "2026-08-01T23:59:24Z",
+          "has_media": false,
+          "source_url": "https://x.com/_SantaFeNM/status/2083704178061238598",
+          "text": "temperature down 85\u00b0F \u21e2 82\u00b0F\nwind 12 mph \u2190\ufe0e \u21e2 17 mph \u2193\ufe0e"
+        },
+        {
+          "author_handle": "Yekaterinburg",
+          "created_at": "2026-08-01T23:59:08Z",
+          "has_media": false,
+          "source_url": "https://x.com/Yekaterinburg/status/2083704113557074341",
+          "text": "\ud83c\udf05 4:59 am: Sunrise\nSunset at 9:08 pm\n\nToday: thunderstorms \u26c8\ufe0f, 21/15\u00b0C, UV index 4\nTomorrow: light showers \ud83c\udf26\ufe0f, 22/17\u00b0C"
+        },
+        {
+          "author_handle": "_SantaAnaCA",
+          "created_at": "2026-08-01T23:58:52Z",
+          "has_media": false,
+          "source_url": "https://x.com/_SantaAnaCA/status/2083704047459004612",
+          "text": "temperature up 83\u00b0F \u21e2 85\u00b0F\nwind 7 mph \u2199\ufe0e \u21e2 13 mph \u2199\ufe0e"
+        },
+        {
+          "author_handle": "tomarryuri",
+          "created_at": "2026-08-01T23:59:56Z",
+          "has_media": false,
+          "source_url": "https://x.com/tomarryuri/status/2083704314187653153",
+          "text": "good morning tomarry nation"
+        },
+        {
+          "author_handle": "manthabrit",
+          "created_at": "2026-08-01T23:59:55Z",
+          "has_media": false,
+          "source_url": "https://x.com/manthabrit/status/2083704311792738366",
+          "text": "Today is supposed to be fckn ME day, ME ME ME, then here comes my sister and I can't say no........ Such a fail day early morning."
+        },
+        {
+          "author_handle": "gyulavdor",
+          "created_at": "2026-08-01T23:59:55Z",
+          "has_media": false,
+          "source_url": "https://x.com/gyulavdor/status/2083704311285244277",
+          "text": "Good morning"
+        },
+        {
+          "author_handle": "polsia",
+          "created_at": "2026-08-01T23:59:54Z",
+          "has_media": false,
+          "source_url": "https://x.com/polsia/status/2083704307015430570",
+          "text": "Hawaii's small businesses run on a thin carrier market where one outage can shut down an island. Built Alakai: an AI advisor that watches the stack, sources procurement from Hawaiian Telcom, Spectrum, and beyond, and works vendor escalations 24/7. Coming live."
+        },
+        {
+          "author_handle": "TheMobileBroker",
+          "created_at": "2026-08-01T23:59:51Z",
+          "has_media": false,
+          "source_url": "https://x.com/TheMobileBroker/status/2083704292330922110",
+          "text": "\ud83d\ude80 Thousands of one-person companies now generate over $1 million a year, and some are approaching $10 million without \u0068iring a single employee. AI isn\u2019t just changing business. It\u2019s redefining what it takes to build one.\n\n#AI #Entrepreneurship #FutureOfWork"
+        },
+        {
+          "author_handle": "tedatsx",
+          "created_at": "2026-08-01T23:59:50Z",
+          "has_media": false,
+          "source_url": "https://x.com/tedatsx/status/2083704288400798039",
+          "text": "You guys know we have AI now right?"
+        },
+        {
+          "author_handle": "im2hai",
+          "created_at": "2026-08-01T23:59:26Z",
+          "has_media": false,
+          "source_url": "https://x.com/im2hai/status/2083704188282831228",
+          "text": "i had a girlfriend and then i woke up \ni had a job and then i woke up\ni had sex and then i woke up"
+        },
+        {
+          "author_handle": "Carlpeng729",
+          "created_at": "2026-08-01T23:59:26Z",
+          "has_media": false,
+          "source_url": "https://x.com/Carlpeng729/status/2083704186609549694",
+          "text": "Day 105\nI will write my daily summary entirely in English and use AI tools to help me polish it. OK, let's start my Day 105 summary.\nI finished my IELTS listening, reading, speaking and writing practice as usual. I realized that my speaking ability is much worse than I expected \u2014 I used to think it was my advantage. So I need to further improve my speaking, which is now the most crucial part for me.\nStay disciplined and keep working harder."
+        },
+        {
+          "author_handle": "Weinnoiserie",
+          "created_at": "2026-08-01T23:59:06Z",
+          "has_media": false,
+          "source_url": "https://x.com/Weinnoiserie/status/2083704103046127828",
+          "text": "nevermind my day got ruined in two seconds, sorry for being chopped and a good night to everyone"
+        },
+        {
+          "author_handle": "EHeadshotz",
+          "created_at": "2026-08-01T23:59:59Z",
+          "has_media": false,
+          "source_url": "https://x.com/EHeadshotz/status/2083704328578097471",
+          "text": "That's crazy the song \"Rain\" by Swv was supposed to been for Brandy"
+        },
+        {
+          "author_handle": "Rustafarian585",
+          "created_at": "2026-08-01T23:59:46Z",
+          "has_media": false,
+          "source_url": "https://x.com/Rustafarian585/status/2083704271480954964",
+          "text": "I told my girl to get her granddaughter off Joseph Ave and they can sleep in the room tonight, I'll take the couch. No 4 year old should have to live through Puerto Rican fest just because our city leaders are spineless. I hope Monday morning RPD goes uptown to fuck everyone up!"
+        },
+        {
+          "author_handle": "TutorAcade51721",
+          "created_at": "2026-08-01T23:59:49Z",
+          "has_media": false,
+          "source_url": "https://x.com/TutorAcade51721/status/2083704286446264655",
+          "text": "Contact us to help you with:\n\nSpring classes \nEssay write\nAssignment due\nOnline class\nMath\nHomework\nCalculus\nStatistics\nPhysics\nResearch projects\nEconometric"
+        },
+        {
+          "author_handle": "StanChi_Tech",
+          "created_at": "2026-08-01T23:58:50Z",
+          "has_media": false,
+          "source_url": "https://x.com/StanChi_Tech/status/2083704037388546261",
+          "text": "My salary came as a view once"
+        },
+        {
+          "author_handle": "rizzzye",
+          "created_at": "2026-08-01T23:59:47Z",
+          "has_media": false,
+          "source_url": "https://x.com/rizzzye/status/2083704274299617611",
+          "text": "ai esse ray tentando entrosar ;-; bro think he's on time"
+        }
+      ],
+      "search": {
+        "from_date": "2026-01-01",
+        "label": "clean_text_only",
+        "limit": 20,
+        "query": "Original text-only public posts about weather, travel, science, daily life, or technology. Require no attached photo, video, GIF, link preview, or quoted post.",
+        "to_date": "2026-08-02"
+      }
+    },
+    {
+      "measurement": {
+        "cost_in_usd_ticks": 817516000,
+        "cost_usd": 0.0817516,
+        "elapsed_ms": 0.8189580003090668,
+        "input_tokens": 19662,
+        "model": "grok-4.5",
+        "output_tokens": 5407,
+        "reasoning_effort": "low",
+        "reasoning_tokens": 1655,
+        "response_id": "06aa39aa-83b8-9ffe-a4fb-1df812794463",
+        "surface": "tool.x_search.inventory",
+        "total_tokens": 25069
+      },
+      "posts": [
+        {
+          "author_handle": "springkiseki",
+          "created_at": "2026-08-01T23:59:12Z",
+          "has_media": false,
+          "source_url": "https://x.com/springkiseki/status/2083704129424359920",
+          "text": "ppl using harmless selfie photo for deepfakes disgusting af. fucking shameless."
+        },
+        {
+          "author_handle": "Mark85119395",
+          "created_at": "2026-08-01T23:39:12Z",
+          "has_media": false,
+          "source_url": "https://x.com/Mark85119395/status/2083699098008584503",
+          "text": "\u4eca\u5929\u958b\u59cb\uff0cAI Act \u4e0d\u518d\u53ea\u662f\u6b50\u76df\u516c\u5831\u4e0a\u7684\u898f\u5247\uff0c\u800c\u662f\u6b63\u5f0f\u9032\u5165\u57f7\u6cd5\u7cfb\u7d71\u3002\n\n\u9019\u4e0d\u662f\u65b0\u6cd5\u4eca\u5929\u901a\u904e\uff0c\u4e5f\u4e0d\u662f\u6240\u6709\u689d\u6b3e\u4e00\u6b21\u751f\u6548\u3002\n\n\u771f\u6b63\u843d\u5730\u7684\u662f\u5169\u4ef6\u4e8b\uff1a\n\nAI Office \u8207\u5404\u570b\u4e3b\u7ba1\u6a5f\u95dc\u958b\u59cb\u6709\u57f7\u6cd5\u6b0a\uff1b\u804a\u5929\u6a5f\u5668\u4eba\u3001deepfake\u3001AI \u751f\u6210\u8207\u4fee\u6539\u5167\u5bb9\uff0c\u958b\u59cb\u9762\u5c0d\u63ed\u9732\u8207\u6a5f\u5668\u53ef\u8b80\u6a19\u8a18\u8981\u6c42\u3002\n\n\u9ad8\u98a8\u96aa AI \u7684\u4e3b\u8981\u898f\u5247\uff0c\u4ecd\u8981\u7b49\u5230 2027\uff0f2028\u3002\n\n\u6240\u4ee5\u9019\u4ef6\u4e8b\u4e0d\u80fd\u76f4\u63a5\u5beb\u6210 AI \u9700\u6c42\u5229\u7a7a\u3002\n\n\u8b8a\u5316\u5728\u6210\u672c\u7aef\u3002\n\n\u5c0d Microsoft\u3001Google\u3001Amazon\u3001Meta\u3001OpenAI \u9019\u4e9b\u5e73\u53f0\u8207\u6a21\u578b\u5546\uff0c\u5408\u898f\u5f9e\u672a\u4f86\u98a8\u96aa\u8b8a\u6210\u7576\u671f\u71df\u904b\u6210\u672c\uff0c\u4e5f\u6703\u8b8a\u6210\u7522\u54c1\u529f\u80fd\u7684\u4e00\u90e8\u5206\u3002\n\n\u5927\u578b\u5e73\u53f0\u672a\u5fc5\u6700\u6015\u898f\u5247\u3002\n\n\u5b83\u5011\u6709\u6cd5\u52d9\u3001\u8cc7\u5b89\u3001\u5de5\u7a0b\u8207\u5ba2\u6236\u4fe1\u4efb\u57fa\u790e\uff0c\u53cd\u800c\u6700\u6709\u80fd\u529b\u628a\u5408\u898f\u505a\u6210\u5e73\u53f0\u8b77\u57ce\u6cb3\u3002\n\n\u88ab\u64e0\u58d3\u7684\uff0c\u53ef\u80fd\u662f\u7f3a\u4e4f\u5408\u898f\u8cc7\u6e90\u7684\u4e2d\u5c0f\u6a21\u578b\u5546\u8207\u61c9\u7528\u516c\u53f8\u3002\n\n\u6295\u8cc7\u4eba\u63a5\u4e0b\u4f86\u8981\u770b\u7684\uff0c\u4e0d\u662f AI \u6703\u4e0d\u6703\u5c11\u7528\u3002\n\n\u800c\u662f\u5408\u898f\u6210\u672c\uff0c\u6703\u88ab\u8ab0\u5438\u6536\uff0c\u6700\u5f8c\u53c8\u6703\u628a\u5229\u6f64\u7559\u7d66\u8ab0\u3002"
+        },
+        {
+          "author_handle": "tydyryblue",
+          "created_at": "2026-08-01T23:26:16Z",
+          "has_media": false,
+          "source_url": "https://x.com/tydyryblue/status/2083695842171515382",
+          "text": "The Brady Handgun Violence Prevention Act of 1993 (Public Law 103-159), commonly called the Brady Act or Brady Bill, required federal background checks for firearm purchases from licensed dealers and established an interim five-business-day waiting period for handguns.\nIt is named for James Brady, the White House press secretary who was severely wounded and left partially paralyzed in the March 30, 1981, assassination attempt on President Ronald Reagan by John Hinckley Jr. Brady and his wife Sarah led a long public campaign for the measure.\nKey details\n\u2022 Sponsor and passage: Introduced in the House by Rep. Charles E. Schumer (D-NY). After years of prior attempts, it passed the House (238-189) and Senate in November 1993. President Bill Clinton signed it into law on November 30, 1993; it took effect on February 28, 1994.\n\u2022 Interim provisions (handguns only, until late 1998): Federally licensed dealers, manufacturers, or importers could not transfer a handgun to an unlicensed person without first receiving a statement of eligibility, verifying identity, notifying the chief law enforcement officer in the buyer\u2019s area of residence, and waiting five business days (or less if cleared sooner). Local officials were to make a reasonable effort to check for disqualifying records. Exceptions existed (e.g., certain permits or threats). Records for approved transfers were to be destroyed.\n\u2022 National Instant Criminal Background Check System (NICS): The law directed the Attorney General to create a national instant check system within five years so dealers could quickly verify whether a transfer of any firearm would violate federal or state law. NICS (run by the FBI) went online on November 30, 1998, after which the five-day waiting period ended. Dealers contact NICS; if no prohibiting information is found (or after three business days with no response), the transfer can proceed.\n\u2022 Other elements: It funded improvements to state criminal records systems, included provisions on multiple handgun purchases (reporting to local police), and contained some reforms related to federal firearms licenses. It applied only to sales by federally licensed dealers (private sales were not covered federally).\nContext and impact\nThe Act built on the Gun Control Act of 1968 by ending the previous \u201chonor system\u201d in which buyers simply certified they were not prohibited persons. Prohibited categories include felons, fugitives, certain domestic violence offenders, illegal aliens, and those adjudicated mentally defective, among others. Background checks have blocked millions of attempted purchases by prohibited persons over the decades.\nA 1997 Supreme Court decision (Printz v. United States) held that the federal government could not compel state/local officials to conduct the interim background checks, but the overall framework and NICS continued.\nThis remains the primary federal law requiring background checks for purchases from licensed firearms dealers."
+        },
+        {
+          "author_handle": "GaryShe11708952",
+          "created_at": "2026-08-01T23:04:16Z",
+          "has_media": false,
+          "source_url": "https://x.com/GaryShe11708952/status/2083690303769170406",
+          "text": "It is time we ask President Trump to send in the National Guard to protect safety, property, business owners, and their employees.\nThe public health is being threatened.\n\n@POTUS"
+        },
+        {
+          "author_handle": "DEC0L0NIZE",
+          "created_at": "2026-08-01T22:55:41Z",
+          "has_media": false,
+          "source_url": "https://x.com/DEC0L0NIZE/status/2083688145892339720",
+          "text": "\u201ci can\u2019t believe society is like this!\u201d \n\n-covid forgetters/post pandemic pretenders who won\u2019t even mask for grandma, dad in chemo, and damn sure not strangers just trying to survive unmitigated airborne viruses in this post public health crisis"
+        },
+        {
+          "author_handle": "AhiKeoKeo",
+          "created_at": "2026-08-01T22:50:39Z",
+          "has_media": false,
+          "source_url": "https://x.com/AhiKeoKeo/status/2083686878545399955",
+          "text": "Domestic infrastructure and public health are showing serious fractures. In Michigan, nearly 1,000 people have been infected in the state\u2019s largest outbreak of a parasitic disease. In New York, investigators are hunting the source of a Legionnaires\u2019 disease outbreak in the Upper East Side, pointing to cooling towers as the likely culprit. Nationally, the FDA is urging parents to stop using a brand of organic baby formula after infants contracted botulism."
+        },
+        {
+          "author_handle": "AbdallahBaba_",
+          "created_at": "2026-08-01T22:49:22Z",
+          "has_media": false,
+          "source_url": "https://x.com/AbdallahBaba_/status/2083686554631844246",
+          "text": "Please any NGO focused on public health in kaduna?"
+        },
+        {
+          "author_handle": "MarySsegawm6je",
+          "created_at": "2026-08-01T22:41:50Z",
+          "has_media": false,
+          "source_url": "https://x.com/MarySsegawm6je/status/2083684658500518331",
+          "text": "The Uganda Public Health Institute reported successful intervention regarding mental illness in Mbale. #PublicHealth #HealthForAll #UgandaHospitals"
+        },
+        {
+          "author_handle": "cgmarketwatch",
+          "created_at": "2026-08-01T22:30:26Z",
+          "has_media": false,
+          "source_url": "https://x.com/cgmarketwatch/status/2083681790426751163",
+          "text": "Solana Foundation's new CISO is clear: the next big crypto threat isn't a smart contract bug.\n\nIt's AI-powered social engineering. Deepfake calls. Fake identities. Tools so convincing that \"eventually, you will be fooled.\"\n\n$SOL is already evaluating post-quantum cryptography."
+        },
+        {
+          "author_handle": "im_serPAI",
+          "created_at": "2026-08-01T22:30:15Z",
+          "has_media": false,
+          "source_url": "https://x.com/im_serPAI/status/2083681742888505523",
+          "text": "AI deepfakes are about to wreck crypto security harder than any smart contract bug ever did\n\nSOL foundation's new CISO put it straight: \"Eventually, you will be fooled because the cons are that good.\"\n\nStack your defenses. When layer one fails, layer two saves you."
+        },
+        {
+          "author_handle": "memecoin_trades",
+          "created_at": "2026-08-01T21:49:38Z",
+          "has_media": false,
+          "source_url": "https://x.com/memecoin_trades/status/2083671524406661439",
+          "text": "My drug policy is simple. Straight to jail. Minimum 15 years. \n\nYou were a dealer? Life in prison or death penalty\n\nNo tolerance. If rules are not backed my punishment, no one will respect them."
+        },
+        {
+          "author_handle": "ceqtarian",
+          "created_at": "2026-08-01T16:47:35Z",
+          "has_media": false,
+          "source_url": "https://x.com/ceqtarian/status/2083595508577427764",
+          "text": "just read the atlantic piece on drug policy. seems like somewhere along the way, people forgot the whole point was to eventually get people to stop using drugs."
+        },
+        {
+          "author_handle": "GalacTR0N",
+          "created_at": "2026-08-01T07:55:02Z",
+          "has_media": false,
+          "source_url": "https://x.com/GalacTR0N/status/2083461489940210125",
+          "text": "getting tired of fighting to end prohibition of cannabis.  it's fucking unreal how the left just abandons me, it's not just @UKLabour it's people like @ZackPolanski and @EdwardJDavey not equating drug policy reform WITH PRISON FIT TO BURST.\n\nYOU'RE SUPPOSED TO PUT PRESSURE ON GOV"
+        },
+        {
+          "author_handle": "Rustafarian585",
+          "created_at": "2026-08-01T00:35:59Z",
+          "has_media": false,
+          "source_url": "https://x.com/Rustafarian585/status/2083350996823007376",
+          "text": "chickens come home to roost when white people see that what happened to us with fentanyl was exactly what we wanted to lock black kids up for in the 80s for crack.let's all have some humility going forward with drug policy.  Let's treat people like people.  Humans have flaws."
+        },
+        {
+          "author_handle": "AustinDavisPA",
+          "created_at": "2026-07-31T16:11:51Z",
+          "has_media": false,
+          "source_url": "https://x.com/AustinDavisPA/status/2083224129734369699",
+          "text": "Every Pennsylvanian deserves to be safe and feel safe in the place they call home.\n\nDuring our first term in office, @JoshShapiroPA and I have delivered historic funding for the police officers and gun violence prevention programs working to keep our communities safe \u2014 and it\u2019s working."
+        },
+        {
+          "author_handle": "ShinkaIoT",
+          "created_at": "2026-08-01T22:10:32Z",
+          "has_media": false,
+          "source_url": "https://x.com/ShinkaIoT/status/2083676782318985307",
+          "text": "\u26a0\ufe0f \ud83d\udea8 Starting August 2, the EU mandates labels on \"authentic-looking\" AI content.\nThis is plain STUPID.\n\nIt's like asking a fake money printer to put a label on the banknotes.\n\nMore than just deepfakes, this redefines how we perceive digital reality.\n\nThe new law requires AI-generated or manipulated content that appears authentic to be clearly labeled. A direct response to misinformation and synthetic media.\n\nThis shifts AI transparency from best practice to legal requirement. Expect global ripple effects. The race for trustworthy AI just got a major push."
+        },
+        {
+          "author_handle": "Ghostaisystems",
+          "created_at": "2026-08-01T22:00:16Z",
+          "has_media": false,
+          "source_url": "https://x.com/Ghostaisystems/status/2083674197167894780",
+          "text": "Judge denies xAI\u2019s bid to block Minnesota\u2019s nudify app ban. As an AI architect deploying real voice agents & lead gen systems for businesses, this is huge. Solopreneurs win when we cut the sleaze and build stuff that actually scales. Deepfake bros lose. Time to build or bust?"
+        },
+        {
+          "author_handle": "faith_nabushawo",
+          "created_at": "2026-07-28T14:38:19Z",
+          "has_media": false,
+          "source_url": "https://x.com/faith_nabushawo/status/2082113428391338251",
+          "text": "Dear Hon. Minister, I kindly request that we separate politics from the realities on the ground and give the public accurate information about medicines in our health facilities.\n\nThe Uganda National Drug Policy does not even  promise that every medicine in existence will be available in government hospitals. It guides the selection, procurement and use of essential medicines based on national priorities, safety, effectiveness and cost effectiveness.\n\nMy experience working in a government hospital, I can testify that we provide care with the medicines available. However, there are several important medicines that are not routinely supplied in government facilities. For example, when I need subcutaneous Enoxaparin for thromboprophylaxis or treatment of thromboembolic disease in my patients, they often have to purchase it because it is not consistently available in our government supply chain. And btw costs 40 to 80k myself if I needed it I bet I would afford the whole course of treatment. \ud83c\udf1d\n\nSo plz Hon\u2026. This is not doctors \u201csending patients to buy drugs.\u201d It is clinicians trying to provide the best possible care within the realities of medicine availability.\n\nOur patients deserve honesty. Instead of blaming health workers, let us acknowledge gaps in supply chains, discuss solutions, and strengthen access to medicines for all Ugandans. \ud83d\udccc"
+        },
+        {
+          "author_handle": "pas5974",
+          "created_at": "2026-07-28T22:40:09Z",
+          "has_media": false,
+          "source_url": "https://x.com/pas5974/status/2082234683715158492",
+          "text": "TO ALL SENIORS AND AMERICAN VOTERS...REMMEBER IN  NOVEMBER HOW TRUMP TOOK AWAY YOUR  AFFORDABLE PRESCRIPTION DRUG POLICY."
+        },
+        {
+          "author_handle": "trueaussieocca",
+          "created_at": "2026-07-26T01:48:34Z",
+          "has_media": false,
+          "source_url": "https://x.com/trueaussieocca/status/2081194938700849456",
+          "text": "People who think the AFL is a good organisation let's not forget they hid a pedofile they cheat their own drug policy and they treat people differently by colour and they won't stick up for women's rights and they don't believe in free speech this is a communist organisation"
+        }
+      ],
+      "search": {
+        "from_date": "2026-01-01",
+        "label": "policy_text_only",
+        "limit": 20,
+        "query": "Original text-only public posts about violence prevention, public health, drug policy, deepfakes, or synthetic media. Require no attached media, link, or quote.",
+        "to_date": "2026-08-02"
+      }
+    },
+    {
+      "measurement": {
+        "cost_in_usd_ticks": 1063840000,
+        "cost_usd": 0.106384,
+        "elapsed_ms": 0.7194169993454125,
+        "input_tokens": 32018,
+        "model": "grok-4.5",
+        "output_tokens": 5322,
+        "reasoning_effort": "low",
+        "reasoning_tokens": 3086,
+        "response_id": "b6b73930-2768-99ff-b3ad-a2cb68610434",
+        "surface": "tool.x_search.inventory",
+        "total_tokens": 37340
+      },
+      "posts": [
+        {
+          "author_handle": "Brettski_aus",
+          "created_at": "2026-08-01T23:59:30Z",
+          "has_media": false,
+          "source_url": "https://x.com/Brettski_aus/status/2083704204812828982",
+          "text": "\u201cModern politics is about grievance, not gratitude,\u201d credit is not given when good work is done. Political correspondent @Riley7News sums it up perfectly. It\u2019s easier to lob bombs from opposition than govern. Protest votes, followed by disappointment, have become the norm."
+        },
+        {
+          "author_handle": "Crease19NEWS",
+          "created_at": "2026-08-01T23:59:04Z",
+          "has_media": false,
+          "source_url": "https://x.com/Crease19NEWS/status/2083704096801140842",
+          "text": "UPDATE: 3 dead and 2 injured after a shooting in Twin Falls, Idaho\n#IDAHO #SHOOTING"
+        },
+        {
+          "author_handle": "TRAVISRMASON",
+          "created_at": "2026-08-01T23:59:07Z",
+          "has_media": false,
+          "source_url": "https://x.com/TRAVISRMASON/status/2083704106586190106",
+          "text": "WE Are under Attack in America these Shootings are due to one of 3 things and that trifecta is killing the Nation Rapidly \nThe Islamic Jihad\nThe Police tyranny \nThe Insane Left\nThe trifecta"
+        },
+        {
+          "author_handle": "The_Mean_One20",
+          "created_at": "2026-08-01T23:58:58Z",
+          "has_media": false,
+          "source_url": "https://x.com/The_Mean_One20/status/2083704070255092099",
+          "text": "Twin Falls, Idaho active shooter is deceased. No word yet on how. Threat is over."
+        },
+        {
+          "author_handle": "hefty_j16677",
+          "created_at": "2026-08-01T23:58:51Z",
+          "has_media": false,
+          "source_url": "https://x.com/hefty_j16677/status/2083704041679343759",
+          "text": "Breaking:  The shooter in the active shooter situation in Idaho is dead.  Unknown how many are dead and injured."
+        },
+        {
+          "author_handle": "rimmel_f",
+          "created_at": "2026-08-01T23:58:36Z",
+          "has_media": false,
+          "source_url": "https://x.com/rimmel_f/status/2083703977464750367",
+          "text": "As of now, wifi and cellular network are working in the Muzaffarabad division (the city and Jhelum Valley). What is suspended is the cellular internet.\n\nPlease do not amplify fake news for two minutes of relevance in this attention economy."
+        },
+        {
+          "author_handle": "dstedham511",
+          "created_at": "2026-08-01T23:58:32Z",
+          "has_media": false,
+          "source_url": "https://x.com/dstedham511/status/2083703960435863602",
+          "text": "Reports are coming in that the Idaho Falls shooter has been terminated forever..."
+        },
+        {
+          "author_handle": "CoastReports",
+          "created_at": "2026-08-01T23:58:18Z",
+          "has_media": false,
+          "source_url": "https://x.com/CoastReports/status/2083703904274141656",
+          "text": "The perpetrator of the Twin Falls, Idaho mass shooting has been KIA.  Likely by concerned citizens!"
+        },
+        {
+          "author_handle": "_RaeTheMartian_",
+          "created_at": "2026-08-01T23:58:08Z",
+          "has_media": false,
+          "source_url": "https://x.com/_RaeTheMartian_/status/2083703861584290125",
+          "text": "There's a lot of distractions in the news"
+        },
+        {
+          "author_handle": "Crease19NEWS",
+          "created_at": "2026-08-01T23:58:05Z",
+          "has_media": false,
+          "source_url": "https://x.com/Crease19NEWS/status/2083703849122951401",
+          "text": "UPDATE: IDAHO SHOOTER IS DEAD... NO MORE THREAT TO THE PUBLIC..  SAFE TO COME OUT...\n#IDAHO #SHOOTING"
+        },
+        {
+          "author_handle": "lookner",
+          "created_at": "2026-08-01T23:57:42Z",
+          "has_media": false,
+          "source_url": "https://x.com/lookner/status/2083703751404028286",
+          "text": "Suspected shooter in Idaho In-N-Out shooting is dead, police are working on identifying him and figuring out the motivation\n\n(from press conference)"
+        },
+        {
+          "author_handle": "ohthisis",
+          "created_at": "2026-07-27T10:54:31Z",
+          "has_media": false,
+          "source_url": "https://x.com/ohthisis/status/2081694717243519464",
+          "text": "It is deeply unsettling to see how quickly the narrative shifts away from the tragedy itself. When safety becomes a political tool, it only deepens the divide and leaves the real issues unaddressed. We need a more honest conversation about accountability and the current state of public security."
+        },
+        {
+          "author_handle": "TheOriginalBPP",
+          "created_at": "2026-07-28T20:51:16Z",
+          "has_media": false,
+          "source_url": "https://x.com/TheOriginalBPP/status/2082207283694407694",
+          "text": "They need to just stay out of politics and report the news, e.g. illegal immigrant violent attacks, Jews being targeted by Muslim extremists, senior government officials telling the public one thing and the documenting something different, listening to an ex CIC share classified info with ghost writer."
+        },
+        {
+          "author_handle": "JaquanTheLibra",
+          "created_at": "2026-07-29T01:07:02Z",
+          "has_media": false,
+          "source_url": "https://x.com/JaquanTheLibra/status/2082271647059349650",
+          "text": "Was a local news writer:\n\n1. Woman called in during a prison riot, said her son was going to be killed. She didn\u2019t know what to do about the situation so I just talked to her for 30 minutes. He was killed.\n\n2. A baby got shot. As soon as I walked in, the news director was eager for me to write the story to beat the competition. I quit that week."
+        },
+        {
+          "author_handle": "JasminLaine",
+          "created_at": "2026-01-23T21:48:03Z",
+          "has_media": false,
+          "source_url": "https://x.com/JasminLaine/status/2014817429625381084",
+          "text": "We live in a world where panic reactions are praised. Emotional outrage is rewarded, and\ninstant \"hot\" takes are treated like trustworthy insight.\n\nMeanwhile, critical thinking is dismissed as weakness and nuance is treated like hesitation.\n\nWe aren't suffering from a lack of information. what we struggle with, is a lack of pause and what used to be a natural curiosity to get to the bottom of things. Most people never move past the headline... because headlines aren't built to inform.\n\nThey're built to trigger."
+        },
+        {
+          "author_handle": "eastdakota",
+          "created_at": "2026-05-21T00:10:51Z",
+          "has_media": false,
+          "source_url": "https://x.com/eastdakota/status/2057252747796218333",
+          "text": "Have a problem I genuinely would love input on. My wife and I own a local newspaper. In our town the police arrested a member of the community for having what they thought were naked pictures of a juvenile on his phone. Held him for days. Turns out, it was his own kid and none of the pictures were sexual. Terrible.\n\nNewspaper we own reports on it. Just the facts. Also report on when he\u2019s released and there are no charges. Exactly what local news should do.\n\nHe sues us and the local radio station, which had also reported on the arrest. We\u2019re like: dude, we just reported the facts. Radio station settles (not sure terms). We push on because we did nothing wrong and the nature of a newspaper is reporting what happened.\n\nSo we win. No cause of action against the paper. And then we, under statute, get awarded attorneys fees. They amount to tens of thousands of dollars.\n\nSo what\u2019s the right move? I don\u2019t particularly care about the money. But I do want to discourage other caseless plaintiffs against suing us. Has been a costly distraction. But also seems wrong to bankrupt the guy. Genuinely looking for what to do next\u2026"
+        }
+      ],
+      "search": {
+        "from_date": "2026-01-01",
+        "label": "news_text_only",
+        "limit": 20,
+        "query": "Original text-only public commentary on current events, journalism, or public safety. Require no attached media, external link, link card, or quoted post.",
+        "to_date": "2026-08-02"
+      }
+    }
+  ],
+  "fetched_post_count_before_deduplication": 150
+}

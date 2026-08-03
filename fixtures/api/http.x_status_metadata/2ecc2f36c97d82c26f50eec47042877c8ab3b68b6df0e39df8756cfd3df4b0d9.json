@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/Ghostaisystems/status/2083674197167894780"
+  },
+  "request_sha256": "2ecc2f36c97d82c26f50eec47042877c8ab3b68b6df0e39df8756cfd3df4b0d9",
+  "response": {
+    "author_handle": "@Ghostaisystems",
+    "created_at": "August 1, 2026",
+    "media_height": null,
+    "media_url": null,
+    "media_width": null,
+    "source_url": "https://x.com/Ghostaisystems/status/2083674197167894780",
+    "text": "Judge denies xAI\u2019s bid to block Minnesota\u2019s nudify app ban. As an AI architect deploying real voice agents & lead gen systems for businesses, this is huge. Solopreneurs win when we cut the sleaze and build stuff that actually scales. Deepfake bros lose. Time to build or bust?"
+  },
+  "response_sha256": "ce7d035c683b6e0d14d52a1490dc73607166219585a52f91156ac8fe175d6414",
+  "surface": "http.x_status_metadata"
+}

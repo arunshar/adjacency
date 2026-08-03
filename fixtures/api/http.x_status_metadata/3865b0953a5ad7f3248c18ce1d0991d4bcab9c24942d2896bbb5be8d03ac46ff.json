@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/EdRudiger/status/2083698192210596281"
+  },
+  "request_sha256": "3865b0953a5ad7f3248c18ce1d0991d4bcab9c24942d2896bbb5be8d03ac46ff",
+  "response": {
+    "author_handle": "@EdRudiger",
+    "created_at": "August 1, 2026",
+    "media_height": 750,
+    "media_url": "https://pbs.twimg.com/media/HOrIdjDWsAA07nG.png:large",
+    "media_width": 750,
+    "source_url": "https://x.com/EdRudiger/status/2083698192210596281",
+    "text": "Gun Violence Prevention Training Aug 25 Deadline#GunViolencePreventionTraining #PresbyterianPeaceFellowship https://t.co/vMAHo1tjJY"
+  },
+  "response_sha256": "1ebf34909a509d7c5a3820d22735765f8c25c7c70d3707439af6d1c6d34c2e46",
+  "surface": "http.x_status_metadata"
+}

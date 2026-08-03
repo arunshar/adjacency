@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/TheMobileBroker/status/2083704292330922110"
+  },
+  "request_sha256": "36efb9d76419af252be4160d6116605edaf9d36240ed1643a7823865cee1a746",
+  "response": {
+    "author_handle": "@TheMobileBroker",
+    "created_at": "August 1, 2026",
+    "media_height": null,
+    "media_url": "https://pbs.twimg.com/card_img/2083703441554030592/vxZSOAGl?format=jpg&name=orig",
+    "media_width": null,
+    "source_url": "https://x.com/TheMobileBroker/status/2083704292330922110",
+    "text": "\ud83d\ude80 Thousands of one-person companies now generate over $1 million a year, and some are approaching $10 million without \u0068iring a single employee. AI isn\u2019t just changing business. It\u2019s redefining what it takes to build one.#AI #Entrepreneurship #FutureOfWork\u2026"
+  },
+  "response_sha256": "d5f76602b429249e680626454fbd629087c26a602e56afa939b123a7def1c8f7",
+  "surface": "http.x_status_metadata"
+}

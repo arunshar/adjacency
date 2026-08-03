@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/YellowstoneNPS/status/2081452051188371899"
+  },
+  "request_sha256": "05b1941c2c00ad4bd7d995d45cdabbe77f35764a905d0d34e8997c5bbd08be82",
+  "response": {
+    "author_handle": "@YellowstoneNPS",
+    "created_at": "July 26, 2026",
+    "media_height": 1366,
+    "media_url": "https://pbs.twimg.com/media/HOLNm8wXUAAa7Zr.jpg:large",
+    "media_width": 2048,
+    "source_url": "https://x.com/YellowstoneNPS/status/2081452051188371899",
+    "text": "Step aside wolves, bison, bears, and geysers! Sometimes it's nice to slow down and notice the little things. Photos (NPS / Jacob W. Frank and Neal Herbert): 1. Red squirrel hiding in a snag 2. Painted lady resting in the sun 3. Raindrops 4. Bison tracks in a bacterial mat"
+  },
+  "response_sha256": "c102060d678ab0dec224d9dab0f618e8f7855757191fb762203a85d538f9ed2a",
+  "surface": "http.x_status_metadata"
+}

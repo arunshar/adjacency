@@ -1,0 +1,3588 @@
+{
+  "corpus_hash": "91d93e38db8bb93c532f17ff3db4eeb02b68ca8179194ae0db899656d9e5e390",
+  "policy_hash": "eb02d3e636c7ff1fdb43cf5ecc9dbfd8bbb2f5858382769a9e471dab72344512",
+  "traces": [
+    {
+      "escalation_reasons": [],
+      "final_verdict": {
+        "action": "ALLOW",
+        "clause_ids": [],
+        "confidence": 1.0,
+        "evidence": [],
+        "item_id": "x-2009017572486692982",
+        "policy_version": 1,
+        "rationale": "Tier 0 deterministic clean-text allow.",
+        "severity": 0,
+        "tier": 0
+      },
+      "gate_results": [
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G1",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G2",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G4",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G6",
+          "passed": true
+        }
+      ],
+      "item_id": "x-2009017572486692982",
+      "low_verdict": null,
+      "matched_terms": [],
+      "model_calls": [],
+      "model_errors": [],
+      "tier_zero_code": "T0_CLEAN_TEXT_ALLOW"
+    },
+    {
+      "escalation_reasons": [
+        "media_with_clean_text"
+      ],
+      "final_verdict": {
+        "action": "ALLOW",
+        "clause_ids": [],
+        "confidence": 0.95,
+        "evidence": [],
+        "item_id": "x-2020027665223127418",
+        "policy_version": 1,
+        "rationale": "Neutral research project page (Idea2Paper agent framework) with no celebration of graphic violence, illegal drug sales promotion, or synthetic media impersonating officials.",
+        "severity": 0,
+        "tier": 2
+      },
+      "gate_results": [
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G1",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G2",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G4",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G6",
+          "passed": true
+        }
+      ],
+      "item_id": "x-2020027665223127418",
+      "low_verdict": {
+        "action": "ALLOW",
+        "clause_ids": [],
+        "confidence": 0.95,
+        "evidence": [],
+        "item_id": "x-2020027665223127418",
+        "policy_version": 1,
+        "rationale": "Neutral technical/research project page with no graphic violence, illegal drug promotion, or synthetic media of officials.",
+        "severity": 0,
+        "tier": 1
+      },
+      "matched_terms": [],
+      "model_calls": [
+        {
+          "cost_in_usd_ticks": 48104000,
+          "cost_usd": 0.0048104,
+          "elapsed_ms": 4341.662374999942,
+          "input_tokens": 1749,
+          "model": "grok-4.5",
+          "output_tokens": 255,
+          "reasoning_effort": "low",
+          "reasoning_tokens": 178,
+          "response_id": "ec927db9-92db-93d5-9a5f-2183ab9bde98",
+          "surface": "model.adjacency_judge.tier1",
+          "total_tokens": 2004
+        },
+        {
+          "cost_in_usd_ticks": 60484000,
+          "cost_usd": 0.0060484,
+          "elapsed_ms": 5765.793915999893,
+          "input_tokens": 1852,
+          "model": "grok-4.5",
+          "output_tokens": 427,
+          "reasoning_effort": "high",
+          "reasoning_tokens": 316,
+          "response_id": "3aea5d50-238d-99b0-a951-90cacbb8cd04",
+          "surface": "model.adjacency_judge.tier2",
+          "total_tokens": 2279
+        }
+      ],
+      "model_errors": [],
+      "tier_zero_code": "T0_MEDIA_REQUIRES_MODEL"
+    },
+    {
+      "escalation_reasons": [
+        "media_with_clean_text"
+      ],
+      "final_verdict": {
+        "action": "ALLOW",
+        "clause_ids": [],
+        "confidence": 0.95,
+        "evidence": [],
+        "item_id": "x-2022809940105089429",
+        "policy_version": 1,
+        "rationale": "Content promotes a scientific illustration generation tool with logo and academic title; no graphic violence, illegal drug sales, or synthetic media impersonating officials.",
+        "severity": 0,
+        "tier": 2
+      },
+      "gate_results": [
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G1",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G2",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G4",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G6",
+          "passed": true
+        }
+      ],
+      "item_id": "x-2022809940105089429",
+      "low_verdict": {
+        "action": "ALLOW",
+        "clause_ids": [],
+        "confidence": 0.95,
+        "evidence": [],
+        "item_id": "x-2022809940105089429",
+        "policy_version": 1,
+        "rationale": "Content promotes a scientific illustration tool with no graphic violence, illegal drug sales, or synthetic media of public officials.",
+        "severity": 0,
+        "tier": 1
+      },
+      "matched_terms": [],
+      "model_calls": [
+        {
+          "cost_in_usd_ticks": 47124000,
+          "cost_usd": 0.0047124,
+          "elapsed_ms": 5072.6174999999785,
+          "input_tokens": 1670,
+          "model": "grok-4.5",
+          "output_tokens": 265,
+          "reasoning_effort": "low",
+          "reasoning_tokens": 187,
+          "response_id": "06c6370d-5087-9743-adcd-3935c303817a",
+          "surface": "model.adjacency_judge.tier1",
+          "total_tokens": 1935
+        },
+        {
+          "cost_in_usd_ticks": 60724000,
+          "cost_usd": 0.0060724,
+          "elapsed_ms": 7482.9172089994245,
+          "input_tokens": 1774,
+          "model": "grok-4.5",
+          "output_tokens": 457,
+          "reasoning_effort": "high",
+          "reasoning_tokens": 348,
+          "response_id": "73c14081-9a86-9030-b56a-3bf87c8a79b2",
+          "surface": "model.adjacency_judge.tier2",
+          "total_tokens": 2231
+        }
+      ],
+      "model_errors": [],
+      "tier_zero_code": "T0_MEDIA_REQUIRES_MODEL"
+    },
+    {
+      "escalation_reasons": [
+        "media_with_clean_text"
+      ],
+      "final_verdict": {
+        "action": "ALLOW",
+        "clause_ids": [],
+        "confidence": 0.97,
+        "evidence": [],
+        "item_id": "x-2032455308677669313",
+        "policy_version": 1,
+        "rationale": "Content describes a scientific illustration generation tool (AutoFigure) with no celebration of graphic violence, promotion of illegal drug sales, or synthetic media impersonating public officials.",
+        "severity": 0,
+        "tier": 2
+      },
+      "gate_results": [
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G1",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G2",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G4",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G6",
+          "passed": true
+        }
+      ],
+      "item_id": "x-2032455308677669313",
+      "low_verdict": {
+        "action": "ALLOW",
+        "clause_ids": [],
+        "confidence": 0.95,
+        "evidence": [],
+        "item_id": "x-2032455308677669313",
+        "policy_version": 1,
+        "rationale": "Content promotes a scientific illustration tool with no graphic violence, illegal drug sales, or synthetic media of public officials.",
+        "severity": 0,
+        "tier": 1
+      },
+      "matched_terms": [],
+      "model_calls": [
+        {
+          "cost_in_usd_ticks": 56784000,
+          "cost_usd": 0.0056784,
+          "elapsed_ms": 6606.271417000244,
+          "input_tokens": 2039,
+          "model": "grok-4.5",
+          "output_tokens": 303,
+          "reasoning_effort": "low",
+          "reasoning_tokens": 225,
+          "response_id": "3b0e1b15-78c8-9821-9e8a-6bfbc57346f2",
+          "surface": "model.adjacency_judge.tier1",
+          "total_tokens": 2342
+        },
+        {
+          "cost_in_usd_ticks": 73024000,
+          "cost_usd": 0.0073024,
+          "elapsed_ms": 8804.96979199961,
+          "input_tokens": 2143,
+          "model": "grok-4.5",
+          "output_tokens": 539,
+          "reasoning_effort": "high",
+          "reasoning_tokens": 426,
+          "response_id": "c1eefaec-0c0a-98c5-ad75-27dcd8267319",
+          "surface": "model.adjacency_judge.tier2",
+          "total_tokens": 2682
+        }
+      ],
+      "model_errors": [],
+      "tier_zero_code": "T0_MEDIA_REQUIRES_MODEL"
+    },
+    {
+      "escalation_reasons": [
+        "media_with_clean_text",
+        "low_tier_gate_failure"
+      ],
+      "final_verdict": {
+        "action": "REVIEW",
+        "clause_ids": [],
+        "confidence": 0.98,
+        "evidence": [
+          {
+            "end": 52,
+            "kind": "text",
+            "quote": "Collection of 127 scientific diagrams for physics and ML",
+            "start": 0
+          },
+          {
+            "h": 80,
+            "kind": "image",
+            "media_id": "x-2054959102195872231-media-1",
+            "note": "Title and subtitle confirming scientific diagrams for physics/chemistry/ML",
+            "w": 400,
+            "x": 200,
+            "y": 20
+          }
+        ],
+        "item_id": "x-2054959102195872231",
+        "policy_version": 1,
+        "rationale": "Neutral educational content showing scientific diagrams (2d convolution matrices, angular momentum). No celebration of graphic violence, no promotion of illegal drug sales, and no synthetic media impersonating officials. [coerced to REVIEW: G1_SPAN_NOT_FOUND]",
+        "severity": 0,
+        "tier": 2
+      },
+      "gate_results": [
+        {
+          "code": "G1_SPAN_NOT_FOUND",
+          "coerce_to": "REVIEW",
+          "detail": "text[0:52] is 'Collection of 127 scientific diagrams for physics an', cited quote is 'Collection of 127 scientific diagrams for physics and ML'",
+          "gate": "G1",
+          "passed": false
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G2",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G4",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G6",
+          "passed": true
+        }
+      ],
+      "item_id": "x-2054959102195872231",
+      "low_verdict": {
+        "action": "ALLOW",
+        "clause_ids": [
+          "allow-news-public-health"
+        ],
+        "confidence": 1.0,
+        "evidence": [
+          {
+            "end": 52,
+            "kind": "text",
+            "quote": "Collection of 127 scientific diagrams for physics and ML",
+            "start": 0
+          }
+        ],
+        "item_id": "x-2054959102195872231",
+        "policy_version": 1,
+        "rationale": "Neutral scientific/educational content on physics and ML diagrams; no graphic violence, illegal drug promotion, or synthetic media of officials.",
+        "severity": 0,
+        "tier": 1
+      },
+      "matched_terms": [],
+      "model_calls": [
+        {
+          "cost_in_usd_ticks": 52824000,
+          "cost_usd": 0.0052824,
+          "elapsed_ms": 5150.342790999275,
+          "input_tokens": 1967,
+          "model": "grok-4.5",
+          "output_tokens": 261,
+          "reasoning_effort": "low",
+          "reasoning_tokens": 145,
+          "response_id": "f800210c-d7e9-9b31-879f-b5966a331ad4",
+          "surface": "model.adjacency_judge.tier1",
+          "total_tokens": 2228
+        },
+        {
+          "cost_in_usd_ticks": 102824000,
+          "cost_usd": 0.0102824,
+          "elapsed_ms": 15720.118167000692,
+          "input_tokens": 2118,
+          "model": "grok-4.5",
+          "output_tokens": 1044,
+          "reasoning_effort": "high",
+          "reasoning_tokens": 868,
+          "response_id": "78388992-9386-9663-8257-2e096bd97dec",
+          "surface": "model.adjacency_judge.tier2",
+          "total_tokens": 3162
+        }
+      ],
+      "model_errors": [],
+      "tier_zero_code": "T0_MEDIA_REQUIRES_MODEL"
+    },
+    {
+      "escalation_reasons": [],
+      "final_verdict": {
+        "action": "ALLOW",
+        "clause_ids": [],
+        "confidence": 1.0,
+        "evidence": [],
+        "item_id": "x-2069804700174574040",
+        "policy_version": 1,
+        "rationale": "Tier 0 deterministic clean-text allow.",
+        "severity": 0,
+        "tier": 0
+      },
+      "gate_results": [
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G1",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G2",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G4",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G6",
+          "passed": true
+        }
+      ],
+      "item_id": "x-2069804700174574040",
+      "low_verdict": null,
+      "matched_terms": [],
+      "model_calls": [],
+      "model_errors": [],
+      "tier_zero_code": "T0_CLEAN_TEXT_ALLOW"
+    },
+    {
+      "escalation_reasons": [
+        "media_with_clean_text"
+      ],
+      "final_verdict": {
+        "action": "ALLOW",
+        "clause_ids": [],
+        "confidence": 1.0,
+        "evidence": [],
+        "item_id": "x-2069959210834776313",
+        "policy_version": 1,
+        "rationale": "Educational MNIST neural-network 3D visualization UI; contains no graphic violence, illegal drug promotion, or synthetic media impersonating officials.",
+        "severity": 0,
+        "tier": 2
+      },
+      "gate_results": [
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G1",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G2",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G4",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G6",
+          "passed": true
+        }
+      ],
+      "item_id": "x-2069959210834776313",
+      "low_verdict": {
+        "action": "ALLOW",
+        "clause_ids": [],
+        "confidence": 1.0,
+        "evidence": [],
+        "item_id": "x-2069959210834776313",
+        "policy_version": 1,
+        "rationale": "Educational interactive neural-network visualization on MNIST digits; no graphic violence, illegal drug promotion, or synthetic media of public officials.",
+        "severity": 0,
+        "tier": 1
+      },
+      "matched_terms": [],
+      "model_calls": [
+        {
+          "cost_in_usd_ticks": 47564000,
+          "cost_usd": 0.0047564,
+          "elapsed_ms": 4322.235290999743,
+          "input_tokens": 1830,
+          "model": "grok-4.5",
+          "output_tokens": 219,
+          "reasoning_effort": "low",
+          "reasoning_tokens": 137,
+          "response_id": "f8cea560-8a9c-9df5-ad7c-8bb30b532535",
+          "surface": "model.adjacency_judge.tier1",
+          "total_tokens": 2049
+        },
+        {
+          "cost_in_usd_ticks": 62144000,
+          "cost_usd": 0.0062144,
+          "elapsed_ms": 6466.776207998919,
+          "input_tokens": 1938,
+          "model": "grok-4.5",
+          "output_tokens": 426,
+          "reasoning_effort": "high",
+          "reasoning_tokens": 342,
+          "response_id": "73307696-a870-98e0-91b4-7a33fcad8ff1",
+          "surface": "model.adjacency_judge.tier2",
+          "total_tokens": 2364
+        }
+      ],
+      "model_errors": [],
+      "tier_zero_code": "T0_MEDIA_REQUIRES_MODEL"
+    },
+    {
+      "escalation_reasons": [
+        "media_with_clean_text"
+      ],
+      "final_verdict": {
+        "action": "ALLOW",
+        "clause_ids": [],
+        "confidence": 0.96,
+        "evidence": [],
+        "item_id": "x-2073377410620219590",
+        "policy_version": 1,
+        "rationale": "Independence Day National Park Service post with scenic horseback-and-flag imagery in a park landscape; contains no celebration of graphic violence, no promotion of illegal drug sales, and no indication of synthetic media impersonating public officials.",
+        "severity": 0,
+        "tier": 2
+      },
+      "gate_results": [
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G1",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G2",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G4",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G6",
+          "passed": true
+        }
+      ],
+      "item_id": "x-2073377410620219590",
+      "low_verdict": {
+        "action": "ALLOW",
+        "clause_ids": [],
+        "confidence": 0.95,
+        "evidence": [],
+        "item_id": "x-2073377410620219590",
+        "policy_version": 1,
+        "rationale": "Patriotic National Park Service content with scenic imagery; no graphic violence, illegal drug promotion, or synthetic media impersonation.",
+        "severity": 0,
+        "tier": 1
+      },
+      "matched_terms": [],
+      "model_calls": [
+        {
+          "cost_in_usd_ticks": 52124000,
+          "cost_usd": 0.0052124,
+          "elapsed_ms": 5518.861917000322,
+          "input_tokens": 1857,
+          "model": "grok-4.5",
+          "output_tokens": 286,
+          "reasoning_effort": "low",
+          "reasoning_tokens": 205,
+          "response_id": "7064f983-84fe-91e8-995a-1c5351efd359",
+          "surface": "model.adjacency_judge.tier1",
+          "total_tokens": 2143
+        },
+        {
+          "cost_in_usd_ticks": 75504000,
+          "cost_usd": 0.0075504,
+          "elapsed_ms": 10106.220707999455,
+          "input_tokens": 1964,
+          "model": "grok-4.5",
+          "output_tokens": 640,
+          "reasoning_effort": "high",
+          "reasoning_tokens": 539,
+          "response_id": "86832a42-28ed-94ea-8c6f-a7bc62c8dd34",
+          "surface": "model.adjacency_judge.tier2",
+          "total_tokens": 2604
+        }
+      ],
+      "model_errors": [],
+      "tier_zero_code": "T0_MEDIA_REQUIRES_MODEL"
+    },
+    {
+      "escalation_reasons": [],
+      "final_verdict": {
+        "action": "ALLOW",
+        "clause_ids": [],
+        "confidence": 1.0,
+        "evidence": [],
+        "item_id": "x-2075412071051923520",
+        "policy_version": 1,
+        "rationale": "Tier 0 deterministic clean-text allow.",
+        "severity": 0,
+        "tier": 0
+      },
+      "gate_results": [
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G1",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G2",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G4",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G6",
+          "passed": true
+        }
+      ],
+      "item_id": "x-2075412071051923520",
+      "low_verdict": null,
+      "matched_terms": [],
+      "model_calls": [],
+      "model_errors": [],
+      "tier_zero_code": "T0_CLEAN_TEXT_ALLOW"
+    },
+    {
+      "escalation_reasons": [
+        "low_tier_gate_failure"
+      ],
+      "final_verdict": {
+        "action": "REVIEW",
+        "clause_ids": [
+          "allow-news-public-health"
+        ],
+        "confidence": 0.92,
+        "evidence": [
+          {
+            "end": 221,
+            "kind": "text",
+            "quote": "The Deepfake awareness helps families prepare for synthetic voice, image, video, and impersonation risks if combined with practical verification steps, response habits, and household protocols.",
+            "start": 35
+          },
+          {
+            "end": 254,
+            "kind": "text",
+            "quote": "The point is not fear mongering.",
+            "start": 222
+          }
+        ],
+        "item_id": "x-2077650614012539130",
+        "policy_version": 1,
+        "rationale": "Neutral public-awareness and preparedness discussion of deepfake/synthetic-media risks for families. Does not celebrate graphic violence, promote illegal drug sales, or present suspected synthetic media impersonating public officials; fits allowed news/public-health style coverage. [coerced to REVIEW: G1_SPAN_NOT_FOUND]",
+        "severity": 1,
+        "tier": 2
+      },
+      "gate_results": [
+        {
+          "code": "G1_SPAN_NOT_FOUND",
+          "coerce_to": "REVIEW",
+          "detail": "text[35:221] is 'he Deepfake awareness helps families prepare for synthetic voice, image, video, and impersonation risks if combined with practical verification steps, response habits, and household prot', cited quote is 'The Deepfake awareness helps families prepare for synthetic voice, image, video, and impersonation risks if combined with practical verification steps, response habits, and household protocols.'",
+          "gate": "G1",
+          "passed": false
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G2",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G4",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G6",
+          "passed": true
+        }
+      ],
+      "item_id": "x-2077650614012539130",
+      "low_verdict": {
+        "action": "ALLOW",
+        "clause_ids": [
+          "allow-news-public-health"
+        ],
+        "confidence": 0.9,
+        "evidence": [
+          {
+            "end": 221,
+            "kind": "text",
+            "quote": "The Deepfake awareness helps families prepare for synthetic voice, image, video, and impersonation risks if combined with practical verification steps, response habits, and household protocols.",
+            "start": 35
+          }
+        ],
+        "item_id": "x-2077650614012539130",
+        "policy_version": 1,
+        "rationale": "Neutral public-awareness discussion of deepfake/synthetic media risks and household preparedness; does not celebrate violence, promote illegal drugs, or itself constitute suspected synthetic impersonation of officials.",
+        "severity": 1,
+        "tier": 1
+      },
+      "matched_terms": [
+        "deepfake",
+        "deepfakes"
+      ],
+      "model_calls": [
+        {
+          "cost_in_usd_ticks": 59424000,
+          "cost_usd": 0.0059424,
+          "elapsed_ms": 8296.877707998647,
+          "input_tokens": 1463,
+          "model": "grok-4.5",
+          "output_tokens": 539,
+          "reasoning_effort": "low",
+          "reasoning_tokens": 390,
+          "response_id": "6fd99ee7-622c-95ad-9eae-8dc3dcb9321f",
+          "surface": "model.adjacency_judge.tier1",
+          "total_tokens": 2002
+        },
+        {
+          "cost_in_usd_ticks": 96224000,
+          "cost_usd": 0.0096224,
+          "elapsed_ms": 15153.28050000062,
+          "input_tokens": 1638,
+          "model": "grok-4.5",
+          "output_tokens": 1094,
+          "reasoning_effort": "high",
+          "reasoning_tokens": 850,
+          "response_id": "3e74bfec-36f4-95d9-bd6e-1fd27e3fe65a",
+          "surface": "model.adjacency_judge.tier2",
+          "total_tokens": 2732
+        }
+      ],
+      "model_errors": [],
+      "tier_zero_code": "T0_TERM_MATCH_REQUIRES_MODEL"
+    },
+    {
+      "escalation_reasons": [],
+      "final_verdict": {
+        "action": "ALLOW",
+        "clause_ids": [],
+        "confidence": 1.0,
+        "evidence": [],
+        "item_id": "x-2078419528820638002",
+        "policy_version": 1,
+        "rationale": "Tier 0 deterministic clean-text allow.",
+        "severity": 0,
+        "tier": 0
+      },
+      "gate_results": [
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G1",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G2",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G4",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G6",
+          "passed": true
+        }
+      ],
+      "item_id": "x-2078419528820638002",
+      "low_verdict": null,
+      "matched_terms": [],
+      "model_calls": [],
+      "model_errors": [],
+      "tier_zero_code": "T0_CLEAN_TEXT_ALLOW"
+    },
+    {
+      "escalation_reasons": [
+        "media_with_clean_text"
+      ],
+      "final_verdict": {
+        "action": "ALLOW",
+        "clause_ids": [],
+        "confidence": 1.0,
+        "evidence": [],
+        "item_id": "x-2080654232886116631",
+        "policy_version": 1,
+        "rationale": "Neutral astronomy content and galaxy image with no celebration of graphic violence, illegal drug promotion, or synthetic media impersonating officials.",
+        "severity": 0,
+        "tier": 2
+      },
+      "gate_results": [
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G1",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G2",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G4",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G6",
+          "passed": true
+        }
+      ],
+      "item_id": "x-2080654232886116631",
+      "low_verdict": {
+        "action": "ALLOW",
+        "clause_ids": [],
+        "confidence": 1.0,
+        "evidence": [],
+        "item_id": "x-2080654232886116631",
+        "policy_version": 1,
+        "rationale": "Astronomy content about a spiral galaxy with no graphic violence, illegal drugs, or synthetic media of officials.",
+        "severity": 0,
+        "tier": 1
+      },
+      "matched_terms": [],
+      "model_calls": [
+        {
+          "cost_in_usd_ticks": 44004000,
+          "cost_usd": 0.0044004,
+          "elapsed_ms": 1832.3320420004165,
+          "input_tokens": 2081,
+          "model": "grok-4.5",
+          "output_tokens": 76,
+          "reasoning_effort": "low",
+          "reasoning_tokens": 0,
+          "response_id": "26859f7a-cd4e-9426-99eb-8c58f3826b14",
+          "surface": "model.adjacency_judge.tier1",
+          "total_tokens": 2157
+        },
+        {
+          "cost_in_usd_ticks": 65964000,
+          "cost_usd": 0.0065964,
+          "elapsed_ms": 6773.775625000781,
+          "input_tokens": 2183,
+          "model": "grok-4.5",
+          "output_tokens": 408,
+          "reasoning_effort": "high",
+          "reasoning_tokens": 303,
+          "response_id": "1cd39d8f-495a-927f-af71-d741e98d8d1a",
+          "surface": "model.adjacency_judge.tier2",
+          "total_tokens": 2591
+        }
+      ],
+      "model_errors": [],
+      "tier_zero_code": "T0_MEDIA_REQUIRES_MODEL"
+    },
+    {
+      "escalation_reasons": [
+        "media_with_clean_text"
+      ],
+      "final_verdict": {
+        "action": "ALLOW",
+        "clause_ids": [],
+        "confidence": 1.0,
+        "evidence": [],
+        "item_id": "x-2081452051188371899",
+        "policy_version": 1,
+        "rationale": "Neutral nature photography of wildlife and scenery with no graphic violence, illegal drug promotion, or synthetic media impersonating officials.",
+        "severity": 0,
+        "tier": 2
+      },
+      "gate_results": [
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G1",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G2",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G4",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G6",
+          "passed": true
+        }
+      ],
+      "item_id": "x-2081452051188371899",
+      "low_verdict": {
+        "action": "ALLOW",
+        "clause_ids": [],
+        "confidence": 1.0,
+        "evidence": [],
+        "item_id": "x-2081452051188371899",
+        "policy_version": 1,
+        "rationale": "Neutral nature photography content with no graphic violence, illegal drug promotion, or synthetic media of public officials.",
+        "severity": 0,
+        "tier": 1
+      },
+      "matched_terms": [],
+      "model_calls": [
+        {
+          "cost_in_usd_ticks": 48344000,
+          "cost_usd": 0.0048344,
+          "elapsed_ms": 4170.673750000788,
+          "input_tokens": 1896,
+          "model": "grok-4.5",
+          "output_tokens": 210,
+          "reasoning_effort": "low",
+          "reasoning_tokens": 134,
+          "response_id": "c980e173-8cfd-9f52-bbb7-6bc5426a5ba2",
+          "surface": "model.adjacency_judge.tier1",
+          "total_tokens": 2106
+        },
+        {
+          "cost_in_usd_ticks": 68924000,
+          "cost_usd": 0.0068924,
+          "elapsed_ms": 9089.214415998867,
+          "input_tokens": 1998,
+          "model": "grok-4.5",
+          "output_tokens": 519,
+          "reasoning_effort": "high",
+          "reasoning_tokens": 415,
+          "response_id": "d6ec0a1a-056c-90bc-a650-02884a110757",
+          "surface": "model.adjacency_judge.tier2",
+          "total_tokens": 2517
+        }
+      ],
+      "model_errors": [],
+      "tier_zero_code": "T0_MEDIA_REQUIRES_MODEL"
+    },
+    {
+      "escalation_reasons": [],
+      "final_verdict": {
+        "action": "ALLOW",
+        "clause_ids": [],
+        "confidence": 0.95,
+        "evidence": [],
+        "item_id": "x-2082058501980045644",
+        "policy_version": 1,
+        "rationale": "Neutral discussion of synthetic media and deepfakes; does not celebrate graphic violence, promote illegal drug sales, or present suspected synthetic impersonation of public officials.",
+        "severity": 0,
+        "tier": 1
+      },
+      "gate_results": [
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G1",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G2",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G4",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G6",
+          "passed": true
+        }
+      ],
+      "item_id": "x-2082058501980045644",
+      "low_verdict": {
+        "action": "ALLOW",
+        "clause_ids": [],
+        "confidence": 0.95,
+        "evidence": [],
+        "item_id": "x-2082058501980045644",
+        "policy_version": 1,
+        "rationale": "Neutral discussion of synthetic media and deepfakes; does not celebrate graphic violence, promote illegal drug sales, or present suspected synthetic impersonation of public officials.",
+        "severity": 0,
+        "tier": 1
+      },
+      "matched_terms": [
+        "deepfakes",
+        "synthetic media"
+      ],
+      "model_calls": [
+        {
+          "cost_in_usd_ticks": 50404000,
+          "cost_usd": 0.0050404,
+          "elapsed_ms": 6326.124666999021,
+          "input_tokens": 1465,
+          "model": "grok-4.5",
+          "output_tokens": 388,
+          "reasoning_effort": "low",
+          "reasoning_tokens": 301,
+          "response_id": "5bddadeb-6cc3-9410-afcc-0d77bf0eef97",
+          "surface": "model.adjacency_judge.tier1",
+          "total_tokens": 1853
+        }
+      ],
+      "model_errors": [],
+      "tier_zero_code": "T0_TERM_MATCH_REQUIRES_MODEL"
+    },
+    {
+      "escalation_reasons": [
+        "boundary_severity",
+        "low_tier_gate_failure"
+      ],
+      "final_verdict": {
+        "action": "REVIEW",
+        "clause_ids": [
+          "allow-news-public-health"
+        ],
+        "confidence": 0.92,
+        "evidence": [
+          {
+            "end": 141,
+            "kind": "text",
+            "quote": "The FBI is warning that criminals are now using AI-generated deepfake videos of senior FBI officials",
+            "start": 41
+          }
+        ],
+        "item_id": "x-2082143677992804709",
+        "policy_version": 1,
+        "rationale": "Neutral news reporting of an FBI public warning about fraud; does not itself constitute or contain synthetic media, nor celebrate violence or promote drug sales. [coerced to REVIEW: G6_EFFORT_DISAGREEMENT]",
+        "severity": 1,
+        "tier": 2
+      },
+      "gate_results": [
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G1",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G2",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G4",
+          "passed": true
+        },
+        {
+          "code": "G6_EFFORT_DISAGREEMENT",
+          "coerce_to": "REVIEW",
+          "detail": "low-effort pass said ALLOW, escalated pass said REVIEW",
+          "gate": "G6",
+          "passed": false
+        }
+      ],
+      "item_id": "x-2082143677992804709",
+      "low_verdict": {
+        "action": "REVIEW",
+        "clause_ids": [
+          "review-synthetic-media"
+        ],
+        "confidence": 0.95,
+        "evidence": [
+          {
+            "end": 136,
+            "kind": "text",
+            "quote": "AI-generated deepfake videos of senior FBI officials",
+            "start": 85
+          }
+        ],
+        "item_id": "x-2082143677992804709",
+        "policy_version": 1,
+        "rationale": "Content discusses suspected synthetic media (AI deepfakes) impersonating public officials (senior FBI officials), which requires review per policy. Neutral reporting tone; no celebration of violence or drug sales.",
+        "severity": 2,
+        "tier": 1
+      },
+      "matched_terms": [
+        "deepfake"
+      ],
+      "model_calls": [
+        {
+          "cost_in_usd_ticks": 44904000,
+          "cost_usd": 0.0044904,
+          "elapsed_ms": 5067.24370899974,
+          "input_tokens": 1457,
+          "model": "grok-4.5",
+          "output_tokens": 299,
+          "reasoning_effort": "low",
+          "reasoning_tokens": 172,
+          "response_id": "1879d522-c859-94b6-a572-86eaf82aca94",
+          "surface": "model.adjacency_judge.tier1",
+          "total_tokens": 1756
+        },
+        {
+          "cost_in_usd_ticks": 305404000,
+          "cost_usd": 0.0305404,
+          "elapsed_ms": 76413.19679099979,
+          "input_tokens": 1615,
+          "model": "grok-4.5",
+          "output_tokens": 4588,
+          "reasoning_effort": "high",
+          "reasoning_tokens": 4414,
+          "response_id": "07db9b3e-1cfa-9283-b1b1-deb6b808aa05",
+          "surface": "model.adjacency_judge.tier2",
+          "total_tokens": 6203
+        }
+      ],
+      "model_errors": [],
+      "tier_zero_code": "T0_TERM_MATCH_REQUIRES_MODEL"
+    },
+    {
+      "escalation_reasons": [
+        "media_with_clean_text"
+      ],
+      "final_verdict": {
+        "action": "ALLOW",
+        "clause_ids": [],
+        "confidence": 0.99,
+        "evidence": [],
+        "item_id": "x-2082194383063875634",
+        "policy_version": 1,
+        "rationale": "Astronomy image and text about interacting galaxies ESO 550-2; no graphic violence, illegal drugs, or synthetic media of officials.",
+        "severity": 0,
+        "tier": 2
+      },
+      "gate_results": [
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G1",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G2",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G4",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G6",
+          "passed": true
+        }
+      ],
+      "item_id": "x-2082194383063875634",
+      "low_verdict": {
+        "action": "ALLOW",
+        "clause_ids": [],
+        "confidence": 0.99,
+        "evidence": [],
+        "item_id": "x-2082194383063875634",
+        "policy_version": 1,
+        "rationale": "Astronomy content about interacting galaxies with no violence, drugs, or synthetic media of officials. Safe for ad placement.",
+        "severity": 0,
+        "tier": 1
+      },
+      "matched_terms": [],
+      "model_calls": [
+        {
+          "cost_in_usd_ticks": 44064000,
+          "cost_usd": 0.0044064,
+          "elapsed_ms": 2088.522624999314,
+          "input_tokens": 2078,
+          "model": "grok-4.5",
+          "output_tokens": 78,
+          "reasoning_effort": "low",
+          "reasoning_tokens": 0,
+          "response_id": "c1102d6f-c518-9b22-b72c-ae1bc9a6e6cb",
+          "surface": "model.adjacency_judge.tier1",
+          "total_tokens": 2156
+        },
+        {
+          "cost_in_usd_ticks": 72244000,
+          "cost_usd": 0.0072244,
+          "elapsed_ms": 7845.633958999315,
+          "input_tokens": 2182,
+          "model": "grok-4.5",
+          "output_tokens": 513,
+          "reasoning_effort": "high",
+          "reasoning_tokens": 430,
+          "response_id": "3e896fed-5c66-9caf-a472-71a2514fca01",
+          "surface": "model.adjacency_judge.tier2",
+          "total_tokens": 2695
+        }
+      ],
+      "model_errors": [],
+      "tier_zero_code": "T0_MEDIA_REQUIRES_MODEL"
+    },
+    {
+      "escalation_reasons": [],
+      "final_verdict": {
+        "action": "ALLOW",
+        "clause_ids": [],
+        "confidence": 1.0,
+        "evidence": [],
+        "item_id": "x-2082479572122001909",
+        "policy_version": 1,
+        "rationale": "Tier 0 deterministic clean-text allow.",
+        "severity": 0,
+        "tier": 0
+      },
+      "gate_results": [
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G1",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G2",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G4",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G6",
+          "passed": true
+        }
+      ],
+      "item_id": "x-2082479572122001909",
+      "low_verdict": null,
+      "matched_terms": [],
+      "model_calls": [],
+      "model_errors": [],
+      "tier_zero_code": "T0_CLEAN_TEXT_ALLOW"
+    },
+    {
+      "escalation_reasons": [],
+      "final_verdict": {
+        "action": "ALLOW",
+        "clause_ids": [],
+        "confidence": 1.0,
+        "evidence": [],
+        "item_id": "x-2082528027410334119",
+        "policy_version": 1,
+        "rationale": "Tier 0 deterministic clean-text allow.",
+        "severity": 0,
+        "tier": 0
+      },
+      "gate_results": [
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G1",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G2",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G4",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G6",
+          "passed": true
+        }
+      ],
+      "item_id": "x-2082528027410334119",
+      "low_verdict": null,
+      "matched_terms": [],
+      "model_calls": [],
+      "model_errors": [],
+      "tier_zero_code": "T0_CLEAN_TEXT_ALLOW"
+    },
+    {
+      "escalation_reasons": [
+        "low_tier_gate_failure"
+      ],
+      "final_verdict": {
+        "action": "REVIEW",
+        "clause_ids": [],
+        "confidence": 0.95,
+        "evidence": [
+          {
+            "end": 81,
+            "kind": "text",
+            "quote": "The AI Deception Machine: Deepfakes, Chatbots, and the New Frontier of Senior Fraud",
+            "start": 0
+          }
+        ],
+        "item_id": "x-2082551906228912361",
+        "policy_version": 1,
+        "rationale": "Neutral discussion of AI deepfakes and senior fraud; does not celebrate graphic violence, promote illegal drug sales, or constitute suspected synthetic media impersonating public officials. [coerced to REVIEW: G1_SPAN_NOT_FOUND]",
+        "severity": 0,
+        "tier": 2
+      },
+      "gate_results": [
+        {
+          "code": "G1_SPAN_NOT_FOUND",
+          "coerce_to": "REVIEW",
+          "detail": "text[0:81] is 'The AI Deception Machine: Deepfakes, Chatbots, and the New Frontier of Senior Fra', cited quote is 'The AI Deception Machine: Deepfakes, Chatbots, and the New Frontier of Senior Fraud'",
+          "gate": "G1",
+          "passed": false
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G2",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G4",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G6",
+          "passed": true
+        }
+      ],
+      "item_id": "x-2082551906228912361",
+      "low_verdict": {
+        "action": "ALLOW",
+        "clause_ids": [],
+        "confidence": 0.9,
+        "evidence": [
+          {
+            "end": 81,
+            "kind": "text",
+            "quote": "The AI Deception Machine: Deepfakes, Chatbots, and the New Frontier of Senior Fraud",
+            "start": 0
+          }
+        ],
+        "item_id": "x-2082551906228912361",
+        "policy_version": 1,
+        "rationale": "Content discusses AI deepfakes and senior fraud as a news-style topic; it does not celebrate graphic violence, promote illegal drug sales, or present suspected synthetic media impersonating public officials.",
+        "severity": 0,
+        "tier": 1
+      },
+      "matched_terms": [
+        "deepfakes"
+      ],
+      "model_calls": [
+        {
+          "cost_in_usd_ticks": 52264000,
+          "cost_usd": 0.0052264,
+          "elapsed_ms": 7843.652334000581,
+          "input_tokens": 1444,
+          "model": "grok-4.5",
+          "output_tokens": 426,
+          "reasoning_effort": "low",
+          "reasoning_tokens": 295,
+          "response_id": "a577345f-d58c-904b-8564-51e6c8c81361",
+          "surface": "model.adjacency_judge.tier1",
+          "total_tokens": 1870
+        },
+        {
+          "cost_in_usd_ticks": 65904000,
+          "cost_usd": 0.0065904,
+          "elapsed_ms": 8843.240125001103,
+          "input_tokens": 1601,
+          "model": "grok-4.5",
+          "output_tokens": 601,
+          "reasoning_effort": "high",
+          "reasoning_tokens": 476,
+          "response_id": "1d0450ab-7fb8-9f4d-9298-d2ae3477ef56",
+          "surface": "model.adjacency_judge.tier2",
+          "total_tokens": 2202
+        }
+      ],
+      "model_errors": [],
+      "tier_zero_code": "T0_TERM_MATCH_REQUIRES_MODEL"
+    },
+    {
+      "escalation_reasons": [],
+      "final_verdict": {
+        "action": "ALLOW",
+        "clause_ids": [],
+        "confidence": 1.0,
+        "evidence": [],
+        "item_id": "x-2082757457756233974",
+        "policy_version": 1,
+        "rationale": "Tier 0 deterministic clean-text allow.",
+        "severity": 0,
+        "tier": 0
+      },
+      "gate_results": [
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G1",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G2",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G4",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G6",
+          "passed": true
+        }
+      ],
+      "item_id": "x-2082757457756233974",
+      "low_verdict": null,
+      "matched_terms": [],
+      "model_calls": [],
+      "model_errors": [],
+      "tier_zero_code": "T0_CLEAN_TEXT_ALLOW"
+    },
+    {
+      "escalation_reasons": [],
+      "final_verdict": {
+        "action": "ALLOW",
+        "clause_ids": [],
+        "confidence": 0.9,
+        "evidence": [],
+        "item_id": "x-2082784079616131521",
+        "policy_version": 1,
+        "rationale": "Neutral discussion of synthetic media technology and enterprise risks; does not celebrate violence, promote illegal drugs, or present suspected synthetic impersonation of public officials.",
+        "severity": 0,
+        "tier": 1
+      },
+      "gate_results": [
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G1",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G2",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G4",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G6",
+          "passed": true
+        }
+      ],
+      "item_id": "x-2082784079616131521",
+      "low_verdict": {
+        "action": "ALLOW",
+        "clause_ids": [],
+        "confidence": 0.9,
+        "evidence": [],
+        "item_id": "x-2082784079616131521",
+        "policy_version": 1,
+        "rationale": "Neutral discussion of synthetic media technology and enterprise risks; does not celebrate violence, promote illegal drugs, or present suspected synthetic impersonation of public officials.",
+        "severity": 0,
+        "tier": 1
+      },
+      "matched_terms": [
+        "synthetic media"
+      ],
+      "model_calls": [
+        {
+          "cost_in_usd_ticks": 56924000,
+          "cost_usd": 0.0056924,
+          "elapsed_ms": 8351.975124998717,
+          "input_tokens": 1464,
+          "model": "grok-4.5",
+          "output_tokens": 497,
+          "reasoning_effort": "low",
+          "reasoning_tokens": 412,
+          "response_id": "523b1ea3-cdc7-9810-b163-1d5ca02dadeb",
+          "surface": "model.adjacency_judge.tier1",
+          "total_tokens": 1961
+        }
+      ],
+      "model_errors": [],
+      "tier_zero_code": "T0_TERM_MATCH_REQUIRES_MODEL"
+    },
+    {
+      "escalation_reasons": [
+        "low_tier_gate_failure"
+      ],
+      "final_verdict": {
+        "action": "REVIEW",
+        "clause_ids": [
+          "allow-news-public-health"
+        ],
+        "confidence": 0.95,
+        "evidence": [
+          {
+            "end": 122,
+            "kind": "text",
+            "quote": "Indian government is planning a new law that would make \"AI DEEPFAKE\" and \"DIGITAL ARREST\" scams separate criminal offences.",
+            "start": 3
+          }
+        ],
+        "item_id": "x-2082799958860665265",
+        "policy_version": 1,
+        "rationale": "Neutral news on proposed anti-scam legislation and cyber-fraud stats. Does not celebrate graphic violence, promote illegal drug sales, or constitute synthetic media impersonating officials. [coerced to REVIEW: G1_SPAN_NOT_FOUND]",
+        "severity": 1,
+        "tier": 2
+      },
+      "gate_results": [
+        {
+          "code": "G1_SPAN_NOT_FOUND",
+          "coerce_to": "REVIEW",
+          "detail": "text[3:122] is 'Indian government is planning a new law that would make \"AI DEEPFAKE\" and \"DIGITAL ARREST\" scams separate criminal offe', cited quote is 'Indian government is planning a new law that would make \"AI DEEPFAKE\" and \"DIGITAL ARREST\" scams separate criminal offences.'",
+          "gate": "G1",
+          "passed": false
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G2",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G4",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G6",
+          "passed": true
+        }
+      ],
+      "item_id": "x-2082799958860665265",
+      "low_verdict": {
+        "action": "ALLOW",
+        "clause_ids": [
+          "allow-news-public-health"
+        ],
+        "confidence": 0.95,
+        "evidence": [
+          {
+            "end": 122,
+            "kind": "text",
+            "quote": "Indian government is planning a new law that would make \"AI DEEPFAKE\" and \"DIGITAL ARREST\" scams separate criminal offences.",
+            "start": 3
+          }
+        ],
+        "item_id": "x-2082799958860665265",
+        "policy_version": 1,
+        "rationale": "Neutral news reporting on proposed legislation and cyber-fraud statistics; does not celebrate violence, promote illegal drugs, or present synthetic media impersonating officials.",
+        "severity": 1,
+        "tier": 1
+      },
+      "matched_terms": [
+        "deepfake"
+      ],
+      "model_calls": [
+        {
+          "cost_in_usd_ticks": 54844000,
+          "cost_usd": 0.0054844,
+          "elapsed_ms": 6962.930583000343,
+          "input_tokens": 1474,
+          "model": "grok-4.5",
+          "output_tokens": 459,
+          "reasoning_effort": "low",
+          "reasoning_tokens": 319,
+          "response_id": "0d9ebbc4-2d79-9261-bd95-2453198697cc",
+          "surface": "model.adjacency_judge.tier1",
+          "total_tokens": 1933
+        },
+        {
+          "cost_in_usd_ticks": 106164000,
+          "cost_usd": 0.0106164,
+          "elapsed_ms": 18364.74774999988,
+          "input_tokens": 1640,
+          "model": "grok-4.5",
+          "output_tokens": 1259,
+          "reasoning_effort": "high",
+          "reasoning_tokens": 1114,
+          "response_id": "b1c183e2-fce7-97ce-b42d-c684ba8bf401",
+          "surface": "model.adjacency_judge.tier2",
+          "total_tokens": 2899
+        }
+      ],
+      "model_errors": [],
+      "tier_zero_code": "T0_TERM_MATCH_REQUIRES_MODEL"
+    },
+    {
+      "escalation_reasons": [],
+      "final_verdict": {
+        "action": "ALLOW",
+        "clause_ids": [],
+        "confidence": 1.0,
+        "evidence": [],
+        "item_id": "x-2082872571490599192",
+        "policy_version": 1,
+        "rationale": "Tier 0 deterministic clean-text allow.",
+        "severity": 0,
+        "tier": 0
+      },
+      "gate_results": [
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G1",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G2",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G4",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G6",
+          "passed": true
+        }
+      ],
+      "item_id": "x-2082872571490599192",
+      "low_verdict": null,
+      "matched_terms": [],
+      "model_calls": [],
+      "model_errors": [],
+      "tier_zero_code": "T0_CLEAN_TEXT_ALLOW"
+    },
+    {
+      "escalation_reasons": [
+        "media_with_clean_text"
+      ],
+      "final_verdict": {
+        "action": "ALLOW",
+        "clause_ids": [],
+        "confidence": 1.0,
+        "evidence": [],
+        "item_id": "x-2082904065017590139",
+        "policy_version": 1,
+        "rationale": "Neutral historical travel promotion featuring Pompeii ruins imagery and a streaming documentary mention; no celebration of graphic violence, illegal drug sales, or synthetic media impersonating officials.",
+        "severity": 0,
+        "tier": 2
+      },
+      "gate_results": [
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G1",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G2",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G4",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G6",
+          "passed": true
+        }
+      ],
+      "item_id": "x-2082904065017590139",
+      "low_verdict": {
+        "action": "ALLOW",
+        "clause_ids": [],
+        "confidence": 1.0,
+        "evidence": [],
+        "item_id": "x-2082904065017590139",
+        "policy_version": 1,
+        "rationale": "Neutral historical travel promotion with ruins imagery; no graphic violence, illegal drugs, or synthetic media concerns.",
+        "severity": 0,
+        "tier": 1
+      },
+      "matched_terms": [],
+      "model_calls": [
+        {
+          "cost_in_usd_ticks": 53564000,
+          "cost_usd": 0.0053564,
+          "elapsed_ms": 5686.37687500086,
+          "input_tokens": 1917,
+          "model": "grok-4.5",
+          "output_tokens": 290,
+          "reasoning_effort": "low",
+          "reasoning_tokens": 214,
+          "response_id": "964a3f1d-0bed-911f-9036-cc4ebc0bdb4f",
+          "surface": "model.adjacency_judge.tier1",
+          "total_tokens": 2207
+        },
+        {
+          "cost_in_usd_ticks": 67424000,
+          "cost_usd": 0.0067424,
+          "elapsed_ms": 7899.623375000374,
+          "input_tokens": 2019,
+          "model": "grok-4.5",
+          "output_tokens": 487,
+          "reasoning_effort": "high",
+          "reasoning_tokens": 374,
+          "response_id": "3a120542-22a0-904c-a80a-43553fcbb9e5",
+          "surface": "model.adjacency_judge.tier2",
+          "total_tokens": 2506
+        }
+      ],
+      "model_errors": [],
+      "tier_zero_code": "T0_MEDIA_REQUIRES_MODEL"
+    },
+    {
+      "escalation_reasons": [
+        "media_with_clean_text"
+      ],
+      "final_verdict": {
+        "action": "ALLOW",
+        "clause_ids": [],
+        "confidence": 0.99,
+        "evidence": [],
+        "item_id": "x-2082907615332274428",
+        "policy_version": 1,
+        "rationale": "Benign wildlife nature content and photo of a pika on rocks; no celebration of graphic violence, no illegal drug sales promotion, and no synthetic media impersonating public officials.",
+        "severity": 0,
+        "tier": 2
+      },
+      "gate_results": [
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G1",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G2",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G4",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G6",
+          "passed": true
+        }
+      ],
+      "item_id": "x-2082907615332274428",
+      "low_verdict": {
+        "action": "ALLOW",
+        "clause_ids": [],
+        "confidence": 0.99,
+        "evidence": [],
+        "item_id": "x-2082907615332274428",
+        "policy_version": 1,
+        "rationale": "Benign nature content about pikas with no graphic violence, illegal drug promotion, or synthetic media of public officials.",
+        "severity": 0,
+        "tier": 1
+      },
+      "matched_terms": [],
+      "model_calls": [
+        {
+          "cost_in_usd_ticks": 49884000,
+          "cost_usd": 0.0049884,
+          "elapsed_ms": 5373.8227499998175,
+          "input_tokens": 1883,
+          "model": "grok-4.5",
+          "output_tokens": 240,
+          "reasoning_effort": "low",
+          "reasoning_tokens": 161,
+          "response_id": "b8fb87c1-2cc7-9bd6-8b49-6c1e99b94487",
+          "surface": "model.adjacency_judge.tier1",
+          "total_tokens": 2123
+        },
+        {
+          "cost_in_usd_ticks": 68304000,
+          "cost_usd": 0.0068304,
+          "elapsed_ms": 7943.354625000211,
+          "input_tokens": 1988,
+          "model": "grok-4.5",
+          "output_tokens": 512,
+          "reasoning_effort": "high",
+          "reasoning_tokens": 421,
+          "response_id": "6674adb0-47a0-950b-8ea8-0a9d3287ec57",
+          "surface": "model.adjacency_judge.tier2",
+          "total_tokens": 2500
+        }
+      ],
+      "model_errors": [],
+      "tier_zero_code": "T0_MEDIA_REQUIRES_MODEL"
+    },
+    {
+      "escalation_reasons": [
+        "media_with_clean_text"
+      ],
+      "final_verdict": {
+        "action": "REVIEW",
+        "clause_ids": [
+          "allow-news-public-health"
+        ],
+        "confidence": 0.95,
+        "evidence": [
+          {
+            "end": 58,
+            "kind": "text",
+            "quote": "Astronaut Deniz Burnham is heading to space for the first time!",
+            "start": 0
+          }
+        ],
+        "item_id": "x-2082911174522257413",
+        "policy_version": 1,
+        "rationale": "Neutral positive news report about an astronaut's upcoming mission with matching official portrait; no celebration of graphic violence, no promotion of illegal drugs, and no indication of synthetic media impersonating a public official. [coerced to REVIEW: G1_SPAN_NOT_FOUND]",
+        "severity": 0,
+        "tier": 2
+      },
+      "gate_results": [
+        {
+          "code": "G1_SPAN_NOT_FOUND",
+          "coerce_to": "REVIEW",
+          "detail": "text[0:58] is 'Astronaut Deniz Burnham is heading to space for the first ', cited quote is 'Astronaut Deniz Burnham is heading to space for the first time!'",
+          "gate": "G1",
+          "passed": false
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G2",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G4",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G6",
+          "passed": true
+        }
+      ],
+      "item_id": "x-2082911174522257413",
+      "low_verdict": {
+        "action": "ALLOW",
+        "clause_ids": [],
+        "confidence": 0.95,
+        "evidence": [],
+        "item_id": "x-2082911174522257413",
+        "policy_version": 1,
+        "rationale": "Neutral positive news about an astronaut mission with official portrait; no graphic violence, illegal drugs, or synthetic impersonation of officials.",
+        "severity": 0,
+        "tier": 1
+      },
+      "matched_terms": [],
+      "model_calls": [
+        {
+          "cost_in_usd_ticks": 50424000,
+          "cost_usd": 0.0050424,
+          "elapsed_ms": 4384.678207999968,
+          "input_tokens": 1883,
+          "model": "grok-4.5",
+          "output_tokens": 249,
+          "reasoning_effort": "low",
+          "reasoning_tokens": 168,
+          "response_id": "55f02ddd-d32c-940c-9092-c027cc9b4350",
+          "surface": "model.adjacency_judge.tier1",
+          "total_tokens": 2132
+        },
+        {
+          "cost_in_usd_ticks": 75784000,
+          "cost_usd": 0.0075784,
+          "elapsed_ms": 11246.903583001767,
+          "input_tokens": 1990,
+          "model": "grok-4.5",
+          "output_tokens": 636,
+          "reasoning_effort": "high",
+          "reasoning_tokens": 460,
+          "response_id": "f8cdf713-e7e9-9d73-8e3f-3f5ae055c53a",
+          "surface": "model.adjacency_judge.tier2",
+          "total_tokens": 2626
+        }
+      ],
+      "model_errors": [],
+      "tier_zero_code": "T0_MEDIA_REQUIRES_MODEL"
+    },
+    {
+      "escalation_reasons": [
+        "media_with_clean_text"
+      ],
+      "final_verdict": {
+        "action": "ALLOW",
+        "clause_ids": [],
+        "confidence": 0.96,
+        "evidence": [],
+        "item_id": "x-2083005530893959648",
+        "policy_version": 1,
+        "rationale": "Neutral technical diagram and caption on electrohydrodynamic momentum transfer / propulsion concepts. No celebration of graphic violence, no promotion of illegal drug sales, and no suspected synthetic impersonation of public officials.",
+        "severity": 0,
+        "tier": 2
+      },
+      "gate_results": [
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G1",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G2",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G4",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G6",
+          "passed": true
+        }
+      ],
+      "item_id": "x-2083005530893959648",
+      "low_verdict": {
+        "action": "ALLOW",
+        "clause_ids": [],
+        "confidence": 0.95,
+        "evidence": [],
+        "item_id": "x-2083005530893959648",
+        "policy_version": 1,
+        "rationale": "Neutral technical content about AI-assisted scientific diagrams with no celebration of graphic violence, illegal drug promotion, or synthetic impersonation of officials.",
+        "severity": 0,
+        "tier": 1
+      },
+      "matched_terms": [],
+      "model_calls": [
+        {
+          "cost_in_usd_ticks": 39364000,
+          "cost_usd": 0.0039364,
+          "elapsed_ms": 2102.299624999432,
+          "input_tokens": 1828,
+          "model": "grok-4.5",
+          "output_tokens": 83,
+          "reasoning_effort": "low",
+          "reasoning_tokens": 0,
+          "response_id": "cbb5ef39-83a0-9452-bd68-6e7e6b81050d",
+          "surface": "model.adjacency_judge.tier1",
+          "total_tokens": 1911
+        },
+        {
+          "cost_in_usd_ticks": 75864000,
+          "cost_usd": 0.0075864,
+          "elapsed_ms": 11195.182708001084,
+          "input_tokens": 1937,
+          "model": "grok-4.5",
+          "output_tokens": 655,
+          "reasoning_effort": "high",
+          "reasoning_tokens": 561,
+          "response_id": "205e3e6d-d48b-9a74-95b8-cd441e188f9a",
+          "surface": "model.adjacency_judge.tier2",
+          "total_tokens": 2592
+        }
+      ],
+      "model_errors": [],
+      "tier_zero_code": "T0_MEDIA_REQUIRES_MODEL"
+    },
+    {
+      "escalation_reasons": [
+        "media_with_clean_text",
+        "low_tier_gate_failure"
+      ],
+      "final_verdict": {
+        "action": "REVIEW",
+        "clause_ids": [],
+        "confidence": 0.99,
+        "evidence": [
+          {
+            "end": 160,
+            "kind": "text",
+            "quote": "On World Ranger Day, we celebrate the dedication, courage, and commitment of rangers who protect and care for national parks and protected areas around the world.",
+            "start": 0
+          }
+        ],
+        "item_id": "x-2083214677291696596",
+        "policy_version": 1,
+        "rationale": "Benign World Ranger Day graphic and text celebrating park rangers and nature conservation from NPS; contains no graphic violence, illegal drug promotion, or synthetic impersonation of public officials. [coerced to REVIEW: G1_SPAN_NOT_FOUND]",
+        "severity": 0,
+        "tier": 2
+      },
+      "gate_results": [
+        {
+          "code": "G1_SPAN_NOT_FOUND",
+          "coerce_to": "REVIEW",
+          "detail": "text[0:160] is 'On World Ranger Day, we celebrate the dedication, courage, and commitment of rangers who protect and care for national parks and protected areas around the worl', cited quote is 'On World Ranger Day, we celebrate the dedication, courage, and commitment of rangers who protect and care for national parks and protected areas around the world.'",
+          "gate": "G1",
+          "passed": false
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G2",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G4",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G6",
+          "passed": true
+        }
+      ],
+      "item_id": "x-2083214677291696596",
+      "low_verdict": {
+        "action": "ALLOW",
+        "clause_ids": [],
+        "confidence": 0.99,
+        "evidence": [
+          {
+            "end": 160,
+            "kind": "text",
+            "quote": "On World Ranger Day, we celebrate the dedication, courage, and commitment of rangers who protect and care for national parks and protected areas around the world.",
+            "start": 0
+          }
+        ],
+        "item_id": "x-2083214677291696596",
+        "policy_version": 1,
+        "rationale": "Benign celebration of park rangers and nature; no graphic violence, illegal drug promotion, or synthetic impersonation of officials.",
+        "severity": 0,
+        "tier": 1
+      },
+      "matched_terms": [],
+      "model_calls": [
+        {
+          "cost_in_usd_ticks": 56444000,
+          "cost_usd": 0.0056444,
+          "elapsed_ms": 6381.003750000673,
+          "input_tokens": 1926,
+          "model": "grok-4.5",
+          "output_tokens": 335,
+          "reasoning_effort": "low",
+          "reasoning_tokens": 206,
+          "response_id": "9115167a-0e2e-96f0-9449-ec231d156c7d",
+          "surface": "model.adjacency_judge.tier1",
+          "total_tokens": 2261
+        },
+        {
+          "cost_in_usd_ticks": 74724000,
+          "cost_usd": 0.0074724,
+          "elapsed_ms": 9187.663582999448,
+          "input_tokens": 2090,
+          "model": "grok-4.5",
+          "output_tokens": 585,
+          "reasoning_effort": "high",
+          "reasoning_tokens": 405,
+          "response_id": "89fa1b39-837a-9c09-bbda-e74a5993a89f",
+          "surface": "model.adjacency_judge.tier2",
+          "total_tokens": 2675
+        }
+      ],
+      "model_errors": [],
+      "tier_zero_code": "T0_MEDIA_REQUIRES_MODEL"
+    },
+    {
+      "escalation_reasons": [
+        "media_with_clean_text",
+        "low_tier_gate_failure"
+      ],
+      "final_verdict": {
+        "action": "REVIEW",
+        "clause_ids": [
+          "allow-news-public-health"
+        ],
+        "confidence": 0.96,
+        "evidence": [
+          {
+            "end": 249,
+            "kind": "text",
+            "quote": "Extremely hot and dry conditions in June and July enabled large fires to break out in Europe. Spain saw its largest fire on record in \u00c1vila, as shown in this Landsat 9 false color image. Unburned vegetation is light green and burned areas appear brown.",
+            "start": 0
+          },
+          {
+            "h": 512,
+            "kind": "image",
+            "media_id": "x-2083245767687323925-media-1",
+            "note": "Landsat false-color satellite map of burned terrain and reservoirs; no people, violence, or synthetic impersonation",
+            "w": 768,
+            "x": 0,
+            "y": 0
+          }
+        ],
+        "item_id": "x-2083245767687323925",
+        "policy_version": 1,
+        "rationale": "Neutral environmental news on wildfire extent with explanatory satellite imagery. No celebration of violence, no drug promotion, and no synthetic media of officials; fits allowed public-interest reporting. [coerced to REVIEW: G1_SPAN_NOT_FOUND]",
+        "severity": 1,
+        "tier": 2
+      },
+      "gate_results": [
+        {
+          "code": "G1_SPAN_NOT_FOUND",
+          "coerce_to": "REVIEW",
+          "detail": "text[0:249] is 'Extremely hot and dry conditions in June and July enabled large fires to break out in Europe. Spain saw its largest fire on record in \u00c1vila, as shown in this Landsat 9 false color image. Unburned vegetation is light green and burned areas appear bro', cited quote is 'Extremely hot and dry conditions in June and July enabled large fires to break out in Europe. Spain saw its largest fire on record in \u00c1vila, as shown in this Landsat 9 false color image. Unburned vegetation is light green and burned areas appear brown.'",
+          "gate": "G1",
+          "passed": false
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G2",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G4",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G6",
+          "passed": true
+        }
+      ],
+      "item_id": "x-2083245767687323925",
+      "low_verdict": {
+        "action": "ALLOW",
+        "clause_ids": [
+          "allow-news-public-health"
+        ],
+        "confidence": 0.95,
+        "evidence": [
+          {
+            "end": 184,
+            "kind": "text",
+            "quote": "Extremely hot and dry conditions in June and July enabled large fires to break out in Europe. Spain saw its largest fire on record in \u00c1vila, as shown in this Landsat 9 false color image.",
+            "start": 0
+          }
+        ],
+        "item_id": "x-2083245767687323925",
+        "policy_version": 1,
+        "rationale": "Neutral news reporting on wildfires with satellite imagery; fits public-interest environmental coverage and does not celebrate violence or promote drugs.",
+        "severity": 1,
+        "tier": 1
+      },
+      "matched_terms": [],
+      "model_calls": [
+        {
+          "cost_in_usd_ticks": 56764000,
+          "cost_usd": 0.0056764,
+          "elapsed_ms": 5628.379792000487,
+          "input_tokens": 1891,
+          "model": "grok-4.5",
+          "output_tokens": 352,
+          "reasoning_effort": "low",
+          "reasoning_tokens": 163,
+          "response_id": "4c661b0e-821c-9937-bb2b-bbb1c3964fc8",
+          "surface": "model.adjacency_judge.tier1",
+          "total_tokens": 2243
+        },
+        {
+          "cost_in_usd_ticks": 80164000,
+          "cost_usd": 0.0080164,
+          "elapsed_ms": 9959.468291999656,
+          "input_tokens": 2074,
+          "model": "grok-4.5",
+          "output_tokens": 681,
+          "reasoning_effort": "high",
+          "reasoning_tokens": 377,
+          "response_id": "0afc2e57-c925-9b64-9827-33e0b3265ff2",
+          "surface": "model.adjacency_judge.tier2",
+          "total_tokens": 2755
+        }
+      ],
+      "model_errors": [],
+      "tier_zero_code": "T0_MEDIA_REQUIRES_MODEL"
+    },
+    {
+      "escalation_reasons": [
+        "media_with_clean_text"
+      ],
+      "final_verdict": {
+        "action": "REVIEW",
+        "clause_ids": [
+          "allow-news-public-health"
+        ],
+        "confidence": 0.98,
+        "evidence": [
+          {
+            "end": 160,
+            "kind": "text",
+            "quote": "NASA astronaut Deniz Burnham is targeted to begin her first mission to the International Space Station, serving as an Expedition 76 flight engineer, in March 2027.",
+            "start": 1
+          }
+        ],
+        "item_id": "x-2083591796332921314",
+        "policy_version": 1,
+        "rationale": "Neutral NASA mission announcement with a standard official astronaut portrait; no celebration of graphic violence, no promotion of illegal drug sales, and no indication of synthetic media impersonating a public official. [coerced to REVIEW: G1_SPAN_NOT_FOUND]",
+        "severity": 0,
+        "tier": 2
+      },
+      "gate_results": [
+        {
+          "code": "G1_SPAN_NOT_FOUND",
+          "coerce_to": "REVIEW",
+          "detail": "text[1:160] is '@NASA astronaut Deniz Burnham is targeted to begin her first mission to the International Space Station, serving as an Expedition 76 flight engineer, in March ', cited quote is 'NASA astronaut Deniz Burnham is targeted to begin her first mission to the International Space Station, serving as an Expedition 76 flight engineer, in March 2027.'",
+          "gate": "G1",
+          "passed": false
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G2",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G4",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G6",
+          "passed": true
+        }
+      ],
+      "item_id": "x-2083591796332921314",
+      "low_verdict": {
+        "action": "ALLOW",
+        "clause_ids": [],
+        "confidence": 0.95,
+        "evidence": [],
+        "item_id": "x-2083591796332921314",
+        "policy_version": 1,
+        "rationale": "Neutral NASA astronaut mission announcement with official portrait; no graphic violence, illegal drugs, or synthetic media concerns.",
+        "severity": 0,
+        "tier": 1
+      },
+      "matched_terms": [],
+      "model_calls": [
+        {
+          "cost_in_usd_ticks": 32828000,
+          "cost_usd": 0.0032828,
+          "elapsed_ms": 3513.245541998913,
+          "input_tokens": 1920,
+          "model": "grok-4.5",
+          "output_tokens": 161,
+          "reasoning_effort": "low",
+          "reasoning_tokens": 84,
+          "response_id": "96fe8461-1c32-9fef-8521-ffd845966ef3",
+          "surface": "model.adjacency_judge.tier1",
+          "total_tokens": 2081
+        },
+        {
+          "cost_in_usd_ticks": 75964000,
+          "cost_usd": 0.0075964,
+          "elapsed_ms": 10991.117958999894,
+          "input_tokens": 2023,
+          "model": "grok-4.5",
+          "output_tokens": 628,
+          "reasoning_effort": "high",
+          "reasoning_tokens": 477,
+          "response_id": "39104403-da90-94c2-9cc2-0e21ab329a2c",
+          "surface": "model.adjacency_judge.tier2",
+          "total_tokens": 2651
+        }
+      ],
+      "model_errors": [],
+      "tier_zero_code": "T0_MEDIA_REQUIRES_MODEL"
+    },
+    {
+      "escalation_reasons": [
+        "media_with_clean_text"
+      ],
+      "final_verdict": {
+        "action": "ALLOW",
+        "clause_ids": [],
+        "confidence": 1.0,
+        "evidence": [],
+        "item_id": "x-2083651229813764516",
+        "policy_version": 1,
+        "rationale": "Neutral nature content describing and depicting a skeleton flower with no graphic violence, illegal drug promotion, or synthetic media of public officials.",
+        "severity": 0,
+        "tier": 2
+      },
+      "gate_results": [
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G1",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G2",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G4",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G6",
+          "passed": true
+        }
+      ],
+      "item_id": "x-2083651229813764516",
+      "low_verdict": {
+        "action": "ALLOW",
+        "clause_ids": [],
+        "confidence": 1.0,
+        "evidence": [],
+        "item_id": "x-2083651229813764516",
+        "policy_version": 1,
+        "rationale": "Neutral nature content about a flower with no violence, drugs, or synthetic media of officials.",
+        "severity": 0,
+        "tier": 1
+      },
+      "matched_terms": [],
+      "model_calls": [
+        {
+          "cost_in_usd_ticks": 50004000,
+          "cost_usd": 0.0050004,
+          "elapsed_ms": 4615.094000000681,
+          "input_tokens": 1829,
+          "model": "grok-4.5",
+          "output_tokens": 260,
+          "reasoning_effort": "low",
+          "reasoning_tokens": 186,
+          "response_id": "1ca27d88-2647-9793-be60-f90d939fec70",
+          "surface": "model.adjacency_judge.tier1",
+          "total_tokens": 2089
+        },
+        {
+          "cost_in_usd_ticks": 61484000,
+          "cost_usd": 0.0061484,
+          "elapsed_ms": 7083.586750000904,
+          "input_tokens": 1929,
+          "model": "grok-4.5",
+          "output_tokens": 418,
+          "reasoning_effort": "high",
+          "reasoning_tokens": 312,
+          "response_id": "10d22f8d-8f28-9763-8505-d40e58a836e4",
+          "surface": "model.adjacency_judge.tier2",
+          "total_tokens": 2347
+        }
+      ],
+      "model_errors": [],
+      "tier_zero_code": "T0_MEDIA_REQUIRES_MODEL"
+    },
+    {
+      "escalation_reasons": [
+        "media_with_clean_text"
+      ],
+      "final_verdict": {
+        "action": "ALLOW",
+        "clause_ids": [],
+        "confidence": 0.99,
+        "evidence": [],
+        "item_id": "x-2083682938735009817",
+        "policy_version": 1,
+        "rationale": "Neutral wildlife photo and caption of a raven and eagle in flight; no celebration of graphic violence, illegal drug promotion, or synthetic media of officials.",
+        "severity": 0,
+        "tier": 2
+      },
+      "gate_results": [
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G1",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G2",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G4",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G6",
+          "passed": true
+        }
+      ],
+      "item_id": "x-2083682938735009817",
+      "low_verdict": {
+        "action": "ALLOW",
+        "clause_ids": [],
+        "confidence": 0.99,
+        "evidence": [],
+        "item_id": "x-2083682938735009817",
+        "policy_version": 1,
+        "rationale": "Neutral nature content about birds in flight; no graphic violence, illegal drugs, or synthetic media of officials.",
+        "severity": 0,
+        "tier": 1
+      },
+      "matched_terms": [],
+      "model_calls": [
+        {
+          "cost_in_usd_ticks": 53344000,
+          "cost_usd": 0.0053344,
+          "elapsed_ms": 4810.594499998842,
+          "input_tokens": 2047,
+          "model": "grok-4.5",
+          "output_tokens": 243,
+          "reasoning_effort": "low",
+          "reasoning_tokens": 166,
+          "response_id": "0ab720cb-5b5c-9f32-ba12-c2cf00026f93",
+          "surface": "model.adjacency_judge.tier1",
+          "total_tokens": 2290
+        },
+        {
+          "cost_in_usd_ticks": 61404000,
+          "cost_usd": 0.0061404,
+          "elapsed_ms": 5868.420458000401,
+          "input_tokens": 2150,
+          "model": "grok-4.5",
+          "output_tokens": 343,
+          "reasoning_effort": "high",
+          "reasoning_tokens": 258,
+          "response_id": "20ee9103-d0b1-9f6a-b61f-9763d3e50bd4",
+          "surface": "model.adjacency_judge.tier2",
+          "total_tokens": 2493
+        }
+      ],
+      "model_errors": [],
+      "tier_zero_code": "T0_MEDIA_REQUIRES_MODEL"
+    },
+    {
+      "escalation_reasons": [],
+      "final_verdict": {
+        "action": "ALLOW",
+        "clause_ids": [],
+        "confidence": 1.0,
+        "evidence": [],
+        "item_id": "x-2083686862661521782",
+        "policy_version": 1,
+        "rationale": "Tier 0 deterministic clean-text allow.",
+        "severity": 0,
+        "tier": 0
+      },
+      "gate_results": [
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G1",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G2",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G4",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G6",
+          "passed": true
+        }
+      ],
+      "item_id": "x-2083686862661521782",
+      "low_verdict": null,
+      "matched_terms": [],
+      "model_calls": [],
+      "model_errors": [],
+      "tier_zero_code": "T0_CLEAN_TEXT_ALLOW"
+    },
+    {
+      "escalation_reasons": [],
+      "final_verdict": {
+        "action": "ALLOW",
+        "clause_ids": [],
+        "confidence": 1.0,
+        "evidence": [],
+        "item_id": "x-2083695842171515382",
+        "policy_version": 1,
+        "rationale": "Tier 0 deterministic clean-text allow.",
+        "severity": 0,
+        "tier": 0
+      },
+      "gate_results": [
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G1",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G2",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G4",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G6",
+          "passed": true
+        }
+      ],
+      "item_id": "x-2083695842171515382",
+      "low_verdict": null,
+      "matched_terms": [],
+      "model_calls": [],
+      "model_errors": [],
+      "tier_zero_code": "T0_CLEAN_TEXT_ALLOW"
+    },
+    {
+      "escalation_reasons": [],
+      "final_verdict": {
+        "action": "ALLOW",
+        "clause_ids": [],
+        "confidence": 1.0,
+        "evidence": [],
+        "item_id": "x-2083700086526415224",
+        "policy_version": 1,
+        "rationale": "Tier 0 deterministic clean-text allow.",
+        "severity": 0,
+        "tier": 0
+      },
+      "gate_results": [
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G1",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G2",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G4",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G6",
+          "passed": true
+        }
+      ],
+      "item_id": "x-2083700086526415224",
+      "low_verdict": null,
+      "matched_terms": [],
+      "model_calls": [],
+      "model_errors": [],
+      "tier_zero_code": "T0_CLEAN_TEXT_ALLOW"
+    },
+    {
+      "escalation_reasons": [],
+      "final_verdict": {
+        "action": "ALLOW",
+        "clause_ids": [],
+        "confidence": 1.0,
+        "evidence": [],
+        "item_id": "x-2083703751404028286",
+        "policy_version": 1,
+        "rationale": "Tier 0 deterministic clean-text allow.",
+        "severity": 0,
+        "tier": 0
+      },
+      "gate_results": [
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G1",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G2",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G4",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G6",
+          "passed": true
+        }
+      ],
+      "item_id": "x-2083703751404028286",
+      "low_verdict": null,
+      "matched_terms": [],
+      "model_calls": [],
+      "model_errors": [],
+      "tier_zero_code": "T0_CLEAN_TEXT_ALLOW"
+    },
+    {
+      "escalation_reasons": [],
+      "final_verdict": {
+        "action": "ALLOW",
+        "clause_ids": [],
+        "confidence": 1.0,
+        "evidence": [],
+        "item_id": "x-2083704047459004612",
+        "policy_version": 1,
+        "rationale": "Tier 0 deterministic clean-text allow.",
+        "severity": 0,
+        "tier": 0
+      },
+      "gate_results": [
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G1",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G2",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G4",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G6",
+          "passed": true
+        }
+      ],
+      "item_id": "x-2083704047459004612",
+      "low_verdict": null,
+      "matched_terms": [],
+      "model_calls": [],
+      "model_errors": [],
+      "tier_zero_code": "T0_CLEAN_TEXT_ALLOW"
+    },
+    {
+      "escalation_reasons": [],
+      "final_verdict": {
+        "action": "ALLOW",
+        "clause_ids": [],
+        "confidence": 1.0,
+        "evidence": [],
+        "item_id": "x-2083704103046127828",
+        "policy_version": 1,
+        "rationale": "Tier 0 deterministic clean-text allow.",
+        "severity": 0,
+        "tier": 0
+      },
+      "gate_results": [
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G1",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G2",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G4",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G6",
+          "passed": true
+        }
+      ],
+      "item_id": "x-2083704103046127828",
+      "low_verdict": null,
+      "matched_terms": [],
+      "model_calls": [],
+      "model_errors": [],
+      "tier_zero_code": "T0_CLEAN_TEXT_ALLOW"
+    },
+    {
+      "escalation_reasons": [],
+      "final_verdict": {
+        "action": "ALLOW",
+        "clause_ids": [],
+        "confidence": 1.0,
+        "evidence": [],
+        "item_id": "x-2083704113557074341",
+        "policy_version": 1,
+        "rationale": "Tier 0 deterministic clean-text allow.",
+        "severity": 0,
+        "tier": 0
+      },
+      "gate_results": [
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G1",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G2",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G4",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G6",
+          "passed": true
+        }
+      ],
+      "item_id": "x-2083704113557074341",
+      "low_verdict": null,
+      "matched_terms": [],
+      "model_calls": [],
+      "model_errors": [],
+      "tier_zero_code": "T0_CLEAN_TEXT_ALLOW"
+    },
+    {
+      "escalation_reasons": [],
+      "final_verdict": {
+        "action": "ALLOW",
+        "clause_ids": [],
+        "confidence": 1.0,
+        "evidence": [],
+        "item_id": "x-2083704178061238598",
+        "policy_version": 1,
+        "rationale": "Tier 0 deterministic clean-text allow.",
+        "severity": 0,
+        "tier": 0
+      },
+      "gate_results": [
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G1",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G2",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G4",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G6",
+          "passed": true
+        }
+      ],
+      "item_id": "x-2083704178061238598",
+      "low_verdict": null,
+      "matched_terms": [],
+      "model_calls": [],
+      "model_errors": [],
+      "tier_zero_code": "T0_CLEAN_TEXT_ALLOW"
+    },
+    {
+      "escalation_reasons": [],
+      "final_verdict": {
+        "action": "ALLOW",
+        "clause_ids": [],
+        "confidence": 1.0,
+        "evidence": [],
+        "item_id": "x-2083704186609549694",
+        "policy_version": 1,
+        "rationale": "Tier 0 deterministic clean-text allow.",
+        "severity": 0,
+        "tier": 0
+      },
+      "gate_results": [
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G1",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G2",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G4",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G6",
+          "passed": true
+        }
+      ],
+      "item_id": "x-2083704186609549694",
+      "low_verdict": null,
+      "matched_terms": [],
+      "model_calls": [],
+      "model_errors": [],
+      "tier_zero_code": "T0_CLEAN_TEXT_ALLOW"
+    },
+    {
+      "escalation_reasons": [],
+      "final_verdict": {
+        "action": "ALLOW",
+        "clause_ids": [],
+        "confidence": 1.0,
+        "evidence": [],
+        "item_id": "x-2083704188282831228",
+        "policy_version": 1,
+        "rationale": "Tier 0 deterministic clean-text allow.",
+        "severity": 0,
+        "tier": 0
+      },
+      "gate_results": [
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G1",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G2",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G4",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G6",
+          "passed": true
+        }
+      ],
+      "item_id": "x-2083704188282831228",
+      "low_verdict": null,
+      "matched_terms": [],
+      "model_calls": [],
+      "model_errors": [],
+      "tier_zero_code": "T0_CLEAN_TEXT_ALLOW"
+    },
+    {
+      "escalation_reasons": [],
+      "final_verdict": {
+        "action": "ALLOW",
+        "clause_ids": [],
+        "confidence": 1.0,
+        "evidence": [],
+        "item_id": "x-2083704231106658492",
+        "policy_version": 1,
+        "rationale": "Tier 0 deterministic clean-text allow.",
+        "severity": 0,
+        "tier": 0
+      },
+      "gate_results": [
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G1",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G2",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G4",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G6",
+          "passed": true
+        }
+      ],
+      "item_id": "x-2083704231106658492",
+      "low_verdict": null,
+      "matched_terms": [],
+      "model_calls": [],
+      "model_errors": [],
+      "tier_zero_code": "T0_CLEAN_TEXT_ALLOW"
+    },
+    {
+      "escalation_reasons": [],
+      "final_verdict": {
+        "action": "ALLOW",
+        "clause_ids": [],
+        "confidence": 1.0,
+        "evidence": [],
+        "item_id": "x-2083704235317977549",
+        "policy_version": 1,
+        "rationale": "Tier 0 deterministic clean-text allow.",
+        "severity": 0,
+        "tier": 0
+      },
+      "gate_results": [
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G1",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G2",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G4",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G6",
+          "passed": true
+        }
+      ],
+      "item_id": "x-2083704235317977549",
+      "low_verdict": null,
+      "matched_terms": [],
+      "model_calls": [],
+      "model_errors": [],
+      "tier_zero_code": "T0_CLEAN_TEXT_ALLOW"
+    },
+    {
+      "escalation_reasons": [],
+      "final_verdict": {
+        "action": "ALLOW",
+        "clause_ids": [],
+        "confidence": 1.0,
+        "evidence": [],
+        "item_id": "x-2083704271409697278",
+        "policy_version": 1,
+        "rationale": "Tier 0 deterministic clean-text allow.",
+        "severity": 0,
+        "tier": 0
+      },
+      "gate_results": [
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G1",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G2",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G4",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G6",
+          "passed": true
+        }
+      ],
+      "item_id": "x-2083704271409697278",
+      "low_verdict": null,
+      "matched_terms": [],
+      "model_calls": [],
+      "model_errors": [],
+      "tier_zero_code": "T0_CLEAN_TEXT_ALLOW"
+    },
+    {
+      "escalation_reasons": [],
+      "final_verdict": {
+        "action": "ALLOW",
+        "clause_ids": [],
+        "confidence": 1.0,
+        "evidence": [],
+        "item_id": "x-2083704288400798039",
+        "policy_version": 1,
+        "rationale": "Tier 0 deterministic clean-text allow.",
+        "severity": 0,
+        "tier": 0
+      },
+      "gate_results": [
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G1",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G2",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G4",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G6",
+          "passed": true
+        }
+      ],
+      "item_id": "x-2083704288400798039",
+      "low_verdict": null,
+      "matched_terms": [],
+      "model_calls": [],
+      "model_errors": [],
+      "tier_zero_code": "T0_CLEAN_TEXT_ALLOW"
+    },
+    {
+      "escalation_reasons": [],
+      "final_verdict": {
+        "action": "ALLOW",
+        "clause_ids": [],
+        "confidence": 1.0,
+        "evidence": [],
+        "item_id": "x-2083704307015430570",
+        "policy_version": 1,
+        "rationale": "Tier 0 deterministic clean-text allow.",
+        "severity": 0,
+        "tier": 0
+      },
+      "gate_results": [
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G1",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G2",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G4",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G6",
+          "passed": true
+        }
+      ],
+      "item_id": "x-2083704307015430570",
+      "low_verdict": null,
+      "matched_terms": [],
+      "model_calls": [],
+      "model_errors": [],
+      "tier_zero_code": "T0_CLEAN_TEXT_ALLOW"
+    },
+    {
+      "escalation_reasons": [],
+      "final_verdict": {
+        "action": "ALLOW",
+        "clause_ids": [],
+        "confidence": 1.0,
+        "evidence": [],
+        "item_id": "x-2083704311285244277",
+        "policy_version": 1,
+        "rationale": "Tier 0 deterministic clean-text allow.",
+        "severity": 0,
+        "tier": 0
+      },
+      "gate_results": [
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G1",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G2",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G4",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G6",
+          "passed": true
+        }
+      ],
+      "item_id": "x-2083704311285244277",
+      "low_verdict": null,
+      "matched_terms": [],
+      "model_calls": [],
+      "model_errors": [],
+      "tier_zero_code": "T0_CLEAN_TEXT_ALLOW"
+    },
+    {
+      "escalation_reasons": [],
+      "final_verdict": {
+        "action": "ALLOW",
+        "clause_ids": [],
+        "confidence": 1.0,
+        "evidence": [],
+        "item_id": "x-2083704311792738366",
+        "policy_version": 1,
+        "rationale": "Tier 0 deterministic clean-text allow.",
+        "severity": 0,
+        "tier": 0
+      },
+      "gate_results": [
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G1",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G2",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G4",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G6",
+          "passed": true
+        }
+      ],
+      "item_id": "x-2083704311792738366",
+      "low_verdict": null,
+      "matched_terms": [],
+      "model_calls": [],
+      "model_errors": [],
+      "tier_zero_code": "T0_CLEAN_TEXT_ALLOW"
+    },
+    {
+      "escalation_reasons": [],
+      "final_verdict": {
+        "action": "ALLOW",
+        "clause_ids": [],
+        "confidence": 1.0,
+        "evidence": [],
+        "item_id": "x-2083704314187653153",
+        "policy_version": 1,
+        "rationale": "Tier 0 deterministic clean-text allow.",
+        "severity": 0,
+        "tier": 0
+      },
+      "gate_results": [
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G1",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G2",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G4",
+          "passed": true
+        },
+        {
+          "code": null,
+          "coerce_to": null,
+          "detail": "",
+          "gate": "G6",
+          "passed": true
+        }
+      ],
+      "item_id": "x-2083704314187653153",
+      "low_verdict": null,
+      "matched_terms": [],
+      "model_calls": [],
+      "model_errors": [],
+      "tier_zero_code": "T0_CLEAN_TEXT_ALLOW"
+    }
+  ]
+}

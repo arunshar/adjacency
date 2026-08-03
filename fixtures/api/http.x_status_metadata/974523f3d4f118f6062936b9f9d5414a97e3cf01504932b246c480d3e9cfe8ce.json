@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/tydyryblue/status/2083695842171515382"
+  },
+  "request_sha256": "974523f3d4f118f6062936b9f9d5414a97e3cf01504932b246c480d3e9cfe8ce",
+  "response": {
+    "author_handle": "@tydyryblue",
+    "created_at": "August 1, 2026",
+    "media_height": null,
+    "media_url": null,
+    "media_width": null,
+    "source_url": "https://x.com/tydyryblue/status/2083695842171515382",
+    "text": "The Brady Handgun Violence Prevention Act of 1993 (Public Law 103-159), commonly called the Brady Act or Brady Bill, required federal background checks for firearm purchases from licensed dealers and established an interim five-business-day waiting period for handguns. It is\u2026"
+  },
+  "response_sha256": "3cd31a3edec90b61de0a8351709fda858b09fa7bd1559de1a4c50b6c9a1aa426",
+  "surface": "http.x_status_metadata"
+}

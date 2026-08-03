@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/FictionWrite/status/2082757457756233974"
+  },
+  "request_sha256": "fce75394aed272f5bd4e1b7f2f07b5dc06986288ce038ab59529b42309c6c113",
+  "response": {
+    "author_handle": "@FictionWrite",
+    "created_at": "July 30, 2026",
+    "media_height": null,
+    "media_url": null,
+    "media_width": null,
+    "source_url": "https://x.com/FictionWrite/status/2082757457756233974",
+    "text": "The heroes just come home from defeating the greatest evil and oppressive super power of their age, and what do they find in the Shire? A washed out wizard and a king's advisor assaulting their village, despite having been defeated in the second book. Thats the equivalent of\u2026"
+  },
+  "response_sha256": "cd153d033ccbd81a0f293b7e4fd49bc889a768c3537873a321d94c417b15c29f",
+  "surface": "http.x_status_metadata"
+}

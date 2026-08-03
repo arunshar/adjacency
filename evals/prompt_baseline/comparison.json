@@ -1,0 +1,465 @@
+{
+  "action_disagreement_count": 1,
+  "action_disagreement_item_ids": [
+    "x-2082551906228912361"
+  ],
+  "action_disagreement_rate": 0.02,
+  "corpus_hash": "91d93e38db8bb93c532f17ff3db4eeb02b68ca8179194ae0db899656d9e5e390",
+  "expected_item_count": 50,
+  "policy_prose_sha256": "52c97daa0003ee44d121e8614a49a99391c700eb4eaa95aabaae1255116e94b2",
+  "run_1": {
+    "duplicate_item_ids": [],
+    "extra_item_ids": [],
+    "grounding": {
+      "claim_count": 50,
+      "failure_count": 34,
+      "failure_rate": 0.68,
+      "failures": [
+        {
+          "code": "TEXT_SPAN_NOT_FOUND",
+          "evidence_index": 0,
+          "item_id": "x-2009017572486692982"
+        },
+        {
+          "code": "TEXT_SPAN_NOT_FOUND",
+          "evidence_index": 0,
+          "item_id": "x-2020027665223127418"
+        },
+        {
+          "code": "TEXT_SPAN_NOT_FOUND",
+          "evidence_index": 0,
+          "item_id": "x-2069804700174574040"
+        },
+        {
+          "code": "TEXT_SPAN_NOT_FOUND",
+          "evidence_index": 0,
+          "item_id": "x-2069959210834776313"
+        },
+        {
+          "code": "TEXT_SPAN_NOT_FOUND",
+          "evidence_index": 0,
+          "item_id": "x-2073377410620219590"
+        },
+        {
+          "code": "TEXT_SPAN_NOT_FOUND",
+          "evidence_index": 0,
+          "item_id": "x-2075412071051923520"
+        },
+        {
+          "code": "TEXT_SPAN_NOT_FOUND",
+          "evidence_index": 0,
+          "item_id": "x-2077650614012539130"
+        },
+        {
+          "code": "TEXT_SPAN_NOT_FOUND",
+          "evidence_index": 0,
+          "item_id": "x-2080654232886116631"
+        },
+        {
+          "code": "TEXT_SPAN_NOT_FOUND",
+          "evidence_index": 0,
+          "item_id": "x-2081452051188371899"
+        },
+        {
+          "code": "TEXT_SPAN_NOT_FOUND",
+          "evidence_index": 0,
+          "item_id": "x-2082058501980045644"
+        },
+        {
+          "code": "TEXT_SPAN_NOT_FOUND",
+          "evidence_index": 0,
+          "item_id": "x-2082143677992804709"
+        },
+        {
+          "code": "TEXT_SPAN_NOT_FOUND",
+          "evidence_index": 0,
+          "item_id": "x-2082194383063875634"
+        },
+        {
+          "code": "TEXT_SPAN_NOT_FOUND",
+          "evidence_index": 0,
+          "item_id": "x-2082528027410334119"
+        },
+        {
+          "code": "TEXT_SPAN_NOT_FOUND",
+          "evidence_index": 0,
+          "item_id": "x-2082551906228912361"
+        },
+        {
+          "code": "TEXT_SPAN_NOT_FOUND",
+          "evidence_index": 0,
+          "item_id": "x-2082757457756233974"
+        },
+        {
+          "code": "TEXT_SPAN_NOT_FOUND",
+          "evidence_index": 0,
+          "item_id": "x-2082784079616131521"
+        },
+        {
+          "code": "TEXT_SPAN_NOT_FOUND",
+          "evidence_index": 0,
+          "item_id": "x-2082799958860665265"
+        },
+        {
+          "code": "TEXT_SPAN_NOT_FOUND",
+          "evidence_index": 0,
+          "item_id": "x-2082872571490599192"
+        },
+        {
+          "code": "TEXT_SPAN_NOT_FOUND",
+          "evidence_index": 0,
+          "item_id": "x-2082904065017590139"
+        },
+        {
+          "code": "TEXT_SPAN_NOT_FOUND",
+          "evidence_index": 0,
+          "item_id": "x-2082907615332274428"
+        },
+        {
+          "code": "TEXT_SPAN_NOT_FOUND",
+          "evidence_index": 0,
+          "item_id": "x-2083214677291696596"
+        },
+        {
+          "code": "TEXT_SPAN_NOT_FOUND",
+          "evidence_index": 0,
+          "item_id": "x-2083245767687323925"
+        },
+        {
+          "code": "TEXT_SPAN_NOT_FOUND",
+          "evidence_index": 0,
+          "item_id": "x-2083651229813764516"
+        },
+        {
+          "code": "TEXT_SPAN_NOT_FOUND",
+          "evidence_index": 0,
+          "item_id": "x-2083682938735009817"
+        },
+        {
+          "code": "TEXT_SPAN_NOT_FOUND",
+          "evidence_index": 0,
+          "item_id": "x-2083686862661521782"
+        },
+        {
+          "code": "TEXT_SPAN_NOT_FOUND",
+          "evidence_index": 0,
+          "item_id": "x-2083695842171515382"
+        },
+        {
+          "code": "TEXT_SPAN_NOT_FOUND",
+          "evidence_index": 0,
+          "item_id": "x-2083700086526415224"
+        },
+        {
+          "code": "TEXT_SPAN_NOT_FOUND",
+          "evidence_index": 0,
+          "item_id": "x-2083703751404028286"
+        },
+        {
+          "code": "TEXT_SPAN_NOT_FOUND",
+          "evidence_index": 0,
+          "item_id": "x-2083704047459004612"
+        },
+        {
+          "code": "TEXT_SPAN_NOT_FOUND",
+          "evidence_index": 0,
+          "item_id": "x-2083704113557074341"
+        },
+        {
+          "code": "TEXT_SPAN_NOT_FOUND",
+          "evidence_index": 0,
+          "item_id": "x-2083704178061238598"
+        },
+        {
+          "code": "TEXT_SPAN_NOT_FOUND",
+          "evidence_index": 0,
+          "item_id": "x-2083704235317977549"
+        },
+        {
+          "code": "TEXT_SPAN_NOT_FOUND",
+          "evidence_index": 0,
+          "item_id": "x-2083704271409697278"
+        },
+        {
+          "code": "TEXT_SPAN_NOT_FOUND",
+          "evidence_index": 0,
+          "item_id": "x-2083704311792738366"
+        }
+      ]
+    },
+    "missing_item_ids": [],
+    "returned_item_count": 50,
+    "severity_action_mismatch_count": 0
+  },
+  "run_1_measurement": {
+    "cost_in_usd_ticks": 726184000,
+    "cost_usd": 0.0726184,
+    "elapsed_ms": 87066.11387500016,
+    "input_tokens": 12217,
+    "model": "grok-4.5",
+    "output_tokens": 8067,
+    "reasoning_effort": "low",
+    "reasoning_tokens": 93,
+    "response_id": "0e314142-b97b-9e67-bc1d-78fe15495e60",
+    "surface": "model.raw_prompt_baseline.run1",
+    "total_tokens": 20284
+  },
+  "run_2": {
+    "duplicate_item_ids": [],
+    "extra_item_ids": [],
+    "grounding": {
+      "claim_count": 50,
+      "failure_count": 46,
+      "failure_rate": 0.92,
+      "failures": [
+        {
+          "code": "TEXT_SPAN_NOT_FOUND",
+          "evidence_index": 0,
+          "item_id": "x-2009017572486692982"
+        },
+        {
+          "code": "TEXT_SPAN_NOT_FOUND",
+          "evidence_index": 0,
+          "item_id": "x-2020027665223127418"
+        },
+        {
+          "code": "TEXT_SPAN_NOT_FOUND",
+          "evidence_index": 0,
+          "item_id": "x-2069804700174574040"
+        },
+        {
+          "code": "TEXT_SPAN_NOT_FOUND",
+          "evidence_index": 0,
+          "item_id": "x-2069959210834776313"
+        },
+        {
+          "code": "TEXT_SPAN_NOT_FOUND",
+          "evidence_index": 0,
+          "item_id": "x-2073377410620219590"
+        },
+        {
+          "code": "TEXT_SPAN_NOT_FOUND",
+          "evidence_index": 0,
+          "item_id": "x-2075412071051923520"
+        },
+        {
+          "code": "TEXT_SPAN_NOT_FOUND",
+          "evidence_index": 0,
+          "item_id": "x-2077650614012539130"
+        },
+        {
+          "code": "TEXT_SPAN_NOT_FOUND",
+          "evidence_index": 0,
+          "item_id": "x-2078419528820638002"
+        },
+        {
+          "code": "TEXT_SPAN_NOT_FOUND",
+          "evidence_index": 0,
+          "item_id": "x-2080654232886116631"
+        },
+        {
+          "code": "TEXT_SPAN_NOT_FOUND",
+          "evidence_index": 0,
+          "item_id": "x-2081452051188371899"
+        },
+        {
+          "code": "TEXT_SPAN_NOT_FOUND",
+          "evidence_index": 0,
+          "item_id": "x-2082058501980045644"
+        },
+        {
+          "code": "TEXT_SPAN_NOT_FOUND",
+          "evidence_index": 0,
+          "item_id": "x-2082143677992804709"
+        },
+        {
+          "code": "TEXT_SPAN_NOT_FOUND",
+          "evidence_index": 0,
+          "item_id": "x-2082194383063875634"
+        },
+        {
+          "code": "TEXT_SPAN_NOT_FOUND",
+          "evidence_index": 0,
+          "item_id": "x-2082479572122001909"
+        },
+        {
+          "code": "TEXT_SPAN_NOT_FOUND",
+          "evidence_index": 0,
+          "item_id": "x-2082528027410334119"
+        },
+        {
+          "code": "TEXT_SPAN_NOT_FOUND",
+          "evidence_index": 0,
+          "item_id": "x-2082551906228912361"
+        },
+        {
+          "code": "TEXT_SPAN_NOT_FOUND",
+          "evidence_index": 0,
+          "item_id": "x-2082757457756233974"
+        },
+        {
+          "code": "TEXT_SPAN_NOT_FOUND",
+          "evidence_index": 0,
+          "item_id": "x-2082784079616131521"
+        },
+        {
+          "code": "TEXT_SPAN_NOT_FOUND",
+          "evidence_index": 0,
+          "item_id": "x-2082799958860665265"
+        },
+        {
+          "code": "TEXT_SPAN_NOT_FOUND",
+          "evidence_index": 0,
+          "item_id": "x-2082872571490599192"
+        },
+        {
+          "code": "TEXT_SPAN_NOT_FOUND",
+          "evidence_index": 0,
+          "item_id": "x-2082904065017590139"
+        },
+        {
+          "code": "TEXT_SPAN_NOT_FOUND",
+          "evidence_index": 0,
+          "item_id": "x-2082907615332274428"
+        },
+        {
+          "code": "TEXT_SPAN_NOT_FOUND",
+          "evidence_index": 0,
+          "item_id": "x-2082911174522257413"
+        },
+        {
+          "code": "TEXT_SPAN_NOT_FOUND",
+          "evidence_index": 0,
+          "item_id": "x-2083005530893959648"
+        },
+        {
+          "code": "TEXT_SPAN_NOT_FOUND",
+          "evidence_index": 0,
+          "item_id": "x-2083214677291696596"
+        },
+        {
+          "code": "TEXT_SPAN_NOT_FOUND",
+          "evidence_index": 0,
+          "item_id": "x-2083245767687323925"
+        },
+        {
+          "code": "TEXT_SPAN_NOT_FOUND",
+          "evidence_index": 0,
+          "item_id": "x-2083591796332921314"
+        },
+        {
+          "code": "TEXT_SPAN_NOT_FOUND",
+          "evidence_index": 0,
+          "item_id": "x-2083651229813764516"
+        },
+        {
+          "code": "TEXT_SPAN_NOT_FOUND",
+          "evidence_index": 0,
+          "item_id": "x-2083682938735009817"
+        },
+        {
+          "code": "TEXT_SPAN_MALFORMED",
+          "evidence_index": 0,
+          "item_id": "x-2083686862661521782"
+        },
+        {
+          "code": "TEXT_SPAN_NOT_FOUND",
+          "evidence_index": 0,
+          "item_id": "x-2083695842171515382"
+        },
+        {
+          "code": "TEXT_SPAN_NOT_FOUND",
+          "evidence_index": 0,
+          "item_id": "x-2083700086526415224"
+        },
+        {
+          "code": "TEXT_SPAN_NOT_FOUND",
+          "evidence_index": 0,
+          "item_id": "x-2083703751404028286"
+        },
+        {
+          "code": "TEXT_SPAN_NOT_FOUND",
+          "evidence_index": 0,
+          "item_id": "x-2083704047459004612"
+        },
+        {
+          "code": "TEXT_SPAN_NOT_FOUND",
+          "evidence_index": 0,
+          "item_id": "x-2083704103046127828"
+        },
+        {
+          "code": "TEXT_SPAN_NOT_FOUND",
+          "evidence_index": 0,
+          "item_id": "x-2083704113557074341"
+        },
+        {
+          "code": "TEXT_SPAN_NOT_FOUND",
+          "evidence_index": 0,
+          "item_id": "x-2083704178061238598"
+        },
+        {
+          "code": "TEXT_SPAN_NOT_FOUND",
+          "evidence_index": 0,
+          "item_id": "x-2083704186609549694"
+        },
+        {
+          "code": "TEXT_SPAN_NOT_FOUND",
+          "evidence_index": 0,
+          "item_id": "x-2083704188282831228"
+        },
+        {
+          "code": "TEXT_SPAN_NOT_FOUND",
+          "evidence_index": 0,
+          "item_id": "x-2083704231106658492"
+        },
+        {
+          "code": "TEXT_SPAN_NOT_FOUND",
+          "evidence_index": 0,
+          "item_id": "x-2083704235317977549"
+        },
+        {
+          "code": "TEXT_SPAN_NOT_FOUND",
+          "evidence_index": 0,
+          "item_id": "x-2083704271409697278"
+        },
+        {
+          "code": "TEXT_SPAN_NOT_FOUND",
+          "evidence_index": 0,
+          "item_id": "x-2083704288400798039"
+        },
+        {
+          "code": "TEXT_SPAN_NOT_FOUND",
+          "evidence_index": 0,
+          "item_id": "x-2083704307015430570"
+        },
+        {
+          "code": "TEXT_SPAN_NOT_FOUND",
+          "evidence_index": 0,
+          "item_id": "x-2083704311792738366"
+        },
+        {
+          "code": "TEXT_SPAN_NOT_FOUND",
+          "evidence_index": 0,
+          "item_id": "x-2083704314187653153"
+        }
+      ]
+    },
+    "missing_item_ids": [],
+    "returned_item_count": 50,
+    "severity_action_mismatch_count": 1
+  },
+  "run_2_measurement": {
+    "cost_in_usd_ticks": 366900000,
+    "cost_usd": 0.03669,
+    "elapsed_ms": 61799.644415999865,
+    "input_tokens": 12217,
+    "model": "grok-4.5",
+    "output_tokens": 5488,
+    "reasoning_effort": "low",
+    "reasoning_tokens": 22,
+    "response_id": "bd81263e-7956-945f-abe8-ca3c78573e5f",
+    "surface": "model.raw_prompt_baseline.run2",
+    "total_tokens": 17705
+  },
+  "shared_item_count": 50
+}

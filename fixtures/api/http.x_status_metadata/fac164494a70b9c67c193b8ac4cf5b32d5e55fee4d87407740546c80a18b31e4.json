@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/VigilantFox/status/2013994257938264558"
+  },
+  "request_sha256": "fac164494a70b9c67c193b8ac4cf5b32d5e55fee4d87407740546c80a18b31e4",
+  "response": {
+    "author_handle": "@VigilantFox",
+    "created_at": "January 21, 2026",
+    "media_height": 720,
+    "media_url": "https://pbs.twimg.com/amplify_video_thumb/2013994052216061952/img/DT5gPMq7Ti_uiHJx.jpg",
+    "media_width": 1280,
+    "source_url": "https://x.com/VigilantFox/status/2013994257938264558",
+    "text": "This isn\u2019t a glitch. Engagement-driven algorithms don\u2019t understand meaning, context, or childhood development. They only understand clicks and watch time driven by dopamine spikes. So when AI is tasked with churning out videos at scale, it doesn\u2019t filter for innocence\u2014it\u2026"
+  },
+  "response_sha256": "7533e476db4a1c14fc821f1315d3a5f185687caf82de4c35db35210302ae8fff",
+  "surface": "http.x_status_metadata"
+}

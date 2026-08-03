@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/JasminLaine/status/2014817429625381084"
+  },
+  "request_sha256": "f9b4d74fffe3fd008691a53ee3f0162f20bcb79d55c09b47d61602c2b827a606",
+  "response": {
+    "author_handle": "@JasminLaine",
+    "created_at": "January 23, 2026",
+    "media_height": null,
+    "media_url": null,
+    "media_width": null,
+    "source_url": "https://x.com/JasminLaine/status/2014817429625381084",
+    "text": "We live in a world where panic reactions are praised. Emotional outrage is rewarded, and instant \"hot\" takes are treated like trustworthy insight. Meanwhile, critical thinking is dismissed as weakness and nuance is treated like hesitation. We aren't suffering from a lack of\u2026"
+  },
+  "response_sha256": "2001086ff6a06a7243d23f295c3b0ee16655b4d20f4d03e920fd26225c52e1c2",
+  "surface": "http.x_status_metadata"
+}

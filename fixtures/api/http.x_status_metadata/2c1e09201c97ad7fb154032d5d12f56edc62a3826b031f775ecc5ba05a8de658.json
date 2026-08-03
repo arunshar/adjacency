@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/theKamraan/status/2073324363118768605"
+  },
+  "request_sha256": "2c1e09201c97ad7fb154032d5d12f56edc62a3826b031f775ecc5ba05a8de658",
+  "response": {
+    "author_handle": "@theKamraan",
+    "created_at": "July 4, 2026",
+    "media_height": 1240,
+    "media_url": "https://pbs.twimg.com/media/HMXtg7eaoAAeC8W.jpg:large",
+    "media_width": 1240,
+    "source_url": "https://x.com/theKamraan/status/2073324363118768605",
+    "text": "Alpha Full Review :- I genuinely loved #Alpha. Barring a few shots in the climax & few dialogues, I had a great time watching it. The second half is just as engaging as the first. The emotional and character driven conversations between Alia Bhatt, Sharvari, and Anil Kapoor\u2026"
+  },
+  "response_sha256": "2c8bdefc122cea93558d0adf37cd46855fff34477f9324ee371ead1c053a97eb",
+  "surface": "http.x_status_metadata"
+}

@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/zeroemployees/status/2083676341132501207"
+  },
+  "request_sha256": "a212e47fa4bebc1a6a51903d13c75e148eb4ce30b8e83b1374146b39184e681c",
+  "response": {
+    "author_handle": "@zeroemployees",
+    "created_at": "August 1, 2026",
+    "media_height": 750,
+    "media_url": "https://pbs.twimg.com/media/HOq0lxHXgAA48P2.png:large",
+    "media_width": 750,
+    "source_url": "https://x.com/zeroemployees/status/2083676341132501207",
+    "text": "Google bolted an AI deepfake button onto Earth. Fake satellite warzones, one click. Lasted about a day. Then \"stronger guardrails.\" the feature died faster than the misinfo it was built to mint \ud83d\udd25"
+  },
+  "response_sha256": "ca832d6e9c987344a263f20096f6f27cc29789c45fcf8e7be907c9dcb593a41a",
+  "surface": "http.x_status_metadata"
+}

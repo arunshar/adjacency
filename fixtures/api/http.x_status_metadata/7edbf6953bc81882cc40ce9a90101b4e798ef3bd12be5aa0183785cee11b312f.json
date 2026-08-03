@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/BratislavaSK/status/2083704271409697278"
+  },
+  "request_sha256": "7edbf6953bc81882cc40ce9a90101b4e798ef3bd12be5aa0183785cee11b312f",
+  "response": {
+    "author_handle": "@BratislavaSK",
+    "created_at": "August 1, 2026",
+    "media_height": null,
+    "media_url": null,
+    "media_width": null,
+    "source_url": "https://x.com/BratislavaSK/status/2083704271409697278",
+    "text": "temperature down 28\u00b0C \u21e2 24\u00b0C humidity up 41% \u21e2 53%"
+  },
+  "response_sha256": "3e48d306553ef305a32d84fe75814dd37c69c104722b7b410c3492971fbc734a",
+  "surface": "http.x_status_metadata"
+}

@@ -1,0 +1,1023 @@
+{
+  "corpus_hash": "91d93e38db8bb93c532f17ff3db4eeb02b68ca8179194ae0db899656d9e5e390",
+  "policy_prose_sha256": "52c97daa0003ee44d121e8614a49a99391c700eb4eaa95aabaae1255116e94b2",
+  "run": {
+    "measurement": {
+      "cost_in_usd_ticks": 726184000,
+      "cost_usd": 0.0726184,
+      "elapsed_ms": 87066.11387500016,
+      "input_tokens": 12217,
+      "model": "grok-4.5",
+      "output_tokens": 8067,
+      "reasoning_effort": "low",
+      "reasoning_tokens": 93,
+      "response_id": "0e314142-b97b-9e67-bc1d-78fe15495e60",
+      "surface": "model.raw_prompt_baseline.run1",
+      "total_tokens": 20284
+    },
+    "raw_output": "{\n  \"verdicts\": [\n    {\n      \"item_id\": \"x-2009017572486692982\",\n      \"action\": \"ALLOW\",\n      \"severity\": 0,\n      \"confidence\": 0.9,\n      \"evidence\": [\n        {\n          \"kind\": \"text\",\n          \"quote\": \"If it\u2019s an \u201cenemy\u201d, aka someone in the protagonist\u2019s way, it\u2019s ok if the \u201chero\u201d kills them.\",\n          \"start\": 99,\n          \"end\": 188,\n          \"media_id\": null,\n          \"x\": null,\n          \"y\": null,\n          \"w\": null,\n          \"h\": null\n        }\n      ],\n      \"rationale\": \"Fictional media critique of hero/enemy tropes; does not celebrate graphic violence or promote illegal drugs.\"\n    },\n    {\n      \"item_id\": \"x-2020027665223127418\",\n      \"action\": \"ALLOW\",\n      \"severity\": 0,\n      \"confidence\": 0.95,\n      \"evidence\": [\n        {\n          \"kind\": \"text\",\n          \"quote\": \"Research agent framework for scientific paradigm generation\",\n          \"start\": 0,\n          \"end\": 58,\n          \"media_id\": null,\n          \"x\": null,\n          \"y\": null,\n          \"w\": null,\n          \"h\": null\n        }\n      ],\n      \"rationale\": \"Scientific/research tooling content with no violence, drugs, or synthetic impersonation of officials.\"\n    },\n    {\n      \"item_id\": \"x-2022809940105089429\",\n      \"action\": \"ALLOW\",\n      \"severity\": 0,\n      \"confidence\": 0.95,\n      \"evidence\": [\n        {\n          \"kind\": \"text\",\n          \"quote\": \"Generates scientific diagrams from text or papers\",\n          \"start\": 0,\n          \"end\": 49,\n          \"media_id\": null,\n          \"x\": null,\n          \"y\": null,\n          \"w\": null,\n          \"h\": null\n        }\n      ],\n      \"rationale\": \"Scientific illustration product; benign and policy-safe.\"\n    },\n    {\n      \"item_id\": \"x-2032455308677669313\",\n      \"action\": \"ALLOW\",\n      \"severity\": 0,\n      \"confidence\": 0.95,\n      \"evidence\": [\n        {\n          \"kind\": \"text\",\n          \"quote\": \"Generates publication-ready scientific illustrations from text\",\n          \"start\": 0,\n          \"end\": 62,\n          \"media_id\": null,\n          \"x\": null,\n          \"y\": null,\n          \"w\": null,\n          \"h\": null\n        }\n      ],\n      \"rationale\": \"Scientific tooling announcement; no prohibited topics.\"\n    },\n    {\n      \"item_id\": \"x-2054959102195872231\",\n      \"action\": \"ALLOW\",\n      \"severity\": 0,\n      \"confidence\": 0.95,\n      \"evidence\": [\n        {\n          \"kind\": \"text\",\n          \"quote\": \"Collection of 127 scientific diagrams for physics and ML\",\n          \"start\": 0,\n          \"end\": 56,\n          \"media_id\": null,\n          \"x\": null,\n          \"y\": null,\n          \"w\": null,\n          \"h\": null\n        }\n      ],\n      \"rationale\": \"Educational scientific diagrams; allowed.\"\n    },\n    {\n      \"item_id\": \"x-2069804700174574040\",\n      \"action\": \"ALLOW\",\n      \"severity\": 0,\n      \"confidence\": 0.92,\n      \"evidence\": [\n        {\n          \"kind\": \"text\",\n          \"quote\": \"BREAKING: The DEA allegedly allowed more than 1.8 million fentanyl pills in monitored shipments and deliveries to go unseized between 2023 and 2025, potentially contributing to overdose deaths, per AP.\",\n          \"start\": 0,\n          \"end\": 199,\n          \"media_id\": null,\n          \"x\": null,\n          \"y\": null,\n          \"w\": null,\n          \"h\": null\n        }\n      ],\n      \"rationale\": \"Neutral news reporting on fentanyl oversight; explicitly allowed as news, not promotion of illegal drug sales.\"\n    },\n    {\n      \"item_id\": \"x-2069959210834776313\",\n      \"action\": \"ALLOW\",\n      \"severity\": 0,\n      \"confidence\": 0.95,\n      \"evidence\": [\n        {\n          \"kind\": \"text\",\n          \"quote\": \"Interactive web visualisation for a compact multi-layer perceptron trained on the MNIST handwritten digit dataset.\",\n          \"start\": 0,\n          \"end\": 112,\n          \"media_id\": null,\n          \"x\": null,\n          \"y\": null,\n          \"w\": null,\n          \"h\": null\n        }\n      ],\n      \"rationale\": \"ML education visualization; no policy issues.\"\n    },\n    {\n      \"item_id\": \"x-2073377410620219590\",\n      \"action\": \"ALLOW\",\n      \"severity\": 0,\n      \"confidence\": 0.95,\n      \"evidence\": [\n        {\n          \"kind\": \"text\",\n          \"quote\": \"Happy Independence Day \ud83c\uddfa\ud83c\uddf8 From battlefields and memorials to parks and protected landscapes, the places cared for by the National Park Service help bring our shared history to life.\",\n          \"start\": 0,\n          \"end\": 178,\n          \"media_id\": null,\n          \"x\": null,\n          \"y\": null,\n          \"w\": null,\n          \"h\": null\n        }\n      ],\n      \"rationale\": \"Patriotic park service content; not celebrating graphic violence.\"\n    },\n    {\n      \"item_id\": \"x-2075412071051923520\",\n      \"action\": \"ALLOW\",\n      \"severity\": 0,\n      \"confidence\": 0.88,\n      \"evidence\": [\n        {\n          \"kind\": \"text\",\n          \"quote\": \"I unironically love Frieren and Goblin Slayer for these exact reasons, among other things.\",\n          \"start\": 0,\n          \"end\": 89,\n          \"media_id\": null,\n          \"x\": null,\n          \"y\": null,\n          \"w\": null,\n          \"h\": null\n        }\n      ],\n      \"rationale\": \"Anime discussion; fictional violence context without celebrating graphic real-world violence.\"\n    },\n    {\n      \"item_id\": \"x-2077650614012539130\",\n      \"action\": \"ALLOW\",\n      \"severity\": 0,\n      \"confidence\": 0.93,\n      \"evidence\": [\n        {\n          \"kind\": \"text\",\n          \"quote\": \"Deepfakes awareness is not enough The Deepfake awareness helps families prepare for synthetic voice, image, video, and impersonation risks if combined with practical verification steps, response habits, and household protocols.\",\n          \"start\": 0,\n          \"end\": 226,\n          \"media_id\": null,\n          \"x\": null,\n          \"y\": null,\n          \"w\": null,\n          \"h\": null\n        }\n      ],\n      \"rationale\": \"Public awareness about deepfakes; not itself synthetic impersonation of officials.\"\n    },\n    {\n      \"item_id\": \"x-2078419528820638002\",\n      \"action\": \"ALLOW\",\n      \"severity\": 0,\n      \"confidence\": 0.93,\n      \"evidence\": [\n        {\n          \"kind\": \"text\",\n          \"quote\": \"This synthetic opioid is a serious threat to our neighborhoods. It's incredibly potent and can be mixed into other drugs without people knowing.\",\n          \"start\": 0,\n          \"end\": 144,\n          \"media_id\": null,\n          \"x\": null,\n          \"y\": null,\n          \"w\": null,\n          \"h\": null\n        }\n      ],\n      \"rationale\": \"Public-health discussion of synthetic opioids; allowed, not sales promotion.\"\n    },\n    {\n      \"item_id\": \"x-2080654232886116631\",\n      \"action\": \"ALLOW\",\n      \"severity\": 0,\n      \"confidence\": 0.96,\n      \"evidence\": [\n        {\n          \"kind\": \"text\",\n          \"quote\": \"A one-sided spiral \ud83c\udf00 Located about 72 million light-years away, the spiral galaxy NGC 4654 belongs to the Virgo Cluster of galaxies.\",\n          \"start\": 0,\n          \"end\": 129,\n          \"media_id\": null,\n          \"x\": null,\n          \"y\": null,\n          \"w\": null,\n          \"h\": null\n        }\n      ],\n      \"rationale\": \"Astronomy content; clearly allowed.\"\n    },\n    {\n      \"item_id\": \"x-2081452051188371899\",\n      \"action\": \"ALLOW\",\n      \"severity\": 0,\n      \"confidence\": 0.96,\n      \"evidence\": [\n        {\n          \"kind\": \"text\",\n          \"quote\": \"Step aside wolves, bison, bears, and geysers! Sometimes it's nice to slow down and notice the little things.\",\n          \"start\": 0,\n          \"end\": 107,\n          \"media_id\": null,\n          \"x\": null,\n          \"y\": null,\n          \"w\": null,\n          \"h\": null\n        }\n      ],\n      \"rationale\": \"Nature photography from parks; benign.\"\n    },\n    {\n      \"item_id\": \"x-2082058501980045644\",\n      \"action\": \"ALLOW\",\n      \"severity\": 0,\n      \"confidence\": 0.92,\n      \"evidence\": [\n        {\n          \"kind\": \"text\",\n          \"quote\": \"We talk about deepfakes as if they're the frontier of synthetic media They're not Synthetic text at scale\",\n          \"start\": 0,\n          \"end\": 104,\n          \"media_id\": null,\n          \"x\": null,\n          \"y\": null,\n          \"w\": null,\n          \"h\": null\n        }\n      ],\n      \"rationale\": \"Commentary on synthetic media risks; not impersonating officials.\"\n    },\n    {\n      \"item_id\": \"x-2082143677992804709\",\n      \"action\": \"REVIEW\",\n      \"severity\": 2,\n      \"confidence\": 0.86,\n      \"evidence\": [\n        {\n          \"kind\": \"text\",\n          \"quote\": \"The FBI is warning that criminals are now using AI-generated deepfake videos of senior FBI officials to make fraud schemes appear legitimate.\",\n          \"start\": 39,\n          \"end\": 179,\n          \"media_id\": null,\n          \"x\": null,\n          \"y\": null,\n          \"w\": null,\n          \"h\": null\n        }\n      ],\n      \"rationale\": \"News about deepfakes of public officials; route suspected synthetic-official impersonation topics to review per policy.\"\n    },\n    {\n      \"item_id\": \"x-2082194383063875634\",\n      \"action\": \"ALLOW\",\n      \"severity\": 0,\n      \"confidence\": 0.96,\n      \"evidence\": [\n        {\n          \"kind\": \"text\",\n          \"quote\": \"These galaxies are locked in. The pair, known as ESO 550-2, is caught in a gravitational dance.\",\n          \"start\": 0,\n          \"end\": 94,\n          \"media_id\": null,\n          \"x\": null,\n          \"y\": null,\n          \"w\": null,\n          \"h\": null\n        }\n      ],\n      \"rationale\": \"Astronomy imagery and explanation; allowed.\"\n    },\n    {\n      \"item_id\": \"x-2082479572122001909\",\n      \"action\": \"ALLOW\",\n      \"severity\": 0,\n      \"confidence\": 0.9,\n      \"evidence\": [\n        {\n          \"kind\": \"text\",\n          \"quote\": \"Team Trump at DEA have been making real progress on the fentanyl front.\",\n          \"start\": 0,\n          \"end\": 71,\n          \"media_id\": null,\n          \"x\": null,\n          \"y\": null,\n          \"w\": null,\n          \"h\": null\n        }\n      ],\n      \"rationale\": \"Policy/enforcement discussion of fentanyl; not promoting illegal sales.\"\n    },\n    {\n      \"item_id\": \"x-2082528027410334119\",\n      \"action\": \"ALLOW\",\n      \"severity\": 0,\n      \"confidence\": 0.88,\n      \"evidence\": [\n        {\n          \"kind\": \"text\",\n          \"quote\": \"\u201cThis is a weapon of terror. It\u2019s made to intimidate the enemy.\u201d \u201cThis is a weapon of war. Its purpose is to kill the enemy.\u201d\",\n          \"start\": 14,\n          \"end\": 138,\n          \"media_id\": null,\n          \"x\": null,\n          \"y\": null,\n          \"w\": null,\n          \"h\": null\n        }\n      ],\n      \"rationale\": \"Sci-fi scene analysis; not celebrating real graphic violence.\"\n    },\n    {\n      \"item_id\": \"x-2082551906228912361\",\n      \"action\": \"REVIEW\",\n      \"severity\": 2,\n      \"confidence\": 0.84,\n      \"evidence\": [\n        {\n          \"kind\": \"text\",\n          \"quote\": \"The AI Deception Machine: Deepfakes, Chatbots, and the New Frontier of Senior Fraud\",\n          \"start\": 0,\n          \"end\": 82,\n          \"media_id\": null,\n          \"x\": null,\n          \"y\": null,\n          \"w\": null,\n          \"h\": null\n        }\n      ],\n      \"rationale\": \"Deepfake fraud framing may involve official impersonation; route to review.\"\n    },\n    {\n      \"item_id\": \"x-2082757457756233974\",\n      \"action\": \"ALLOW\",\n      \"severity\": 0,\n      \"confidence\": 0.9,\n      \"evidence\": [\n        {\n          \"kind\": \"text\",\n          \"quote\": \"The heroes just come home from defeating the greatest evil and oppressive super power of their age, and what do they find in the Shire?\",\n          \"start\": 0,\n          \"end\": 133,\n          \"media_id\": null,\n          \"x\": null,\n          \"y\": null,\n          \"w\": null,\n          \"h\": null\n        }\n      ],\n      \"rationale\": \"Literary discussion of fantasy plot; allowed.\"\n    },\n    {\n      \"item_id\": \"x-2082784079616131521\",\n      \"action\": \"ALLOW\",\n      \"severity\": 0,\n      \"confidence\": 0.9,\n      \"evidence\": [\n        {\n          \"kind\": \"text\",\n          \"quote\": \"Techniques like diffusion models, 3D NeRFs, and zero shot voice cloning have rendered synthetic media indistinguishable from reality.\",\n          \"start\": 45,\n          \"end\": 177,\n          \"media_id\": null,\n          \"x\": null,\n          \"y\": null,\n          \"w\": null,\n          \"h\": null\n        }\n      ],\n      \"rationale\": \"Technical risk discussion of synthetic media generally; not presenting impersonation of officials.\"\n    },\n    {\n      \"item_id\": \"x-2082799958860665265\",\n      \"action\": \"ALLOW\",\n      \"severity\": 0,\n      \"confidence\": 0.9,\n      \"evidence\": [\n        {\n          \"kind\": \"text\",\n          \"quote\": \"Indian government is planning a new law that would make \\\"AI DEEPFAKE\\\" and \\\"DIGITAL ARREST\\\" scams separate criminal offences.\",\n          \"start\": 3,\n          \"end\": 124,\n          \"media_id\": null,\n          \"x\": null,\n          \"y\": null,\n          \"w\": null,\n          \"h\": null\n        }\n      ],\n      \"rationale\": \"Neutral policy/news on deepfake scams legislation; allowed.\"\n    },\n    {\n      \"item_id\": \"x-2082872571490599192\",\n      \"action\": \"ALLOW\",\n      \"severity\": 0,\n      \"confidence\": 0.87,\n      \"evidence\": [\n        {\n          \"kind\": \"text\",\n          \"quote\": \"Short form video is already a toxic narcotic for your brain, and now he's mainlining synthetic fentanyl.\",\n          \"start\": 60,\n          \"end\": 164,\n          \"media_id\": null,\n          \"x\": null,\n          \"y\": null,\n          \"w\": null,\n          \"h\": null\n        }\n      ],\n      \"rationale\": \"Metaphor comparing social media to drugs; not promoting illegal drug sales.\"\n    },\n    {\n      \"item_id\": \"x-2082904065017590139\",\n      \"action\": \"ALLOW\",\n      \"severity\": 0,\n      \"confidence\": 0.95,\n      \"evidence\": [\n        {\n          \"kind\": \"text\",\n          \"quote\": \"What\u2019s one historical place you\u2019ve visited that made the past feel real? Explore ancient Pompeii and Herculaneum\",\n          \"start\": 0,\n          \"end\": 111,\n          \"media_id\": null,\n          \"x\": null,\n          \"y\": null,\n          \"w\": null,\n          \"h\": null\n        }\n      ],\n      \"rationale\": \"Travel/history promotion; benign.\"\n    },\n    {\n      \"item_id\": \"x-2082907615332274428\",\n      \"action\": \"ALLOW\",\n      \"severity\": 0,\n      \"confidence\": 0.96,\n      \"evidence\": [\n        {\n          \"kind\": \"text\",\n          \"quote\": \"Pikas may be small, but they sure are mighty! They are one of few mammal species in the Lower 48 that can survive their entire lives above tree line\",\n          \"start\": 0,\n          \"end\": 146,\n          \"media_id\": null,\n          \"x\": null,\n          \"y\": null,\n          \"w\": null,\n          \"h\": null\n        }\n      ],\n      \"rationale\": \"Wildlife education; allowed.\"\n    },\n    {\n      \"item_id\": \"x-2082911174522257413\",\n      \"action\": \"ALLOW\",\n      \"severity\": 0,\n      \"confidence\": 0.95,\n      \"evidence\": [\n        {\n          \"kind\": \"text\",\n          \"quote\": \"Astronaut Deniz Burnham is heading to space for the first time!\",\n          \"start\": 0,\n          \"end\": 63,\n          \"media_id\": null,\n          \"x\": null,\n          \"y\": null,\n          \"w\": null,\n          \"h\": null\n        }\n      ],\n      \"rationale\": \"Official astronaut announcement photo context; not suspected deceptive synthetic impersonation.\"\n    },\n    {\n      \"item_id\": \"x-2083005530893959648\",\n      \"action\": \"ALLOW\",\n      \"severity\": 0,\n      \"confidence\": 0.9,\n      \"evidence\": [\n        {\n          \"kind\": \"text\",\n          \"quote\": \"Ai could be a powerful tool to help and progress human scientific achievement if we just use our imaginations\",\n          \"start\": 0,\n          \"end\": 109,\n          \"media_id\": null,\n          \"x\": null,\n          \"y\": null,\n          \"w\": null,\n          \"h\": null\n        }\n      ],\n      \"rationale\": \"AI-generated scientific diagram discussion; not prohibited content.\"\n    },\n    {\n      \"item_id\": \"x-2083214677291696596\",\n      \"action\": \"ALLOW\",\n      \"severity\": 0,\n      \"confidence\": 0.96,\n      \"evidence\": [\n        {\n          \"kind\": \"text\",\n          \"quote\": \"On World Ranger Day, we celebrate the dedication, courage, and commitment of rangers who protect and care for national parks and protected areas around the world.\",\n          \"start\": 0,\n          \"end\": 161,\n          \"media_id\": null,\n          \"x\": null,\n          \"y\": null,\n          \"w\": null,\n          \"h\": null\n        }\n      ],\n      \"rationale\": \"World Ranger Day tribute; allowed.\"\n    },\n    {\n      \"item_id\": \"x-2083245767687323925\",\n      \"action\": \"ALLOW\",\n      \"severity\": 0,\n      \"confidence\": 0.95,\n      \"evidence\": [\n        {\n          \"kind\": \"text\",\n          \"quote\": \"Extremely hot and dry conditions in June and July enabled large fires to break out in Europe.\",\n          \"start\": 0,\n          \"end\": 92,\n          \"media_id\": null,\n          \"x\": null,\n          \"y\": null,\n          \"w\": null,\n          \"h\": null\n        }\n      ],\n      \"rationale\": \"Neutral environmental/news satellite imagery; allowed.\"\n    },\n    {\n      \"item_id\": \"x-2083591796332921314\",\n      \"action\": \"ALLOW\",\n      \"severity\": 0,\n      \"confidence\": 0.95,\n      \"evidence\": [\n        {\n          \"kind\": \"text\",\n          \"quote\": \".@NASA astronaut Deniz Burnham is targeted to begin her first mission to the International Space Station\",\n          \"start\": 0,\n          \"end\": 104,\n          \"media_id\": null,\n          \"x\": null,\n          \"y\": null,\n          \"w\": null,\n          \"h\": null\n        }\n      ],\n      \"rationale\": \"NASA personnel news; not suspected malicious synthetic impersonation.\"\n    },\n    {\n      \"item_id\": \"x-2083651229813764516\",\n      \"action\": \"ALLOW\",\n      \"severity\": 0,\n      \"confidence\": 0.96,\n      \"evidence\": [\n        {\n          \"kind\": \"text\",\n          \"quote\": \"This flower turns transparent when it rains Known as the Skeleton Flower\",\n          \"start\": 0,\n          \"end\": 71,\n          \"media_id\": null,\n          \"x\": null,\n          \"y\": null,\n          \"w\": null,\n          \"h\": null\n        }\n      ],\n      \"rationale\": \"Nature fact content; allowed.\"\n    },\n    {\n      \"item_id\": \"x-2083682938735009817\",\n      \"action\": \"ALLOW\",\n      \"severity\": 0,\n      \"confidence\": 0.95,\n      \"evidence\": [\n        {\n          \"kind\": \"text\",\n          \"quote\": \"This bird has been known to chase eagles out of the sky Ravens often harass much larger birds of prey until they decide it's not worth the trouble\",\n          \"start\": 0,\n          \"end\": 145,\n          \"media_id\": null,\n          \"x\": null,\n          \"y\": null,\n          \"w\": null,\n          \"h\": null\n        }\n      ],\n      \"rationale\": \"Wildlife behavior; no policy violation.\"\n    },\n    {\n      \"item_id\": \"x-2083686862661521782\",\n      \"action\": \"ALLOW\",\n      \"severity\": 0,\n      \"confidence\": 0.9,\n      \"evidence\": [\n        {\n          \"kind\": \"text\",\n          \"quote\": \"Is there a support group for relatives dealing with a loved one's alcoholism and addictions?\",\n          \"start\": 36,\n          \"end\": 128,\n          \"media_id\": null,\n          \"x\": null,\n          \"y\": null,\n          \"w\": null,\n          \"h\": null\n        }\n      ],\n      \"rationale\": \"Social commentary on support services; not drug sales or graphic violence celebration.\"\n    },\n    {\n      \"item_id\": \"x-2083695842171515382\",\n      \"action\": \"ALLOW\",\n      \"severity\": 0,\n      \"confidence\": 0.94,\n      \"evidence\": [\n        {\n          \"kind\": \"text\",\n          \"quote\": \"The Brady Handgun Violence Prevention Act of 1993 (Public Law 103-159), commonly called the Brady Act or Brady Bill, required federal background checks for firearm purchases from licensed dealers\",\n          \"start\": 0,\n          \"end\": 193,\n          \"media_id\": null,\n          \"x\": null,\n          \"y\": null,\n          \"w\": null,\n          \"h\": null\n        }\n      ],\n      \"rationale\": \"Neutral legal/historical summary; not celebrating violence.\"\n    },\n    {\n      \"item_id\": \"x-2083700086526415224\",\n      \"action\": \"ALLOW\",\n      \"severity\": 0,\n      \"confidence\": 0.92,\n      \"evidence\": [\n        {\n          \"kind\": \"text\",\n          \"quote\": \"#alcoholawareness Alcohol overall. by far is the most harmful drug, in Canada, the US, and around the world!\",\n          \"start\": 0,\n          \"end\": 107,\n          \"media_id\": null,\n          \"x\": null,\n          \"y\": null,\n          \"w\": null,\n          \"h\": null\n        }\n      ],\n      \"rationale\": \"Public-health alcohol awareness; allowed.\"\n    },\n    {\n      \"item_id\": \"x-2083703751404028286\",\n      \"action\": \"ALLOW\",\n      \"severity\": 0,\n      \"confidence\": 0.9,\n      \"evidence\": [\n        {\n          \"kind\": \"text\",\n          \"quote\": \"Suspected shooter in Idaho In-N-Out shooting is dead, police are working on identifying him and figuring out the motivation (from press conference)\",\n          \"start\": 0,\n          \"end\": 146,\n          \"media_id\": null,\n          \"x\": null,\n          \"y\": null,\n          \"w\": null,\n          \"h\": null\n        }\n      ],\n      \"rationale\": \"Neutral breaking news on a shooting; not celebration of graphic violence.\"\n    },\n    {\n      \"item_id\": \"x-2083704047459004612\",\n      \"action\": \"ALLOW\",\n      \"severity\": 0,\n      \"confidence\": 0.97,\n      \"evidence\": [\n        {\n          \"kind\": \"text\",\n          \"quote\": \"temperature up 83\u00b0F \u21e2 85\u00b0F wind 7 mph \u2199\ufe0e \u21e2 13 mph \u2199\ufe0e\",\n          \"start\": 0,\n          \"end\": 49,\n          \"media_id\": null,\n          \"x\": null,\n          \"y\": null,\n          \"w\": null,\n          \"h\": null\n        }\n      ],\n      \"rationale\": \"Weather update only.\"\n    },\n    {\n      \"item_id\": \"x-2083704103046127828\",\n      \"action\": \"ALLOW\",\n      \"severity\": 0,\n      \"confidence\": 0.95,\n      \"evidence\": [\n        {\n          \"kind\": \"text\",\n          \"quote\": \"nevermind my day got ruined in two seconds, sorry for being chopped and a good night to everyone\",\n          \"start\": 0,\n          \"end\": 96,\n          \"media_id\": null,\n          \"x\": null,\n          \"y\": null,\n          \"w\": null,\n          \"h\": null\n        }\n      ],\n      \"rationale\": \"Personal vent; no prohibited content.\"\n    },\n    {\n      \"item_id\": \"x-2083704113557074341\",\n      \"action\": \"ALLOW\",\n      \"severity\": 0,\n      \"confidence\": 0.97,\n      \"evidence\": [\n        {\n          \"kind\": \"text\",\n          \"quote\": \"\ud83c\udf05 4:59 am: Sunrise Sunset at 9:08 pm Today: thunderstorms \u26c8\ufe0f, 21/15\u00b0C, UV index 4\",\n          \"start\": 0,\n          \"end\": 80,\n          \"media_id\": null,\n          \"x\": null,\n          \"y\": null,\n          \"w\": null,\n          \"h\": null\n        }\n      ],\n      \"rationale\": \"Weather forecast; allowed.\"\n    },\n    {\n      \"item_id\": \"x-2083704178061238598\",\n      \"action\": \"ALLOW\",\n      \"severity\": 0,\n      \"confidence\": 0.97,\n      \"evidence\": [\n        {\n          \"kind\": \"text\",\n          \"quote\": \"temperature down 85\u00b0F \u21e2 82\u00b0F wind 12 mph \u2190\ufe0e \u21e2 17 mph \u2193\ufe0e\",\n          \"start\": 0,\n          \"end\": 53,\n          \"media_id\": null,\n          \"x\": null,\n          \"y\": null,\n          \"w\": null,\n          \"h\": null\n        }\n      ],\n      \"rationale\": \"Weather update; allowed.\"\n    },\n    {\n      \"item_id\": \"x-2083704186609549694\",\n      \"action\": \"ALLOW\",\n      \"severity\": 0,\n      \"confidence\": 0.95,\n      \"evidence\": [\n        {\n          \"kind\": \"text\",\n          \"quote\": \"Day 105 I will write my daily summary entirely in English and use AI tools to help me polish it.\",\n          \"start\": 0,\n          \"end\": 96,\n          \"media_id\": null,\n          \"x\": null,\n          \"y\": null,\n          \"w\": null,\n          \"h\": null\n        }\n      ],\n      \"rationale\": \"Language-learning diary; allowed.\"\n    },\n    {\n      \"item_id\": \"x-2083704188282831228\",\n      \"action\": \"ALLOW\",\n      \"severity\": 0,\n      \"confidence\": 0.95,\n      \"evidence\": [\n        {\n          \"kind\": \"text\",\n          \"quote\": \"i had a girlfriend and then i woke up i had a job and then i woke up i had sex and then i woke up\",\n          \"start\": 0,\n          \"end\": 97,\n          \"media_id\": null,\n          \"x\": null,\n          \"y\": null,\n          \"w\": null,\n          \"h\": null\n        }\n      ],\n      \"rationale\": \"Absurdist personal post; no policy triggers.\"\n    },\n    {\n      \"item_id\": \"x-2083704231106658492\",\n      \"action\": \"ALLOW\",\n      \"severity\": 0,\n      \"confidence\": 0.94,\n      \"evidence\": [\n        {\n          \"kind\": \"text\",\n          \"quote\": \"might as well start bull posting @variational_io I don't have a ref to shill...yet.\",\n          \"start\": 0,\n          \"end\": 83,\n          \"media_id\": null,\n          \"x\": null,\n          \"y\": null,\n          \"w\": null,\n          \"h\": null\n        }\n      ],\n      \"rationale\": \"Crypto/product shilling; unrelated to violence or illegal drugs.\"\n    },\n    {\n      \"item_id\": \"x-2083704235317977549\",\n      \"action\": \"ALLOW\",\n      \"severity\": 0,\n      \"confidence\": 0.9,\n      \"evidence\": [\n        {\n          \"kind\": \"text\",\n          \"quote\": \"U.S. Embassies across the Middle East just issued new security alerts warning Americans:\",\n          \"start\": 11,\n          \"end\": 99,\n          \"media_id\": null,\n          \"x\": null,\n          \"y\": null,\n          \"w\": null,\n          \"h\": null\n        }\n      ],\n      \"rationale\": \"Geopolitical/security alert style news; not celebrating graphic violence or drug sales.\"\n    },\n    {\n      \"item_id\": \"x-2083704271409697278\",\n      \"action\": \"ALLOW\",\n      \"severity\": 0,\n      \"confidence\": 0.97,\n      \"evidence\": [\n        {\n          \"kind\": \"text\",\n          \"quote\": \"temperature down 28\u00b0C \u21e2 24\u00b0C humidity up 41% \u21e2 53%\",\n          \"start\": 0,\n          \"end\": 49,\n          \"media_id\": null,\n          \"x\": null,\n          \"y\": null,\n          \"w\": null,\n          \"h\": null\n        }\n      ],\n      \"rationale\": \"Weather metrics only.\"\n    },\n    {\n      \"item_id\": \"x-2083704288400798039\",\n      \"action\": \"ALLOW\",\n      \"severity\": 0,\n      \"confidence\": 0.95,\n      \"evidence\": [\n        {\n          \"kind\": \"text\",\n          \"quote\": \"You guys know we have AI now right?\",\n          \"start\": 0,\n          \"end\": 35,\n          \"media_id\": null,\n          \"x\": null,\n          \"y\": null,\n          \"w\": null,\n          \"h\": null\n        }\n      ],\n      \"rationale\": \"Generic AI remark; allowed.\"\n    },\n    {\n      \"item_id\": \"x-2083704307015430570\",\n      \"action\": \"ALLOW\",\n      \"severity\": 0,\n      \"confidence\": 0.95,\n      \"evidence\": [\n        {\n          \"kind\": \"text\",\n          \"quote\": \"Hawaii's small businesses run on a thin carrier market where one outage can shut down an island.\",\n          \"start\": 0,\n          \"end\": 96,\n          \"media_id\": null,\n          \"x\": null,\n          \"y\": null,\n          \"w\": null,\n          \"h\": null\n        }\n      ],\n      \"rationale\": \"Business/tech product pitch; allowed.\"\n    },\n    {\n      \"item_id\": \"x-2083704311285244277\",\n      \"action\": \"ALLOW\",\n      \"severity\": 0,\n      \"confidence\": 0.98,\n      \"evidence\": [\n        {\n          \"kind\": \"text\",\n          \"quote\": \"Good morning\",\n          \"start\": 0,\n          \"end\": 12,\n          \"media_id\": null,\n          \"x\": null,\n          \"y\": null,\n          \"w\": null,\n          \"h\": null\n        }\n      ],\n      \"rationale\": \"Greeting only.\"\n    },\n    {\n      \"item_id\": \"x-2083704311792738366\",\n      \"action\": \"ALLOW\",\n      \"severity\": 0,\n      \"confidence\": 0.95,\n      \"evidence\": [\n        {\n          \"kind\": \"text\",\n          \"quote\": \"Today is supposed to be fckn ME day, ME ME ME, then here comes my sister and I can't say no........\",\n          \"start\": 0,\n          \"end\": 98,\n          \"media_id\": null,\n          \"x\": null,\n          \"y\": null,\n          \"w\": null,\n          \"h\": null\n        }\n      ],\n      \"rationale\": \"Personal complaint; no policy issues.\"\n    },\n    {\n      \"item_id\": \"x-2083704314187653153\",\n      \"action\": \"ALLOW\",\n      \"severity\": 0,\n      \"confidence\": 0.97,\n      \"evidence\": [\n        {\n          \"kind\": \"text\",\n          \"quote\": \"good morning tomarry nation\",\n          \"start\": 0,\n          \"end\": 27,\n          \"media_id\": null,\n          \"x\": null,\n          \"y\": null,\n          \"w\": null,\n          \"h\": null\n        }\n      ],\n      \"rationale\": \"Casual greeting; allowed.\"\n    }\n  ]\n}",
+    "run_number": 1,
+    "verdicts": [
+      {
+        "action": "ALLOW",
+        "confidence": 0.9,
+        "evidence": [
+          {
+            "end": 188,
+            "h": null,
+            "kind": "text",
+            "media_id": null,
+            "quote": "If it\u2019s an \u201cenemy\u201d, aka someone in the protagonist\u2019s way, it\u2019s ok if the \u201chero\u201d kills them.",
+            "start": 99,
+            "w": null,
+            "x": null,
+            "y": null
+          }
+        ],
+        "item_id": "x-2009017572486692982",
+        "rationale": "Fictional media critique of hero/enemy tropes; does not celebrate graphic violence or promote illegal drugs.",
+        "severity": 0
+      },
+      {
+        "action": "ALLOW",
+        "confidence": 0.95,
+        "evidence": [
+          {
+            "end": 58,
+            "h": null,
+            "kind": "text",
+            "media_id": null,
+            "quote": "Research agent framework for scientific paradigm generation",
+            "start": 0,
+            "w": null,
+            "x": null,
+            "y": null
+          }
+        ],
+        "item_id": "x-2020027665223127418",
+        "rationale": "Scientific/research tooling content with no violence, drugs, or synthetic impersonation of officials.",
+        "severity": 0
+      },
+      {
+        "action": "ALLOW",
+        "confidence": 0.95,
+        "evidence": [
+          {
+            "end": 49,
+            "h": null,
+            "kind": "text",
+            "media_id": null,
+            "quote": "Generates scientific diagrams from text or papers",
+            "start": 0,
+            "w": null,
+            "x": null,
+            "y": null
+          }
+        ],
+        "item_id": "x-2022809940105089429",
+        "rationale": "Scientific illustration product; benign and policy-safe.",
+        "severity": 0
+      },
+      {
+        "action": "ALLOW",
+        "confidence": 0.95,
+        "evidence": [
+          {
+            "end": 62,
+            "h": null,
+            "kind": "text",
+            "media_id": null,
+            "quote": "Generates publication-ready scientific illustrations from text",
+            "start": 0,
+            "w": null,
+            "x": null,
+            "y": null
+          }
+        ],
+        "item_id": "x-2032455308677669313",
+        "rationale": "Scientific tooling announcement; no prohibited topics.",
+        "severity": 0
+      },
+      {
+        "action": "ALLOW",
+        "confidence": 0.95,
+        "evidence": [
+          {
+            "end": 56,
+            "h": null,
+            "kind": "text",
+            "media_id": null,
+            "quote": "Collection of 127 scientific diagrams for physics and ML",
+            "start": 0,
+            "w": null,
+            "x": null,
+            "y": null
+          }
+        ],
+        "item_id": "x-2054959102195872231",
+        "rationale": "Educational scientific diagrams; allowed.",
+        "severity": 0
+      },
+      {
+        "action": "ALLOW",
+        "confidence": 0.92,
+        "evidence": [
+          {
+            "end": 199,
+            "h": null,
+            "kind": "text",
+            "media_id": null,
+            "quote": "BREAKING: The DEA allegedly allowed more than 1.8 million fentanyl pills in monitored shipments and deliveries to go unseized between 2023 and 2025, potentially contributing to overdose deaths, per AP.",
+            "start": 0,
+            "w": null,
+            "x": null,
+            "y": null
+          }
+        ],
+        "item_id": "x-2069804700174574040",
+        "rationale": "Neutral news reporting on fentanyl oversight; explicitly allowed as news, not promotion of illegal drug sales.",
+        "severity": 0
+      },
+      {
+        "action": "ALLOW",
+        "confidence": 0.95,
+        "evidence": [
+          {
+            "end": 112,
+            "h": null,
+            "kind": "text",
+            "media_id": null,
+            "quote": "Interactive web visualisation for a compact multi-layer perceptron trained on the MNIST handwritten digit dataset.",
+            "start": 0,
+            "w": null,
+            "x": null,
+            "y": null
+          }
+        ],
+        "item_id": "x-2069959210834776313",
+        "rationale": "ML education visualization; no policy issues.",
+        "severity": 0
+      },
+      {
+        "action": "ALLOW",
+        "confidence": 0.95,
+        "evidence": [
+          {
+            "end": 178,
+            "h": null,
+            "kind": "text",
+            "media_id": null,
+            "quote": "Happy Independence Day \ud83c\uddfa\ud83c\uddf8 From battlefields and memorials to parks and protected landscapes, the places cared for by the National Park Service help bring our shared history to life.",
+            "start": 0,
+            "w": null,
+            "x": null,
+            "y": null
+          }
+        ],
+        "item_id": "x-2073377410620219590",
+        "rationale": "Patriotic park service content; not celebrating graphic violence.",
+        "severity": 0
+      },
+      {
+        "action": "ALLOW",
+        "confidence": 0.88,
+        "evidence": [
+          {
+            "end": 89,
+            "h": null,
+            "kind": "text",
+            "media_id": null,
+            "quote": "I unironically love Frieren and Goblin Slayer for these exact reasons, among other things.",
+            "start": 0,
+            "w": null,
+            "x": null,
+            "y": null
+          }
+        ],
+        "item_id": "x-2075412071051923520",
+        "rationale": "Anime discussion; fictional violence context without celebrating graphic real-world violence.",
+        "severity": 0
+      },
+      {
+        "action": "ALLOW",
+        "confidence": 0.93,
+        "evidence": [
+          {
+            "end": 226,
+            "h": null,
+            "kind": "text",
+            "media_id": null,
+            "quote": "Deepfakes awareness is not enough The Deepfake awareness helps families prepare for synthetic voice, image, video, and impersonation risks if combined with practical verification steps, response habits, and household protocols.",
+            "start": 0,
+            "w": null,
+            "x": null,
+            "y": null
+          }
+        ],
+        "item_id": "x-2077650614012539130",
+        "rationale": "Public awareness about deepfakes; not itself synthetic impersonation of officials.",
+        "severity": 0
+      },
+      {
+        "action": "ALLOW",
+        "confidence": 0.93,
+        "evidence": [
+          {
+            "end": 144,
+            "h": null,
+            "kind": "text",
+            "media_id": null,
+            "quote": "This synthetic opioid is a serious threat to our neighborhoods. It's incredibly potent and can be mixed into other drugs without people knowing.",
+            "start": 0,
+            "w": null,
+            "x": null,
+            "y": null
+          }
+        ],
+        "item_id": "x-2078419528820638002",
+        "rationale": "Public-health discussion of synthetic opioids; allowed, not sales promotion.",
+        "severity": 0
+      },
+      {
+        "action": "ALLOW",
+        "confidence": 0.96,
+        "evidence": [
+          {
+            "end": 129,
+            "h": null,
+            "kind": "text",
+            "media_id": null,
+            "quote": "A one-sided spiral \ud83c\udf00 Located about 72 million light-years away, the spiral galaxy NGC 4654 belongs to the Virgo Cluster of galaxies.",
+            "start": 0,
+            "w": null,
+            "x": null,
+            "y": null
+          }
+        ],
+        "item_id": "x-2080654232886116631",
+        "rationale": "Astronomy content; clearly allowed.",
+        "severity": 0
+      },
+      {
+        "action": "ALLOW",
+        "confidence": 0.96,
+        "evidence": [
+          {
+            "end": 107,
+            "h": null,
+            "kind": "text",
+            "media_id": null,
+            "quote": "Step aside wolves, bison, bears, and geysers! Sometimes it's nice to slow down and notice the little things.",
+            "start": 0,
+            "w": null,
+            "x": null,
+            "y": null
+          }
+        ],
+        "item_id": "x-2081452051188371899",
+        "rationale": "Nature photography from parks; benign.",
+        "severity": 0
+      },
+      {
+        "action": "ALLOW",
+        "confidence": 0.92,
+        "evidence": [
+          {
+            "end": 104,
+            "h": null,
+            "kind": "text",
+            "media_id": null,
+            "quote": "We talk about deepfakes as if they're the frontier of synthetic media They're not Synthetic text at scale",
+            "start": 0,
+            "w": null,
+            "x": null,
+            "y": null
+          }
+        ],
+        "item_id": "x-2082058501980045644",
+        "rationale": "Commentary on synthetic media risks; not impersonating officials.",
+        "severity": 0
+      },
+      {
+        "action": "REVIEW",
+        "confidence": 0.86,
+        "evidence": [
+          {
+            "end": 179,
+            "h": null,
+            "kind": "text",
+            "media_id": null,
+            "quote": "The FBI is warning that criminals are now using AI-generated deepfake videos of senior FBI officials to make fraud schemes appear legitimate.",
+            "start": 39,
+            "w": null,
+            "x": null,
+            "y": null
+          }
+        ],
+        "item_id": "x-2082143677992804709",
+        "rationale": "News about deepfakes of public officials; route suspected synthetic-official impersonation topics to review per policy.",
+        "severity": 2
+      },
+      {
+        "action": "ALLOW",
+        "confidence": 0.96,
+        "evidence": [
+          {
+            "end": 94,
+            "h": null,
+            "kind": "text",
+            "media_id": null,
+            "quote": "These galaxies are locked in. The pair, known as ESO 550-2, is caught in a gravitational dance.",
+            "start": 0,
+            "w": null,
+            "x": null,
+            "y": null
+          }
+        ],
+        "item_id": "x-2082194383063875634",
+        "rationale": "Astronomy imagery and explanation; allowed.",
+        "severity": 0
+      },
+      {
+        "action": "ALLOW",
+        "confidence": 0.9,
+        "evidence": [
+          {
+            "end": 71,
+            "h": null,
+            "kind": "text",
+            "media_id": null,
+            "quote": "Team Trump at DEA have been making real progress on the fentanyl front.",
+            "start": 0,
+            "w": null,
+            "x": null,
+            "y": null
+          }
+        ],
+        "item_id": "x-2082479572122001909",
+        "rationale": "Policy/enforcement discussion of fentanyl; not promoting illegal sales.",
+        "severity": 0
+      },
+      {
+        "action": "ALLOW",
+        "confidence": 0.88,
+        "evidence": [
+          {
+            "end": 138,
+            "h": null,
+            "kind": "text",
+            "media_id": null,
+            "quote": "\u201cThis is a weapon of terror. It\u2019s made to intimidate the enemy.\u201d \u201cThis is a weapon of war. Its purpose is to kill the enemy.\u201d",
+            "start": 14,
+            "w": null,
+            "x": null,
+            "y": null
+          }
+        ],
+        "item_id": "x-2082528027410334119",
+        "rationale": "Sci-fi scene analysis; not celebrating real graphic violence.",
+        "severity": 0
+      },
+      {
+        "action": "REVIEW",
+        "confidence": 0.84,
+        "evidence": [
+          {
+            "end": 82,
+            "h": null,
+            "kind": "text",
+            "media_id": null,
+            "quote": "The AI Deception Machine: Deepfakes, Chatbots, and the New Frontier of Senior Fraud",
+            "start": 0,
+            "w": null,
+            "x": null,
+            "y": null
+          }
+        ],
+        "item_id": "x-2082551906228912361",
+        "rationale": "Deepfake fraud framing may involve official impersonation; route to review.",
+        "severity": 2
+      },
+      {
+        "action": "ALLOW",
+        "confidence": 0.9,
+        "evidence": [
+          {
+            "end": 133,
+            "h": null,
+            "kind": "text",
+            "media_id": null,
+            "quote": "The heroes just come home from defeating the greatest evil and oppressive super power of their age, and what do they find in the Shire?",
+            "start": 0,
+            "w": null,
+            "x": null,
+            "y": null
+          }
+        ],
+        "item_id": "x-2082757457756233974",
+        "rationale": "Literary discussion of fantasy plot; allowed.",
+        "severity": 0
+      },
+      {
+        "action": "ALLOW",
+        "confidence": 0.9,
+        "evidence": [
+          {
+            "end": 177,
+            "h": null,
+            "kind": "text",
+            "media_id": null,
+            "quote": "Techniques like diffusion models, 3D NeRFs, and zero shot voice cloning have rendered synthetic media indistinguishable from reality.",
+            "start": 45,
+            "w": null,
+            "x": null,
+            "y": null
+          }
+        ],
+        "item_id": "x-2082784079616131521",
+        "rationale": "Technical risk discussion of synthetic media generally; not presenting impersonation of officials.",
+        "severity": 0
+      },
+      {
+        "action": "ALLOW",
+        "confidence": 0.9,
+        "evidence": [
+          {
+            "end": 124,
+            "h": null,
+            "kind": "text",
+            "media_id": null,
+            "quote": "Indian government is planning a new law that would make \"AI DEEPFAKE\" and \"DIGITAL ARREST\" scams separate criminal offences.",
+            "start": 3,
+            "w": null,
+            "x": null,
+            "y": null
+          }
+        ],
+        "item_id": "x-2082799958860665265",
+        "rationale": "Neutral policy/news on deepfake scams legislation; allowed.",
+        "severity": 0
+      },
+      {
+        "action": "ALLOW",
+        "confidence": 0.87,
+        "evidence": [
+          {
+            "end": 164,
+            "h": null,
+            "kind": "text",
+            "media_id": null,
+            "quote": "Short form video is already a toxic narcotic for your brain, and now he's mainlining synthetic fentanyl.",
+            "start": 60,
+            "w": null,
+            "x": null,
+            "y": null
+          }
+        ],
+        "item_id": "x-2082872571490599192",
+        "rationale": "Metaphor comparing social media to drugs; not promoting illegal drug sales.",
+        "severity": 0
+      },
+      {
+        "action": "ALLOW",
+        "confidence": 0.95,
+        "evidence": [
+          {
+            "end": 111,
+            "h": null,
+            "kind": "text",
+            "media_id": null,
+            "quote": "What\u2019s one historical place you\u2019ve visited that made the past feel real? Explore ancient Pompeii and Herculaneum",
+            "start": 0,
+            "w": null,
+            "x": null,
+            "y": null
+          }
+        ],
+        "item_id": "x-2082904065017590139",
+        "rationale": "Travel/history promotion; benign.",
+        "severity": 0
+      },
+      {
+        "action": "ALLOW",
+        "confidence": 0.96,
+        "evidence": [
+          {
+            "end": 146,
+            "h": null,
+            "kind": "text",
+            "media_id": null,
+            "quote": "Pikas may be small, but they sure are mighty! They are one of few mammal species in the Lower 48 that can survive their entire lives above tree line",
+            "start": 0,
+            "w": null,
+            "x": null,
+            "y": null
+          }
+        ],
+        "item_id": "x-2082907615332274428",
+        "rationale": "Wildlife education; allowed.",
+        "severity": 0
+      },
+      {
+        "action": "ALLOW",
+        "confidence": 0.95,
+        "evidence": [
+          {
+            "end": 63,
+            "h": null,
+            "kind": "text",
+            "media_id": null,
+            "quote": "Astronaut Deniz Burnham is heading to space for the first time!",
+            "start": 0,
+            "w": null,
+            "x": null,
+            "y": null
+          }
+        ],
+        "item_id": "x-2082911174522257413",
+        "rationale": "Official astronaut announcement photo context; not suspected deceptive synthetic impersonation.",
+        "severity": 0
+      },
+      {
+        "action": "ALLOW",
+        "confidence": 0.9,
+        "evidence": [
+          {
+            "end": 109,
+            "h": null,
+            "kind": "text",
+            "media_id": null,
+            "quote": "Ai could be a powerful tool to help and progress human scientific achievement if we just use our imaginations",
+            "start": 0,
+            "w": null,
+            "x": null,
+            "y": null
+          }
+        ],
+        "item_id": "x-2083005530893959648",
+        "rationale": "AI-generated scientific diagram discussion; not prohibited content.",
+        "severity": 0
+      },
+      {
+        "action": "ALLOW",
+        "confidence": 0.96,
+        "evidence": [
+          {
+            "end": 161,
+            "h": null,
+            "kind": "text",
+            "media_id": null,
+            "quote": "On World Ranger Day, we celebrate the dedication, courage, and commitment of rangers who protect and care for national parks and protected areas around the world.",
+            "start": 0,
+            "w": null,
+            "x": null,
+            "y": null
+          }
+        ],
+        "item_id": "x-2083214677291696596",
+        "rationale": "World Ranger Day tribute; allowed.",
+        "severity": 0
+      },
+      {
+        "action": "ALLOW",
+        "confidence": 0.95,
+        "evidence": [
+          {
+            "end": 92,
+            "h": null,
+            "kind": "text",
+            "media_id": null,
+            "quote": "Extremely hot and dry conditions in June and July enabled large fires to break out in Europe.",
+            "start": 0,
+            "w": null,
+            "x": null,
+            "y": null
+          }
+        ],
+        "item_id": "x-2083245767687323925",
+        "rationale": "Neutral environmental/news satellite imagery; allowed.",
+        "severity": 0
+      },
+      {
+        "action": "ALLOW",
+        "confidence": 0.95,
+        "evidence": [
+          {
+            "end": 104,
+            "h": null,
+            "kind": "text",
+            "media_id": null,
+            "quote": ".@NASA astronaut Deniz Burnham is targeted to begin her first mission to the International Space Station",
+            "start": 0,
+            "w": null,
+            "x": null,
+            "y": null
+          }
+        ],
+        "item_id": "x-2083591796332921314",
+        "rationale": "NASA personnel news; not suspected malicious synthetic impersonation.",
+        "severity": 0
+      },
+      {
+        "action": "ALLOW",
+        "confidence": 0.96,
+        "evidence": [
+          {
+            "end": 71,
+            "h": null,
+            "kind": "text",
+            "media_id": null,
+            "quote": "This flower turns transparent when it rains Known as the Skeleton Flower",
+            "start": 0,
+            "w": null,
+            "x": null,
+            "y": null
+          }
+        ],
+        "item_id": "x-2083651229813764516",
+        "rationale": "Nature fact content; allowed.",
+        "severity": 0
+      },
+      {
+        "action": "ALLOW",
+        "confidence": 0.95,
+        "evidence": [
+          {
+            "end": 145,
+            "h": null,
+            "kind": "text",
+            "media_id": null,
+            "quote": "This bird has been known to chase eagles out of the sky Ravens often harass much larger birds of prey until they decide it's not worth the trouble",
+            "start": 0,
+            "w": null,
+            "x": null,
+            "y": null
+          }
+        ],
+        "item_id": "x-2083682938735009817",
+        "rationale": "Wildlife behavior; no policy violation.",
+        "severity": 0
+      },
+      {
+        "action": "ALLOW",
+        "confidence": 0.9,
+        "evidence": [
+          {
+            "end": 128,
+            "h": null,
+            "kind": "text",
+            "media_id": null,
+            "quote": "Is there a support group for relatives dealing with a loved one's alcoholism and addictions?",
+            "start": 36,
+            "w": null,
+            "x": null,
+            "y": null
+          }
+        ],
+        "item_id": "x-2083686862661521782",
+        "rationale": "Social commentary on support services; not drug sales or graphic violence celebration.",
+        "severity": 0
+      },
+      {
+        "action": "ALLOW",
+        "confidence": 0.94,
+        "evidence": [
+          {
+            "end": 193,
+            "h": null,
+            "kind": "text",
+            "media_id": null,
+            "quote": "The Brady Handgun Violence Prevention Act of 1993 (Public Law 103-159), commonly called the Brady Act or Brady Bill, required federal background checks for firearm purchases from licensed dealers",
+            "start": 0,
+            "w": null,
+            "x": null,
+            "y": null
+          }
+        ],
+        "item_id": "x-2083695842171515382",
+        "rationale": "Neutral legal/historical summary; not celebrating violence.",
+        "severity": 0
+      },
+      {
+        "action": "ALLOW",
+        "confidence": 0.92,
+        "evidence": [
+          {
+            "end": 107,
+            "h": null,
+            "kind": "text",
+            "media_id": null,
+            "quote": "#alcoholawareness Alcohol overall. by far is the most harmful drug, in Canada, the US, and around the world!",
+            "start": 0,
+            "w": null,
+            "x": null,
+            "y": null
+          }
+        ],
+        "item_id": "x-2083700086526415224",
+        "rationale": "Public-health alcohol awareness; allowed.",
+        "severity": 0
+      },
+      {
+        "action": "ALLOW",
+        "confidence": 0.9,
+        "evidence": [
+          {
+            "end": 146,
+            "h": null,
+            "kind": "text",
+            "media_id": null,
+            "quote": "Suspected shooter in Idaho In-N-Out shooting is dead, police are working on identifying him and figuring out the motivation (from press conference)",
+            "start": 0,
+            "w": null,
+            "x": null,
+            "y": null
+          }
+        ],
+        "item_id": "x-2083703751404028286",
+        "rationale": "Neutral breaking news on a shooting; not celebration of graphic violence.",
+        "severity": 0
+      },
+      {
+        "action": "ALLOW",
+        "confidence": 0.97,
+        "evidence": [
+          {
+            "end": 49,
+            "h": null,
+            "kind": "text",
+            "media_id": null,
+            "quote": "temperature up 83\u00b0F \u21e2 85\u00b0F wind 7 mph \u2199\ufe0e \u21e2 13 mph \u2199\ufe0e",
+            "start": 0,
+            "w": null,
+            "x": null,
+            "y": null
+          }
+        ],
+        "item_id": "x-2083704047459004612",
+        "rationale": "Weather update only.",
+        "severity": 0
+      },
+      {
+        "action": "ALLOW",
+        "confidence": 0.95,
+        "evidence": [
+          {
+            "end": 96,
+            "h": null,
+            "kind": "text",
+            "media_id": null,
+            "quote": "nevermind my day got ruined in two seconds, sorry for being chopped and a good night to everyone",
+            "start": 0,
+            "w": null,
+            "x": null,
+            "y": null
+          }
+        ],
+        "item_id": "x-2083704103046127828",
+        "rationale": "Personal vent; no prohibited content.",
+        "severity": 0
+      },
+      {
+        "action": "ALLOW",
+        "confidence": 0.97,
+        "evidence": [
+          {
+            "end": 80,
+            "h": null,
+            "kind": "text",
+            "media_id": null,
+            "quote": "\ud83c\udf05 4:59 am: Sunrise Sunset at 9:08 pm Today: thunderstorms \u26c8\ufe0f, 21/15\u00b0C, UV index 4",
+            "start": 0,
+            "w": null,
+            "x": null,
+            "y": null
+          }
+        ],
+        "item_id": "x-2083704113557074341",
+        "rationale": "Weather forecast; allowed.",
+        "severity": 0
+      },
+      {
+        "action": "ALLOW",
+        "confidence": 0.97,
+        "evidence": [
+          {
+            "end": 53,
+            "h": null,
+            "kind": "text",
+            "media_id": null,
+            "quote": "temperature down 85\u00b0F \u21e2 82\u00b0F wind 12 mph \u2190\ufe0e \u21e2 17 mph \u2193\ufe0e",
+            "start": 0,
+            "w": null,
+            "x": null,
+            "y": null
+          }
+        ],
+        "item_id": "x-2083704178061238598",
+        "rationale": "Weather update; allowed.",
+        "severity": 0
+      },
+      {
+        "action": "ALLOW",
+        "confidence": 0.95,
+        "evidence": [
+          {
+            "end": 96,
+            "h": null,
+            "kind": "text",
+            "media_id": null,
+            "quote": "Day 105 I will write my daily summary entirely in English and use AI tools to help me polish it.",
+            "start": 0,
+            "w": null,
+            "x": null,
+            "y": null
+          }
+        ],
+        "item_id": "x-2083704186609549694",
+        "rationale": "Language-learning diary; allowed.",
+        "severity": 0
+      },
+      {
+        "action": "ALLOW",
+        "confidence": 0.95,
+        "evidence": [
+          {
+            "end": 97,
+            "h": null,
+            "kind": "text",
+            "media_id": null,
+            "quote": "i had a girlfriend and then i woke up i had a job and then i woke up i had sex and then i woke up",
+            "start": 0,
+            "w": null,
+            "x": null,
+            "y": null
+          }
+        ],
+        "item_id": "x-2083704188282831228",
+        "rationale": "Absurdist personal post; no policy triggers.",
+        "severity": 0
+      },
+      {
+        "action": "ALLOW",
+        "confidence": 0.94,
+        "evidence": [
+          {
+            "end": 83,
+            "h": null,
+            "kind": "text",
+            "media_id": null,
+            "quote": "might as well start bull posting @variational_io I don't have a ref to shill...yet.",
+            "start": 0,
+            "w": null,
+            "x": null,
+            "y": null
+          }
+        ],
+        "item_id": "x-2083704231106658492",
+        "rationale": "Crypto/product shilling; unrelated to violence or illegal drugs.",
+        "severity": 0
+      },
+      {
+        "action": "ALLOW",
+        "confidence": 0.9,
+        "evidence": [
+          {
+            "end": 99,
+            "h": null,
+            "kind": "text",
+            "media_id": null,
+            "quote": "U.S. Embassies across the Middle East just issued new security alerts warning Americans:",
+            "start": 11,
+            "w": null,
+            "x": null,
+            "y": null
+          }
+        ],
+        "item_id": "x-2083704235317977549",
+        "rationale": "Geopolitical/security alert style news; not celebrating graphic violence or drug sales.",
+        "severity": 0
+      },
+      {
+        "action": "ALLOW",
+        "confidence": 0.97,
+        "evidence": [
+          {
+            "end": 49,
+            "h": null,
+            "kind": "text",
+            "media_id": null,
+            "quote": "temperature down 28\u00b0C \u21e2 24\u00b0C humidity up 41% \u21e2 53%",
+            "start": 0,
+            "w": null,
+            "x": null,
+            "y": null
+          }
+        ],
+        "item_id": "x-2083704271409697278",
+        "rationale": "Weather metrics only.",
+        "severity": 0
+      },
+      {
+        "action": "ALLOW",
+        "confidence": 0.95,
+        "evidence": [
+          {
+            "end": 35,
+            "h": null,
+            "kind": "text",
+            "media_id": null,
+            "quote": "You guys know we have AI now right?",
+            "start": 0,
+            "w": null,
+            "x": null,
+            "y": null
+          }
+        ],
+        "item_id": "x-2083704288400798039",
+        "rationale": "Generic AI remark; allowed.",
+        "severity": 0
+      },
+      {
+        "action": "ALLOW",
+        "confidence": 0.95,
+        "evidence": [
+          {
+            "end": 96,
+            "h": null,
+            "kind": "text",
+            "media_id": null,
+            "quote": "Hawaii's small businesses run on a thin carrier market where one outage can shut down an island.",
+            "start": 0,
+            "w": null,
+            "x": null,
+            "y": null
+          }
+        ],
+        "item_id": "x-2083704307015430570",
+        "rationale": "Business/tech product pitch; allowed.",
+        "severity": 0
+      },
+      {
+        "action": "ALLOW",
+        "confidence": 0.98,
+        "evidence": [
+          {
+            "end": 12,
+            "h": null,
+            "kind": "text",
+            "media_id": null,
+            "quote": "Good morning",
+            "start": 0,
+            "w": null,
+            "x": null,
+            "y": null
+          }
+        ],
+        "item_id": "x-2083704311285244277",
+        "rationale": "Greeting only.",
+        "severity": 0
+      },
+      {
+        "action": "ALLOW",
+        "confidence": 0.95,
+        "evidence": [
+          {
+            "end": 98,
+            "h": null,
+            "kind": "text",
+            "media_id": null,
+            "quote": "Today is supposed to be fckn ME day, ME ME ME, then here comes my sister and I can't say no........",
+            "start": 0,
+            "w": null,
+            "x": null,
+            "y": null
+          }
+        ],
+        "item_id": "x-2083704311792738366",
+        "rationale": "Personal complaint; no policy issues.",
+        "severity": 0
+      },
+      {
+        "action": "ALLOW",
+        "confidence": 0.97,
+        "evidence": [
+          {
+            "end": 27,
+            "h": null,
+            "kind": "text",
+            "media_id": null,
+            "quote": "good morning tomarry nation",
+            "start": 0,
+            "w": null,
+            "x": null,
+            "y": null
+          }
+        ],
+        "item_id": "x-2083704314187653153",
+        "rationale": "Casual greeting; allowed.",
+        "severity": 0
+      }
+    ]
+  }
+}

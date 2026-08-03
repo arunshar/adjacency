@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/SenateAging/status/2082551906228912361"
+  },
+  "request_sha256": "b19c64c79f378bf5f337b20c6c347bff13e028f82fc799911bd908213576d049",
+  "response": {
+    "author_handle": "@SenateAging",
+    "created_at": "July 29, 2026",
+    "media_height": null,
+    "media_url": null,
+    "media_width": null,
+    "source_url": "https://x.com/SenateAging/status/2082551906228912361",
+    "text": "The AI Deception Machine: Deepfakes, Chatbots, and the New Frontier of Senior Fraud https://t.co/9bvwL9iJTp"
+  },
+  "response_sha256": "bd6a216b78e62057481a1ab0f27806c8c311bba09f117989be3d67f835c5dfe8",
+  "surface": "http.x_status_metadata"
+}

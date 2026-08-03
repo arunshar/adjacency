@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/StanChi_Tech/status/2083704037388546261"
+  },
+  "request_sha256": "49bbfaadf010cb815bbcb01ec4a2c9243ace77bca372ae7a1fd3b5088a5de028",
+  "response": {
+    "author_handle": "@StanChi_Tech",
+    "created_at": "August 1, 2026",
+    "media_height": null,
+    "media_url": null,
+    "media_width": null,
+    "source_url": "https://x.com/StanChi_Tech/status/2083704037388546261",
+    "text": "My salary came as a view once"
+  },
+  "response_sha256": "0b66986dea4906835a2c972167c7a053c8df0e180e883b5fd1d387145f3ef5b8",
+  "surface": "http.x_status_metadata"
+}

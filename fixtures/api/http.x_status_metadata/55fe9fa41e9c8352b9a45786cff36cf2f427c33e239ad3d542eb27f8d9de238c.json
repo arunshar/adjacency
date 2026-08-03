@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/Crease19NEWS/status/2083703849122951401"
+  },
+  "request_sha256": "55fe9fa41e9c8352b9a45786cff36cf2f427c33e239ad3d542eb27f8d9de238c",
+  "response": {
+    "author_handle": "@Crease19NEWS",
+    "created_at": "August 1, 2026",
+    "media_height": null,
+    "media_url": null,
+    "media_width": null,
+    "source_url": "https://x.com/Crease19NEWS/status/2083703849122951401",
+    "text": "UPDATE: IDAHO SHOOTER IS DEAD... NO MORE THREAT TO THE PUBLIC.. SAFE TO COME OUT...#IDAHO #SHOOTING"
+  },
+  "response_sha256": "2323558d29cb505f94eea76b71f79644be2b0519d7712164bbf4614cf973b07d",
+  "surface": "http.x_status_metadata"
+}

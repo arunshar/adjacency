@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/tom_doerr/status/2054959102195872231"
+  },
+  "request_sha256": "22438cec23f5c622d2038aece0a420102b6b06607c68c58a3e03c2b533c0afc7",
+  "response": {
+    "author_handle": "@tom_doerr",
+    "created_at": "May 14, 2026",
+    "media_height": 864,
+    "media_url": "https://pbs.twimg.com/media/HISuac1WcAIrb5M.jpg:large",
+    "media_width": 1009,
+    "source_url": "https://x.com/tom_doerr/status/2054959102195872231",
+    "text": "Collection of 127 scientific diagrams for physics and MLhttps://t.co/NipJXOAP0h"
+  },
+  "response_sha256": "166e025e967d2d11f4f04334de9df1c7111a33ba5d718c19b3f1aa4dbef7c2ca",
+  "surface": "http.x_status_metadata"
+}

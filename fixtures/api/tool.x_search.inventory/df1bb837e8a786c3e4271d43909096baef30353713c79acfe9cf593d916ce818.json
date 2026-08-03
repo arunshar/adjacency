@@ -1,0 +1,526 @@
+{
+  "format_version": 1,
+  "request": {
+    "input": [
+      {
+        "content": "Use x_search to find distinct public X posts matching the query. Return only posts you found through the tool. Use direct x.com status URLs, exact post text, the author handle, an ISO date or timestamp, and whether the post has attached media. Do not invent or reconstruct URLs. Prefer original posts over replies and reposts.\n\nQuery label: policy_text_only\nQuery: Original text-only public posts about violence prevention, public health, drug policy, deepfakes, or synthetic media. Require no attached media, link, or quote.\nReturn at most 20 posts.",
+        "role": "user"
+      }
+    ],
+    "max_output_tokens": 8192,
+    "max_tool_calls": 6,
+    "model": "grok-4.5",
+    "reasoning": {
+      "effort": "low"
+    },
+    "store": false,
+    "text": {
+      "format": {
+        "name": "x_inventory_batch",
+        "schema": {
+          "$defs": {
+            "XSearchPost": {
+              "additionalProperties": false,
+              "properties": {
+                "author_handle": {
+                  "minLength": 1,
+                  "title": "Author Handle",
+                  "type": "string"
+                },
+                "created_at": {
+                  "minLength": 1,
+                  "title": "Created At",
+                  "type": "string"
+                },
+                "has_media": {
+                  "title": "Has Media",
+                  "type": "boolean"
+                },
+                "source_url": {
+                  "title": "Source Url",
+                  "type": "string"
+                },
+                "text": {
+                  "minLength": 1,
+                  "title": "Text",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "source_url",
+                "text",
+                "author_handle",
+                "created_at",
+                "has_media"
+              ],
+              "title": "XSearchPost",
+              "type": "object"
+            }
+          },
+          "additionalProperties": false,
+          "properties": {
+            "posts": {
+              "items": {
+                "$ref": "#/$defs/XSearchPost"
+              },
+              "maxItems": 20,
+              "minItems": 1,
+              "title": "Posts",
+              "type": "array"
+            }
+          },
+          "required": [
+            "posts"
+          ],
+          "title": "_XSearchBatch",
+          "type": "object"
+        },
+        "strict": true,
+        "type": "json_schema"
+      }
+    },
+    "tools": [
+      {
+        "from_date": "2026-01-01",
+        "to_date": "2026-08-02",
+        "type": "x_search"
+      }
+    ]
+  },
+  "request_sha256": "df1bb837e8a786c3e4271d43909096baef30353713c79acfe9cf593d916ce818",
+  "response": {
+    "background": false,
+    "completed_at": 1785745939,
+    "created_at": 1785745939,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "id": "06aa39aa-83b8-9ffe-a4fb-1df812794463",
+    "incomplete_details": null,
+    "instructions": null,
+    "max_output_tokens": 8192,
+    "max_tool_calls": null,
+    "metadata": {
+      "system_fingerprint": "fp_a39489019fa99b6e"
+    },
+    "model": "grok-4.5",
+    "object": "response",
+    "output": [
+      {
+        "id": "rs_06aa39aa-83b8-9ffe-a4fb-1df812794463",
+        "status": "completed",
+        "summary": [
+          {
+            "text": "The user wants me to use x_search to find distinct public X posts matching the query. The query is: Original text-only public posts about violence prevention, public health, drug policy, deepfakes, or...",
+            "type": "summary_text"
+          }
+        ],
+        "type": "reasoning"
+      },
+      {
+        "call_id": "xs_call-ad0b2731-8f1a-4fad-ab15-3072a0289548-0",
+        "id": "ctc_06aa39aa-83b8-9ffe-a4fb-1df812794463_call-ad0b2731-8f1a-4fad-ab15-3072a0289548-0",
+        "input": "{\"query\":\"(\\\"violence prevention\\\" OR \\\"public health\\\" OR \\\"drug policy\\\" OR deepfakes OR \\\"synthetic media\\\" OR \\\"synthetic media\\\" OR deepfake) -filter:media -filter:links -filter:quote -filter:replies\",\"limit\":\"10\",\"mode\":\"Latest\"}",
+        "name": "x_keyword_search",
+        "status": "completed",
+        "type": "custom_tool_call"
+      },
+      {
+        "call_id": "xs_call-ad0b2731-8f1a-4fad-ab15-3072a0289548-1",
+        "id": "ctc_06aa39aa-83b8-9ffe-a4fb-1df812794463_call-ad0b2731-8f1a-4fad-ab15-3072a0289548-1",
+        "input": "{\"query\":\"(\\\"violence prevention\\\" OR \\\"public health\\\" OR \\\"drug policy\\\" OR deepfake OR \\\"deepfakes\\\" OR \\\"synthetic media\\\") -filter:media -filter:links -filter:quote -filter:replies\",\"limit\":\"10\",\"mode\":\"Top\"}",
+        "name": "x_keyword_search",
+        "status": "completed",
+        "type": "custom_tool_call"
+      },
+      {
+        "id": "tco_06aa39aa-83b8-9ffe-a4fb-1df812794463_call-ad0b2731-8f1a-4fad-ab15-3072a0289548-0",
+        "status": "completed",
+        "summary": [],
+        "type": "reasoning"
+      },
+      {
+        "id": "tco_06aa39aa-83b8-9ffe-a4fb-1df812794463_call-ad0b2731-8f1a-4fad-ab15-3072a0289548-1",
+        "status": "completed",
+        "summary": [],
+        "type": "reasoning"
+      },
+      {
+        "call_id": "xs_call-ad0b2731-8f1a-4fad-ab15-3072a0289548-2",
+        "id": "ctc_06aa39aa-83b8-9ffe-a4fb-1df812794463_call-ad0b2731-8f1a-4fad-ab15-3072a0289548-2",
+        "input": "{\"query\":\"\\\"drug policy\\\" -filter:media -filter:links -filter:quote -filter:replies\",\"limit\":\"10\",\"mode\":\"Latest\"}",
+        "name": "x_keyword_search",
+        "status": "completed",
+        "type": "custom_tool_call"
+      },
+      {
+        "call_id": "xs_call-ad0b2731-8f1a-4fad-ab15-3072a0289548-3",
+        "id": "ctc_06aa39aa-83b8-9ffe-a4fb-1df812794463_call-ad0b2731-8f1a-4fad-ab15-3072a0289548-3",
+        "input": "{\"query\":\"\\\"violence prevention\\\" -filter:media -filter:links -filter:quote -filter:replies\",\"limit\":\"5\",\"mode\":\"Latest\"}",
+        "name": "x_keyword_search",
+        "status": "completed",
+        "type": "custom_tool_call"
+      },
+      {
+        "call_id": "xs_call-ad0b2731-8f1a-4fad-ab15-3072a0289548-4",
+        "id": "ctc_06aa39aa-83b8-9ffe-a4fb-1df812794463_call-ad0b2731-8f1a-4fad-ab15-3072a0289548-4",
+        "input": "{\"query\":\"(\\\"deepfakes\\\" OR deepfake OR \\\"synthetic media\\\") -filter:media -filter:links -filter:quote -filter:replies\",\"limit\":\"10\",\"mode\":\"Latest\"}",
+        "name": "x_keyword_search",
+        "status": "completed",
+        "type": "custom_tool_call"
+      },
+      {
+        "id": "tco_06aa39aa-83b8-9ffe-a4fb-1df812794463_call-ad0b2731-8f1a-4fad-ab15-3072a0289548-2",
+        "status": "completed",
+        "summary": [],
+        "type": "reasoning"
+      },
+      {
+        "id": "tco_06aa39aa-83b8-9ffe-a4fb-1df812794463_call-ad0b2731-8f1a-4fad-ab15-3072a0289548-3",
+        "status": "completed",
+        "summary": [],
+        "type": "reasoning"
+      },
+      {
+        "id": "tco_06aa39aa-83b8-9ffe-a4fb-1df812794463_call-ad0b2731-8f1a-4fad-ab15-3072a0289548-4",
+        "status": "completed",
+        "summary": [],
+        "type": "reasoning"
+      },
+      {
+        "content": [
+          {
+            "annotations": [
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2082089514227454038",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2082089514227454038"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083681790426751163",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083681790426751163"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083131222083895512",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083131222083895512"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083674197167894780",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083674197167894780"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083676782318985307",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083676782318985307"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083684658500518331",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083684658500518331"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083671524406661439",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083671524406661439"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2082113428391338251",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2082113428391338251"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083224129734369699",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083224129734369699"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083704129424359920",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083704129424359920"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083686878545399955",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083686878545399955"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2082234683715158492",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2082234683715158492"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083461489940210125",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083461489940210125"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083259821374026088",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083259821374026088"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083350996823007376",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083350996823007376"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083677339452395851",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083677339452395851"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083690303769170406",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083690303769170406"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2081194938700849456",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2081194938700849456"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083595508577427764",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083595508577427764"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083679839886655503",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083679839886655503"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2082834811266220080",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2082834811266220080"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083695842171515382",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083695842171515382"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083681742888505523",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083681742888505523"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083686554631844246",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083686554631844246"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2082097561008267590",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2082097561008267590"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083132183569453120",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083132183569453120"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083681774228373959",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083681774228373959"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083699098008584503",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083699098008584503"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083688145892339720",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083688145892339720"
+              }
+            ],
+            "logprobs": [],
+            "text": "{\n  \"posts\": [\n    {\n      \"source_url\": \"https://x.com/springkiseki/status/2083704129424359920\",\n      \"text\": \"ppl using harmless selfie photo for deepfakes disgusting af. fucking shameless.\",\n      \"author_handle\": \"springkiseki\",\n      \"created_at\": \"2026-08-01T23:59:12Z\",\n      \"has_media\": false\n    },\n    {\n      \"source_url\": \"https://x.com/Mark85119395/status/2083699098008584503\",\n      \"text\": \"\u4eca\u5929\u958b\u59cb\uff0cAI Act \u4e0d\u518d\u53ea\u662f\u6b50\u76df\u516c\u5831\u4e0a\u7684\u898f\u5247\uff0c\u800c\u662f\u6b63\u5f0f\u9032\u5165\u57f7\u6cd5\u7cfb\u7d71\u3002\\n\\n\u9019\u4e0d\u662f\u65b0\u6cd5\u4eca\u5929\u901a\u904e\uff0c\u4e5f\u4e0d\u662f\u6240\u6709\u689d\u6b3e\u4e00\u6b21\u751f\u6548\u3002\\n\\n\u771f\u6b63\u843d\u5730\u7684\u662f\u5169\u4ef6\u4e8b\uff1a\\n\\nAI Office \u8207\u5404\u570b\u4e3b\u7ba1\u6a5f\u95dc\u958b\u59cb\u6709\u57f7\u6cd5\u6b0a\uff1b\u804a\u5929\u6a5f\u5668\u4eba\u3001deepfake\u3001AI \u751f\u6210\u8207\u4fee\u6539\u5167\u5bb9\uff0c\u958b\u59cb\u9762\u5c0d\u63ed\u9732\u8207\u6a5f\u5668\u53ef\u8b80\u6a19\u8a18\u8981\u6c42\u3002\\n\\n\u9ad8\u98a8\u96aa AI \u7684\u4e3b\u8981\u898f\u5247\uff0c\u4ecd\u8981\u7b49\u5230 2027\uff0f2028\u3002\\n\\n\u6240\u4ee5\u9019\u4ef6\u4e8b\u4e0d\u80fd\u76f4\u63a5\u5beb\u6210 AI \u9700\u6c42\u5229\u7a7a\u3002\\n\\n\u8b8a\u5316\u5728\u6210\u672c\u7aef\u3002\\n\\n\u5c0d Microsoft\u3001Google\u3001Amazon\u3001Meta\u3001OpenAI \u9019\u4e9b\u5e73\u53f0\u8207\u6a21\u578b\u5546\uff0c\u5408\u898f\u5f9e\u672a\u4f86\u98a8\u96aa\u8b8a\u6210\u7576\u671f\u71df\u904b\u6210\u672c\uff0c\u4e5f\u6703\u8b8a\u6210\u7522\u54c1\u529f\u80fd\u7684\u4e00\u90e8\u5206\u3002\\n\\n\u5927\u578b\u5e73\u53f0\u672a\u5fc5\u6700\u6015\u898f\u5247\u3002\\n\\n\u5b83\u5011\u6709\u6cd5\u52d9\u3001\u8cc7\u5b89\u3001\u5de5\u7a0b\u8207\u5ba2\u6236\u4fe1\u4efb\u57fa\u790e\uff0c\u53cd\u800c\u6700\u6709\u80fd\u529b\u628a\u5408\u898f\u505a\u6210\u5e73\u53f0\u8b77\u57ce\u6cb3\u3002\\n\\n\u88ab\u64e0\u58d3\u7684\uff0c\u53ef\u80fd\u662f\u7f3a\u4e4f\u5408\u898f\u8cc7\u6e90\u7684\u4e2d\u5c0f\u6a21\u578b\u5546\u8207\u61c9\u7528\u516c\u53f8\u3002\\n\\n\u6295\u8cc7\u4eba\u63a5\u4e0b\u4f86\u8981\u770b\u7684\uff0c\u4e0d\u662f AI \u6703\u4e0d\u6703\u5c11\u7528\u3002\\n\\n\u800c\u662f\u5408\u898f\u6210\u672c\uff0c\u6703\u88ab\u8ab0\u5438\u6536\uff0c\u6700\u5f8c\u53c8\u6703\u628a\u5229\u6f64\u7559\u7d66\u8ab0\u3002\",\n      \"author_handle\": \"Mark85119395\",\n      \"created_at\": \"2026-08-01T23:39:12Z\",\n      \"has_media\": false\n    },\n    {\n      \"source_url\": \"https://x.com/tydyryblue/status/2083695842171515382\",\n      \"text\": \"The Brady Handgun Violence Prevention Act of 1993 (Public Law 103-159), commonly called the Brady Act or Brady Bill, required federal background checks for firearm purchases from licensed dealers and established an interim five-business-day waiting period for handguns.\\nIt is named for James Brady, the White House press secretary who was severely wounded and left partially paralyzed in the March 30, 1981, assassination attempt on President Ronald Reagan by John Hinckley Jr. Brady and his wife Sarah led a long public campaign for the measure.\\nKey details\\n\u2022 Sponsor and passage: Introduced in the House by Rep. Charles E. Schumer (D-NY). After years of prior attempts, it passed the House (238-189) and Senate in November 1993. President Bill Clinton signed it into law on November 30, 1993; it took effect on February 28, 1994.\\n\u2022 Interim provisions (handguns only, until late 1998): Federally licensed dealers, manufacturers, or importers could not transfer a handgun to an unlicensed person without first receiving a statement of eligibility, verifying identity, notifying the chief law enforcement officer in the buyer\u2019s area of residence, and waiting five business days (or less if cleared sooner). Local officials were to make a reasonable effort to check for disqualifying records. Exceptions existed (e.g., certain permits or threats). Records for approved transfers were to be destroyed.\\n\u2022 National Instant Criminal Background Check System (NICS): The law directed the Attorney General to create a national instant check system within five years so dealers could quickly verify whether a transfer of any firearm would violate federal or state law. NICS (run by the FBI) went online on November 30, 1998, after which the five-day waiting period ended. Dealers contact NICS; if no prohibiting information is found (or after three business days with no response), the transfer can proceed.\\n\u2022 Other elements: It funded improvements to state criminal records systems, included provisions on multiple handgun purchases (reporting to local police), and contained some reforms related to federal firearms licenses. It applied only to sales by federally licensed dealers (private sales were not covered federally).\\nContext and impact\\nThe Act built on the Gun Control Act of 1968 by ending the previous \u201chonor system\u201d in which buyers simply certified they were not prohibited persons. Prohibited categories include felons, fugitives, certain domestic violence offenders, illegal aliens, and those adjudicated mentally defective, among others. Background checks have blocked millions of attempted purchases by prohibited persons over the decades.\\nA 1997 Supreme Court decision (Printz v. United States) held that the federal government could not compel state/local officials to conduct the interim background checks, but the overall framework and NICS continued.\\nThis remains the primary federal law requiring background checks for purchases from licensed firearms dealers.\",\n      \"author_handle\": \"tydyryblue\",\n      \"created_at\": \"2026-08-01T23:26:16Z\",\n      \"has_media\": false\n    },\n    {\n      \"source_url\": \"https://x.com/GaryShe11708952/status/2083690303769170406\",\n      \"text\": \"It is time we ask President Trump to send in the National Guard to protect safety, property, business owners, and their employees.\\nThe public health is being threatened.\\n\\n@POTUS\",\n      \"author_handle\": \"GaryShe11708952\",\n      \"created_at\": \"2026-08-01T23:04:16Z\",\n      \"has_media\": false\n    },\n    {\n      \"source_url\": \"https://x.com/DEC0L0NIZE/status/2083688145892339720\",\n      \"text\": \"\u201ci can\u2019t believe society is like this!\u201d \\n\\n-covid forgetters/post pandemic pretenders who won\u2019t even mask for grandma, dad in chemo, and damn sure not strangers just trying to survive unmitigated airborne viruses in this post public health crisis\",\n      \"author_handle\": \"DEC0L0NIZE\",\n      \"created_at\": \"2026-08-01T22:55:41Z\",\n      \"has_media\": false\n    },\n    {\n      \"source_url\": \"https://x.com/AhiKeoKeo/status/2083686878545399955\",\n      \"text\": \"Domestic infrastructure and public health are showing serious fractures. In Michigan, nearly 1,000 people have been infected in the state\u2019s largest outbreak of a parasitic disease. In New York, investigators are hunting the source of a Legionnaires\u2019 disease outbreak in the Upper East Side, pointing to cooling towers as the likely culprit. Nationally, the FDA is urging parents to stop using a brand of organic baby formula after infants contracted botulism.\",\n      \"author_handle\": \"AhiKeoKeo\",\n      \"created_at\": \"2026-08-01T22:50:39Z\",\n      \"has_media\": false\n    },\n    {\n      \"source_url\": \"https://x.com/AbdallahBaba_/status/2083686554631844246\",\n      \"text\": \"Please any NGO focused on public health in kaduna?\",\n      \"author_handle\": \"AbdallahBaba_\",\n      \"created_at\": \"2026-08-01T22:49:22Z\",\n      \"has_media\": false\n    },\n    {\n      \"source_url\": \"https://x.com/MarySsegawm6je/status/2083684658500518331\",\n      \"text\": \"The Uganda Public Health Institute reported successful intervention regarding mental illness in Mbale. #PublicHealth #HealthForAll #UgandaHospitals\",\n      \"author_handle\": \"MarySsegawm6je\",\n      \"created_at\": \"2026-08-01T22:41:50Z\",\n      \"has_media\": false\n    },\n    {\n      \"source_url\": \"https://x.com/cgmarketwatch/status/2083681790426751163\",\n      \"text\": \"Solana Foundation's new CISO is clear: the next big crypto threat isn't a smart contract bug.\\n\\nIt's AI-powered social engineering. Deepfake calls. Fake identities. Tools so convincing that \\\"eventually, you will be fooled.\\\"\\n\\n$SOL is already evaluating post-quantum cryptography.\",\n      \"author_handle\": \"cgmarketwatch\",\n      \"created_at\": \"2026-08-01T22:30:26Z\",\n      \"has_media\": false\n    },\n    {\n      \"source_url\": \"https://x.com/im_serPAI/status/2083681742888505523\",\n      \"text\": \"AI deepfakes are about to wreck crypto security harder than any smart contract bug ever did\\n\\nSOL foundation's new CISO put it straight: \\\"Eventually, you will be fooled because the cons are that good.\\\"\\n\\nStack your defenses. When layer one fails, layer two saves you.\",\n      \"author_handle\": \"im_serPAI\",\n      \"created_at\": \"2026-08-01T22:30:15Z\",\n      \"has_media\": false\n    },\n    {\n      \"source_url\": \"https://x.com/memecoin_trades/status/2083671524406661439\",\n      \"text\": \"My drug policy is simple. Straight to jail. Minimum 15 years. \\n\\nYou were a dealer? Life in prison or death penalty\\n\\nNo tolerance. If rules are not backed my punishment, no one will respect them.\",\n      \"author_handle\": \"memecoin_trades\",\n      \"created_at\": \"2026-08-01T21:49:38Z\",\n      \"has_media\": false\n    },\n    {\n      \"source_url\": \"https://x.com/ceqtarian/status/2083595508577427764\",\n      \"text\": \"just read the atlantic piece on drug policy. seems like somewhere along the way, people forgot the whole point was to eventually get people to stop using drugs.\",\n      \"author_handle\": \"ceqtarian\",\n      \"created_at\": \"2026-08-01T16:47:35Z\",\n      \"has_media\": false\n    },\n    {\n      \"source_url\": \"https://x.com/GalacTR0N/status/2083461489940210125\",\n      \"text\": \"getting tired of fighting to end prohibition of cannabis.  it's fucking unreal how the left just abandons me, it's not just @UKLabour it's people like @ZackPolanski and @EdwardJDavey not equating drug policy reform WITH PRISON FIT TO BURST.\\n\\nYOU'RE SUPPOSED TO PUT PRESSURE ON GOV\",\n      \"author_handle\": \"GalacTR0N\",\n      \"created_at\": \"2026-08-01T07:55:02Z\",\n      \"has_media\": false\n    },\n    {\n      \"source_url\": \"https://x.com/Rustafarian585/status/2083350996823007376\",\n      \"text\": \"chickens come home to roost when white people see that what happened to us with fentanyl was exactly what we wanted to lock black kids up for in the 80s for crack.let's all have some humility going forward with drug policy.  Let's treat people like people.  Humans have flaws.\",\n      \"author_handle\": \"Rustafarian585\",\n      \"created_at\": \"2026-08-01T00:35:59Z\",\n      \"has_media\": false\n    },\n    {\n      \"source_url\": \"https://x.com/AustinDavisPA/status/2083224129734369699\",\n      \"text\": \"Every Pennsylvanian deserves to be safe and feel safe in the place they call home.\\n\\nDuring our first term in office, @JoshShapiroPA and I have delivered historic funding for the police officers and gun violence prevention programs working to keep our communities safe \u2014 and it\u2019s working.\",\n      \"author_handle\": \"AustinDavisPA\",\n      \"created_at\": \"2026-07-31T16:11:51Z\",\n      \"has_media\": false\n    },\n    {\n      \"source_url\": \"https://x.com/ShinkaIoT/status/2083676782318985307\",\n      \"text\": \"\u26a0\ufe0f \ud83d\udea8 Starting August 2, the EU mandates labels on \\\"authentic-looking\\\" AI content.\\nThis is plain STUPID.\\n\\nIt's like asking a fake money printer to put a label on the banknotes.\\n\\nMore than just deepfakes, this redefines how we perceive digital reality.\\n\\nThe new law requires AI-generated or manipulated content that appears authentic to be clearly labeled. A direct response to misinformation and synthetic media.\\n\\nThis shifts AI transparency from best practice to legal requirement. Expect global ripple effects. The race for trustworthy AI just got a major push.\",\n      \"author_handle\": \"ShinkaIoT\",\n      \"created_at\": \"2026-08-01T22:10:32Z\",\n      \"has_media\": false\n    },\n    {\n      \"source_url\": \"https://x.com/Ghostaisystems/status/2083674197167894780\",\n      \"text\": \"Judge denies xAI\u2019s bid to block Minnesota\u2019s nudify app ban. As an AI architect deploying real voice agents & lead gen systems for businesses, this is huge. Solopreneurs win when we cut the sleaze and build stuff that actually scales. Deepfake bros lose. Time to build or bust?\",\n      \"author_handle\": \"Ghostaisystems\",\n      \"created_at\": \"2026-08-01T22:00:16Z\",\n      \"has_media\": false\n    },\n    {\n      \"source_url\": \"https://x.com/faith_nabushawo/status/2082113428391338251\",\n      \"text\": \"Dear Hon. Minister, I kindly request that we separate politics from the realities on the ground and give the public accurate information about medicines in our health facilities.\\n\\nThe Uganda National Drug Policy does not even  promise that every medicine in existence will be available in government hospitals. It guides the selection, procurement and use of essential medicines based on national priorities, safety, effectiveness and cost effectiveness.\\n\\nMy experience working in a government hospital, I can testify that we provide care with the medicines available. However, there are several important medicines that are not routinely supplied in government facilities. For example, when I need subcutaneous Enoxaparin for thromboprophylaxis or treatment of thromboembolic disease in my patients, they often have to purchase it because it is not consistently available in our government supply chain. And btw costs 40 to 80k myself if I needed it I bet I would afford the whole course of treatment. \ud83c\udf1d\\n\\nSo plz Hon\u2026. This is not doctors \u201csending patients to buy drugs.\u201d It is clinicians trying to provide the best possible care within the realities of medicine availability.\\n\\nOur patients deserve honesty. Instead of blaming health workers, let us acknowledge gaps in supply chains, discuss solutions, and strengthen access to medicines for all Ugandans. \ud83d\udccc\",\n      \"author_handle\": \"faith_nabushawo\",\n      \"created_at\": \"2026-07-28T14:38:19Z\",\n      \"has_media\": false\n    },\n    {\n      \"source_url\": \"https://x.com/pas5974/status/2082234683715158492\",\n      \"text\": \"TO ALL SENIORS AND AMERICAN VOTERS...REMMEBER IN  NOVEMBER HOW TRUMP TOOK AWAY YOUR  AFFORDABLE PRESCRIPTION DRUG POLICY.\",\n      \"author_handle\": \"pas5974\",\n      \"created_at\": \"2026-07-28T22:40:09Z\",\n      \"has_media\": false\n    },\n    {\n      \"source_url\": \"https://x.com/trueaussieocca/status/2081194938700849456\",\n      \"text\": \"People who think the AFL is a good organisation let's not forget they hid a pedofile they cheat their own drug policy and they treat people differently by colour and they won't stick up for women's rights and they don't believe in free speech this is a communist organisation\",\n      \"author_handle\": \"trueaussieocca\",\n      \"created_at\": \"2026-07-26T01:48:34Z\",\n      \"has_media\": false\n    }\n  ]\n}",
+            "type": "output_text"
+          }
+        ],
+        "id": "msg_06aa39aa-83b8-9ffe-a4fb-1df812794463",
+        "role": "assistant",
+        "status": "completed",
+        "type": "message"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "reasoning": {
+      "effort": "low",
+      "summary": "detailed"
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "status": "completed",
+    "store": false,
+    "temperature": 0.7,
+    "text": {
+      "format": {
+        "schema": {
+          "$defs": {
+            "XSearchPost": {
+              "additionalProperties": false,
+              "properties": {
+                "author_handle": {
+                  "minLength": 1,
+                  "title": "Author Handle",
+                  "type": "string"
+                },
+                "created_at": {
+                  "minLength": 1,
+                  "title": "Created At",
+                  "type": "string"
+                },
+                "has_media": {
+                  "title": "Has Media",
+                  "type": "boolean"
+                },
+                "source_url": {
+                  "title": "Source Url",
+                  "type": "string"
+                },
+                "text": {
+                  "minLength": 1,
+                  "title": "Text",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "source_url",
+                "text",
+                "author_handle",
+                "created_at",
+                "has_media"
+              ],
+              "title": "XSearchPost",
+              "type": "object"
+            }
+          },
+          "additionalProperties": false,
+          "properties": {
+            "posts": {
+              "items": {
+                "$ref": "#/$defs/XSearchPost"
+              },
+              "maxItems": 20,
+              "minItems": 1,
+              "title": "Posts",
+              "type": "array"
+            }
+          },
+          "required": [
+            "posts"
+          ],
+          "title": "_XSearchBatch",
+          "type": "object"
+        },
+        "type": "json_schema"
+      }
+    },
+    "tool_choice": "auto",
+    "tools": [
+      {
+        "from_date": "2026-01-01",
+        "to_date": "2026-08-02",
+        "type": "x_search"
+      }
+    ],
+    "top_logprobs": 0,
+    "top_p": 0.95,
+    "truncation": "disabled",
+    "usage": {
+      "context_details": {
+        "input_tokens": 12244,
+        "output_tokens": 4543
+      },
+      "cost_in_usd_ticks": 817516000,
+      "input_tokens": 19662,
+      "input_tokens_details": {
+        "cached_tokens": 8832
+      },
+      "num_server_side_tools_used": 5,
+      "num_sources_used": 0,
+      "output_tokens": 5407,
+      "output_tokens_details": {
+        "reasoning_tokens": 1655
+      },
+      "server_side_tool_usage_details": {
+        "code_interpreter_calls": 0,
+        "document_search_calls": 0,
+        "file_search_calls": 0,
+        "image_generation_calls": 0,
+        "mcp_calls": 0,
+        "web_search_calls": 0,
+        "x_search_calls": 5
+      },
+      "total_tokens": 25069
+    },
+    "user": null
+  },
+  "response_sha256": "879bc7be1a43722ba2bb0218c33f5f31e1542e0cc20adc25be9322608cb9fd22",
+  "surface": "tool.x_search.inventory"
+}

@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/MarySsegawm6je/status/2083684658500518331"
+  },
+  "request_sha256": "1f8ece17b33fcfa8a99280fec95012117139e245e5ccb89c264d87a933edddb1",
+  "response": {
+    "author_handle": "@MarySsegawm6je",
+    "created_at": "August 1, 2026",
+    "media_height": null,
+    "media_url": null,
+    "media_width": null,
+    "source_url": "https://x.com/MarySsegawm6je/status/2083684658500518331",
+    "text": "The Uganda Public Health Institute reported successful intervention regarding mental illness in Mbale. #PublicHealth #HealthForAll #UgandaHospitals"
+  },
+  "response_sha256": "b369365881093655dc5313fcda2f737a7d84d530d115eed758b58582d0b0136e",
+  "surface": "http.x_status_metadata"
+}

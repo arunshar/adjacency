@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/simplykashif/status/2082799958860665265"
+  },
+  "request_sha256": "168767bd3625c4814bd2b68a6b9fad830c76de966d98a83e747bd7bd57e61472",
+  "response": {
+    "author_handle": "@simplykashif",
+    "created_at": "July 30, 2026",
+    "media_height": null,
+    "media_url": null,
+    "media_width": null,
+    "source_url": "https://x.com/simplykashif/status/2082799958860665265",
+    "text": "\ud83c\uddee\ud83c\uddf3 Indian government is planning a new law that would make \"AI DEEPFAKE\" and \"DIGITAL ARREST\" scams separate criminal offences. Proposal is expected to be discussed during the current parliament session. -> 12.7 lakh+ cyber fraud complaints reported in January to June 2026 ->\u2026"
+  },
+  "response_sha256": "2ee5592990a9706648509dce269fe9aee263e835f21e7696498a80176f7f0cc5",
+  "surface": "http.x_status_metadata"
+}

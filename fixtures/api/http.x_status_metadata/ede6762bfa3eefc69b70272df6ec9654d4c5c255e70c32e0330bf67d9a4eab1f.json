@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/Rustafarian585/status/2083350996823007376"
+  },
+  "request_sha256": "ede6762bfa3eefc69b70272df6ec9654d4c5c255e70c32e0330bf67d9a4eab1f",
+  "response": {
+    "author_handle": "@Rustafarian585",
+    "created_at": "August 1, 2026",
+    "media_height": null,
+    "media_url": null,
+    "media_width": null,
+    "source_url": "https://x.com/Rustafarian585/status/2083350996823007376",
+    "text": "chickens come home to roost when white people see that what happened to us with fentanyl was exactly what we wanted to lock black kids up for in the 80s for crack.let's all have some humility going forward with drug policy. Let's treat people like people. Humans have flaws."
+  },
+  "response_sha256": "28bb551aa544b538061d93f4a80422b3fd44649585be692ab02aedc1685ad053",
+  "surface": "http.x_status_metadata"
+}

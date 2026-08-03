@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/geopoliticsnow_/status/2083704235317977549"
+  },
+  "request_sha256": "1957987d5bdf11696af83829aa1509dd691286a8cbbe0336450201ad1cd20807",
+  "response": {
+    "author_handle": "@geopoliticsnow_",
+    "created_at": "August 1, 2026",
+    "media_height": null,
+    "media_url": null,
+    "media_width": null,
+    "source_url": "https://x.com/geopoliticsnow_/status/2083704235317977549",
+    "text": "\ud83d\udea8 JUST IN U.S. Embassies across the Middle East just issued new security alerts warning Americans: \u27a1\ufe0f Reconsider travel \u27a1\ufe0f If you\u2019re already there\u2026 consider coming HOME The war with Iran is now in its SIXTH MONTH."
+  },
+  "response_sha256": "b9fa912cdc5d4af95229f0261e9b7f3808d2832bee07bf7aaf3f11b5bda5268c",
+  "surface": "http.x_status_metadata"
+}

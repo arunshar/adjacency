@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/nccegh/status/2083687490867650789"
+  },
+  "request_sha256": "cd2507ff7e127701731c0dd6c8fbe4888fc26502f0ce79f51912ca8517883665",
+  "response": {
+    "author_handle": "@nccegh",
+    "created_at": "August 1, 2026",
+    "media_height": 1600,
+    "media_url": "https://pbs.twimg.com/media/HOq-fyJWMAAXGR4.jpg:large",
+    "media_width": 720,
+    "source_url": "https://x.com/nccegh/status/2083687490867650789",
+    "text": "The NCCE has intensified efforts to promote awareness of Gender-Based Violence (GBV) by educating pupils of Tumu Girls' Model Junior High School on the causes, forms, and prevention of the social menace. #ncce #nccegh"
+  },
+  "response_sha256": "dbd5dd9c7893019fc0ca61e010bc7d2676db869b10a5289eaffdaf678860af5c",
+  "surface": "http.x_status_metadata"
+}

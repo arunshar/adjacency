@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/AbdallahBaba_/status/2083686554631844246"
+  },
+  "request_sha256": "ca70c074ba6a064d65b8ba130c1acc7de838b2990ec7854a3e6e7345418279c0",
+  "response": {
+    "author_handle": "@AbdallahBaba_",
+    "created_at": "August 1, 2026",
+    "media_height": null,
+    "media_url": null,
+    "media_width": null,
+    "source_url": "https://x.com/AbdallahBaba_/status/2083686554631844246",
+    "text": "Please any NGO focused on public health in kaduna?"
+  },
+  "response_sha256": "963771a790ce392703a27fcbddf60e10cb1ea02fbd565252af08e822abe25b72",
+  "surface": "http.x_status_metadata"
+}

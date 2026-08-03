@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/FBIDirectorKash/status/2009282979923685431"
+  },
+  "request_sha256": "d324a66871d8777b2365d5e58e446a8b33aa07e33504b04eda134cf4651abef0",
+  "response": {
+    "author_handle": "@FBIDirectorKash",
+    "created_at": "January 8, 2026",
+    "media_height": 879,
+    "media_url": "https://pbs.twimg.com/media/G-JoOI1XoAAftM2.jpg:large",
+    "media_width": 1712,
+    "source_url": "https://x.com/FBIDirectorKash/status/2009282979923685431",
+    "text": "Lawmakers can lie. FBI results don\u2019t. Since January 2025, @FBISanFrancisco has made 460 plus violent crime arrests and seized drugs equating to over 607,000 lethal fentanyl doses. Guns seized. Traffickers charged. Facts over fiction."
+  },
+  "response_sha256": "80daa76a20a7d4c05de9214d2a958318efe352bc18e0b790b33f6ba67202fed5",
+  "surface": "http.x_status_metadata"
+}

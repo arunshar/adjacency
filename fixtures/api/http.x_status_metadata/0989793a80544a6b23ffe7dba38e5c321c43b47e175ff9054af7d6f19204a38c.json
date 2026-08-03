@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/TheCCShowcast/status/2083703813521686674"
+  },
+  "request_sha256": "0989793a80544a6b23ffe7dba38e5c321c43b47e175ff9054af7d6f19204a38c",
+  "response": {
+    "author_handle": "@TheCCShowcast",
+    "created_at": "August 1, 2026",
+    "media_height": 4096,
+    "media_url": "https://pbs.twimg.com/media/HOrNkgWWEAAhnI_.jpg:large",
+    "media_width": 3686,
+    "source_url": "https://x.com/TheCCShowcast/status/2083703813521686674",
+    "text": "\ud83d\udd34 Shooter DEAD- Shooting suspect at Twin Falls, Idaho In-N-Out Burger is deceased. Police say no further threat to the public."
+  },
+  "response_sha256": "40171ada35f1ce196689fcb384c1cdabd086e161318fbf58d05199953b5f93d7",
+  "surface": "http.x_status_metadata"
+}

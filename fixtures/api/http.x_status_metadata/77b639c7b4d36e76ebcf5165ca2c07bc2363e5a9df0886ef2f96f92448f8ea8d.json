@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/gyulavdor/status/2083704311285244277"
+  },
+  "request_sha256": "77b639c7b4d36e76ebcf5165ca2c07bc2363e5a9df0886ef2f96f92448f8ea8d",
+  "response": {
+    "author_handle": "@gyulavdor",
+    "created_at": "August 1, 2026",
+    "media_height": null,
+    "media_url": null,
+    "media_width": null,
+    "source_url": "https://x.com/gyulavdor/status/2083704311285244277",
+    "text": "Good morning"
+  },
+  "response_sha256": "90f5554a5b85d3ee76040b2eee07d02e5d1056f2ca1f9ed614a30bd3c50a9597",
+  "surface": "http.x_status_metadata"
+}

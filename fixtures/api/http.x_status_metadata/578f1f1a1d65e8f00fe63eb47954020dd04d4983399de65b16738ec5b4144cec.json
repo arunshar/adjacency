@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/CanadaFP/status/2034651759092658295"
+  },
+  "request_sha256": "578f1f1a1d65e8f00fe63eb47954020dd04d4983399de65b16738ec5b4144cec",
+  "response": {
+    "author_handle": "@CanadaFP",
+    "created_at": "March 19, 2026",
+    "media_height": 1080,
+    "media_url": "https://pbs.twimg.com/ext_tw_video_thumb/2034651683913883648/pu/img/grQQj82X9F6Effo-.jpg",
+    "media_width": 1080,
+    "source_url": "https://x.com/CanadaFP/status/2034651759092658295",
+    "text": "AI can now mimic a person's face and voice with startling accuracy. Deepfakes can make anyone appear to do or say anything. A familiar face or voice no longer guarantees authenticity. Be cautious. Check the source.#ThinkBeforeYouShare"
+  },
+  "response_sha256": "7e505301e8682a823b264052e8e88adcf8158e48497375d6d8aebe285034a096",
+  "surface": "http.x_status_metadata"
+}

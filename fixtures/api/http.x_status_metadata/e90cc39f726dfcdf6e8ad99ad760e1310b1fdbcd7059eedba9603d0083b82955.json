@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/ceqtarian/status/2083595508577427764"
+  },
+  "request_sha256": "e90cc39f726dfcdf6e8ad99ad760e1310b1fdbcd7059eedba9603d0083b82955",
+  "response": {
+    "author_handle": "@ceqtarian",
+    "created_at": "August 1, 2026",
+    "media_height": null,
+    "media_url": null,
+    "media_width": null,
+    "source_url": "https://x.com/ceqtarian/status/2083595508577427764",
+    "text": "just read the atlantic piece on drug policy. seems like somewhere along the way, people forgot the whole point was to eventually get people to stop using drugs."
+  },
+  "response_sha256": "27f8628c621f1aa22e6115308da48622940f34e02838bc8eb63680481d9e7e50",
+  "surface": "http.x_status_metadata"
+}

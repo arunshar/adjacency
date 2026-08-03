@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/YellowstoneNPS/status/2082907615332274428"
+  },
+  "request_sha256": "1a2d7390ff570748bca1fdcec6f4c07f94e3359d6d4af39937716d0e9c002795",
+  "response": {
+    "author_handle": "@YellowstoneNPS",
+    "created_at": "July 30, 2026",
+    "media_height": 1365,
+    "media_url": "https://pbs.twimg.com/media/HOf5b9IXcAAYzm6.jpg:large",
+    "media_width": 2048,
+    "source_url": "https://x.com/YellowstoneNPS/status/2082907615332274428",
+    "text": "Pikas may be small, but they sure are mighty! They are one of few mammal species in the Lower 48 that can survive their entire lives above tree line in high-alpine, rocky terrain. Though they look like rodents, they're actually more closely related to rabbits and hares and only\u2026"
+  },
+  "response_sha256": "3ecc0a8de579422215f81e1c97997287ce91048c4715cbb3c95c88c0c431c7e5",
+  "surface": "http.x_status_metadata"
+}

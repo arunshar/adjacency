@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/aud7misner/status/2083275541877252247"
+  },
+  "request_sha256": "cf6195829e36f57292648d9fa4ceb87ee0036438a83b5bdee8db9891e1207227",
+  "response": {
+    "author_handle": "@aud7misner",
+    "created_at": "July 31, 2026",
+    "media_height": null,
+    "media_url": "https://pbs.twimg.com/card_img/2083275539780096000/tPkW33Yw?format=jpg&name=orig",
+    "media_width": null,
+    "source_url": "https://x.com/aud7misner/status/2083275541877252247",
+    "text": "How a rural Utah community hit hard by overdose deaths is responding to fentanyl https://t.co/37HNuYW92v"
+  },
+  "response_sha256": "f0f2b7c391bcea76140eb20ac8776877a8cb5c6fb172776014a682c8042e345b",
+  "surface": "http.x_status_metadata"
+}

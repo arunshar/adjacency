@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/Knightly_Hist/status/2035401055568326956"
+  },
+  "request_sha256": "6740e3f9f0b2d43e03392400cb4c3d8882be825115cd4272181b19b09e140a7a",
+  "response": {
+    "author_handle": "@Knightly_Hist",
+    "created_at": "March 21, 2026",
+    "media_height": 720,
+    "media_url": "https://pbs.twimg.com/amplify_video_thumb/2035276942677856256/img/nd43rMVgW6JwFLgY.jpg",
+    "media_width": 952,
+    "source_url": "https://x.com/Knightly_Hist/status/2035401055568326956",
+    "text": "By far my favoruite example is in Legend of the Galactic Heroes. The use of spreadable particles that ignite when a gun is fired in their vacinity, forces boarding crews to equip themselves in armor and wield axes. It also helps that it's very well choreographed. https://t.co/u2afJyh1ed"
+  },
+  "response_sha256": "7ab62dcd2a722a90d0761bc99ebb78215c0f99342a95a678e8f46ab4b796e392",
+  "surface": "http.x_status_metadata"
+}

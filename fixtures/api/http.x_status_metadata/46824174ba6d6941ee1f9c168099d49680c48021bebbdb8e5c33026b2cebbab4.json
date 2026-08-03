@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/pas5974/status/2082234683715158492"
+  },
+  "request_sha256": "46824174ba6d6941ee1f9c168099d49680c48021bebbdb8e5c33026b2cebbab4",
+  "response": {
+    "author_handle": "@pas5974",
+    "created_at": "July 28, 2026",
+    "media_height": null,
+    "media_url": null,
+    "media_width": null,
+    "source_url": "https://x.com/pas5974/status/2082234683715158492",
+    "text": "TO ALL SENIORS AND AMERICAN VOTERS...REMMEBER IN NOVEMBER HOW TRUMP TOOK AWAY YOUR AFFORDABLE PRESCRIPTION DRUG POLICY."
+  },
+  "response_sha256": "5a54225d5d94f941b6e95ceab1023840d2778e835c7e88f54af98a86da4f9a45",
+  "surface": "http.x_status_metadata"
+}

@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/davenewworld_2/status/2069919794682364040"
+  },
+  "request_sha256": "7261d74080dfac717f994ce39efea0f9d535804282b895ccfc14118ebd104dfa",
+  "response": {
+    "author_handle": "@davenewworld_2",
+    "created_at": "June 24, 2026",
+    "media_height": 1436,
+    "media_url": "https://pbs.twimg.com/media/HLnVFQ_WsAACQaw.jpg:large",
+    "media_width": 1170,
+    "source_url": "https://x.com/davenewworld_2/status/2069919794682364040",
+    "text": "DEA agents in New Mexico let major fentanyl shipments go unseized and allowed the pills to stay in circulation to build cases for years. A whistleblower says that at least 1.8 million pills went unseized during one investigation. That's an insane amount. The DEA says its\u2026"
+  },
+  "response_sha256": "327be3c7a0c7819bed378c1bdb1564c2add9ed3ae63805b43f78ce7e8cc3bfef",
+  "surface": "http.x_status_metadata"
+}

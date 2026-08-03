@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/JaquanTheLibra/status/2082271647059349650"
+  },
+  "request_sha256": "6615e374d0af914914c960cc7f9c8966bc3062ab7664635170992874771cb9c1",
+  "response": {
+    "author_handle": "@JaquanTheLibra",
+    "created_at": "July 29, 2026",
+    "media_height": null,
+    "media_url": null,
+    "media_width": null,
+    "source_url": "https://x.com/JaquanTheLibra/status/2082271647059349650",
+    "text": "Was a local news writer: 1. Woman called in during a prison riot, said her son was going to be killed. She didn\u2019t know what to do about the situation so I just talked to her for 30 minutes. He was killed. 2. A baby got shot. As soon as I walked in, the news director was eager\u2026 https://t.co/1bsA62TBII"
+  },
+  "response_sha256": "1c40af51f11c3d8adde29c7ccb29a7f279691d0fd0bd306a4470cc83acccace9",
+  "surface": "http.x_status_metadata"
+}

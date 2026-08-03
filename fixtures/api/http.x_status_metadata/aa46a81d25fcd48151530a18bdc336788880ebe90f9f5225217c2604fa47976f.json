@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/ABC/status/2083540076022182140"
+  },
+  "request_sha256": "aa46a81d25fcd48151530a18bdc336788880ebe90f9f5225217c2604fa47976f",
+  "response": {
+    "author_handle": "@ABC",
+    "created_at": "August 1, 2026",
+    "media_height": null,
+    "media_url": "https://pbs.twimg.com/card_img/2082978570725408768/n2Jjuai6?format=jpg&name=orig",
+    "media_width": null,
+    "source_url": "https://x.com/ABC/status/2083540076022182140",
+    "text": "A 15-year-old Indiana boy has been sentenced to 100 years in prison after being convicted in a 2025 gang-related shooting that left one woman dead, another wounded and a third injured when she was hit by a car fleeing the gunfire, prosecutors said. https://t.co/wCuEKbZgWN"
+  },
+  "response_sha256": "1a84c491e3aa0f009f03428a0660ed4e1b8c900839574d06f03ed4617ad0a2ab",
+  "surface": "http.x_status_metadata"
+}

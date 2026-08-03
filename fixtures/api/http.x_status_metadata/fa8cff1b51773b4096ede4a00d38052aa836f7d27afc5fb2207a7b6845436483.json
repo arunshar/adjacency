@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/im2hai/status/2083704188282831228"
+  },
+  "request_sha256": "fa8cff1b51773b4096ede4a00d38052aa836f7d27afc5fb2207a7b6845436483",
+  "response": {
+    "author_handle": "@im2hai",
+    "created_at": "August 1, 2026",
+    "media_height": null,
+    "media_url": null,
+    "media_width": null,
+    "source_url": "https://x.com/im2hai/status/2083704188282831228",
+    "text": "i had a girlfriend and then i woke up i had a job and then i woke up i had sex and then i woke up"
+  },
+  "response_sha256": "c1adeb051864d799b30f2e515d842d4c06b9309b1e09d6abac9f56eb0e8f4544",
+  "surface": "http.x_status_metadata"
+}

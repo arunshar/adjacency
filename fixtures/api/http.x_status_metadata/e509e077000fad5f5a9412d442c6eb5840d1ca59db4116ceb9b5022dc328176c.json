@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/tedatsx/status/2083704288400798039"
+  },
+  "request_sha256": "e509e077000fad5f5a9412d442c6eb5840d1ca59db4116ceb9b5022dc328176c",
+  "response": {
+    "author_handle": "@tedatsx",
+    "created_at": "August 1, 2026",
+    "media_height": null,
+    "media_url": null,
+    "media_width": null,
+    "source_url": "https://x.com/tedatsx/status/2083704288400798039",
+    "text": "You guys know we have AI now right?"
+  },
+  "response_sha256": "df3482f251e5709d4e1e3829f7a2e54fe97016dfaa5697941c4dabd531b1e60e",
+  "surface": "http.x_status_metadata"
+}

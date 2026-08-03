@@ -1,0 +1,477 @@
+{
+  "format_version": 1,
+  "request": {
+    "input": [
+      {
+        "content": "Use x_search to find distinct public X posts matching the query. Return only posts you found through the tool. Use direct x.com status URLs, exact post text, the author handle, an ISO date or timestamp, and whether the post has attached media. Do not invent or reconstruct URLs. Prefer original posts over replies and reposts.\n\nQuery label: neutral_public_health\nQuery: Neutral public-health reporting about fentanyl, illicit drugs, overdose prevention, treatment, or law-enforcement seizures. Exclude posts offering drugs for sale.\nReturn at most 12 posts.",
+        "role": "user"
+      }
+    ],
+    "max_output_tokens": 8192,
+    "max_tool_calls": 6,
+    "model": "grok-4.5",
+    "reasoning": {
+      "effort": "low"
+    },
+    "store": false,
+    "text": {
+      "format": {
+        "name": "x_inventory_batch",
+        "schema": {
+          "$defs": {
+            "XSearchPost": {
+              "additionalProperties": false,
+              "properties": {
+                "author_handle": {
+                  "minLength": 1,
+                  "title": "Author Handle",
+                  "type": "string"
+                },
+                "created_at": {
+                  "minLength": 1,
+                  "title": "Created At",
+                  "type": "string"
+                },
+                "has_media": {
+                  "title": "Has Media",
+                  "type": "boolean"
+                },
+                "source_url": {
+                  "title": "Source Url",
+                  "type": "string"
+                },
+                "text": {
+                  "minLength": 1,
+                  "title": "Text",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "source_url",
+                "text",
+                "author_handle",
+                "created_at",
+                "has_media"
+              ],
+              "title": "XSearchPost",
+              "type": "object"
+            }
+          },
+          "additionalProperties": false,
+          "properties": {
+            "posts": {
+              "items": {
+                "$ref": "#/$defs/XSearchPost"
+              },
+              "maxItems": 20,
+              "minItems": 1,
+              "title": "Posts",
+              "type": "array"
+            }
+          },
+          "required": [
+            "posts"
+          ],
+          "title": "_XSearchBatch",
+          "type": "object"
+        },
+        "strict": true,
+        "type": "json_schema"
+      }
+    },
+    "tools": [
+      {
+        "from_date": "2026-01-01",
+        "to_date": "2026-08-02",
+        "type": "x_search"
+      }
+    ]
+  },
+  "request_sha256": "60f5fa46d8c4f45971a31504b28b7647b545c43c3aeeeeb050225365aea9d975",
+  "response": {
+    "background": false,
+    "completed_at": 1785745192,
+    "created_at": 1785745192,
+    "error": null,
+    "frequency_penalty": 0.0,
+    "id": "14a346ad-4c05-982f-8afa-5a77ae1eb356",
+    "incomplete_details": null,
+    "instructions": null,
+    "max_output_tokens": 8192,
+    "max_tool_calls": null,
+    "metadata": {
+      "system_fingerprint": "fp_a39489019fa99b6e"
+    },
+    "model": "grok-4.5",
+    "object": "response",
+    "output": [
+      {
+        "id": "rs_14a346ad-4c05-982f-8afa-5a77ae1eb356",
+        "status": "completed",
+        "summary": [
+          {
+            "text": "The user wants me to use x_search to find distinct public X posts matching the query: Neutral public-health reporting about fentanyl, illicit drugs, overdose prevention, treatment, or law-enforcement ...",
+            "type": "summary_text"
+          }
+        ],
+        "type": "reasoning"
+      },
+      {
+        "call_id": "xs_call-8eb5c9d1-18b8-40a4-b0fe-6eff85a0de03-0",
+        "id": "ctc_14a346ad-4c05-982f-8afa-5a77ae1eb356_call-8eb5c9d1-18b8-40a4-b0fe-6eff85a0de03-0",
+        "input": "{\"query\":\"Neutral public-health reporting about fentanyl, illicit drugs, overdose prevention, treatment, or law-enforcement seizures\",\"limit\":\"10\",\"min_score_threshold\":\"0.1\"}",
+        "name": "x_semantic_search",
+        "status": "completed",
+        "type": "custom_tool_call"
+      },
+      {
+        "call_id": "xs_call-8eb5c9d1-18b8-40a4-b0fe-6eff85a0de03-1",
+        "id": "ctc_14a346ad-4c05-982f-8afa-5a77ae1eb356_call-8eb5c9d1-18b8-40a4-b0fe-6eff85a0de03-1",
+        "input": "{\"query\":\"fentanyl (overdose OR prevention OR treatment OR seizure OR \\\"public health\\\" OR naloxone) -sale -sell -buy -price filter:has_engagement\",\"limit\":\"10\",\"mode\":\"Latest\"}",
+        "name": "x_keyword_search",
+        "status": "completed",
+        "type": "custom_tool_call"
+      },
+      {
+        "id": "tco_14a346ad-4c05-982f-8afa-5a77ae1eb356_call-8eb5c9d1-18b8-40a4-b0fe-6eff85a0de03-0",
+        "status": "completed",
+        "summary": [],
+        "type": "reasoning"
+      },
+      {
+        "id": "tco_14a346ad-4c05-982f-8afa-5a77ae1eb356_call-8eb5c9d1-18b8-40a4-b0fe-6eff85a0de03-1",
+        "status": "completed",
+        "summary": [],
+        "type": "reasoning"
+      },
+      {
+        "call_id": "xs_call-8eb5c9d1-18b8-40a4-b0fe-6eff85a0de03-2",
+        "id": "ctc_14a346ad-4c05-982f-8afa-5a77ae1eb356_call-8eb5c9d1-18b8-40a4-b0fe-6eff85a0de03-2",
+        "input": "{\"query\":\"(\\\"public health\\\" OR overdose OR naloxone OR \\\"harm reduction\\\" OR treatment OR seizure OR seized) (fentanyl OR \\\"illicit drugs\\\") (report OR warning OR data OR statistics OR prevention) -sale -sell -buy -for sale -price filter:safe\",\"limit\":\"10\",\"mode\":\"Latest\"}",
+        "name": "x_keyword_search",
+        "status": "failed",
+        "type": "custom_tool_call"
+      },
+      {
+        "call_id": "xs_call-8eb5c9d1-18b8-40a4-b0fe-6eff85a0de03-3",
+        "id": "ctc_14a346ad-4c05-982f-8afa-5a77ae1eb356_call-8eb5c9d1-18b8-40a4-b0fe-6eff85a0de03-3",
+        "input": "{\"query\":\"neutral news or public health announcement on fentanyl overdoses prevention treatment seizures\",\"limit\":\"5\"}",
+        "name": "x_semantic_search",
+        "status": "completed",
+        "type": "custom_tool_call"
+      },
+      {
+        "id": "tco_14a346ad-4c05-982f-8afa-5a77ae1eb356_call-8eb5c9d1-18b8-40a4-b0fe-6eff85a0de03-2",
+        "status": "completed",
+        "summary": [],
+        "type": "reasoning"
+      },
+      {
+        "id": "tco_14a346ad-4c05-982f-8afa-5a77ae1eb356_call-8eb5c9d1-18b8-40a4-b0fe-6eff85a0de03-3",
+        "status": "completed",
+        "summary": [],
+        "type": "reasoning"
+      },
+      {
+        "content": [
+          {
+            "annotations": [
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2069804700174574040",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2069804700174574040"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083275541877252247",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083275541877252247"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083684558050886110",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083684558050886110"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083683749045096786",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083683749045096786"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083662077055365554",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083662077055365554"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2008928613165408265",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2008928613165408265"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083212964623012294",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083212964623012294"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2012795855523471655",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2012795855523471655"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2069384568327536816",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2069384568327536816"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2069919794682364040",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2069919794682364040"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083672433089745201",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083672433089745201"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083664336946389288",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083664336946389288"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2012099407341076637",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2012099407341076637"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083688905790869554",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083688905790869554"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2009282979923685431",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2009282979923685431"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2081802131632439565",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2081802131632439565"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083627437984809141",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083627437984809141"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2081962543505981698",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2081962543505981698"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2081795848040558868",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2081795848040558868"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083670840311222560",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083670840311222560"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083661413407490524",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083661413407490524"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2082479572122001909",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2082479572122001909"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2083606717976203286",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2083606717976203286"
+              },
+              {
+                "end_index": 0,
+                "start_index": 0,
+                "title": "https://x.com/i/status/2012956636344660332",
+                "type": "url_citation",
+                "url": "https://x.com/i/status/2012956636344660332"
+              }
+            ],
+            "logprobs": [],
+            "text": "{\n  \"posts\": [\n    {\n      \"source_url\": \"https://x.com/cknxnewstoday/status/2083212964623012294\",\n      \"text\": \"Grey Bruce Public Health is warning drug users in the region that a toxic level of fentanyl has been found in a sample of local meth.\\nhttps://cknxnewstoday.ca/midwestern/news/2026/07/31/health-unit-warns-of-toxic-level-of-fentanyl-in-local-meth-supply\",\n      \"author_handle\": \"cknxnewstoday\",\n      \"created_at\": \"2026-07-31T15:27:29Z\",\n      \"has_media\": false\n    },\n    {\n      \"source_url\": \"https://x.com/stoptheVOID/status/2081802131632439565\",\n      \"text\": \"The latest report from the National Drug Early Warning System should concern every parent, educator and public-health professional.\\n\\nNDEWS recorded 16,335 suspected nonfatal overdose-related EMS encounters involving MDMA, commonly sold as Ecstasy or Molly, between January 1, 2023, and June 30, 2026.\\n\\nMore than half occurred in Southern states:\\n\\n\u2022 South: 8,955\\n\u2022 West: 2,705\\n\u2022 Midwest: 2,557\\n\u2022 Northeast: 2,118\\n\\nBut the numbers tell only part of the story.\\n\\nNDEWS is also warning about counterfeit products, drugs sold as MDMA being mixed with other substances, and the possibility of illicit fentanyl appearing in this unpredictable supply.\\n\\nAs a father who lost my 16-year-old son Daniel to a counterfeit pill, I cannot say this strongly enough: you cannot trust the appearance, color, shape or name of an illicit pill. What someone believes is Molly or Ecstasy may contain something entirely different, and one pill can be enough to cause irreversible harm or even death.\\n\\nWe must keep educating young people with honest, current information. The illicit drug supply continues to change, and our prevention efforts must change with it.\\n\\nSource: National Drug Early Warning System, Weekly Briefing Issue 294, July 24, 2026.\\n\\nFollow us at: https://t.co/5nGORkNczU\\n\\n@DEAHQ \\n@TheJusticeDept \\n@samhsagov \\n@ONDCP \\n@DHSgov \\n\\n#NewsAlert #CounterfeitPills #fentanylawareness #drugpreventionandeducation\\n #PublicSafety #stoptheVOID\",\n      \"author_handle\": \"stoptheVOID\",\n      \"created_at\": \"2026-07-27T18:01:20Z\",\n      \"has_media\": true\n    },\n    {\n      \"source_url\": \"https://x.com/aud7misner/status/2083275541877252247\",\n      \"text\": \"How a rural Utah community hit hard by overdose deaths is responding to fentanyl https://www.fox13now.com/fentanyl/how-a-rural-utah-community-hit-hard-by-overdose-deaths-is-responding-to-fentanyl\",\n      \"author_handle\": \"aud7misner\",\n      \"created_at\": \"2026-07-31T19:36:09Z\",\n      \"has_media\": false\n    },\n    {\n      \"source_url\": \"https://x.com/FBIDirectorKash/status/2009282979923685431\",\n      \"text\": \"Lawmakers can lie. FBI results don\u2019t.\u00a0\\n\\nSince January 2025, @FBISanFrancisco has made 460 plus violent crime arrests and seized drugs equating to over 607,000 lethal fentanyl doses.\\n\\nGuns seized. Traffickers charged.\\n\\nFacts over fiction.\",\n      \"author_handle\": \"FBIDirectorKash\",\n      \"created_at\": \"2026-01-08T15:16:07Z\",\n      \"has_media\": true\n    },\n    {\n      \"source_url\": \"https://x.com/FBIDirectorKash/status/2008928613165408265\",\n      \"text\": \"Lawmakers can lie. FBI results don\u2019t.\\n\\nSince January 2025, @NewYorkFBI has made 1,700 plus violent crime arrests and seized over 8 kilograms of fentanyl, preventing more than 600,000 potential deaths.\\n125 firearms seized. Major drug networks disrupted.\\n\\nPublic safety isn\u2019t political, it\u2019s measurable.\",\n      \"author_handle\": \"FBIDirectorKash\",\n      \"created_at\": \"2026-01-07T15:48:00Z\",\n      \"has_media\": true\n    },\n    {\n      \"source_url\": \"https://x.com/Osint613/status/2012099407341076637\",\n      \"text\": \"Trump administration reports a 25% drop in national overdose deaths through early 2025, citing reduced fentanyl supply from Mexico and expanded treatment access, according to provisional CDC data.\",\n      \"author_handle\": \"Osint613\",\n      \"created_at\": \"2026-01-16T09:47:36Z\",\n      \"has_media\": true\n    },\n    {\n      \"source_url\": \"https://x.com/mbruggelivecom1/status/2082479572122001909\",\n      \"text\": \"Team Trump at DEA have been making real progress on the fentanyl front. A lot of work remains, and partnerships with blue states is needed to make additional gains.\\nRead the post from Dr. Emrani, and check the DEA press release from last December.\\nhttps://www.dea.gov/press-releases/2025/12/03/dea-launches-fentanyl-free-america-initiative-combat-synthetic-drug\",\n      \"author_handle\": \"mbruggelivecom1\",\n      \"created_at\": \"2026-07-29T14:53:15Z\",\n      \"has_media\": false\n    },\n    {\n      \"source_url\": \"https://x.com/Patrickwebb/status/2069804700174574040\",\n      \"text\": \"BREAKING: The DEA allegedly allowed more than 1.8 million fentanyl pills in monitored shipments and deliveries to go unseized between 2023 and 2025, potentially contributing to overdose deaths, per AP.\",\n      \"author_handle\": \"Patrickwebb\",\n      \"created_at\": \"2026-06-24T15:27:50Z\",\n      \"has_media\": false\n    },\n    {\n      \"source_url\": \"https://x.com/keribla/status/2069384568327536816\",\n      \"text\": \"This explanation of how they got the story is bonkers https://apnews.com/article/dea-fentanyl-unseized-drugs-new-mexico-reporter-6559cd3579394c8ea7ee30889897375b\",\n      \"author_handle\": \"keribla\",\n      \"created_at\": \"2026-06-23T11:38:23Z\",\n      \"has_media\": true\n    },\n    {\n      \"source_url\": \"https://x.com/davenewworld_2/status/2069919794682364040\",\n      \"text\": \"DEA agents in New Mexico let major fentanyl shipments go unseized and allowed the pills to stay in circulation to build cases for years.\\n\\nA whistleblower says that at least 1.8 million pills went unseized during one investigation.\\n\\nThat's an insane amount.\\n\\nThe DEA says its decisions were \\\"lawful\\\" and \\\"consistent\\\" with Justice Department guidance. \\n\\nIt's \\\"lawful\\\" and \\\"consistent\\\" of them to accept risks to vulnerable communities as collateral damage so they can build bigger prosecutions, and then they'll cite the crisis to justify more police funding and more police militarization.\",\n      \"author_handle\": \"davenewworld_2\",\n      \"created_at\": \"2026-06-24T23:05:10Z\",\n      \"has_media\": true\n    }\n  ]\n}",
+            "type": "output_text"
+          }
+        ],
+        "id": "msg_14a346ad-4c05-982f-8afa-5a77ae1eb356",
+        "role": "assistant",
+        "status": "completed",
+        "type": "message"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "presence_penalty": 0.0,
+    "previous_response_id": null,
+    "prompt_cache_key": null,
+    "reasoning": {
+      "effort": "low",
+      "summary": "detailed"
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "status": "completed",
+    "store": false,
+    "temperature": 0.7,
+    "text": {
+      "format": {
+        "schema": {
+          "$defs": {
+            "XSearchPost": {
+              "additionalProperties": false,
+              "properties": {
+                "author_handle": {
+                  "minLength": 1,
+                  "title": "Author Handle",
+                  "type": "string"
+                },
+                "created_at": {
+                  "minLength": 1,
+                  "title": "Created At",
+                  "type": "string"
+                },
+                "has_media": {
+                  "title": "Has Media",
+                  "type": "boolean"
+                },
+                "source_url": {
+                  "title": "Source Url",
+                  "type": "string"
+                },
+                "text": {
+                  "minLength": 1,
+                  "title": "Text",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "source_url",
+                "text",
+                "author_handle",
+                "created_at",
+                "has_media"
+              ],
+              "title": "XSearchPost",
+              "type": "object"
+            }
+          },
+          "additionalProperties": false,
+          "properties": {
+            "posts": {
+              "items": {
+                "$ref": "#/$defs/XSearchPost"
+              },
+              "maxItems": 20,
+              "minItems": 1,
+              "title": "Posts",
+              "type": "array"
+            }
+          },
+          "required": [
+            "posts"
+          ],
+          "title": "_XSearchBatch",
+          "type": "object"
+        },
+        "type": "json_schema"
+      }
+    },
+    "tool_choice": "auto",
+    "tools": [
+      {
+        "from_date": "2026-01-01",
+        "to_date": "2026-08-02",
+        "type": "x_search"
+      }
+    ],
+    "top_logprobs": 0,
+    "top_p": 0.95,
+    "truncation": "disabled",
+    "usage": {
+      "context_details": {
+        "input_tokens": 9356,
+        "output_tokens": 2431
+      },
+      "cost_in_usd_ticks": 541316000,
+      "input_tokens": 18703,
+      "input_tokens_details": {
+        "cached_tokens": 10752
+      },
+      "num_server_side_tools_used": 3,
+      "num_sources_used": 0,
+      "output_tokens": 3334,
+      "output_tokens_details": {
+        "reasoning_tokens": 1479
+      },
+      "server_side_tool_usage_details": {
+        "code_interpreter_calls": 0,
+        "document_search_calls": 0,
+        "file_search_calls": 0,
+        "image_generation_calls": 0,
+        "mcp_calls": 0,
+        "web_search_calls": 0,
+        "x_search_calls": 3
+      },
+      "total_tokens": 22037
+    },
+    "user": null
+  },
+  "response_sha256": "12c076fdfcd366959a874deb86e95e3e79a929d26e5ba39c4c2b28d35cde8ee3",
+  "surface": "tool.x_search.inventory"
+}

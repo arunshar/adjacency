@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/lookner/status/2083703751404028286"
+  },
+  "request_sha256": "86a09a25ade9eb4b41f26f4e58c8429aa616e8168f6bed9cd1b5f94806c54c5a",
+  "response": {
+    "author_handle": "@lookner",
+    "created_at": "August 1, 2026",
+    "media_height": null,
+    "media_url": null,
+    "media_width": null,
+    "source_url": "https://x.com/lookner/status/2083703751404028286",
+    "text": "Suspected shooter in Idaho In-N-Out shooting is dead, police are working on identifying him and figuring out the motivation (from press conference)"
+  },
+  "response_sha256": "89edf20d08236760fed8fcb65658c6a0549652cbaa8f34e873f1f98446a7728a",
+  "surface": "http.x_status_metadata"
+}

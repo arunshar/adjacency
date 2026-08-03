@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/ShinkaIoT/status/2083676782318985307"
+  },
+  "request_sha256": "a67f449de3f929be9da7f773596d9951c8e96a5ce57301e6e0b771acb721f757",
+  "response": {
+    "author_handle": "@ShinkaIoT",
+    "created_at": "August 1, 2026",
+    "media_height": null,
+    "media_url": null,
+    "media_width": null,
+    "source_url": "https://x.com/ShinkaIoT/status/2083676782318985307",
+    "text": "\u26a0\ufe0f \ud83d\udea8 Starting August 2, the EU mandates labels on \"authentic-looking\" AI content. This is plain STUPID. It's like asking a fake money printer to put a label on the banknotes. More than just deepfakes, this redefines how we perceive digital reality. The new law requires\u2026"
+  },
+  "response_sha256": "9e3ba61e025562dd42fb53de8b2d821efb1e6f62221aa3630b561e8a2e465eac",
+  "surface": "http.x_status_metadata"
+}

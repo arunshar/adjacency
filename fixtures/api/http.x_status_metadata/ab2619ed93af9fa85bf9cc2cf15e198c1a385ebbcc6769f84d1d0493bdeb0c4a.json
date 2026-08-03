@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "request": {
+    "source_url": "https://x.com/AMAZlNGNATURE/status/2083651229813764516"
+  },
+  "request_sha256": "ab2619ed93af9fa85bf9cc2cf15e198c1a385ebbcc6769f84d1d0493bdeb0c4a",
+  "response": {
+    "author_handle": "@AMAZlNGNATURE",
+    "created_at": "August 1, 2026",
+    "media_height": 600,
+    "media_url": "https://pbs.twimg.com/media/HOJNOp0XcAAJJT5.png:large",
+    "media_width": 600,
+    "source_url": "https://x.com/AMAZlNGNATURE/status/2083651229813764516",
+    "text": "This flower turns transparent when it rains Known as the Skeleton Flower, its white petals become almost clear when wet before turning white again as they dry"
+  },
+  "response_sha256": "2b60397c238b6a251134d917af267dd358eddea8597348f7375b63ec9756146d",
+  "surface": "http.x_status_metadata"
+}
