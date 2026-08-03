@@ -5,7 +5,7 @@ This sheet contains only observed results that have a committed evidence path. I
 | Question | Observed result | Evidence path | What it supports |
 |---|---|---|---|
 | Do deterministic gates catch seeded structural faults? | 12/12 injected faults caught with 0/4 clean cases rejected. | `artifacts/tuesday/synthetic_faults.json` | The seeded gate harness detects every injected failure in this evaluation without rejecting the unmodified controls. |
-| Is raw-prompt evidence grounded? | 68% grounding failure in raw-prompt run 1. | `evals/prompt_baseline/comparison.json` | A free-form verdict frequently returns offsets that do not reproduce its quoted source text on this frozen run. |
+| Is raw-prompt evidence grounded? | 68% grounding failure in run 1 (34/50) and 92% in run 2 (46/50), a 24 percentage-point spread on identical inputs. | `evals/prompt_baseline/comparison.json` | The free-form verdict frequently returns offsets that do not reproduce its quoted source text. The spread shows that grounding quality also varied sharply across identical inputs. |
 | Are identical-input raw-prompt actions stable? | 2% action disagreement across the recorded runs. | `evals/prompt_baseline/comparison.json` | The action can change across identical inputs even when the policy and corpus are fixed. |
 | How much work reaches the strongest reasoning tier? | 44% of frozen decisions escalated to Tier 2. | `artifacts/wednesday/judge_report.json` | The recorded ladder is closer to bimodal than smooth. Tier 1 absorbs only a narrow residual in this run. |
 | What did the measured judge route cost? | $6.12 per 1,000 decisions. | `artifacts/wednesday/judge_report.json` | The value is the rounded blended cost computed from recorded per-call usage for this frozen run. |

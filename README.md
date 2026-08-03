@@ -30,7 +30,7 @@ Every value below is copied from the file named beside it.
 | Observed result | Artifact |
 |---|---|
 | 12/12 injected faults caught with 0/4 clean cases rejected | `artifacts/tuesday/synthetic_faults.json` |
-| 68% grounding failure in raw-prompt run 1 | `evals/prompt_baseline/comparison.json` |
+| 68% grounding failure in raw-prompt run 1 (34/50) and 92% in run 2 (46/50), a 24 percentage-point spread on identical inputs | `evals/prompt_baseline/comparison.json` |
 | 2% action disagreement across identical-input raw-prompt runs | `evals/prompt_baseline/comparison.json` |
 | 44% of frozen decisions escalated to Tier 2 | `artifacts/wednesday/judge_report.json` |
 | $6.12 per 1,000 decisions in measured blended judge cost | `artifacts/wednesday/judge_report.json` |

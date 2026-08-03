@@ -7,6 +7,7 @@
 \usepackage{amsthm}
 \usepackage{bm}
 \usepackage{booktabs}
+\usepackage{array}
 \usepackage{microtype}
 \usepackage{xspace}
 \usepackage{graphicx}
@@ -22,6 +23,7 @@
 \Urlmuskip=0mu plus 1mu
 \newcommand{\code}[1]{\texttt{#1}}
 \newcommand{\Adj}{\textsc{Adjacency}\xspace}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
 
 \makeatletter
 \renewcommand{\ICML@appearing}{\textit{Technical report prepared for the xAI Grokathon, August 2026. Not an ICML publication.}}
@@ -321,16 +323,17 @@ the authoritative repository path beside every value.
 \begin{table*}[t]
 \centering
 \caption{Observed results. Every value is paired with its authoritative committed artifact. The
-raw-prompt grounding result is explicitly run-specific. The durable HITL row is protocol evidence,
+raw-prompt grounding row reports both identical-input runs. The durable HITL row is protocol evidence,
 not a human label.}
 \label{tab:results}
-\begin{tabular}{@{}p{0.25\textwidth}p{0.18\textwidth}p{0.50\textwidth}@{}}
+\begin{tabular}{@{}L{0.23\textwidth}L{0.28\textwidth}L{0.42\textwidth}@{}}
 \toprule
 Question & Observed result & Authoritative artifact \\
 \midrule
 Do gates reject seeded structural faults? & 12/12 injected faults caught, with 0/4 clean cases rejected &
 \artifact{artifacts/tuesday/synthetic_faults.json} \\
-Is the raw-prompt evidence grounded? & 68\% failure in run 1 &
+Is the raw-prompt evidence grounded? & Run 1 failed 68\% (34/50). Run 2 failed 92\% (46/50).
+The spread was 24 percentage points. &
 \artifact{evals/prompt_baseline/comparison.json} \\
 Do identical-input prompt runs agree on action? & 2\% action disagreement &
 \artifact{evals/prompt_baseline/comparison.json} \\
@@ -364,11 +367,10 @@ It returns one action and one evidence claim per item, but without the compiled 
 post-call admission gates. A strict checker then asks whether each submitted span reproduces the
 quoted text at the claimed offsets.
 
-Run 1 failed that grounding check on 68\% of claims. The cross-run action disagreement rate was 2\%.
-Both figures are in \artifact{evals/prompt_baseline/comparison.json}. The first result should not be
-misread as an average across runs. It is the observed rate for run 1. The comparison artifact also
-retains the other run's grounding result, every failed item, both response identifiers, token usage,
-cost, policy prose hash, and corpus hash.
+Run 1 failed that grounding check on 68\% of claims (34/50). Run 2 failed on 92\% (46/50), a
+24 percentage-point spread on identical inputs. The cross-run action disagreement rate was 2\%.
+All three figures are in \artifact{evals/prompt_baseline/comparison.json}. The artifact also retains
+every failed item, both response identifiers, token usage, cost, policy prose hash, and corpus hash.
 
 The action disagreement is small in absolute terms, but it answers a different question than
 grounding. The prompt can often choose the same action while providing evidence that does not exist
