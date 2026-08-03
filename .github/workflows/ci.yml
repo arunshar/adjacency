@@ -32,10 +32,14 @@ jobs:
           python -m pip install --upgrade pip
           pip install -e ".[test]"
 
+      # --strict and --skip-editable conflict: --strict turns any skip into an error,
+      # and this package is installed editable, so it is always skipped. Audit the
+      # resolved dependency set instead, which is what we actually care about.
       - name: Audit dependencies for known advisories
         run: |
           pip install pip-audit==2.10.1
-          pip-audit --skip-editable --strict
+          pip freeze --exclude-editable > /tmp/requirements.txt
+          pip-audit --no-deps --strict -r /tmp/requirements.txt
 
       - name: Lint
         run: |
