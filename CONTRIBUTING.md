@@ -20,11 +20,11 @@ pure functions with no I/O, they are the product rather than plumbing, and a wro
 every claim the system makes. They are also nearly free to test: the whole suite runs in about
 0.16 seconds.
 
-**Everything else has a low floor and is covered by fixture-replay integration tests.** The model
-layer, the fetchers, and the UI are I/O. Exhaustive branch coverage there buys much less, because the
-gates are the safety net by design: a bad verdict is caught by G1 through G6 regardless of how badly
-the code that produced it was written. Re-proving that in unit tests is redundant with the
-architecture.
+**Everything else has a low package floor.** Model calls, fetchers, and the UI use one happy-path and
+one failure-path fixture-replay test per component. Exhaustive branch coverage there buys much less,
+because the gates are the safety net by design. A bad verdict is caught by G1 through G6 regardless
+of how badly the code that produced it was written. Lower-risk deterministic helpers still get
+focused branch tests where the cost is small.
 
 So: a new gate or contract change needs exhaustive tests. A new API client needs a fixture-replay
 test that exercises the happy path and one failure, and that is enough.
@@ -51,7 +51,7 @@ when everything is green.
    installs without it and asserts `litellm`, `httpx`, and `PIL` are not importable.
 
 5. **New gate, new exhaustive test.** Every failure branch of every gate has its own test. The gate
-   modules are held to 100 percent line and branch coverage, not the package floor of 90.
+   modules are held to 100 percent line and branch coverage, not the package floor of 55.
 
 6. **Gate codes are API.** `G1_SPAN_NOT_FOUND` and its siblings appear in the audit ledger and on
    screen. Renaming one is a breaking change. Add a new code rather than reword an existing one.
@@ -70,4 +70,4 @@ strictest-coercion ordering still holds.
 
 Any number that reaches a README, a docstring, or a commit message must be reproducible by a command
 someone else can run. Cite the command or the artifact path next to it. "Roughly" and "about" are
-fine; unsourced precision is not.
+fine. Unsourced precision is not.

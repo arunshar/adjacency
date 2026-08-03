@@ -68,11 +68,10 @@ source = ["src/adjacency"]
 # and a wrong gate invalidates every claim the system makes. Tests there are also
 # nearly free: the whole suite runs in about 0.16 seconds.
 #
-# Everything else is model calls, network I/O, and UI. Exhaustive branch coverage
-# there buys much less, because the gates are the safety net: a bad verdict gets
-# caught by G1 through G6 no matter how badly the layer that produced it was
-# written. That is the architectural point of the design, so spending authoring
-# time re-proving it in unit tests is redundant. Those layers are covered by
+# The remaining package includes lower-risk deterministic helpers plus model,
+# network, and UI code. Exhaustive branch coverage on I/O buys much less because
+# the gates are the safety net. A bad verdict gets caught by G1 through G6 no
+# matter how badly the layer that produced it was written. Those I/O layers use
 # fixture-replay integration tests instead.
 #
 # So this package-wide floor exists only to catch a module that is entirely

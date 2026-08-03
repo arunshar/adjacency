@@ -63,9 +63,9 @@ jobs:
             --cov=adjacency.contracts --cov=adjacency.gates \
             --cov-report=term-missing --cov-fail-under=100
 
-      # Everything else is model calls, network I/O, and UI, where the gates are
-      # already the safety net. This floor only catches a module that is entirely
-      # untested.
+      # The remaining package includes lower-risk deterministic helpers and I/O,
+      # where the gates are already the safety net. This floor only catches a
+      # module that is entirely untested.
       - name: Full suite
         run: |
           pytest -m "not e2e" \
