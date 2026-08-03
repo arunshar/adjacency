@@ -1,0 +1,19 @@
+.github/workflows/ci.yml
+  s_012c1d33fe9afb::t_69dcd50cb90044 35-37,41-42
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.20",
+  "base_commit_sha": "3176d60c24e330a8dac67c5c14d45f4de2ba9b6b",
+  "prompts": {},
+  "sessions": {
+    "s_012c1d33fe9afb": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "882918ec-65c5-45ef-97b9-857ad19b0fe5",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Arun Sharma <sharm485@umn.edu>"
+    }
+  }
+}
