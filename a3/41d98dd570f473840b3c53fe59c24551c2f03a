@@ -1,0 +1,62 @@
+src/adjacency/synthetic_faults.py
+  s_a8b24bcb194c1e::t_bd834b22ce4d7f 1-7,9-132,134-142,144-158,161-225
+  s_a8b24bcb194c1e::t_b8818c24a2de53 8,133,143
+  s_a8b24bcb194c1e::t_db24e8c68a183f 159-160
+tests/test_baseline.py
+  s_a8b24bcb194c1e::t_f7928ecb48bff6 1-100
+.github/PULL_REQUEST_TEMPLATE.md
+  s_a8b24bcb194c1e::t_70f689682495a3 9-11
+examples/demo_policy.json
+  s_a8b24bcb194c1e::t_e8f1bc2a6a86de 1-5
+tests/test_tuesday_fixture_replay.py
+  s_a8b24bcb194c1e::t_e8f1bc2a6a86de 1-35
+src/adjacency/xai.py
+  s_a8b24bcb194c1e::t_db24e8c68a183f 74-75
+  s_a8b24bcb194c1e::t_b8818c24a2de53 76-78
+  s_a8b24bcb194c1e::t_0591fabb356d79 1-73,79-119
+src/adjacency/policy.py
+  s_a8b24bcb194c1e::t_0591fabb356d79 1-100
+tests/test_policy.py
+  s_a8b24bcb194c1e::t_dad1682f98b076 103-114,116-122,124-133
+  s_a8b24bcb194c1e::t_f7928ecb48bff6 1-102,115,123,134-135
+tests/test_synthetic_faults.py
+  s_a8b24bcb194c1e::t_f7928ecb48bff6 1-68
+scripts/build_tuesday_artifacts.py
+  s_a8b24bcb194c1e::t_aaa52cdd3ce261 10-16,70,86,126
+  s_a8b24bcb194c1e::t_e8f1bc2a6a86de 1-9,17-68,72-85,87-125,127-161
+  s_a8b24bcb194c1e::t_3780dbdbc4e1a3 69,71
+tests/test_xai.py
+  s_a8b24bcb194c1e::t_f7928ecb48bff6 1-58
+src/adjacency/baseline.py
+  s_a8b24bcb194c1e::t_0591fabb356d79 1-159
+README.md
+  s_a8b24bcb194c1e::t_9cfaecdcb80488 49-58,75-84,93,99,101,103-105
+.github/workflows/ci.yml
+  s_a8b24bcb194c1e::t_70f689682495a3 47-48
+artifacts/tuesday/baseline_blocklist.json
+  s_a8b24bcb194c1e::t_a625a1e5a6d7c4 1-92
+artifacts/tuesday/policy_spec.json
+  s_a8b24bcb194c1e::t_8782fe1047febb 1-52
+artifacts/tuesday/synthetic_faults.json
+  s_a8b24bcb194c1e::t_d3f0f264039b78 1-161
+fixtures/api/model.keyword_expander/c13b79cc6d2c00ca04e4f014dc88fe14cbe01140a6738bdd8a8902813fe6030b.json
+  s_a8b24bcb194c1e::t_dd5e38588bb06b 1-151
+fixtures/api/model.policy_compiler/b2b178065aa3542f3595aed80650c55c856a88055c60f28e6ec663871657745e.json
+  s_a8b24bcb194c1e::t_80d039964866e8 1-295
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.20",
+  "base_commit_sha": "a341d98dd570f473840b3c53fe59c24551c2f03a",
+  "prompts": {},
+  "sessions": {
+    "s_a8b24bcb194c1e": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019fc654-c310-7411-a428-5f83232f95b7",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Arun Sharma <arun08sharma@gmail.com>"
+    }
+  }
+}
