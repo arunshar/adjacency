@@ -1,0 +1,24 @@
+paper/main.tex
+  s_a8b24bcb194c1e::t_ad4622dc5c64e3 10,26,329,335-336
+  s_a8b24bcb194c1e::t_455bd314f334f5 326,370-373
+README.md
+  s_a8b24bcb194c1e::t_455bd314f334f5 33
+RESULTS.md
+  s_a8b24bcb194c1e::t_455bd314f334f5 8
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.20",
+  "base_commit_sha": "d534d4a839b0166e7889d11b6f8c4e31c5e7cae5",
+  "prompts": {},
+  "sessions": {
+    "s_a8b24bcb194c1e": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019fc654-c310-7411-a428-5f83232f95b7",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Arun Sharma <arun08sharma@gmail.com>"
+    }
+  }
+}
