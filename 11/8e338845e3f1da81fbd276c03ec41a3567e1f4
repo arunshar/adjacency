@@ -1,0 +1,48 @@
+README.md
+  s_a8b24bcb194c1e::t_2c6545c711a837 31,48-50,61-69,76-77,79-81,83,92
+src/adjacency/delta.py
+  s_a8b24bcb194c1e::t_a059d25dd4ad23 1-49
+tests/test_near_dup.py
+  s_a8b24bcb194c1e::t_be505b02e0b7b8 44,56,59,64
+  s_a8b24bcb194c1e::t_de87adb5ef01b7 1-43,45-55,57-58,60-63,65-96
+tests/test_sources.py
+  s_a8b24bcb194c1e::t_fa665aaab3e776 1-37
+src/adjacency/tier_zero.py
+  s_a8b24bcb194c1e::t_e2eadf302769ad 1-58
+.github/workflows/ci.yml
+  s_a8b24bcb194c1e::t_2c6545c711a837 66-68
+tests/test_fixtures.py
+  s_a8b24bcb194c1e::t_12b69040f237fa 1-55
+tests/test_delta.py
+  s_a8b24bcb194c1e::t_a059d25dd4ad23 1-54
+src/adjacency/fixtures.py
+  s_a8b24bcb194c1e::t_12b69040f237fa 1-221
+  s_a8b24bcb194c1e::t_a439cc98c8d903 222-224
+src/adjacency/near_dup.py
+  s_a8b24bcb194c1e::t_de87adb5ef01b7 1-39,44-49,51,57-85,87-193,197-198
+  s_a8b24bcb194c1e::t_580e5c376914ea 40-43,50,52-56,86,194-196
+src/adjacency/sources.py
+  s_a8b24bcb194c1e::t_fa665aaab3e776 1-100
+tests/test_tier_zero.py
+  s_a8b24bcb194c1e::t_e2eadf302769ad 1-61
+pyproject.toml
+  s_a8b24bcb194c1e::t_2c6545c711a837 71-74
+CONTRIBUTING.md
+  s_a8b24bcb194c1e::t_2c6545c711a837 23-27,54,73
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.20",
+  "base_commit_sha": "118e338845e3f1da81fbd276c03ec41a3567e1f4",
+  "prompts": {},
+  "sessions": {
+    "s_a8b24bcb194c1e": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019fc654-c310-7411-a428-5f83232f95b7",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Arun Sharma <sharm485@umn.edu>"
+    }
+  }
+}
