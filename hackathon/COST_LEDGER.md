@@ -130,25 +130,38 @@ unreachable, since `_host_allowed` rejects every falsy hostname, so behaviour is
 488 tests still pass. Four tests in `test_xai_live_contract.py` still import this machinery, so the
 full deletion remains a Saturday job rather than a one-line cut.
 
-### CI had never run on any of this
+### The bandit gate blocked a PR once already, and the evidence was nearly erased
 
-`.github/workflows/ci.yml` triggers only on `pull_request` and on `push` to `main`. Every line of
-ImagineSignal was written on an untracked tree and then on a side branch, so **no CI run has ever
-touched it.** Measured on 2026-08-06 by rebuilding a clean 3.13 venv on the pushed commit and running
-each gate by hand:
+**PR #9** was opened against `471bc14` at 2026-08-06T01:08:35Z, CI ran, and the **Scan for security
+patterns** step failed. The PR was closed 76 seconds later at 01:09:51 and the branch was deleted
+from origin. After that, `git ls-remote --heads origin canary/imagine-signal` returned nothing and no
+PR was open, so the work looked like code that had simply never been pushed. The failure had already
+happened and was invisible from every view you would normally check.
 
-| Gate | `main` cd218dd | canary 471bc14 |
-|---|---|---|
-| `ruff check` / `ruff format --check` | pass | pass |
-| `bandit` | **pass** | **FAIL, exit 1** |
-| deterministic core, 100% line and branch | pass | pass, 100.00% |
-| `generate_imagine_signal_fixtures.py --verify-only` | pass | pass |
-| `run_imagine_signal_demo.py --verify-only` | pass | pass |
-| full suite, 55% floor | pass | pass, 85.63% |
+**The workflow run outlives the branch.** `gh run list --branch canary/imagine-signal` still finds
+it. Look there before concluding that code is untested.
 
-ImagineSignal introduced the first bandit regression in the repository and nothing caught it, because
-pushing a branch runs zero CI. **Opening the draft PR is what runs CI for the first time.** Run the
-gate set by hand before opening it, or the PR opens red.
+Diagnosed on 2026-08-06 by rebuilding a clean 3.13 venv exactly as CI does (`python3.13 -m venv` then
+`pip install -e ".[test,serve,temporal]"`, never the repo's own `.venv`, which already carried `ruff`
+and `bandit` from a different install path) and running every gate by hand:
+
+| Gate | `main` cd218dd | canary 471bc14 | canary 53ad8d4 |
+|---|---|---|---|
+| `ruff check` / `ruff format --check` | pass | pass | pass |
+| `bandit` | **pass** | **FAIL, exit 1** | pass |
+| deterministic core, 100% line and branch | pass | pass, 100.00% | pass, 100.00% |
+| `generate_imagine_signal_fixtures.py --verify-only` | pass | pass | pass |
+| `run_imagine_signal_demo.py --verify-only` | pass | pass | pass |
+| full suite, 55% floor | pass | pass, 85.63% | pass, 85.77% |
+| `core-without-model-deps` | pass | pass | pass, 477 passed 3 skipped |
+
+The local reconstruction landed on the same step CI had failed on, from evidence alone. ImagineSignal
+introduced the repository's first bandit regression. **PR #10 on `53ad8d4` is green on both jobs**,
+`lint-and-test` in 1m34s and `core-without-model-deps` in 24s.
+
+Note the trigger list while you are here: `ci.yml` fires on `pull_request` and on `push` to `main`,
+so **a branch push runs nothing at all.** Opening the PR is what runs CI. Run the gate set by hand
+first, or the PR opens red, which is exactly how PR #9 went.
 
 Payload size: about 122 KB per 1K image, so roughly 490 KB at `n=4`. Acceptable.
 
