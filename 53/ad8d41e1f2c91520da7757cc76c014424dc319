@@ -1,0 +1,32 @@
+hackathon/verify_tree.sh
+  s_08e8b81222ffbf::t_421d2ebe8972a5 43-48
+  s_08e8b81222ffbf::t_938d522b0a0ca4 65-68,70-72
+hackathon/COST_LEDGER.md
+  s_08e8b81222ffbf::t_2882f9c408be8a 125-152
+  s_08e8b81222ffbf::t_90e751fcbaa680 122-124
+  s_08e8b81222ffbf::t_56f1ac2fc1afcf 153-155
+  s_08e8b81222ffbf::t_f1b377a57f9a89 22,65-121,156-171,205-212
+src/adjacency/imagine_signal/adapters/xai_live.py
+  s_08e8b81222ffbf::t_ff51b0c68848c2 476-483
+  s_08e8b81222ffbf::t_eb19284a9e5d43 475
+  s_08e8b81222ffbf::t_c5a92ab244697a 3-5,8-10,16-17,28-32,38,78-82,84,89-100,133,135-136,139-140,152,154-156,221-272,275-285,294-295,298-307,420-421,431-432,459,461-464,500,535-580,591-595,600-601,622,629,634-649,653,718-720,729,742-743,751,811-813,842,850,857-858
+hackathon/smoke_call.py
+  s_08e8b81222ffbf::t_fa38a2075a4769 207,211-212,215,217,224-240,243-256,278,284,305
+  s_08e8b81222ffbf::t_453ef9f5fb8fb8 4-5,21,29-31,37,39,50,60-62,65,107-131,152-192,208-210,213-214,216,257,275-277,279-283,285-304,306-315,318,320-321,323-324,326-329,336
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.21",
+  "base_commit_sha": "53ad8d41e1f2c91520da7757cc76c014424dc319",
+  "prompts": {},
+  "sessions": {
+    "s_08e8b81222ffbf": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "1316ee7f-b1a6-4ab2-bc6d-f3f4557cf5a7",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Arun Sharma <arun08sharma@gmail.com>"
+    }
+  }
+}
