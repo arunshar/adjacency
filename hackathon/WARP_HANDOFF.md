@@ -1,16 +1,24 @@
 # Warp cold-start handoff
 
-**Status: this repository is mid-project and intentionally uncommitted. Read this file in full before
-responding. Do not edit anything until you have verified the checkpoint in section 6.**
+**Status: the canary is released and green. Read this file in full before responding. Do not edit
+anything until you have verified the checkpoint in section 6.**
 
 | Field | Value |
 |---|---|
-| Version | 1.0 |
-| Prepared | 2026-08-05 |
+| Version | **2.0** |
+| Prepared | 2026-08-05, rewritten 2026-08-06 |
 | Repository | `/Users/arunsharma/code/adjacency` |
-| Branch | `main` at `cd218dd`, intentionally dirty |
-| Reason for handoff | Claude session limits. Warp is now the primary agent for this project. |
+| Branch | `canary/imagine-signal` at `94a1d27`, **clean and pushed** |
+| Release | Tag `v0.3.0-canary` at `53ad8d4`, draft pull request #10, CI green on both jobs |
+| Fallback | `main` stays at `cd218dd` and never moves during the event |
+| Reason for handoff | Claude session limits. Warp is the primary agent for this project. |
 | Event | xAI Grokathon, Saturday 2026-08-08, 09:00 to Sunday 01:00, San Francisco |
+
+> **What changed from v1.0.** That version described a dirty, uncommitted tree on `main` with two
+> unimplemented transport functions and a five-task queue. All of it shipped. The tree is clean, the
+> branch is pushed and tagged, the transport is implemented on inline base64, the demo surface
+> exists, and CI is green. If you are working from a v1.0 checkpoint you will halt on arrival for no
+> reason. Section 6 below is authoritative.
 
 ## 1. What this is
 
@@ -80,12 +88,13 @@ qualifier appears with it.
   CLAUDE.md                        the same rules, written for Claude
   src/adjacency/                   base engine, gates G0-G6
   src/adjacency/imagine_signal/    ImagineSignal, gates IS0-IS8, 15 modules
-  tests/                           448 passing, 2 xfailed
+  tests/                           488 passing, no xfails
   hackathon/                       the event kit, see below
   docs/imagine_signal/             00 to 20, plus system_design.html and diagrams/
   slides/                          13-slide deck, build scripts, rendered PNGs
   artifacts/imagine_signal/        the frozen offline demo artifact
-~/code/adjacency-backups/          timestamped backups of the uncommitted work
+~/code/adjacency-backups/          timestamped backups, plus a verified git bundle of
+                                   the canary branch, the tag, and main
 ~/code/adjacency-prep/             interview prep, deliberately outside the repo
 ```
 
@@ -135,39 +144,50 @@ cd /Users/arunsharma/code/adjacency && env -u XAI_API_KEY -u ADJ_RECORD .venv/bi
 
 | Expected | Value |
 |---|---|
-| Branch | `main` |
-| HEAD | `cd218dd` |
-| Suite | `448 passed, 2 xfailed` |
+| Branch | `canary/imagine-signal` |
+| HEAD | `94a1d27`, matching `origin/canary/imagine-signal` |
+| Working tree | **clean**, `git status --short` prints nothing |
+| Suite | `488 passed`, no xfails |
 | Demo | `"status": "verified"`, `network_used: false` |
 | Artifact digest | `b17e9105f0de89772440c82938a69a7b25452784fc9c0667a4fe81a8f621ca73` |
-| Working tree | 82 untracked plus 10 modified, all expected |
+| `main` | still `cd218dd`, locally and on origin |
+| `bandit -q -c pyproject.toml -r src` | exit 0 |
 
 **If anything differs, report the exact difference and stop.** Do not repair it and do not regenerate
 an artifact to make a digest match.
 
-Note: the suite reports `446 passed, 1 skipped, 2 xfailed` in an environment built from
-`.[test,serve]` alone, because `temporalio` lives in a separate extra. Both are correct.
+Two things that look wrong and are not. The tag `v0.3.0-canary` points at `53ad8d4`, one commit
+behind `HEAD`, because the release was tagged before a documentation correction landed. And `main`
+being three commits behind is the plan, not neglect: it is the known-good fallback.
+
+Note: the suite reports fewer passes plus skips in an environment built from `.[test,serve]` alone,
+because `temporalio` and `gradio` live in separate extras. The `core-without-model-deps` CI job
+deliberately runs that way and reports `477 passed, 3 skipped`. Both are correct.
 
 ## 7. What is already done, so you do not redo it
 
 - ImagineSignal offline MVP: 15 modules, 304 documented symbols, gates `IS0` to `IS8`, receipts,
   auction sensitivity, deterministic artifact.
-- The live transport **skeleton** at `src/adjacency/imagine_signal/adapters/xai_live.py`. Constants,
-  cost helpers, request builder, and the pure response mapper are implemented and tested. Two
-  functions raise `NotImplementedError` on purpose because the xAI field names are UNVERIFIED and
-  were deliberately not guessed.
-- `tests/hackathon/test_xai_live_contract.py`: 15 passing tests plus 2 `xfail(strict=True)` specs
-  that become real tests the moment the transport is implemented.
-- The live code path was proven end to end with **zero network** using a local fake transport. 17 of
-  17 checks passed, including the unknown-cost interlock blocking a second call.
+- **The live transport is implemented**, at `src/adjacency/imagine_signal/adapters/xai_live.py`, using
+  inline `response_format: "b64_json"`. That choice removed the entire URL-fetch and SSRF surface:
+  no second host, no allowlist to maintain, no expiring link. `tests/hackathon/test_xai_live_contract.py`
+  now carries **50 tests** and no xfails.
+- **Nine live provider probes, $0.199 total.** Measured: generation $0.02 at 5.5s, edit $0.022 at
+  9.2s, payload 122 to 208 KB, a 300-request budget, and policy compilation at $0.0368, which is
+  dearer than an image. Full field map and spend log in `hackathon/COST_LEDGER.md`.
+- **The demo surface exists.** `app.py` serves an ImagineSignal tab beside Autopsy, from 496 lines in
+  `src/adjacency/imagine_signal/ui.py`, with 5 tests. It renders the family, the changed axis, the
+  locked attributes, cost from the artifact, the `IS0` to `IS8` ladder, the final action, and an
+  explicit list of claims it will not make.
+- **The canary is released.** Branch pushed, tag pushed, draft pull request #10 open, CI green.
 - Six deep-dive documents, five diagrams, two HTML walkthroughs, a 13-slide deck.
 - A full dry run: fresh clone, branch, commit, both CI gates, canary push and rollback rehearsal, and
   a demo UI walkthrough. Findings in `docs/imagine_signal/20_DRY_RUN_REPORT.md`.
 
 ## 8. Your queue
 
-`hackathon/WARP_TASKS.md`. Work in order. Tasks 4 and 5 are gated behind task 3, which only Arun can
-do, and that gating is deliberate.
+`hackathon/WARP_TASKS.md` **version 2.0**. The v1.0 queue is finished. Two items remain: an optional
+dead-code cleanup that is larger than it looks, and Saturday's assigned brief.
 
 ## 9. Do NOT
 
@@ -175,9 +195,15 @@ do, and that gating is deliberate.
 - Do not make a live provider call or touch `XAI_API_KEY`.
 - Do not edit any file in the undelegatable list in `WARP.md`.
 - Do not weaken a gate, a contract, an evidence label, or a claim qualifier.
-- Do not guess an xAI response field name. That is the entire reason two functions are unimplemented.
-- Do not delete an `xfail(strict=True)` marker without the implementation that earns it.
+- Do not guess an xAI response field name. Every one now in the code was confirmed by a real probe,
+  and the field map in `COST_LEDGER.md` records which. Keep that property.
 - Do not regenerate a fixture or artifact to make a check pass.
+- **Do not treat a green test suite as a green build.** `bandit` is a CI gate, it is not covered by
+  the suite, and it is the only gate that has ever failed here. Run it.
+- **Do not assume a branch push proved anything.** `ci.yml` triggers on `pull_request` and on `push`
+  to `main` only, so a branch push runs zero checks. Pull request #9 failed on `bandit`, was closed
+  within 76 seconds, and its branch was deleted, which removed the failure from the branch list, the
+  pull request list, and `git ls-remote`. Only `gh run list --branch <name>` still showed it.
 - Do not assume ImagineSignal is the Saturday submission. The brief is assigned that morning.
 - Do not assume there is a scheduled interview. There is not. Recruiters will be onsite informally.
 
@@ -187,4 +213,5 @@ do, and that gating is deliberate.
 2. Read `hackathon/WARP_TASKS.md`.
 3. Summarize back in about eight lines: what this project is, the checkpoint result, which rails
    constrain you, and which task you are taking first.
-4. Then either start task 1 or ask one specific question. Do not ask for permission in general terms.
+4. Then either start the task you named or ask one specific question. Do not ask for permission in
+   general terms.

@@ -2,10 +2,14 @@
 
 | Field | Value |
 |---|---|
-| Version | 1.0 |
-| Prepared | 2026-08-05 |
-| Budget | 7,000 Warp credits |
+| Version | **2.0** |
+| Prepared | 2026-08-05, rewritten 2026-08-06 |
+| Budget | 7,000 Warp credits. Task 1 of v1.0 cost **205** on `auto (cost-efficient)` |
 | Allocation rule | **By blast radius, not by benchmark** |
+
+> **v1.0 is complete.** Tasks 1 through 5 of the old queue all shipped: the demo surface, the canary
+> preparation, the smoke call, `extract_provider_response`, and `XAIImagineTransport.invoke`. Do not
+> rebuild them. What remains is one cleanup job and Saturday.
 
 ## 1. The allocation rule
 
@@ -16,118 +20,80 @@ catches it?"**
 |---|---|---|---|
 | **Never delegate** | none | `gates.py`, `decisions.py`, `contracts.py`, `canonical.py`, `receipts.py`, `mutations.py`, `ports.py` (both packages), and the cost accounting in `imagine_client.py` | **Nothing. These are the checking layer.** Arun writes them or they do not change |
 | **Strong** | best you have | `adapters/xai_live.py`, any contract or schema change, Saturday's core decision logic | Contract tests catch shape errors. Semantics still need judgment |
-| **Cheap** | value model | Docs, prose, fixtures, the demo surface, scripts, slide copy, retarget renames | The full suite, the artifact digest, and a human read |
+| **Cheap** | value model | Docs, prose, fixtures, UI, scripts, slide copy, retarget renames | The full suite, the artifact digest, and a human read |
 
 **Why a cheaper model is genuinely safe in the cheap tier here.** Three independent backstops exist:
 the deterministic core is at 100 percent line and branch so an invariant break cannot pass; the
 artifact SHA-256 detects any drift in decision logic from the outside; and
-`tests/hackathon/test_xai_live_contract.py` pins the transport with 15 tests plus 2 strict-xfail
-specs. The risk of a weaker model is **extra iterations**, not undetected defects.
+`tests/hackathon/test_xai_live_contract.py` now pins the transport with **50 tests**, up from the 15
+plus 2 strict-xfails it carried in v1.0. The risk of a weaker model is **extra iterations**, not
+undetected defects.
 
-## 2. Task 0: calibrate before committing the budget
+The calibration probe from v1.0 is no longer needed. The measured answer is in the budget row above:
+205 credits for a real task on the cost-efficient tier, so 7,000 is comfortable. **Keep the reserve
+rule: do not drop below 40 percent of the balance before Saturday 09:00.** The assigned brief is the
+only unbounded item in the whole plan.
 
-Do this first. It converts an unknown per-model credit cost into a real number from the account.
+## 2. What the checking layer now includes
 
-1. Record the starting credit balance.
-2. Run **task 1** on the candidate value model. Real work, safe tier, objective acceptance test.
-3. Record credits consumed and iterations needed.
-4. Run the **hard probe**: hand the same model task 4 with only
-   `tests/hackathon/test_xai_live_contract.py::test_extract_preserves_completion_invariants` as the
-   spec. Count iterations to green.
+Read this before you trust a green result. Four guards in this repository have failed **silently**,
+and every one of them kept reporting success while measuring the wrong thing:
 
-**The probe is the decision.** Three iterations or fewer means the value model is fine for the strong
-tier too, and 7,000 credits goes a long way. Thrashing means keep it for the cheap tier and spend the
-strong model on tasks 4 and 5 only, which are two functions.
+| Guard | How it failed | Fixed by |
+|---|---|---|
+| `verify_tree.sh` core check | BRE regex `\(a\|b\)` under `grep -E`, which matches nothing | ERE alternation |
+| `verify_tree.sh` core check | Scanned untracked paths only, so it stopped guarding once work was committed | Also scan `git diff --name-only` |
+| `verify_tree.sh` git block | Kept printing `expected cd218dd` and `expected 0 unpushed` after the branch moved and was pushed | Check `main` never moves, and compare against the branch's own upstream |
+| Backup manifest | Described a bundle one commit behind as carrying "the full commit" | Bundle refreshed, patch relabelled HISTORICAL |
 
-> **Reserve rule: do not drop below 40 percent of the balance before Saturday 09:00.** The assigned
-> brief is the only unbounded item. Running out at 14:00 on the day is far worse than paying more for
-> a stronger model on two functions.
+**None of them crashed.** The lesson to carry into Saturday: test a guard by breaking the thing it
+guards, never by running it on a clean tree. A guard you have only ever seen pass is a guard you
+have never tested.
 
 ## 3. The queue
 
-Work in order. Do not jump ahead of a blocked task.
+### Task A: delete the dead URL-fetch machinery
 
-### Task 1: the ImagineSignal demo surface
+**Tier:** cheap. **Blocked by:** nothing. **Do this before Saturday, not during.**
 
-**Tier:** cheap. **Blocked by:** nothing. **This is the largest known gap.**
+The base64 migration made an entire code path unreachable. `src/adjacency/imagine_signal/adapters/xai_live.py`
+still carries `fetch_provider_media`, `_host_allowed`, `_assert_host_resolves_public`,
+`ALLOWED_MEDIA_HOSTS`, `ALLOWED_MEDIA_TYPES`, the no-redirect handler, and the `MediaFetcher`
+protocol. Each is marked `UNREFERENCED 2026-08-06` in its docstring.
 
-`app.py` launches only the base Adjacency Autopsy demo, and `src/adjacency/ui.py` never imports
-`imagine_signal`. Confirmed by running the app during the dry run.
+**This is not a one-line cut.** Four tests in `tests/hackathon/test_xai_live_contract.py` still
+import and exercise the machinery, around lines 24 to 42 and 624 to 676. Deleting the source without
+the tests breaks the suite at import time. Delete both together, or leave both alone.
 
-Build a read-only ImagineSignal view. Extend the existing Gradio app rather than starting a second
-one. It must show:
+Judge whether it is worth doing at all. The argument for: dead security-shaped code invites a future
+reader to call it, and it already caused one CI failure through a `B101` assert inside it. The
+argument against: it is inert, it is clearly labelled, and `COST_LEDGER.md` already recorded the
+decision to defer. **If you are not confident, leave it and say so.** Deleting working code the night
+before an event is how demos break.
 
-- The controlled family: control plus two variants, from the frozen fixtures.
-- Which attribute changed, named explicitly, and which attributes stayed locked.
-- Per-generation cost from the artifact, with its status.
-- The gate ladder `IS0` through `IS8` with pass or fail and any coercion.
-- The final action from the receipt, and the evidence class that permitted it.
+**Acceptance:** 488 tests minus exactly the tests you deliberately removed, `bandit` exit 0, `ruff`
+clean, artifact digest unchanged, and `./hackathon/verify_tree.sh` reporting no core-file change.
 
-**Constraints.** Read-only. No control may trigger a generation, a spend, or any provider call. Read
-the existing artifact and fixtures, do not regenerate them. Follow the visual language already in
-`src/adjacency/ui.py`.
+### Task B: Saturday, the assigned brief
 
-**Acceptance:**
+**Tier:** mixed. **Blocked by:** the 09:00 brief. **This is the whole job.**
 
-```bash
-cd /Users/arunsharma/code/adjacency && env -u XAI_API_KEY -u ADJ_RECORD .venv/bin/python app.py
-```
+Follow `hackathon/CONTINGENCY.md`. The shape of the day:
 
-Loads, the ImagineSignal view renders from frozen data, the suite still reports `448 passed, 2
-xfailed`, and the artifact digest is unchanged.
+1. **09:00.** Read the brief. Answer one question honestly: *does it involve a model or agent
+   producing an output somebody has to trust?*
+2. **09:15.** Commit to reuse-or-fresh and **do not revisit it at noon.** A reversed decision at
+   13:00 costs more than either choice made at 09:00.
+3. **Yes** means the 90-minute mechanical retarget in `CONTINGENCY.md` section 5, driven by
+   `docs/RETARGETING.md`. **Partly** means drop gates and receipts into the one component that needs
+   defending. **No means start fresh and do not force it.** Bolting a verification harness onto a
+   brief that does not need one reads as "he had a hammer" and scores worse than a clean small build.
+4. **Keep `IS0` through `IS8` out of it** unless the brief is genuinely about creative generation.
+5. **21:00 hard feature freeze.** Event ends Sunday 01:00.
 
-### Task 2: Friday canary preparation
-
-**Tier:** cheap. **Blocked by:** nothing.
-
-Verify every command in `hackathon/CANARY_RELEASE.md` is correct against the current tree: the file
-set the commit would capture, the branch and tag names, and the draft-PR command. **Report the
-commands. Do not run any of them.** Arun executes all git writes.
-
-Remember the trap: `.github/workflows/ci.yml` triggers only on `pull_request` and `push` to `main`,
-so pushing the canary branch alone runs zero checks. The draft PR is what runs CI.
-
-### Task 3: the smoke call. **Arun only, not you**
-
-**Tier:** human. **Blocks:** tasks 4 and 5.
-
-Arun runs `hackathon/smoke_call.py` once, with a cost cap, and pastes the raw response into the
-UNVERIFIED field-map table in `hackathon/COST_LEDGER.md`.
-
-**You must not run this.** It is a paid external call. Until the table is filled, tasks 4 and 5 stay
-blocked. That gating is the entire reason two functions are unimplemented rather than guessed.
-
-### Task 4: `extract_provider_response`
-
-**Tier:** strong. **Blocked by:** task 3.
-
-Implement `extract_provider_response` in `src/adjacency/imagine_signal/adapters/xai_live.py` from the
-real recorded response. The docstring carries the full specification. Required order: moderation
-rejection first, then `usage.cost_in_usd_ticks`, then image bytes, then `provider_request_id`,
-`provider_model_resolved`, and `moderation_respected`.
-
-**Acceptance:** replace the placeholder raw response in
-`test_extract_preserves_completion_invariants`, delete its `xfail(strict=True)` marker, and the test
-passes. Never write raw base64 or a signed URL into a log, fixture, or artifact.
-
-### Task 5: `XAIImagineTransport.invoke`
-
-**Tier:** strong. **Blocked by:** task 4.
-
-Implement the HTTP body. The docstring gives the six-step sequence. Exactly one request. No retry, no
-fallback. On a timeout or ambiguous failure after the request was sent, raise
-`ProviderOutcomeUnknownError` with the provider request id.
-
-**Acceptance:** delete the second `xfail(strict=True)` marker and the suite moves from `448 passed, 2
-xfailed` to `450 passed`. Lift the `_unverified` entries in `build_request_body` to the top level
-once the field names are confirmed.
-
-### Task 6: Saturday
-
-**Tier:** mixed. **Blocked by:** the 09:00 brief.
-
-Follow `hackathon/CONTINGENCY.md`. Make the reuse-or-fresh decision at 09:00, commit to it by 09:15,
-and do not revisit it at noon. Feature freeze at 21:00.
+The provider ladder in `CONTINGENCY.md` section 3 covers every access scenario from no network to a
+key they hand out. `tier_zero.decide_tier_zero` makes decisions with no model at all, and the Autopsy
+demo has been verified running with wifi off. **You are never without a demo.**
 
 ## 4. Per-task prompt template
 
@@ -136,30 +102,32 @@ Read WARP.md and hackathon/WARP_HANDOFF.md first if you have not this session.
 
 Task: <paste one task from hackathon/WARP_TASKS.md>
 
-Before editing: run the three verification commands and confirm the checkpoint.
+Before editing: run the checkpoint commands in hackathon/WARP_BOOTSTRAP.txt and confirm
+branch canary/imagine-signal, HEAD 94a1d27, clean status, 488 passed.
 While editing: touch no file in the undelegatable list.
 After editing: run ./hackathon/verify_tree.sh, then ruff check src tests scripts and
-ruff format --check src tests scripts, then the full suite and the artifact digest.
-Show me all three outputs verbatim. git status is NOT sufficient here: it hides changes
-inside untracked directories, and most of this repo is untracked on purpose.
+ruff format --check src tests scripts, then bandit -q -c pyproject.toml -r src, then the
+full suite and the artifact digest. Show me every output verbatim.
 
-Do not run any git command that writes. Do not make a provider call. Do not delete an xfail marker
-without the implementation that earns it. Plain ASCII hyphens only.
-
-Report what you verified and what you did not.
+Do not run any git command that writes. Do not make a provider call. Plain ASCII hyphens
+only. Report what you verified and, explicitly, what you did not.
 ```
+
+**Why bandit is in that list now.** It is a CI gate, it is the one gate that has actually failed, and
+it is not covered by the test suite. Running the suite and calling it green is exactly the mistake
+that produced the failed pull request #9.
 
 ## 5. Tracking spend
 
-Append a row per task. The point is to learn the real conversion rate early, not to audit afterwards.
-
 | Task | Model | Credits before | Credits after | Cost | Iterations | Accepted? |
 |---|---|---:|---:|---:|---:|---|
-| 1 | | | | | | |
-| 4 probe | | | | | | |
-| 2 | | | | | | |
-| 4 | | | | | | |
-| 5 | | | | | | |
+| v1.0 task 1 | auto (cost-efficient) | | | **205** | | yes |
+| A | | | | | | |
+| B (Saturday) | | | | | | |
 
-After tasks 1 and the probe, extrapolate. If the projected total for tasks 2 through 5 exceeds 40
-percent of the remaining balance, drop to the cheaper model for everything except tasks 4 and 5.
+Only the 205 is measured. The current balance was never recorded, so read it from the account before
+Saturday rather than assuming 7,000 minus what this table shows.
+
+At roughly 200 credits per substantial task, the reserve rule is not a binding constraint. Spend the
+strong tier freely on Saturday's decision logic, which is the one place judgment is not backstopped
+by an existing test.

@@ -3,6 +3,11 @@ WARP.md and hackathon/WARP_HANDOFF.md in full before you respond. Where any othe
 document disagrees with the handoff, the handoff wins. Where the repository disagrees
 with the handoff, the repository wins and you report the difference.
 
+REFRESHED 2026-08-06T10:35Z. The previous version of this file told you to expect
+branch main at cd218dd with 448 passed and 2 xfailed, and to stop if anything differed.
+All of that is now wrong, and following it would have halted you on arrival. If you are
+reading a checkpoint that does not match section VERIFY below, trust section VERIFY.
+
 THE PROJECT. Adjacency is a brand-safety policy engine: advertiser prose compiles into
 a typed, hashed PolicySpec, inventory is evaluated, and every verdict passes through
 deterministic fail-closed gates G0 to G6. ImagineSignal extends the same discipline to
@@ -16,8 +21,10 @@ FIVE HARD RAILS. These lead because you have a terminal and can execute every on
 the forbidden things.
 
 1. Never commit, stage, push, tag, open a pull request, reset, clean, stash, or discard.
-   This tree is intentionally dirty and uncommitted. Arun runs every git write himself.
-   git status, git diff, and git log are fine.
+   Arun runs every git write himself. git status, git diff, and git log are fine.
+   Note the change from the last version: the tree is no longer dirty, the work is
+   committed and pushed. The rail is unchanged. The reason is now release hygiene on a
+   branch with a live pull request rather than protecting uncommitted work.
 2. Never make a live xAI or X Ads call. Never read XAI_API_KEY, never set ADJ_RECORD,
    never pass --write. Arun runs hackathon/smoke_call.py himself, not you.
 3. Never add retry or fallback to the Imagine transport, and never fall back from replay
@@ -44,22 +51,46 @@ causal lift, production readiness, or X revenue of any kind.
 VERIFY THIS CHECKPOINT BEFORE EDITING ANYTHING:
 
   cd /Users/arunsharma/code/adjacency
-  git branch --show-current && git rev-parse --short HEAD
+  git branch --show-current && git rev-parse --short HEAD && git status --short
   env -u XAI_API_KEY -u ADJ_RECORD .venv/bin/pytest -m "not e2e" -q
   env -u XAI_API_KEY -u ADJ_RECORD .venv/bin/python -I -B scripts/run_imagine_signal_demo.py --verify-only
   shasum -a 256 artifacts/imagine_signal/offline_demo.json
+  ./hackathon/verify_tree.sh
 
-Expected: branch main, HEAD cd218dd, 448 passed 2 xfailed, status verified, and digest
+Expected: branch canary/imagine-signal, HEAD 94a1d27, a CLEAN status, 488 passed with no
+xfails, status verified, and digest
 b17e9105f0de89772440c82938a69a7b25452784fc9c0667a4fe81a8f621ca73. If anything differs,
 report the exact difference and stop. Do not repair it. Do not regenerate an artifact to
 make a digest match.
 
-TWO THINGS THAT ARE NOT WHAT YOU MIGHT ASSUME. The xAI Grokathon is Saturday 2026-08-08,
-and the organizer confirmed the brief is assigned that morning, so ImagineSignal is
-probably not the submission. There is also no scheduled interview at the event.
+Two details that look like bugs and are not. The tag v0.3.0-canary points at 53ad8d4,
+one commit behind HEAD, because the release was tagged before a documentation
+correction landed. That is correct, leave it. And main is still cd218dd on purpose: it
+is the known-good fallback and it never moves during the event.
+
+WHAT IS ALREADY DONE. Do not rebuild any of this.
+
+  Live xAI transport   Implemented, using inline response_format=b64_json. Confirmed by
+                       9 real probes costing $0.199 total. The URL-fetch path it replaced
+                       is dead code, still present, and still imported by 4 tests.
+  Demo surface         Built. app.py serves an ImagineSignal tab beside Autopsy, 496
+                       lines in src/adjacency/imagine_signal/ui.py, 5 tests.
+  Canary release       Branch pushed, tag v0.3.0-canary pushed, draft pull request #10
+                       open, CI green on both jobs.
+
+Every task in the old WARP_TASKS.md queue is complete. Read the current
+hackathon/WARP_TASKS.md for what actually remains, which is short.
+
+THREE THINGS THAT ARE NOT WHAT YOU MIGHT ASSUME. The xAI Grokathon is Saturday
+2026-08-08, and the organizer confirmed the brief is assigned that morning, so
+ImagineSignal is probably not the submission. There is no scheduled interview at the
+event. And .github/workflows/ci.yml triggers only on pull_request and on push to main,
+so pushing a branch runs zero checks: a green branch means nothing until a pull request
+exists. That trap already cost one failed pull request, #9, which was closed and its
+branch deleted, which hid the failure from every ordinary view.
 hackathon/CONTINGENCY.md has the 09:00 decision tree.
 
 YOUR FIRST MOVE. Run the checkpoint commands. Read hackathon/WARP_TASKS.md. Then
 summarize back in about eight lines: what this project is, the checkpoint result, which
-rails constrain you, and which task you are taking first. Then either start task 1 or ask
-one specific question. Do not ask for permission in general terms.
+rails constrain you, and which task you are taking first. Then either start that task or
+ask one specific question. Do not ask for permission in general terms.

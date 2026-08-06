@@ -13,8 +13,10 @@ These lead this file on purpose. You have a terminal, so you can execute all of 
 not happen.
 
 1. **Never commit, stage, push, tag, open a pull request, reset, clean, stash, or discard anything.**
-   This worktree is intentionally dirty and uncommitted. Arun runs every git write himself. If a task
-   seems to need one, stop and say so. `git status`, `git diff`, and `git log` are fine.
+   Arun runs every git write himself. If a task seems to need one, stop and say so. `git status`,
+   `git diff`, and `git log` are fine. As of 2026-08-06 the tree is clean and the work is committed,
+   pushed, and tagged on `canary/imagine-signal`, with a draft pull request open. The rail did not
+   change. Its reason did: it now protects a released branch rather than uncommitted work.
 2. **Never make a live xAI or X Ads call.** Never read `XAI_API_KEY`, never set `ADJ_RECORD`, never
    run any command with `--write`. The one authorized probe is `hackathon/smoke_call.py`, and **Arun
    runs it, not you**.
