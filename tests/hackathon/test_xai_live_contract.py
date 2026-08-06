@@ -21,24 +21,35 @@ import zlib
 import pytest
 
 from adjacency.imagine_signal.adapters.xai_live import (
+    ALLOWED_MEDIA_HOSTS,
     EDITS_PATH,
     GENERATIONS_PATH,
+    MAX_MEDIA_BYTES,
     MODEL_STANDARD,
     MODEL_STANDARD_DATED,
+    RESPONSE_FORMAT_B64_JSON,
     TICKS_PER_USD,
     XAI_API_BASE,
     ProviderImagePayload,
     ProviderResponsePayload,
     XAIImagineTransport,
+    _host_allowed,
+    _max_b64_encoded_chars_for_media_cap,
     build_request_body,
+    decode_inline_b64_image,
     endpoint_for,
     extract_provider_response,
+    fetch_provider_media,
     is_dated_model_alias,
     map_provider_response,
     ticks_to_usd,
     usd_to_ticks,
 )
-from adjacency.imagine_signal.assets import ContentAddressedAssetStore
+from adjacency.imagine_signal.assets import (
+    AssetValidationError,
+    ContentAddressedAssetStore,
+    media_sha256,
+)
 from adjacency.imagine_signal.imagine_client import (
     ImagineCallBudgetError,
     ImagineResponseError,
@@ -56,6 +67,7 @@ from adjacency.imagine_signal.ports import (
     ImagineMode,
     ImagineTransport,
     ProviderCallState,
+    ProviderOutcomeUnknownError,
     ResponseOrigin,
 )
 
@@ -201,14 +213,80 @@ def test_request_body_emits_confirmed_names_at_the_top_level():
     assert "prompt" in body
     assert body["aspect_ratio"] == "1:1"
     assert body["resolution"] == "1k"
+    assert body["response_format"] == RESPONSE_FORMAT_B64_JSON
     assert "_unverified" not in body
-    assert set(body) >= {"model", "prompt", "n", "aspect_ratio", "resolution"}
+    assert set(body) >= {
+        "model",
+        "prompt",
+        "n",
+        "aspect_ratio",
+        "resolution",
+        "response_format",
+    }
 
 
-def test_edit_request_body_carries_reference_identity():
-    body = build_request_body(_edit())
+def test_edit_request_body_carries_image_url_data_uri(tmp_path):
+    """Edits send bytes as data URI; ImageReference stays identity-only."""
 
-    assert body["reference_media_sha256"] == ["a" * 64]
+    store = ContentAddressedAssetStore(tmp_path / "edit-assets")
+    png_bytes = _png(channel=7)
+    stored = store.put(png_bytes, declared_content_type="image/png")
+    reference = ImageReference(
+        media_sha256=stored.descriptor.media_sha256,
+        media_type="image/png",
+        width=stored.descriptor.width,
+        height=stored.descriptor.height,
+    )
+    request = ImageEditRequest(
+        schema_version="1.0",
+        model=MODEL_STANDARD_DATED,
+        prompt="Change only the background tone",
+        n=1,
+        references=(reference,),
+    )
+
+    body = build_request_body(request, asset_store=store)
+
+    assert "reference_media_sha256" not in body
+    assert "reference_file_ids" not in body
+    # response_format is emitted on edits too (UNCONFIRMED by edit probe; still sent).
+    assert body["response_format"] == RESPONSE_FORMAT_B64_JSON
+    assert set(body) >= {
+        "model",
+        "prompt",
+        "n",
+        "aspect_ratio",
+        "resolution",
+        "image",
+        "response_format",
+    }
+    image = body["image"]
+    assert isinstance(image, dict)
+    data_uri = image["url"]
+    assert isinstance(data_uri, str)
+    assert data_uri.startswith("data:image/png;base64,")
+    # Digest of the resolved payload matches the identity on ImageReference.
+    import base64
+
+    encoded = data_uri.split(",", 1)[1]
+    resolved = base64.standard_b64decode(encoded)
+    assert media_sha256(resolved) == reference.media_sha256
+    assert resolved == png_bytes
+
+
+def test_edit_request_body_fails_when_reference_bytes_are_absent(tmp_path):
+    store = ContentAddressedAssetStore(tmp_path / "empty-assets")
+    request = _edit()  # digest a*64 is not in the store
+
+    with pytest.raises((AssetValidationError, ValueError)) as caught:
+        build_request_body(request, asset_store=store)
+    message = str(caught.value).lower()
+    assert "missing" in message or "asset" in message
+
+
+def test_edit_request_body_requires_asset_store():
+    with pytest.raises(ValueError, match="asset_store"):
+        build_request_body(_edit())
 
 
 def test_mapper_reports_exact_cost_when_the_provider_supplies_ticks():
@@ -312,12 +390,28 @@ def test_completed_result_missing_provider_metadata_is_refused(tmp_path):
 
 
 def _verified_raw_response() -> dict[str, object]:
-    # Shape confirmed by two authorized smoke probes. The URL value is synthetic
-    # and is never written to a fixture; tests inject a media_fetcher.
+    # Inline b64_json shape confirmed 2026-08-06 (COST_LEDGER.md). The base64
+    # string is synthetic test bytes only and is never written to a fixture.
+    import base64
+
     return {
         "data": [
             {
-                "url": "https://api.x.ai/v1/images/synthetic-test-object",
+                "b64_json": base64.standard_b64encode(_jpeg()).decode("ascii"),
+                "mime_type": "image/jpeg",
+            }
+        ],
+        "usage": {"cost_in_usd_ticks": 200_000_000},
+    }
+
+
+def _legacy_url_only_raw_response() -> dict[str, object]:
+    """URL-only shape. Must raise when b64_json was requested; no fetch fallback."""
+
+    return {
+        "data": [
+            {
+                "url": "https://imgen.x.ai/v1/images/synthetic-test-object",
                 "mime_type": "image/jpeg",
             }
         ],
@@ -345,7 +439,6 @@ def test_extract_preserves_completion_invariants():
         headers=headers,
         latency_ms=5428,
         requested_model=MODEL_STANDARD_DATED,
-        media_fetcher=lambda url: (_jpeg(), "image/jpeg"),
     )
 
     assert payload.state == ProviderCallState.COMPLETED
@@ -357,33 +450,29 @@ def test_extract_preserves_completion_invariants():
     assert payload.cost_ticks == 200_000_000
     # Prefer server-side e2e latency when the header is present.
     assert payload.latency_ms == 5312
+    # Digest of decoded inline bytes matches the source fixture bytes.
+    assert media_sha256(payload.images[0].media_bytes) == media_sha256(_jpeg())
 
 
 def test_invoke_issues_exactly_one_request_and_returns_a_mapped_result():
     """One request, no retry, no fallback, and a normalized COMPLETED result."""
 
     seen: list[str] = []
+    bodies: list[dict[str, object]] = []
 
     def fake_http(
         *, method: str, url: str, json_body: dict[str, object]
     ) -> tuple[dict[str, object], dict[str, str]]:
         seen.append(url)
+        bodies.append(json_body)
         assert method == "POST"
         assert json_body["model"] == MODEL_STANDARD_DATED
+        assert json_body["response_format"] == RESPONSE_FORMAT_B64_JSON
         assert "_unverified" not in json_body
         return _verified_raw_response(), _verified_headers()
 
     transport = XAIImagineTransport(http=fake_http)
-
-    # Avoid a real network media fetch in the unit test by monkeypatching.
-    import adjacency.imagine_signal.adapters.xai_live as live
-
-    original = live.fetch_provider_media
-    live.fetch_provider_media = lambda url, timeout_seconds=30.0: (_jpeg(), "image/jpeg")  # type: ignore[assignment]
-    try:
-        result = transport.invoke(operation=ImageOperation.GENERATE, request=_generation())
-    finally:
-        live.fetch_provider_media = original  # type: ignore[assignment]
+    result = transport.invoke(operation=ImageOperation.GENERATE, request=_generation())
 
     assert len(seen) == 1
     assert seen[0] == f"{XAI_API_BASE}{GENERATIONS_PATH}"
@@ -395,6 +484,41 @@ def test_invoke_issues_exactly_one_request_and_returns_a_mapped_result():
     assert result.cost.ticks == 200_000_000
     assert len(result.images) == 1
     assert result.images[0].media_bytes == _jpeg()
+    assert media_sha256(result.images[0].media_bytes) == media_sha256(_jpeg())
+
+
+def test_valid_b64_json_payload_decodes_to_expected_digest():
+    raw = _verified_raw_response()
+    payload = extract_provider_response(
+        raw,
+        headers=_verified_headers(),
+        latency_ms=100,
+        requested_model=MODEL_STANDARD_DATED,
+    )
+    assert payload.images[0].media_bytes == _jpeg()
+    assert media_sha256(payload.images[0].media_bytes) == media_sha256(_jpeg())
+
+
+def test_oversized_encoded_b64_json_is_refused_before_decode():
+    max_encoded = _max_b64_encoded_chars_for_media_cap(MAX_MEDIA_BYTES)
+    # One character past the encoded ceiling. Must fail before b64decode.
+    oversized = "A" * (max_encoded + 1)
+    with pytest.raises(ValueError, match="exceeds the .* decoded media cap"):
+        decode_inline_b64_image(oversized)
+
+
+def test_url_without_b64_json_raises_rather_than_fetching():
+    """Provider ignored response_format: refuse silent URL-fetch fallback."""
+
+    with pytest.raises(ProviderOutcomeUnknownError, match="refusing silent URL-fetch fallback"):
+        extract_provider_response(
+            _legacy_url_only_raw_response(),
+            headers=_verified_headers(),
+            latency_ms=100,
+            requested_model=MODEL_STANDARD_DATED,
+            # Even if a fetcher is injected, it must not be used.
+            media_fetcher=lambda url: (_jpeg(), "image/jpeg"),
+        )
 
 
 def test_moving_alias_guard_fails_closed_on_resolved_model():
@@ -408,7 +532,6 @@ def test_moving_alias_guard_fails_closed_on_resolved_model():
         headers=_verified_headers(),
         latency_ms=100,
         requested_model=MODEL_STANDARD,
-        media_fetcher=lambda url: (_jpeg(), "image/jpeg"),
     )
     assert payload.provider_model_resolved is None
 
@@ -488,3 +611,66 @@ def test_quality_dated_constant_is_actually_dated():
 
     assert MODEL_QUALITY_DATED != MODEL_QUALITY
     assert is_dated_model_alias(MODEL_QUALITY_DATED) is True
+
+
+# ---------------------------------------------------------------------------
+# Media host allowlist. Verified 2026-08-06: temporary image URLs are served
+# from imgen.x.ai, not api.x.ai. Bare "x.ai" must stay out so arbitrary
+# subdomains are not admitted.
+# ---------------------------------------------------------------------------
+
+
+def test_allowed_media_hosts_include_verified_imgen_and_api():
+    assert "api.x.ai" in ALLOWED_MEDIA_HOSTS
+    assert "imgen.x.ai" in ALLOWED_MEDIA_HOSTS
+    assert "x.ai" not in ALLOWED_MEDIA_HOSTS
+
+
+@pytest.mark.parametrize(
+    "host",
+    [
+        "api.x.ai",
+        "imgen.x.ai",
+        "API.X.AI",
+        "imgen.x.ai.",
+    ],
+)
+def test_verified_media_hosts_are_allowed(host):
+    assert _host_allowed(host) is True
+
+
+@pytest.mark.parametrize(
+    "host",
+    [
+        None,
+        "",
+        "x.ai",
+        "evil.x.ai",
+        "not-x.ai",
+        "imgen.x.ai.evil.example",
+        "example.com",
+        "localhost",
+    ],
+)
+def test_unverified_media_hosts_are_rejected(host):
+    assert _host_allowed(host) is False
+
+
+def test_fetch_provider_media_rejects_non_allowlisted_host_before_network():
+    """URL-fetch helpers remain callable for cleanup, but are unreferenced by extract."""
+
+    with pytest.raises(ValueError, match="allowlist"):
+        fetch_provider_media("https://evil.example/image.jpg")
+
+
+def test_fetch_provider_media_accepts_imgen_host_at_allowlist_gate(monkeypatch):
+    """Allowlist admits imgen.x.ai; stop before real DNS/network."""
+
+    import adjacency.imagine_signal.adapters.xai_live as live
+
+    def _deny_dns(hostname: str) -> None:
+        raise RuntimeError(f"dns probe reached unexpectedly for {hostname}")
+
+    monkeypatch.setattr(live, "_assert_host_resolves_public", _deny_dns)
+    with pytest.raises(RuntimeError, match="imgen.x.ai"):
+        fetch_provider_media("https://imgen.x.ai/v1/images/synthetic-test-object")

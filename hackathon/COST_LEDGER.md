@@ -19,7 +19,7 @@ Settled 2026-08-05 by two authorized `smoke_call.py` probes against
 |---|---|---|
 | Cost in ticks | `usage.cost_in_usd_ticks` | **CONFIRMED.** `200000000` = $0.020000, matching the published standard 1K price |
 | Images array | `data` (list) | **CONFIRMED** |
-| Image location | `data[0].url` | **CONFIRMED.** A URL, not base64. 93 characters. Temporary |
+| Image location | `data[0].url` | **CONFIRMED.** A URL, not base64. 93 characters. Temporary. Host is `imgen.x.ai` (verified 2026-08-06 diagnose-generate; not `api.x.ai`) |
 | Media type | `data[0].mime_type` | **CONFIRMED.** `image/jpeg`, not PNG |
 | Provider request id | `x-request-id` **response header** | **CONFIRMED.** Not in the body |
 | Server-side latency | `x-metrics-e2e-ms` header | **CONFIRMED.** `5312.4`. More accurate than client timing |
@@ -62,6 +62,113 @@ here rather than buried in code.
 | `x-ratelimit-limit-requests` | `300` | A request-count budget alongside the documented 5 rps burst limit |
 | `x-ratelimit-remaining-requests` | `300` | Unchanged after the call, so the window is generous |
 
+### The edits endpoint, probed 2026-08-05
+
+`POST /v1/images/edits` **works**, and the response is **shape-identical to generations**.
+
+| Finding | Value |
+|---|---|
+| Request shape that worked | JSON body, `image.url` = a `data:image/png;base64,...` URI |
+| Response body | Identical: `data[0].url`, `data[0].mime_type` (`image/jpeg`), `usage.cost_in_usd_ticks` |
+| Cost | **220,000,000 ticks = $0.022**, exactly the documented $0.002 input plus $0.02 output |
+| Latency | **9,352 ms client, 9,192.9 ms server.** About 1.75x a plain generation |
+| Headers | Same set. Still no resolved model, still no moderation disposition |
+
+**Consequence 1, good:** `extract_provider_response` needs **no change** for edits. The mapper
+already handles this shape.
+
+**Consequence 2, a real gap:** `build_request_body` currently emits `reference_media_sha256` and
+`reference_file_ids` for an edit. **That is not what the API accepts.** It wants the bytes, as a
+data URI.
+
+`ImageReference` deliberately carries identity only: `media_sha256`, `media_type`, dimensions, and an
+optional `provider_file_id`. No bytes. That separation is correct, because receipts must reference
+digests rather than blobs. But the transport needs bytes at the boundary.
+
+**The fix:** inject `ContentAddressedAssetStore` into `XAIImagineTransport` and resolve bytes at the
+last moment with `read_verified(descriptor)`. Contracts keep carrying identity, the adapter resolves
+to bytes only when it is about to send. Do not put bytes into `ImageReference`.
+
+**Consequence 3, for the demo:** at 9.2 seconds per edit, a judge-edit-rejudge loop is roughly 15 to
+20 seconds. Design the UI to be interesting while it runs, or pre-warm before presenting. Do not
+leave dead air on stage.
+
+### base64 output works, and it deletes the whole fetch problem
+
+Probed 2026-08-06. Sending `response_format: "b64_json"` as a top-level field returns the image
+**inline**, with no URL at all.
+
+| Finding | Value |
+|---|---|
+| Request field | `response_format: "b64_json"`, top level. Accepted |
+| Response | `data[0].b64_json` (162,808 chars, about 122 KB) and `data[0].mime_type` (`image/jpeg`) |
+| `data[0].url` | **Absent.** Inline replaces it entirely |
+| Cost | `200000000` = $0.020000. **Identical to the URL path.** No surcharge |
+| Latency | 5,692 ms client, 5,489.0 ms server. Same as the URL path |
+
+**Take this path. It removes an entire category of failure**, all of which we hit in sequence
+tonight:
+
+| Problem the URL path had | Status with base64 |
+|---|---|
+| Media served from `imgen.x.ai`, not `api.x.ai` | Gone. No second host |
+| `HTTP 403` on the fetch, cause unknown | Gone. No fetch |
+| Temporary URL expiry | Gone. Bytes arrive with the response |
+| SSRF surface needing an allowlist, DNS checks, redirect refusal | Gone. No outbound request at all |
+| Allowlist maintenance as xAI moves CDN hosts | Gone |
+
+`fetch_provider_media` and its supporting machinery (`ALLOWED_MEDIA_HOSTS`,
+`_assert_host_resolves_public`, the no-redirect handler) become **unreferenced**. Leave them in place
+for now, clearly marked unused, and delete them in the Saturday cleanup if still unused. Do not do a
+late-night refactor of security-critical code that currently passes its tests.
+
+One exception was forced on 2026-08-06. `fetch_provider_media` carried
+`assert parsed.hostname is not None`, and CI's `bandit -q -c pyproject.toml -r src` step fails on
+**B101 assert_used** inside a security boundary, because `python -O` strips asserts. Replaced with an
+explicit raise, which keeps the mypy narrowing and cannot be compiled away. The line was already
+unreachable, since `_host_allowed` rejects every falsy hostname, so behaviour is unchanged and all
+488 tests still pass. Four tests in `test_xai_live_contract.py` still import this machinery, so the
+full deletion remains a Saturday job rather than a one-line cut.
+
+### CI had never run on any of this
+
+`.github/workflows/ci.yml` triggers only on `pull_request` and on `push` to `main`. Every line of
+ImagineSignal was written on an untracked tree and then on a side branch, so **no CI run has ever
+touched it.** Measured on 2026-08-06 by rebuilding a clean 3.13 venv on the pushed commit and running
+each gate by hand:
+
+| Gate | `main` cd218dd | canary 471bc14 |
+|---|---|---|
+| `ruff check` / `ruff format --check` | pass | pass |
+| `bandit` | **pass** | **FAIL, exit 1** |
+| deterministic core, 100% line and branch | pass | pass, 100.00% |
+| `generate_imagine_signal_fixtures.py --verify-only` | pass | pass |
+| `run_imagine_signal_demo.py --verify-only` | pass | pass |
+| full suite, 55% floor | pass | pass, 85.63% |
+
+ImagineSignal introduced the first bandit regression in the repository and nothing caught it, because
+pushing a branch runs zero CI. **Opening the draft PR is what runs CI for the first time.** Run the
+gate set by hand before opening it, or the PR opens red.
+
+Payload size: about 122 KB per 1K image, so roughly 490 KB at `n=4`. Acceptable.
+
+### Moderation: Grok Imagine WILL render the policy violation
+
+Probed 2026-08-06 with the prompt "A product photo of a glass of beer on a wooden table, studio
+lighting". **No moderation rejection.** Returned `data[0].b64_json`, 276,860 chars, `image/jpeg`,
+`200000000` ticks, 5,757 ms.
+
+This was the last blocking unknown for the repair-loop concept. The premise requires a creative that
+violates an advertiser clause, and alcohol imagery is renderable, so a "no alcohol" clause is a
+viable demo policy.
+
+**Do not read this as "moderation is permissive."** It means one benign product shot of a legal
+consumer good passed. It says nothing about other categories, and provider moderation rejection
+remains terminal wherever it occurs.
+
+**Payload size varies with image complexity:** 162,808 chars for the plain mug, 276,860 for the beer
+shot, so roughly 122 KB to 208 KB per 1K image. Budget about 830 KB at `n=4`, not 490 KB.
+
 ### Implementation consequences for task 4
 
 - **`extract_provider_response` needs a `headers` parameter.** Its current signature is
@@ -95,8 +202,14 @@ because the client will block you until you do.
 |---:|---|---|---|---:|---:|---:|---:|---|
 | 1 | 2026-08-05 17:37 | grok-imagine-image | generate | 1 | 200000000 | 0.020000 | n/a | Field-map probe 1 |
 | 2 | 2026-08-05 17:37 | grok-imagine-image | generate | 1 | 200000000 | 0.020000 | n/a | Field-map probe 2, all headers |
-| 3 | | | | | | | | |
-| 4 | | | | | | | | |
+| 3 | 2026-08-05 19:23 | grok-imagine-image | edit | 1 | 220000000 | 0.022000 | n/a | Edits endpoint probe, data URI reference |
+| 4 | 2026-08-06 03:51 | grok-imagine-image-2026-03-02 | generate | 1 | 200000000 | 0.020000 | 0 | diagnose-generate: media host `imgen.x.ai` rejected by pre-fix allowlist |
+| 5 | 2026-08-05 19:57 | grok-imagine-image-2026-03-02 | generate | 1 | 200000000 | 0.020000 | 0 | First spike run. Interlock logged UNKNOWN, but the provider DID report cost. RECONCILED |
+| 6 | 2026-08-06 04:0x | grok-imagine-image-2026-03-02 | generate | 1 | 200000000 | 0.020000 | 0 | diagnose-generate after allowlist fix. HTTP 403 on media fetch |
+| 7 | 2026-08-06 08:40 | grok-imagine-image | generate | 1 | 200000000 | 0.020000 | 1 | response_format=b64_json probe. WORKS, inline bytes |
+| 8 | 2026-08-05 19:5x | policy-compiler (text) | compile | 1 | 367764000 | 0.036776 | n/a | Spike policy compile. Text is dearer than images |
+| 9 | 2026-08-06 09:10 | grok-imagine-image | generate | 1 | 200000000 | 0.020000 | 1 | Beer prompt. NOT moderation-rejected. Concept C premise viable |
+| 10 | | | | | | | | |
 
 ## 4. Running totals
 

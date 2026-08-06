@@ -1,18 +1,20 @@
 """xAI Imagine transport for the Grokathon live slice.
 
-Field names and header names are taken from the two authorized smoke probes
-recorded in ``hackathon/COST_LEDGER.md`` section 1 on 2026-08-05. The transport
-is the only seam between ImagineSignal and xAI.
+Field names and header names are taken from the authorized smoke probes
+recorded in ``hackathon/COST_LEDGER.md`` section 1. The transport is the only
+seam between ImagineSignal and xAI.
 
 Nothing in this module reads an environment variable or looks up a credential.
-The caller injects an authorized HTTP callable. Media URLs are fetched only
-from allowlisted ``api.x.ai`` hosts under strict size, type, redirect, and
-timeout controls. Signed URLs are never written into logs, fixtures, or
+The caller injects an authorized HTTP callable. Image bytes arrive inline via
+``response_format=b64_json`` (probe-confirmed for generations 2026-08-06).
+Signed URLs and base64 strings are never written into logs, fixtures, or
 artifacts.
 """
 
 from __future__ import annotations
 
+import base64
+import binascii
 import ipaddress
 import socket
 import time
@@ -23,11 +25,17 @@ from dataclasses import dataclass, field
 from typing import Protocol
 from urllib.parse import urlparse
 
+from adjacency.imagine_signal.assets import (
+    AssetDescriptor,
+    AssetValidationError,
+    ContentAddressedAssetStore,
+)
 from adjacency.imagine_signal.ports import (
     CostMeasurement,
     ImageEditRequest,
     ImageGenerationRequest,
     ImageOperation,
+    ImageReference,
     ImagineRequest,
     ProviderCallState,
     ProviderOutcomeUnknownError,
@@ -67,15 +75,29 @@ MODEL_QUALITY_DATED = "grok-imagine-image-quality-20260403"
 #: Moving aliases that must not be treated as resolved-model truth.
 MOVING_MODEL_ALIASES = frozenset({MODEL_STANDARD, MODEL_QUALITY})
 
-# Media fetch controls for temporary image URLs returned by the provider.
-ALLOWED_MEDIA_HOSTS = frozenset({"api.x.ai"})
+#: Inline image output. Probe-confirmed for generations 2026-08-06
+#: (hackathon/COST_LEDGER.md, "base64 output works, and it deletes the whole
+#: fetch problem"). UNCONFIRMED for edits until an edit probe verifies it;
+#: still emitted on edit requests so the provider can accept the same shape.
+RESPONSE_FORMAT_B64_JSON = "b64_json"
 
-#: Exact content types admitted at the fetch boundary. Deliberately not a
+#: Exact content types admitted for decoded image bytes. Deliberately not a
 #: startswith("image/") test, which would admit image/svg+xml.
 ALLOWED_MEDIA_TYPES = frozenset({"image/jpeg", "image/jpg", "image/png"})
 MAX_MEDIA_BYTES = 12 * 1024 * 1024
-MEDIA_FETCH_TIMEOUT_SECONDS = 30.0
 HTTP_TIMEOUT_SECONDS = 60.0
+
+# ---------------------------------------------------------------------------
+# URL-fetch path: UNREFERENCED as of 2026-08-06.
+#
+# Live path now uses response_format=b64_json (see COST_LEDGER.md section
+# "base64 output works, and it deletes the whole fetch problem"). These
+# symbols stay for Saturday cleanup deletion candidates. Do not call them
+# from extract_provider_response. Do not silently fall back to them when
+# b64_json is absent.
+# ---------------------------------------------------------------------------
+ALLOWED_MEDIA_HOSTS = frozenset({"api.x.ai", "imgen.x.ai"})
+MEDIA_FETCH_TIMEOUT_SECONDS = 30.0
 MAX_MEDIA_REDIRECTS = 0
 
 #: Documented cost unit. 10,000,000,000 ticks equal one US dollar.
@@ -108,12 +130,14 @@ def ticks_to_usd(ticks: int) -> float:
 
 
 # ---------------------------------------------------------------------------
-# VERIFIED provider response shape (hackathon/COST_LEDGER.md section 1)
+# VERIFIED provider response shape
 #
-# Body:
-#   data[0].url                  temporary image URL (not base64)
+# Prefer (2026-08-06 b64_json probe):
+#   data[0].b64_json             standard base64 image bytes (not logged)
 #   data[0].mime_type            image/jpeg
 #   usage.cost_in_usd_ticks      exact request cost
+# Legacy URL shape (abandoned; must not be fetched if b64 was requested):
+#   data[0].url                  temporary image URL
 # Headers:
 #   x-request-id                 provider request id (body has none)
 #   x-metrics-e2e-ms             server-side latency when present
@@ -125,12 +149,11 @@ def ticks_to_usd(ticks: int) -> float:
 
 @dataclass(frozen=True, slots=True)
 class ProviderImagePayload:
-    """One decoded provider image, already fetched into memory.
+    """One decoded provider image, already in memory.
 
-    The caller is responsible for decoding base64 or for fetching a temporary
-    URL from an allowlisted xAI host under strict size, type, redirect, and
-    timeout controls. This dataclass only carries the resulting bytes so the
-    mapper stays pure and testable.
+    Built from inline ``b64_json`` (preferred) at the extract boundary. This
+    dataclass only carries the resulting bytes so the mapper stays pure and
+    testable. The base64 string itself is never stored here.
     """
 
     media_bytes: bytes
@@ -195,13 +218,71 @@ def endpoint_for(operation: ImageOperation, *, base: str = XAI_API_BASE) -> str:
     return f"{base.rstrip('/')}{path}"
 
 
-def build_request_body(request: ImagineRequest) -> dict[str, object]:
+def _extension_for_media_type(media_type: str) -> str:
+    if media_type == "image/png":
+        return "png"
+    if media_type == "image/jpeg":
+        return "jpg"
+    raise ValueError(f"unsupported reference media_type: {media_type}")
+
+
+def resolve_edit_reference_bytes(
+    reference: ImageReference,
+    asset_store: ContentAddressedAssetStore,
+) -> bytes:
+    """Resolve identity-only ImageReference to verified bytes at the send boundary.
+
+    Contracts keep digests only. The transport is the last place that may touch
+    bytes, and only after ``read_verified`` rechecks every declared property.
+    """
+
+    extension = _extension_for_media_type(reference.media_type)
+    path = asset_store.root / f"{reference.media_sha256}.{extension}"
+    if not path.is_file():
+        raise AssetValidationError(
+            "ASSET_MISSING",
+            f"edit reference blob is missing for digest {reference.media_sha256}",
+        )
+    # Length is not on ImageReference; take it from the stored blob, then let
+    # read_verified re-hash and re-check every declared field.
+    provisional = AssetDescriptor(
+        media_sha256=reference.media_sha256,
+        byte_length=path.stat().st_size,
+        content_type=reference.media_type,
+        width=reference.width,
+        height=reference.height,
+        extension=extension,
+    )
+    return asset_store.read_verified(provisional)
+
+
+def reference_to_data_uri(media_bytes: bytes, *, media_type: str) -> str:
+    """Encode verified bytes as the data URI shape the edits endpoint accepts."""
+
+    if not media_bytes:
+        raise ValueError("edit reference bytes are empty")
+    encoded = base64.standard_b64encode(media_bytes).decode("ascii")
+    return f"data:{media_type};base64,{encoded}"
+
+
+def build_request_body(
+    request: ImagineRequest,
+    *,
+    asset_store: ContentAddressedAssetStore | None = None,
+) -> dict[str, object]:
     """Build the provider request body from a validated ImagineSignal request.
 
-    ``model``, ``prompt``, ``n``, ``aspect_ratio``, and ``resolution`` are emitted
-    at the top level. The smoke probes confirmed the generation surface accepts
-    this shape; reference identity for edits remains under explicit keys that the
-    live edit path must still wire to provider file uploads.
+    Generation and edit both emit ``model``, ``prompt``, ``n``, ``aspect_ratio``,
+    ``resolution``, and ``response_format: "b64_json"`` at the top level.
+
+    ``response_format=b64_json`` is probe-confirmed for generations
+    (2026-08-06). It is UNCONFIRMED for edits until an edit probe verifies it;
+    it is still emitted so both operations share one extract path.
+
+    Edit also emits ``image.url`` as a ``data:<media_type>;base64,...`` URI
+    (confirmed 2026-08-05). ``ImageReference`` still carries identity only;
+    bytes are resolved from ``asset_store`` at this boundary via
+    ``read_verified``.
     """
 
     body: dict[str, object] = {
@@ -210,16 +291,20 @@ def build_request_body(request: ImagineRequest) -> dict[str, object]:
         "n": request.n,
         "aspect_ratio": request.aspect_ratio,
         "resolution": request.resolution,
+        # Confirmed for generations 2026-08-06. UNCONFIRMED for edits.
+        "response_format": RESPONSE_FORMAT_B64_JSON,
     }
     if isinstance(request, ImageEditRequest):
-        # Reference bytes are uploaded out of band; the transport carries only
-        # durable identity until the edit upload path is wired.
-        body["reference_media_sha256"] = [
-            reference.media_sha256 for reference in request.references
-        ]
-        body["reference_file_ids"] = [
-            reference.provider_file_id for reference in request.references
-        ]
+        if asset_store is None:
+            raise ValueError("ImageEditRequest requires an asset_store to resolve reference bytes")
+        if len(request.references) != 1:
+            raise ValueError(
+                "only a single edit reference is supported until the multi-image "
+                "request shape is verified by a smoke probe"
+            )
+        reference = request.references[0]
+        media_bytes = resolve_edit_reference_bytes(reference, asset_store)
+        body["image"] = {"url": reference_to_data_uri(media_bytes, media_type=reference.media_type)}
     return body
 
 
@@ -332,6 +417,8 @@ def _looks_like_moderation_rejection(raw: dict[str, object], headers: Mapping[st
 
 
 def _host_allowed(hostname: str | None) -> bool:
+    """UNREFERENCED 2026-08-06. URL-fetch abandoned for b64_json. Cleanup candidate."""
+
     if not hostname:
         return False
     host = hostname.lower().rstrip(".")
@@ -341,6 +428,8 @@ def _host_allowed(hostname: str | None) -> bool:
 
 
 def _assert_host_resolves_public(hostname: str) -> None:
+    """UNREFERENCED 2026-08-06. URL-fetch abandoned for b64_json. Cleanup candidate."""
+
     try:
         infos = socket.getaddrinfo(hostname, 443, type=socket.SOCK_STREAM)
     except socket.gaierror as error:
@@ -367,9 +456,12 @@ def _assert_host_resolves_public(hostname: str) -> None:
 def fetch_provider_media(
     url: str, *, timeout_seconds: float = MEDIA_FETCH_TIMEOUT_SECONDS
 ) -> tuple[bytes, str | None]:
-    """Fetch image bytes from an allowlisted api.x.ai URL under strict controls.
+    """UNREFERENCED 2026-08-06. URL-fetch path abandoned for b64_json.
 
-    Never logs the URL. Redirects are refused. Size and content-type are bounded.
+    Kept for Saturday cleanup deletion. Do not call from extract_provider_response.
+    See COST_LEDGER.md section "base64 output works, and it deletes the whole
+    fetch problem". Never logs the URL. Redirects are refused. Size and
+    content-type are bounded.
     """
 
     if not isinstance(url, str) or not url.strip():
@@ -380,9 +472,15 @@ def fetch_provider_media(
     if parsed.username or parsed.password:
         raise ValueError("media URL must not carry credentials")
     if not _host_allowed(parsed.hostname):
-        raise ValueError("media URL host is outside the api.x.ai allowlist")
-    assert parsed.hostname is not None
-    _assert_host_resolves_public(parsed.hostname)
+        raise ValueError("media URL host is outside the xAI media allowlist")
+    # Not an assert. `python -O` strips asserts, and bandit B101 fails CI on one
+    # inside a security boundary even when, as here, _host_allowed has already
+    # rejected every falsy hostname. Raising keeps the mypy narrowing and cannot
+    # be compiled away.
+    hostname = parsed.hostname
+    if hostname is None:
+        raise ValueError("media URL has no host")
+    _assert_host_resolves_public(hostname)
 
     request = urllib.request.Request(  # noqa: S310 - host allowlisted and scheme fixed
         url.strip(),
@@ -399,7 +497,7 @@ def fetch_provider_media(
         with opener.open(request, timeout=timeout_seconds) as response:  # noqa: S310
             final_host = urlparse(response.geturl()).hostname
             if not _host_allowed(final_host):
-                raise ValueError("media fetch landed outside the api.x.ai allowlist")
+                raise ValueError("media fetch landed outside the xAI media allowlist")
             content_type = response.headers.get("Content-Type")
             if content_type:
                 media_type = content_type.split(";", 1)[0].strip().lower()
@@ -434,6 +532,52 @@ def fetch_provider_media(
     return media_bytes, declared
 
 
+def _max_b64_encoded_chars_for_media_cap(max_decoded_bytes: int = MAX_MEDIA_BYTES) -> int:
+    """Upper bound on standard-base64 character count for a decoded-size cap.
+
+    standard_b64 expands 3 bytes to 4 chars, with padding to a multiple of 4.
+    Using the padded ceiling refuses oversized payloads before decode.
+    """
+
+    if max_decoded_bytes < 0:
+        raise ValueError("max_decoded_bytes cannot be negative")
+    # ceil(n / 3) * 4
+    return ((max_decoded_bytes + 2) // 3) * 4
+
+
+def decode_inline_b64_image(
+    b64_json: object,
+    *,
+    max_decoded_bytes: int = MAX_MEDIA_BYTES,
+) -> bytes:
+    """Decode ``data[0].b64_json`` under the media size cap. Never logs the string.
+
+    Encoded length is checked before ``b64decode`` so an oversized payload cannot
+    be materialised into a full decoded buffer first.
+    """
+
+    if not isinstance(b64_json, str) or not b64_json.strip():
+        raise ValueError("provider image entry is missing b64_json")
+    # Whitespace is legal in some base64 transports; strip only ends, never log.
+    encoded = b64_json.strip()
+    max_encoded = _max_b64_encoded_chars_for_media_cap(max_decoded_bytes)
+    if len(encoded) > max_encoded:
+        raise ValueError(
+            f"inline b64_json exceeds the {max_decoded_bytes} byte decoded media cap "
+            f"(encoded length {len(encoded)} > {max_encoded})"
+        )
+    try:
+        # stdlib standard_b64decode has no validate= kwarg on all supported Pythons.
+        media_bytes = base64.standard_b64decode(encoded)
+    except (binascii.Error, ValueError) as error:
+        raise ValueError("provider b64_json is not valid standard base64") from error
+    if not media_bytes:
+        raise ValueError("provider b64_json decoded to empty bytes")
+    if len(media_bytes) > max_decoded_bytes:
+        raise ValueError(f"decoded inline image exceeds the {max_decoded_bytes} byte media cap")
+    return media_bytes
+
+
 def extract_provider_response(
     raw: dict[str, object],
     *,
@@ -444,15 +588,19 @@ def extract_provider_response(
 ) -> ProviderResponsePayload:
     """Translate a raw xAI JSON response and headers into the normalized payload.
 
-    Field map is the verified table in ``hackathon/COST_LEDGER.md`` section 1.
+    Image bytes come from inline ``data[0].b64_json`` (COST_LEDGER.md,
+    2026-08-06). ``media_fetcher`` is accepted for call-site compatibility but
+    is never used: a URL-only response after requesting b64_json is a hard
+    failure, not a silent fetch fallback.
+
     Order: moderation rejection, cost ticks, image bytes, then request id,
     resolved model, and moderation_respected.
     """
 
+    del media_fetcher  # deliberately unused; URL fetch path is abandoned
+
     if not isinstance(raw, dict):
         raise ValueError("provider response must be a JSON object")
-    if media_fetcher is None:
-        media_fetcher = fetch_provider_media
     header_map = _header_map(headers)
 
     # 1. Moderation rejection first.
@@ -471,26 +619,38 @@ def extract_provider_response(
     # 2. Cost.
     cost_ticks = _read_cost_ticks(raw)
 
-    # 3. Image bytes from data[0].url.
+    # 3. Image bytes from data[0].b64_json only. No URL fetch fallback.
     data = raw.get("data")
     if not isinstance(data, list) or not data:
         raise ValueError("provider response is missing data[] images")
     first = data[0]
     if not isinstance(first, dict):
         raise ValueError("provider image entry must be an object")
-    image_url = first.get("url")
+
     mime_type = first.get("mime_type")
     declared_content_type = str(mime_type).strip().lower() if isinstance(mime_type, str) else None
     if declared_content_type == "image/jpg":
         declared_content_type = "image/jpeg"
-    if not isinstance(image_url, str) or not image_url.strip():
-        raise ValueError("provider image entry is missing url")
-    media_bytes, fetched_content_type = media_fetcher(image_url)
-    content_type = declared_content_type or fetched_content_type
+
+    b64_json = first.get("b64_json")
+    image_url = first.get("url")
+    if isinstance(b64_json, str) and b64_json.strip():
+        media_bytes = decode_inline_b64_image(b64_json)
+    elif isinstance(image_url, str) and image_url.strip():
+        # Provider ignored response_format=b64_json. Do NOT fetch. Silent
+        # fallback to the abandoned URL path is refused by design.
+        raise ProviderOutcomeUnknownError(
+            "provider returned data[0].url after response_format=b64_json was "
+            "requested; refusing silent URL-fetch fallback",
+            provider_request_id=header_map.get("x-request-id") or None,
+        )
+    else:
+        raise ValueError("provider image entry is missing b64_json")
+
     images = (
         ProviderImagePayload(
             media_bytes=media_bytes,
-            declared_content_type=content_type,
+            declared_content_type=declared_content_type,
         ),
     )
 
@@ -555,6 +715,9 @@ class XAIImagineTransport:
     authorized ``http`` callable, which keeps credential handling outside this
     module and outside every test.
 
+    ``asset_store`` is required for edit requests so reference digests can be
+    resolved to bytes at send time without putting blobs on ``ImageReference``.
+
     The bounded call budget lives in
     :class:`~adjacency.imagine_signal.ports.ExternalCallPolicy` and is enforced by
     the external client before ``invoke`` is ever reached. Do not add a second
@@ -563,6 +726,7 @@ class XAIImagineTransport:
     """
 
     http: HttpCallable
+    asset_store: ContentAddressedAssetStore | None = None
     base_url: str = XAI_API_BASE
     calls_made: int = field(default=0, init=False)
 
@@ -575,7 +739,8 @@ class XAIImagineTransport:
         """Invoke once. No retry, no fallback.
 
         Sequence:
-        1. Build endpoint and request body (top-level fields only).
+        1. Build endpoint and request body (top-level fields only; edits resolve
+           reference bytes from the asset store into a data URI).
         2. Issue exactly one HTTP request and record elapsed client latency.
         3. On timeout or ambiguous failure after the request was sent, raise
            ``ProviderOutcomeUnknownError`` with any known provider request id.
@@ -583,7 +748,7 @@ class XAIImagineTransport:
         """
 
         url = endpoint_for(operation, base=self.base_url)
-        body = build_request_body(request)
+        body = build_request_body(request, asset_store=self.asset_store)
         started = time.monotonic()
         provider_request_id: str | None = None
         request_sent = False
@@ -643,6 +808,9 @@ class XAIImagineTransport:
                 latency_ms=elapsed_ms,
                 requested_model=request.model,
             )
+        except ProviderOutcomeUnknownError:
+            # extract already classified the outcome (e.g. URL after b64 request).
+            raise
         except Exception as error:
             header_id = _header_map(response_headers).get("x-request-id")
             raise ProviderOutcomeUnknownError(
@@ -671,6 +839,7 @@ __all__ = [
     "MODEL_STANDARD_DATED",
     "MOVING_MODEL_ALIASES",
     "OPERATION_PATHS",
+    "RESPONSE_FORMAT_B64_JSON",
     "TICKS_PER_USD",
     "XAI_API_BASE",
     "HttpCallable",
@@ -678,12 +847,15 @@ __all__ = [
     "ProviderResponsePayload",
     "XAIImagineTransport",
     "build_request_body",
+    "decode_inline_b64_image",
     "endpoint_for",
     "extract_provider_response",
     "fetch_provider_media",
     "is_dated_model_alias",
     "is_generation",
     "map_provider_response",
+    "reference_to_data_uri",
+    "resolve_edit_reference_bytes",
     "ticks_to_usd",
     "usd_to_ticks",
 ]

@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
 """One bounded xAI Imagine probe that reports the response *shape*, not its content.
 
-Purpose: settle the UNVERIFIED provider field names before the hackathon so that
-implementing ``extract_provider_response`` on Saturday is transcription rather
-than discovery. Run this once on Friday, during preflight.
+Purpose: settle provider field names before the hackathon so that implementing
+the live transport is transcription rather than discovery. Run during preflight.
 
 This script is deliberately outside the ImagineSignal package and is never
 imported by it. It cannot be reached from the replay path, and the library keeps
@@ -19,6 +18,7 @@ Safety properties:
   anything credential-shaped are redacted before printing.
 - Writes the raw response only when you pass an explicit ``--save`` path, and
   warns that the file may contain image bytes and a signed URL.
+- ``--save`` must point outside the repository.
 
 Usage:
 
@@ -26,12 +26,17 @@ Usage:
 
     python hackathon/smoke_call.py --confirm-authorized-call --max-usd 0.05 \\
         --save ~/adjacency-preflight/first-response.json
+
+    python hackathon/smoke_call.py --confirm-authorized-call --max-usd 0.05 \\
+        --edit --reference /path/to/local.png
 """
 
 from __future__ import annotations
 
 import argparse
+import base64
 import json
+import mimetypes
 import os
 import sys
 import time
@@ -42,6 +47,7 @@ from typing import Any
 
 XAI_API_BASE = "https://api.x.ai/v1"
 GENERATIONS_PATH = "/images/generations"
+EDITS_PATH = "/images/edits"
 MODEL_DISCOVERY_PATH = "/image-generation-models"
 MODEL_STANDARD = "grok-imagine-image"
 TICKS_PER_USD = 10_000_000_000
@@ -51,8 +57,12 @@ MAX_ALLOWED_USD = 0.25
 
 #: Non-sensitive, synthetic, and deliberately dull. Not a real advertiser brief.
 PROBE_PROMPT = "A plain ceramic mug centered on a neutral grey background, studio lighting"
+EDIT_PROBE_PROMPT = (
+    "Keep the same subject and composition. Change only the background tone to a cooler grey."
+)
 
 REQUEST_TIMEOUT_SECONDS = 60
+MAX_REFERENCE_BYTES = 12 * 1024 * 1024
 
 _LONG_STRING = 80
 _SECRET_HINTS = ("key", "token", "secret", "authorization", "bearer")
@@ -94,7 +104,31 @@ def _describe(value: Any, prefix: str = "") -> list[str]:
     return lines
 
 
-def _post(
+def _sniff_image_media_type(path: Path, media_bytes: bytes) -> str:
+    if media_bytes.startswith(b"\x89PNG\r\n\x1a\n"):
+        return "image/png"
+    if media_bytes.startswith(b"\xff\xd8\xff"):
+        return "image/jpeg"
+    guessed, _ = mimetypes.guess_type(str(path))
+    if guessed in {"image/png", "image/jpeg"}:
+        return guessed
+    raise ValueError(f"reference must be PNG or JPEG by magic bytes or extension; got {path}")
+
+
+def _load_reference_data_uri(path: Path) -> tuple[str, str, int]:
+    if not path.is_file():
+        raise FileNotFoundError(f"reference image not found: {path}")
+    media_bytes = path.read_bytes()
+    if not media_bytes:
+        raise ValueError(f"reference image is empty: {path}")
+    if len(media_bytes) > MAX_REFERENCE_BYTES:
+        raise ValueError(f"reference image exceeds {MAX_REFERENCE_BYTES} bytes: {path}")
+    media_type = _sniff_image_media_type(path, media_bytes)
+    encoded = base64.standard_b64encode(media_bytes).decode("ascii")
+    return f"data:{media_type};base64,{encoded}", media_type, len(media_bytes)
+
+
+def _post_json(
     url: str, body: dict[str, Any], api_key: str
 ) -> tuple[dict[str, Any], int, dict[str, str]]:
     payload = json.dumps(body).encode("utf-8")
@@ -115,65 +149,13 @@ def _post(
     return raw, elapsed_ms, headers
 
 
-def main() -> int:
-    parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument(
-        "--confirm-authorized-call",
-        action="store_true",
-        help="Required. Confirms you have authorized exactly one paid provider call.",
-    )
-    parser.add_argument(
-        "--max-usd",
-        type=float,
-        required=True,
-        help=f"Dollar cap you are authorizing. Must not exceed {MAX_ALLOWED_USD}.",
-    )
-    parser.add_argument("--model", default=MODEL_STANDARD, help="Image model to probe.")
-    parser.add_argument(
-        "--save",
-        type=Path,
-        default=None,
-        help="Optional path for the raw response. May contain image bytes and a signed URL.",
-    )
-    args = parser.parse_args()
-
-    if not args.confirm_authorized_call:
-        print("Refusing: pass --confirm-authorized-call to authorize one paid call.")
-        return 2
-    if args.max_usd <= 0 or args.max_usd > MAX_ALLOWED_USD:
-        print(f"Refusing: --max-usd must be between 0 and {MAX_ALLOWED_USD}.")
-        return 2
-
-    api_key = os.environ.get("XAI_API_KEY", "").strip()
-    if not api_key:
-        print("Refusing: XAI_API_KEY is not set. This script never reads a key file.")
-        return 2
-
-    repo_root = Path(__file__).resolve().parent.parent
-    if args.save is not None and args.save.expanduser().resolve().is_relative_to(repo_root):
-        print(f"Refusing: --save must point outside the repository ({repo_root}).")
-        return 2
-
-    body = {"model": args.model, "prompt": PROBE_PROMPT, "n": 1}
-    url = f"{XAI_API_BASE}{GENERATIONS_PATH}"
-
-    print(f"Issuing exactly one request to {url}")
-    print(f"Model: {args.model}   Cap authorized: ${args.max_usd:.4f}\n")
-
-    try:
-        raw, elapsed_ms, headers = _post(url, body, api_key)
-    except urllib.error.HTTPError as error:
-        print(f"HTTP {error.code}. Body follows, redacted:")
-        try:
-            print(json.dumps(_redact(json.loads(error.read().decode("utf-8"))), indent=2))
-        except Exception:
-            print("<unparseable error body>")
-        return 1
-    except urllib.error.URLError as error:
-        print(f"Network failure before a response: {error.reason}")
-        print("The request may or may not have been accepted. Check the console before retrying.")
-        return 1
-
+def _print_report(
+    *,
+    raw: dict[str, Any],
+    headers: dict[str, str],
+    elapsed_ms: int,
+    max_usd: float,
+) -> None:
     ticks = None
     usage = raw.get("usage")
     if isinstance(usage, dict):
@@ -204,8 +186,154 @@ def main() -> int:
         print("  Find the real path above and record it. Unknown cost blocks further calls.")
     else:
         print(f"  cost_in_usd_ticks: {ticks}  (${ticks / TICKS_PER_USD:.6f})")
-        if ticks > args.max_usd * TICKS_PER_USD:
+        if ticks > max_usd * TICKS_PER_USD:
             print("  WARNING: this single call exceeded the cap you authorized.")
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--confirm-authorized-call",
+        action="store_true",
+        help="Required. Confirms you have authorized exactly one paid provider call.",
+    )
+    parser.add_argument(
+        "--max-usd",
+        type=float,
+        required=True,
+        help=f"Dollar cap you are authorizing. Must not exceed {MAX_ALLOWED_USD}.",
+    )
+    parser.add_argument("--model", default=MODEL_STANDARD, help="Image model to probe.")
+    parser.add_argument(
+        "--edit",
+        action="store_true",
+        help="Probe POST /images/edits instead of /images/generations.",
+    )
+    parser.add_argument(
+        "--reference",
+        type=Path,
+        default=None,
+        help="Local PNG or JPEG path required with --edit. Sent as a base64 data URI.",
+    )
+    parser.add_argument(
+        "--save",
+        type=Path,
+        default=None,
+        help="Optional path for the raw response. May contain image bytes and a signed URL.",
+    )
+    parser.add_argument(
+        "--prompt",
+        default=None,
+        help="Override the built-in probe prompt. Keep it non-sensitive: xAI retains request data.",
+    )
+    parser.add_argument(
+        "--response-format",
+        default=None,
+        help="Probe an output-format parameter, e.g. b64_json. Sent as response_format.",
+    )
+    parser.add_argument(
+        "--extra-field",
+        action="append",
+        default=[],
+        metavar="KEY=VALUE",
+        help="Add an arbitrary top-level body field. Repeatable. For probing unverified names.",
+    )
+    args = parser.parse_args()
+
+    extra: dict[str, Any] = {}
+    for item in args.extra_field:
+        if "=" not in item:
+            print(f"Refusing: --extra-field must be KEY=VALUE, got {item!r}")
+            return 2
+        key, _, value = item.partition("=")
+        if value.isdigit():
+            extra[key] = int(value)
+        elif value.lower() in {"true", "false"}:
+            extra[key] = value.lower() == "true"
+        else:
+            extra[key] = value
+    if args.response_format is not None:
+        extra["response_format"] = args.response_format
+
+    if not args.confirm_authorized_call:
+        print("Refusing: pass --confirm-authorized-call to authorize one paid call.")
+        return 2
+    if args.max_usd <= 0 or args.max_usd > MAX_ALLOWED_USD:
+        print(f"Refusing: --max-usd must be between 0 and {MAX_ALLOWED_USD}.")
+        return 2
+
+    api_key = os.environ.get("XAI_API_KEY", "").strip()
+    if not api_key:
+        print("Refusing: XAI_API_KEY is not set. This script never reads a key file.")
+        return 2
+
+    repo_root = Path(__file__).resolve().parent.parent
+    if args.save is not None and args.save.expanduser().resolve().is_relative_to(repo_root):
+        print(f"Refusing: --save must point outside the repository ({repo_root}).")
+        return 2
+
+    if args.edit:
+        if args.reference is None:
+            print("Refusing: --edit requires --reference PATH to a local image.")
+            return 2
+        reference_path = args.reference.expanduser().resolve()
+        try:
+            data_uri, media_type, byte_length = _load_reference_data_uri(reference_path)
+        except (OSError, ValueError) as error:
+            print(f"Refusing: {error}")
+            return 2
+        # Most documented shape from docs/imagine_signal/05_XAI_INTEGRATION.md section 4:
+        # direct JSON HTTP edit with a base64 data URI (OpenAI multipart edit is incompatible).
+        # ONE attempt only. On failure, print the provider error verbatim and stop.
+        body: dict[str, Any] = {
+            "model": args.model,
+            "prompt": args.prompt or EDIT_PROBE_PROMPT,
+            "n": 1,
+            "image": {"url": data_uri},
+        }
+        url = f"{XAI_API_BASE}{EDITS_PATH}"
+        print(f"Issuing exactly one request to {url}")
+        print("Mode: edit")
+        print(f"Model: {args.model}   Cap authorized: ${args.max_usd:.4f}")
+        print(f"Reference: {reference_path}")
+        print(f"Reference media_type: {media_type}   bytes: {byte_length}")
+        print("Request shape: JSON body with image.url = data URI (base64). ONE attempt.")
+        print()
+    else:
+        if args.reference is not None:
+            print("Refusing: --reference is only valid with --edit.")
+            return 2
+        body = {"model": args.model, "prompt": args.prompt or PROBE_PROMPT, "n": 1}
+        url = f"{XAI_API_BASE}{GENERATIONS_PATH}"
+        print(f"Issuing exactly one request to {url}")
+        print("Mode: generate")
+        print(f"Model: {args.model}   Cap authorized: ${args.max_usd:.4f}\n")
+
+    if extra:
+        body.update(extra)
+        print(f"Extra top-level fields (UNVERIFIED): {sorted(extra)}")
+        print()
+
+    try:
+        raw, elapsed_ms, headers = _post_json(url, body, api_key)
+    except urllib.error.HTTPError as error:
+        print(f"HTTP {error.code}. Body follows, redacted for long or credential-shaped values:")
+        error_body = error.read()
+        try:
+            parsed = json.loads(error_body.decode("utf-8"))
+            print(json.dumps(_redact(parsed), indent=2))
+        except Exception:
+            # Verbatim provider error text when it is not JSON.
+            text = error_body.decode("utf-8", errors="replace")
+            print(text if text else "<empty error body>")
+        print("\nNo retry was attempted. Record this error and decide the next shape offline.")
+        return 1
+    except urllib.error.URLError as error:
+        print(f"Network failure before a response: {error.reason}")
+        print("The request may or may not have been accepted. Check the console before retrying.")
+        return 1
+
+    _print_report(raw=raw, headers=headers, elapsed_ms=elapsed_ms, max_usd=args.max_usd)
 
     if args.save is not None:
         target = args.save.expanduser().resolve()

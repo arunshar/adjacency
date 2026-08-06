@@ -40,7 +40,12 @@ done < "$T/was.txt"
 
 # ERE, not BRE. grep -E treats \( as a literal paren, which silently matches nothing.
 CORE_RE='^src/adjacency/imagine_signal/(gates|decisions|contracts|canonical|receipts|mutations|ports)\.py$|^src/adjacency/(gates|contracts)\.py$'
-CORE=$(printf '%s' "$CHANGED" | grep -E "$CORE_RE" || true)
+
+# Once work is committed, those files become TRACKED and disappear from $CHANGED,
+# which is built from untracked files only. Scanning just $CHANGED silently stopped
+# guarding the core on 2026-08-06 when the canary commit landed. Check both sets.
+TRACKED_CHANGED=$(git diff --name-only; git diff --cached --name-only)
+CORE=$(printf '%s\n%s' "$CHANGED" "$TRACKED_CHANGED" | sort -u | grep -E "$CORE_RE" || true)
 
 echo "UNTRACKED FILES"
 [ -n "$ADDED" ]   && echo "$ADDED"   | sed 's/^/  + /' || echo "  + none added"
@@ -57,9 +62,14 @@ else
 fi
 
 echo
+# These expectations went stale on 2026-08-06 the moment the canary branch was
+# pushed: HEAD stopped being cd218dd and the origin/main..HEAD count stopped
+# being 0, so the guard printed two wrong "expected" values on every run. A guard
+# that cries wolf gets ignored. Check the invariants that actually still hold.
 echo "GIT WRITES (rail 1)"
-echo "  HEAD:      $(git rev-parse --short HEAD)  (expected cd218dd)"
-echo "  unpushed:  $(git log origin/main..HEAD --oneline 2>/dev/null | wc -l | tr -d ' ')  (expected 0)"
+echo "  branch:    $(git rev-parse --abbrev-ref HEAD)"
+echo "  main:      $(git rev-parse --short main)  (expected cd218dd, never moves)"
+echo "  unpushed:  $(git log '@{upstream}..HEAD' --oneline 2>/dev/null | wc -l | tr -d ' ')  (expected 0, vs this branch's upstream)"
 echo "  stashes:   $(git stash list | wc -l | tr -d ' ')  (expected 0)"
 
 echo
