@@ -1,0 +1,32 @@
+WARP.md
+  s_08e8b81222ffbf::t_e0e1c61d1fdd1e 16-19
+hackathon/WARP_TASKS.md
+  s_08e8b81222ffbf::t_13f8cb93795b86 5-7,10-13,23,32-35,37,39-40,42-47,49-51,55,57,59-62,64-66,68-72,74-75,77,79,81,83-92,94-96,105-106,109-110,112-113,116-118,120,125-126,130-133
+  s_08e8b81222ffbf::t_f6771dbafe4728 28-30
+  s_08e8b81222ffbf::t_214add4089876f 124,127-129
+hackathon/WARP_HANDOFF.md
+  s_08e8b81222ffbf::t_341cc308fff590 91,96-97
+  s_08e8b81222ffbf::t_84a1ead725a12b 216-217
+  s_08e8b81222ffbf::t_480b63b124e4d5 3-4,8-9,11-14,17-21
+  s_08e8b81222ffbf::t_7c95d5562de5b4 198-199,201-206
+  s_08e8b81222ffbf::t_a618152ef9cc93 147-150,153-154,159-165,171-182,189-190
+  s_08e8b81222ffbf::t_daf23f9a2ca88f 22
+hackathon/WARP_BOOTSTRAP.txt
+  s_08e8b81222ffbf::t_714532cd3f8c25 6-10,24-27,54,58,60-61,66-90,95-96
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.21",
+  "base_commit_sha": "69e2ab3b3d4c524de00bcba328e365b3b02a93ee",
+  "prompts": {},
+  "sessions": {
+    "s_08e8b81222ffbf": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "1316ee7f-b1a6-4ab2-bc6d-f3f4557cf5a7",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Arun Sharma <arun08sharma@gmail.com>"
+    }
+  }
+}
