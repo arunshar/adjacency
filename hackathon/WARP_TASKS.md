@@ -103,7 +103,8 @@ Read WARP.md and hackathon/WARP_HANDOFF.md first if you have not this session.
 Task: <paste one task from hackathon/WARP_TASKS.md>
 
 Before editing: run the checkpoint commands in hackathon/WARP_BOOTSTRAP.txt and confirm
-branch canary/imagine-signal, HEAD 94a1d27, clean status, 488 passed.
+branch canary/imagine-signal, a clean status, HEAD matching origin, and 488 passed. Do
+not expect a particular commit SHA. HEAD is supposed to move.
 While editing: touch no file in the undelegatable list.
 After editing: run ./hackathon/verify_tree.sh, then ruff check src tests scripts and
 ruff format --check src tests scripts, then bandit -q -c pyproject.toml -r src, then the

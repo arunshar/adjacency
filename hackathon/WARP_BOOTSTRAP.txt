@@ -57,16 +57,35 @@ VERIFY THIS CHECKPOINT BEFORE EDITING ANYTHING:
   shasum -a 256 artifacts/imagine_signal/offline_demo.json
   ./hackathon/verify_tree.sh
 
-Expected: branch canary/imagine-signal, HEAD 94a1d27, a CLEAN status, 488 passed with no
-xfails, status verified, and digest
-b17e9105f0de89772440c82938a69a7b25452784fc9c0667a4fe81a8f621ca73. If anything differs,
-report the exact difference and stop. Do not repair it. Do not regenerate an artifact to
-make a digest match.
+Expected:
+
+  branch                   canary/imagine-signal
+  git status --short       prints NOTHING
+  HEAD vs origin           identical, and 0 ahead 0 behind
+  suite                    488 passed, no xfails
+  demo                     "status": "verified", network_used: false
+  artifact digest          b17e9105f0de89772440c82938a69a7b25452784fc9c0667a4fe81a8f621ca73
+  main                     cd218dd, locally and on origin
+  verify_tree.sh           no core-file STOP banner
+
+A NOTE ON WHY NO COMMIT SHA IS LISTED. An earlier version of this file pinned an exact
+HEAD and told you to stop on any mismatch. It went stale on the very next commit, which
+was ordinary correct work, and a stale checkpoint that says "stop" is a landmine rather
+than a guard. The properties above survive commits. HEAD is expected to move. If you
+want the SHA the release was cut at, the tag carries it.
+
+Judge a mismatch by what it means, not by whether it differs:
+
+  HEAD moved, tree clean, suite green      normal. Someone committed. Continue
+  tree dirty, and you did not edit it      report it and stop. Something else is running
+  suite below 488, or digest changed       report it and STOP. Do not repair, and never
+                                           regenerate an artifact to make a digest match
+  main is not cd218dd                      report it and STOP. main is the fallback
 
 Two details that look like bugs and are not. The tag v0.3.0-canary points at 53ad8d4,
-one commit behind HEAD, because the release was tagged before a documentation
-correction landed. That is correct, leave it. And main is still cd218dd on purpose: it
-is the known-good fallback and it never moves during the event.
+behind HEAD, because the release was tagged before later documentation commits landed.
+That is correct, leave it. And main sitting several commits behind is the plan: it is the
+known-good fallback and it never moves during the event.
 
 WHAT IS ALREADY DONE. Do not rebuild any of this.
 

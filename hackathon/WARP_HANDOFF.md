@@ -8,7 +8,7 @@ anything until you have verified the checkpoint in section 6.**
 | Version | **2.0** |
 | Prepared | 2026-08-05, rewritten 2026-08-06 |
 | Repository | `/Users/arunsharma/code/adjacency` |
-| Branch | `canary/imagine-signal` at `94a1d27`, **clean and pushed** |
+| Branch | `canary/imagine-signal`, **clean and pushed**, HEAD matching origin |
 | Release | Tag `v0.3.0-canary` at `53ad8d4`, draft pull request #10, CI green on both jobs |
 | Fallback | `main` stays at `cd218dd` and never moves during the event |
 | Reason for handoff | Claude session limits. Warp is the primary agent for this project. |
@@ -145,20 +145,31 @@ cd /Users/arunsharma/code/adjacency && env -u XAI_API_KEY -u ADJ_RECORD .venv/bi
 | Expected | Value |
 |---|---|
 | Branch | `canary/imagine-signal` |
-| HEAD | `94a1d27`, matching `origin/canary/imagine-signal` |
 | Working tree | **clean**, `git status --short` prints nothing |
+| HEAD vs origin | identical, 0 ahead and 0 behind |
 | Suite | `488 passed`, no xfails |
 | Demo | `"status": "verified"`, `network_used: false` |
 | Artifact digest | `b17e9105f0de89772440c82938a69a7b25452784fc9c0667a4fe81a8f621ca73` |
 | `main` | still `cd218dd`, locally and on origin |
 | `bandit -q -c pyproject.toml -r src` | exit 0 |
 
-**If anything differs, report the exact difference and stop.** Do not repair it and do not regenerate
-an artifact to make a digest match.
+**No commit SHA is listed on purpose.** An earlier version of this table pinned one and instructed
+the reader to stop on any mismatch. It went stale on the very next commit, which was ordinary correct
+work. A checkpoint that expires every time someone commits is a landmine, not a guard. Everything
+above survives commits; `HEAD` is expected to move.
 
-Two things that look wrong and are not. The tag `v0.3.0-canary` points at `53ad8d4`, one commit
-behind `HEAD`, because the release was tagged before a documentation correction landed. And `main`
-being three commits behind is the plan, not neglect: it is the known-good fallback.
+Judge a mismatch by what it means:
+
+| Observation | Meaning |
+|---|---|
+| `HEAD` moved, tree clean, suite green | Normal. Someone committed. Continue |
+| Tree dirty and you did not edit it | Report and stop. Something else is running |
+| Suite below 488, or the digest changed | Report and **stop**. Never regenerate an artifact to make a digest match |
+| `main` is not `cd218dd` | Report and **stop**. `main` is the fallback |
+
+Two things that look wrong and are not. The tag `v0.3.0-canary` points at `53ad8d4`, behind `HEAD`,
+because the release was tagged before later documentation commits landed. And `main` sitting several
+commits behind is the plan, not neglect: it is the known-good fallback.
 
 Note: the suite reports fewer passes plus skips in an environment built from `.[test,serve]` alone,
 because `temporalio` and `gradio` live in separate extras. The `core-without-model-deps` CI job
