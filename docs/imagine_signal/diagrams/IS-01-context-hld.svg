@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 1071" role="img" aria-label="IS-01  Context and high-level design (offline MVP path)" style="max-width:100%;height:auto;font-family:ui-sans-serif,system-ui,sans-serif">
+<defs>
+<marker id="a-default" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 z" fill="#495057"/></marker>
+<marker id="a-success" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 z" fill="#2f9e44"/></marker>
+<marker id="a-failure" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 z" fill="#c92a2a"/></marker>
+<marker id="a-warning" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 z" fill="#e67700"/></marker>
+<marker id="a-info" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 z" fill="#1971c2"/></marker>
+</defs>
+<text x="34" y="24" font-size="16" font-weight="700" fill="var(--dg-ink,#212529)">IS-01  Context and high-level design (offline MVP path)</text>
+<rect x="220" y="164" width="340" height="881" rx="10" fill="none" stroke="#adb5bd" stroke-width="1.2" stroke-dasharray="6 5"/>
+<text x="230" y="157" font-size="11.5" fill="var(--dg-dim,#868e96)">src/adjacency/imagine_signal   production NO_GO, action ceiling TEST</text>
+<path d="M390.0,132 L390.0,187" fill="none" stroke="#495057" stroke-width="1.6" marker-end="url(#a-default)"/>
+<text x="397.0" y="163.0" font-size="11.5" fill="#495057" text-anchor="middle">brief + locked attrs</text>
+<path d="M390.0,258 L390.0,313" fill="none" stroke="#495057" stroke-width="1.6" marker-end="url(#a-default)"/>
+<text x="397.0" y="289.0" font-size="11.5" fill="#495057" text-anchor="middle">one request per level</text>
+<path d="M390.0,403 L390.0,458" fill="none" stroke="#2f9e44" stroke-width="1.6" marker-end="url(#a-success)"/>
+<text x="397.0" y="434.0" font-size="11.5" fill="#2f9e44" text-anchor="middle">REPLAY default</text>
+<path d="M390.0,529 L390.0,584" fill="none" stroke="#495057" stroke-width="1.6" marker-end="url(#a-default)"/>
+<text x="397.0" y="560.0" font-size="11.5" fill="#495057" text-anchor="middle">verified bytes</text>
+<path d="M390.0,655 L390.0,710" fill="none" stroke="#495057" stroke-width="1.6" marker-end="url(#a-default)"/>
+<path d="M390.0,781 L390.0,836" fill="none" stroke="#495057" stroke-width="1.6" marker-end="url(#a-default)"/>
+<text x="397.0" y="812.0" font-size="11.5" fill="#495057" text-anchor="middle">evidence-capped</text>
+<path d="M390.0,907 L390.0,962" fill="none" stroke="#495057" stroke-width="1.6" marker-end="url(#a-default)"/>
+<rect x="240" y="68" width="300" height="64" rx="9" fill="#e3fafc" stroke="#0b7285" stroke-width="1.6"/>
+<text x="390.0" y="95.0" font-size="15" font-weight="600" fill="#0b7285" text-anchor="middle">Advertiser</text>
+<text x="390.0" y="114.0" font-size="12.5" font-weight="400" fill="#0b7285" text-anchor="middle">approved base image + brief</text>
+<rect x="240" y="194" width="300" height="64" rx="9" fill="#e7f5ff" stroke="#1971c2" stroke-width="1.6"/>
+<text x="390.0" y="221.0" font-size="15" font-weight="600" fill="#1971c2" text-anchor="middle">Mutation planner</text>
+<text x="390.0" y="240.0" font-size="12.5" font-weight="400" fill="#1971c2" text-anchor="middle">exactly one declared axis changes</text>
+<rect x="240" y="320" width="300" height="83" rx="9" fill="#e7f5ff" stroke="#1971c2" stroke-width="1.6"/>
+<text x="390.0" y="347.0" font-size="15" font-weight="600" fill="#1971c2" text-anchor="middle">ImagineTransport port</text>
+<text x="390.0" y="366.0" font-size="12.5" font-weight="400" fill="#1971c2" text-anchor="middle">the ONLY provider seam</text>
+<text x="390.0" y="385.0" font-size="12.5" font-weight="400" fill="#1971c2" text-anchor="middle">REPLAY default / RECORD / LIVE</text>
+<rect x="240" y="465" width="300" height="64" rx="9" fill="#ebfbee" stroke="#2f9e44" stroke-width="1.6"/>
+<text x="390.0" y="492.0" font-size="15" font-weight="600" fill="#2f9e44" text-anchor="middle">Frozen fixtures</text>
+<text x="390.0" y="511.0" font-size="12.5" font-weight="400" fill="#2f9e44" text-anchor="middle">replay, no credential, no socket</text>
+<rect x="240" y="591" width="300" height="64" rx="9" fill="#ebfbee" stroke="#2f9e44" stroke-width="1.6"/>
+<text x="390.0" y="618.0" font-size="15" font-weight="600" fill="#2f9e44" text-anchor="middle">Asset store</text>
+<text x="390.0" y="637.0" font-size="12.5" font-weight="400" fill="#2f9e44" text-anchor="middle">content-addressed SHA-256</text>
+<rect x="240" y="717" width="300" height="64" rx="9" fill="#e7f5ff" stroke="#1971c2" stroke-width="1.6"/>
+<text x="390.0" y="744.0" font-size="15" font-weight="600" fill="#1971c2" text-anchor="middle">Gates IS0 to IS8</text>
+<text x="390.0" y="763.0" font-size="12.5" font-weight="400" fill="#1971c2" text-anchor="middle">deterministic, fail closed</text>
+<rect x="240" y="843" width="300" height="64" rx="9" fill="#ebfbee" stroke="#2f9e44" stroke-width="1.6"/>
+<text x="390.0" y="870.0" font-size="15" font-weight="600" fill="#2f9e44" text-anchor="middle">Decision receipt</text>
+<text x="390.0" y="889.0" font-size="12.5" font-weight="400" fill="#2f9e44" text-anchor="middle">append-once, digest-linked</text>
+<rect x="240" y="969" width="300" height="58" rx="29.0" fill="#f3f0ff" stroke="#5f3dc4" stroke-width="1.6"/>
+<text x="390.0" y="1002.5" font-size="15" font-weight="600" fill="#5f3dc4" text-anchor="middle">keep / edit / test / hold / review / stop</text>
+</svg>

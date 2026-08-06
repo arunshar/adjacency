@@ -1,0 +1,19 @@
+# Paste-ready Claude resume prompt
+
+Copy the block below into a fresh local Claude session. Start Claude from `/Users/arunsharma/code/adjacency` so the root `CLAUDE.md` is discovered automatically.
+
+```text
+Resume the ImagineSignal project in /Users/arunsharma/code/adjacency. This is an intentionally dirty, uncommitted review worktree. Do not commit, stage, push, create a pull request, reset, clean, stash, discard, or overwrite any current change unless I explicitly request that exact action.
+
+First read these files completely from the local filesystem: CLAUDE.md, docs/imagine_signal/13_CLAUDE_HANDOFF.md, docs/imagine_signal/12_IMPLEMENTATION_STATUS.md, QUALITY.md, docs/imagine_signal/README.md, docs/imagine_signal/00_DECISION_COVER.md, docs/imagine_signal/01_PLAIN_EXPLAINER.md, docs/imagine_signal/02_PRD.md, docs/imagine_signal/03_SYSTEM_DESIGN.md, docs/imagine_signal/07_EVALUATION_AND_CLAIMS.md, docs/imagine_signal/08_SECURITY_PRIVACY_OPERATIONS.md, src/adjacency/imagine_signal/service.py, and tests/imagine_signal/test_end_to_end_replay.py. Read the remaining specification, model card, ADRs, source files, and tests before changing their corresponding area.
+
+Treat the current repository and fresh verification output as authoritative. Older chats and model memory may be stale. The expected checkpoint is branch main at base HEAD cd218dd with an intentionally dirty worktree. ImagineSignal is complete as an offline MVP only. Current evidence is UNIT_TESTED, FROZEN_REPLAY, and SIMULATED. Production is NO_GO, and the current action ceiling is TEST.
+
+Before editing, run these read-only commands from the repository root: git branch --show-current; git rev-parse --short HEAD; git status --short; env -u XAI_API_KEY -u ADJ_RECORD .venv/bin/python -I -B scripts/generate_imagine_signal_fixtures.py --verify-only; env -u XAI_API_KEY -u ADJ_RECORD .venv/bin/python -I -B scripts/run_imagine_signal_demo.py --verify-only; shasum -a 256 artifacts/imagine_signal/offline_demo.json; .venv/bin/pytest -m "not e2e" -q. The expected combined result is 433 passed. The expected embedded canonical payload SHA-256, calculated before the artifact_sha256 field is added, is 29997622e01e57b8f150a80e0c48dc2e91a131c5ccf99ebbbf7874660381c2df. The expected SHA-256 of the complete formatted JSON file bytes is b17e9105f0de89772440c82938a69a7b25452784fc9c0667a4fe81a8f621ca73. Expected artifact fields are network_used false, provider_call_used false, production_authorization NOT_PRESENT, and final_action TEST.
+
+If any checkpoint differs, do not repair it automatically. Preserve the worktree and report the exact difference first. A missing fixture is terminal and must never fall back to a live call. Do not use XAI_API_KEY, enable ADJ_RECORD, run a write mode, call xAI or X Ads, access production data, publish, spend, change bids, change targeting, change ranking, or alter auction behavior without separate explicit authorization from me.
+
+Keep the original Adjacency G0 through G6 domain unchanged and keep ImagineSignal isolated under src/adjacency/imagine_signal with IS0 through IS8. Do not claim live Grok quality, image-quality lift, advertiser lift, causal lift, production readiness, or X revenue. Preserve evidence labels and use advertiser spend or attributed purchase value only when supported by the exact approved data source. Use plain ASCII hyphens and never use em dash or en dash characters.
+
+After reading and verifying, reply with a compact checkpoint containing the branch and HEAD, worktree state, test result, embedded payload digest, complete JSON file digest, evidence ceiling, external-call status, and any discrepancy. Then continue with my newest request. If I have not given a new implementation request, stop after the checkpoint and recommend the smallest safe next option without making changes.
+```

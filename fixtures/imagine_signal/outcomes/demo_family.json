@@ -1,0 +1,113 @@
+{
+  "description": "Synthetic aggregate outcomes for the credential-free ImagineSignal demo. These values are not observations from X Ads.",
+  "evidence_class": "FROZEN_REPLAY",
+  "fixture_version": 1,
+  "source_payloads": [
+    {
+      "clicks": 400,
+      "impressions": 10000,
+      "source_snapshot_id": "demo-control-home"
+    },
+    {
+      "clicks": 460,
+      "impressions": 10000,
+      "source_snapshot_id": "demo-variant-home"
+    },
+    {
+      "clicks": 400,
+      "impressions": 8000,
+      "source_snapshot_id": "demo-control-search"
+    },
+    {
+      "clicks": 432,
+      "impressions": 8000,
+      "source_snapshot_id": "demo-variant-search"
+    }
+  ],
+  "snapshots": [
+    {
+      "advertiser_spend_ticks": 1800000000,
+      "arm_id": "control-arm",
+      "attributed_purchase_value_ticks": 3600000000,
+      "attribution_method": "synthetic_last_click_24h",
+      "campaign_id": "demo-campaign",
+      "clicks": 400,
+      "context_id": "home-feed",
+      "conversions": 40,
+      "creative_id": "demo-control",
+      "experiment_id": "demo-experiment",
+      "impressions": 10000,
+      "measurement_end": "2026-08-02T00:00:00Z",
+      "measurement_start": "2026-08-01T00:00:00Z",
+      "observed_at": "2026-08-03T00:00:00Z",
+      "origin": "SYNTHETIC",
+      "schema_version": "1",
+      "source_sha256": "b1e25fabebaab1fc0c27e6e0d48504d39f387d5a3ee0fdcbd8e7940e4eddc818",
+      "source_snapshot_id": "demo-control-home",
+      "tenant_id": "demo-tenant"
+    },
+    {
+      "advertiser_spend_ticks": 1800000000,
+      "arm_id": "variant-arm",
+      "attributed_purchase_value_ticks": 4050000000,
+      "attribution_method": "synthetic_last_click_24h",
+      "campaign_id": "demo-campaign",
+      "clicks": 460,
+      "context_id": "home-feed",
+      "conversions": 45,
+      "creative_id": "demo-variant-warm",
+      "experiment_id": "demo-experiment",
+      "impressions": 10000,
+      "measurement_end": "2026-08-02T00:00:00Z",
+      "measurement_start": "2026-08-01T00:00:00Z",
+      "observed_at": "2026-08-03T00:00:00Z",
+      "origin": "SYNTHETIC",
+      "schema_version": "1",
+      "source_sha256": "0e4324cddf2c7516db8f56b06f28a968664c1fd16ae7668d3501c586cf107818",
+      "source_snapshot_id": "demo-variant-home",
+      "tenant_id": "demo-tenant"
+    },
+    {
+      "advertiser_spend_ticks": 1600000000,
+      "arm_id": "control-arm",
+      "attributed_purchase_value_ticks": 3200000000,
+      "attribution_method": "synthetic_last_click_24h",
+      "campaign_id": "demo-campaign",
+      "clicks": 400,
+      "context_id": "search",
+      "conversions": 32,
+      "creative_id": "demo-control",
+      "experiment_id": "demo-experiment",
+      "impressions": 8000,
+      "measurement_end": "2026-08-02T00:00:00Z",
+      "measurement_start": "2026-08-01T00:00:00Z",
+      "observed_at": "2026-08-03T00:00:00Z",
+      "origin": "SYNTHETIC",
+      "schema_version": "1",
+      "source_sha256": "27c5b0704b66c5e190a8a1f49238b73172c8141580998cfedd9304c3518f5e46",
+      "source_snapshot_id": "demo-control-search",
+      "tenant_id": "demo-tenant"
+    },
+    {
+      "advertiser_spend_ticks": 1600000000,
+      "arm_id": "variant-arm",
+      "attributed_purchase_value_ticks": 3520000000,
+      "attribution_method": "synthetic_last_click_24h",
+      "campaign_id": "demo-campaign",
+      "clicks": 432,
+      "context_id": "search",
+      "conversions": 35,
+      "creative_id": "demo-variant-warm",
+      "experiment_id": "demo-experiment",
+      "impressions": 8000,
+      "measurement_end": "2026-08-02T00:00:00Z",
+      "measurement_start": "2026-08-01T00:00:00Z",
+      "observed_at": "2026-08-03T00:00:00Z",
+      "origin": "SYNTHETIC",
+      "schema_version": "1",
+      "source_sha256": "ae1e6d3e1c4671cf623f363fb7f9f0b30a392e27240b852290481c8c4280ab8e",
+      "source_snapshot_id": "demo-variant-search",
+      "tenant_id": "demo-tenant"
+    }
+  ]
+}

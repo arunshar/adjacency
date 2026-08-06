@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 1184" role="img" aria-label="IS-02  Component low-level design: dependencies point downward" style="max-width:100%;height:auto;font-family:ui-sans-serif,system-ui,sans-serif">
+<defs>
+<marker id="a-default" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 z" fill="#495057"/></marker>
+<marker id="a-success" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 z" fill="#2f9e44"/></marker>
+<marker id="a-failure" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 z" fill="#c92a2a"/></marker>
+<marker id="a-warning" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 z" fill="#e67700"/></marker>
+<marker id="a-info" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 z" fill="#1971c2"/></marker>
+</defs>
+<text x="34" y="24" font-size="16" font-weight="700" fill="var(--dg-ink,#212529)">IS-02  Component low-level design: dependencies point downward</text>
+<rect x="220" y="38" width="340" height="238" rx="10" fill="none" stroke="#adb5bd" stroke-width="1.2" stroke-dasharray="6 5"/>
+<text x="230" y="31" font-size="11.5" fill="var(--dg-dim,#868e96)">Orchestration</text>
+<rect x="47" y="290" width="686" height="364" rx="10" fill="none" stroke="#adb5bd" stroke-width="1.2" stroke-dasharray="6 5"/>
+<text x="57" y="283" font-size="11.5" fill="var(--dg-dim,#868e96)">I/O and adapters   the gates are the safety net, so coverage is lower here on purpose</text>
+<rect x="47" y="668" width="686" height="490" rx="10" fill="none" stroke="#adb5bd" stroke-width="1.2" stroke-dasharray="6 5"/>
+<text x="57" y="661" font-size="11.5" fill="var(--dg-dim,#868e96)">Pure decision core   held at 100 percent line and branch in CI</text>
+<path d="M390.0,132 L390.0,187" fill="none" stroke="#495057" stroke-width="1.6" marker-end="url(#a-default)"/>
+<path d="M390.0,258 L390.0,289.0 L217.0,289.0 L217.0,313" fill="none" stroke="#495057" stroke-width="1.6" marker-end="url(#a-default)"/>
+<path d="M390.0,258 L390.0,289.0 L563.0,289.0 L563.0,313" fill="none" stroke="#495057" stroke-width="1.6" marker-end="url(#a-default)"/>
+<path d="M217.0,384 L217.0,439" fill="none" stroke="#495057" stroke-width="1.6" marker-end="url(#a-default)"/>
+<path d="M563.0,384 L563.0,439" fill="none" stroke="#495057" stroke-width="1.6" marker-end="url(#a-default)"/>
+<path d="M217.0,510 L217.0,565" fill="none" stroke="#495057" stroke-width="1.6" marker-end="url(#a-default)"/>
+<path d="M563.0,510 L563.0,565" fill="none" stroke="#1971c2" stroke-width="1.6" marker-end="url(#a-info)"/>
+<path d="M217.0,636 L217.0,667.0 L390.0,667.0 L390.0,691" fill="none" stroke="#495057" stroke-width="1.6" marker-end="url(#a-default)"/>
+<path d="M390.0,762 L390.0,793.0 L217.0,793.0 L217.0,817" fill="none" stroke="#495057" stroke-width="1.6" marker-end="url(#a-default)"/>
+<path d="M390.0,762 L390.0,793.0 L563.0,793.0 L563.0,817" fill="none" stroke="#495057" stroke-width="1.6" marker-end="url(#a-default)"/>
+<path d="M217.0,888 L217.0,943" fill="none" stroke="#495057" stroke-width="1.6" marker-end="url(#a-default)"/>
+<path d="M563.0,888 L563.0,943" fill="none" stroke="#495057" stroke-width="1.6" marker-end="url(#a-default)"/>
+<path d="M217.0,1014 L217.0,1069" fill="none" stroke="#495057" stroke-width="1.6" marker-end="url(#a-default)"/>
+<path d="M563.0,1014 L563.0,1069" fill="none" stroke="#495057" stroke-width="1.6" marker-end="url(#a-default)"/>
+<rect x="240" y="68" width="300" height="64" rx="9" fill="#e7f5ff" stroke="#1971c2" stroke-width="1.6"/>
+<text x="390.0" y="95.0" font-size="15" font-weight="600" fill="#1971c2" text-anchor="middle">demo.py</text>
+<text x="390.0" y="114.0" font-size="12.5" font-weight="400" fill="#1971c2" text-anchor="middle">deterministic artifact writer</text>
+<rect x="240" y="194" width="300" height="64" rx="9" fill="#e7f5ff" stroke="#1971c2" stroke-width="1.6"/>
+<text x="390.0" y="221.0" font-size="15" font-weight="600" fill="#1971c2" text-anchor="middle">service.py</text>
+<text x="390.0" y="240.0" font-size="12.5" font-weight="400" fill="#1971c2" text-anchor="middle">OfflineImagineSignalService.run</text>
+<rect x="67" y="320" width="300" height="64" rx="9" fill="#e7f5ff" stroke="#1971c2" stroke-width="1.6"/>
+<text x="217.0" y="347.0" font-size="15" font-weight="600" fill="#1971c2" text-anchor="middle">imagine_client.py</text>
+<text x="217.0" y="366.0" font-size="12.5" font-weight="400" fill="#1971c2" text-anchor="middle">Fixture / Recording / Live</text>
+<rect x="413" y="320" width="300" height="64" rx="9" fill="#e7f5ff" stroke="#1971c2" stroke-width="1.6"/>
+<text x="563.0" y="347.0" font-size="15" font-weight="600" fill="#1971c2" text-anchor="middle">auction.py</text>
+<text x="563.0" y="366.0" font-size="12.5" font-weight="400" fill="#1971c2" text-anchor="middle">1305 lines, SIMULATED</text>
+<rect x="67" y="446" width="300" height="64" rx="9" fill="#ebfbee" stroke="#2f9e44" stroke-width="1.6"/>
+<text x="217.0" y="473.0" font-size="15" font-weight="600" fill="#2f9e44" text-anchor="middle">adapters/fixture_blobs.py</text>
+<text x="217.0" y="492.0" font-size="12.5" font-weight="400" fill="#2f9e44" text-anchor="middle">BinaryFixtureStore, secret scan</text>
+<rect x="413" y="446" width="300" height="64" rx="9" fill="#ebfbee" stroke="#2f9e44" stroke-width="1.6"/>
+<text x="563.0" y="473.0" font-size="15" font-weight="600" fill="#2f9e44" text-anchor="middle">outcomes.py</text>
+<text x="563.0" y="492.0" font-size="12.5" font-weight="400" fill="#2f9e44" text-anchor="middle">append_once, snapshot join</text>
+<rect x="67" y="572" width="300" height="64" rx="9" fill="#ebfbee" stroke="#2f9e44" stroke-width="1.6"/>
+<text x="217.0" y="599.0" font-size="15" font-weight="600" fill="#2f9e44" text-anchor="middle">assets.py</text>
+<text x="217.0" y="618.0" font-size="12.5" font-weight="400" fill="#2f9e44" text-anchor="middle">PNG / JPEG header parse, put</text>
+<rect x="413" y="572" width="300" height="64" rx="9" fill="#fff5f5" stroke="#c92a2a" stroke-width="1.6"/>
+<text x="563.0" y="599.0" font-size="15" font-weight="600" fill="#c92a2a" text-anchor="middle">adapters/xai_live.py</text>
+<text x="563.0" y="618.0" font-size="12.5" font-weight="400" fill="#c92a2a" text-anchor="middle">SKELETON, 2 NotImplemented</text>
+<rect x="240" y="698" width="300" height="64" rx="9" fill="#f8f9fa" stroke="#343a40" stroke-width="1.6"/>
+<text x="390.0" y="725.0" font-size="15" font-weight="600" fill="#343a40" text-anchor="middle">gates.py</text>
+<text x="390.0" y="744.0" font-size="12.5" font-weight="400" fill="#343a40" text-anchor="middle">is0_request_budget ... is8_evidence_action</text>
+<rect x="67" y="824" width="300" height="64" rx="9" fill="#f8f9fa" stroke="#343a40" stroke-width="1.6"/>
+<text x="217.0" y="851.0" font-size="15" font-weight="600" fill="#343a40" text-anchor="middle">mutations.py</text>
+<text x="217.0" y="870.0" font-size="12.5" font-weight="400" fill="#343a40" text-anchor="middle">validate_controlled_family</text>
+<rect x="413" y="824" width="300" height="64" rx="9" fill="#f8f9fa" stroke="#343a40" stroke-width="1.6"/>
+<text x="563.0" y="851.0" font-size="15" font-weight="600" fill="#343a40" text-anchor="middle">decisions.py</text>
+<text x="563.0" y="870.0" font-size="12.5" font-weight="400" fill="#343a40" text-anchor="middle">evidence ceiling, action resolution</text>
+<rect x="67" y="950" width="300" height="64" rx="9" fill="#e7f5ff" stroke="#1971c2" stroke-width="1.6"/>
+<text x="217.0" y="977.0" font-size="15" font-weight="600" fill="#1971c2" text-anchor="middle">ports.py</text>
+<text x="217.0" y="996.0" font-size="12.5" font-weight="400" fill="#1971c2" text-anchor="middle">ImagineTransport, ExternalCallPolicy</text>
+<rect x="413" y="950" width="300" height="64" rx="9" fill="#f8f9fa" stroke="#343a40" stroke-width="1.6"/>
+<text x="563.0" y="977.0" font-size="15" font-weight="600" fill="#343a40" text-anchor="middle">contracts.py</text>
+<text x="563.0" y="996.0" font-size="12.5" font-weight="400" fill="#343a40" text-anchor="middle">26 frozen models, 213 fields</text>
+<rect x="67" y="1076" width="300" height="64" rx="9" fill="#f8f9fa" stroke="#343a40" stroke-width="1.6"/>
+<text x="217.0" y="1103.0" font-size="15" font-weight="600" fill="#343a40" text-anchor="middle">canonical.py</text>
+<text x="217.0" y="1122.0" font-size="12.5" font-weight="400" fill="#343a40" text-anchor="middle">canonical_json, content_sha256</text>
+<rect x="413" y="1076" width="300" height="64" rx="9" fill="#f8f9fa" stroke="#343a40" stroke-width="1.6"/>
+<text x="563.0" y="1103.0" font-size="15" font-weight="600" fill="#343a40" text-anchor="middle">receipts.py</text>
+<text x="563.0" y="1122.0" font-size="12.5" font-weight="400" fill="#343a40" text-anchor="middle">build_decision_receipt</text>
+</svg>

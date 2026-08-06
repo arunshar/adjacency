@@ -1,0 +1,711 @@
+{
+  "artifact_sha256": "29997622e01e57b8f150a80e0c48dc2e91a131c5ccf99ebbbf7874660381c2df",
+  "artifact_version": 1,
+  "assets": [
+    {
+      "campaign_id": "demo-campaign",
+      "cost_in_usd_ticks": 0,
+      "cost_status": "EXACT",
+      "creative_id": "demo-control",
+      "height": 192,
+      "latency_ms": 0,
+      "media_sha256": "f760c2932b70e2f65196ec13359f07eef6f5a916fa5684f499abb12b18916400",
+      "media_type": "image/png",
+      "moderation_respected": true,
+      "mutation_id": null,
+      "parent_creative_id": null,
+      "provider": "synthetic_fixture",
+      "provider_model_requested": "grok-imagine-image-2026-03-02",
+      "provider_model_resolved": "synthetic-fixture-renderer-v1",
+      "provider_request_id": "synthetic-orbit-neutral-v1",
+      "request_hash": "670ebcb5133096c696897fccf3f681219e81cc559837d79b037d4c3f5744597c",
+      "root_creative_id": "demo-control",
+      "schema_version": "1",
+      "state": "VERIFIED",
+      "tenant_id": "demo-tenant",
+      "width": 192
+    },
+    {
+      "campaign_id": "demo-campaign",
+      "cost_in_usd_ticks": 0,
+      "cost_status": "EXACT",
+      "creative_id": "demo-variant-warm",
+      "height": 192,
+      "latency_ms": 0,
+      "media_sha256": "300aeddfd6f32a8153015ab418004eba458a0511fdfa45eab9331f5de062c809",
+      "media_type": "image/png",
+      "moderation_respected": true,
+      "mutation_id": "e303c24a336603e643291f024068ac3c6e4e4a4c4697c1b0e389d382d79dd85d",
+      "parent_creative_id": "demo-control",
+      "provider": "synthetic_fixture",
+      "provider_model_requested": "grok-imagine-image-2026-03-02",
+      "provider_model_resolved": "synthetic-fixture-renderer-v1",
+      "provider_request_id": "synthetic-orbit-warm-v1",
+      "request_hash": "9be071d08ee9c03539f88208b812afd68a6af07eb9ecae83408b4c6fb3a24779",
+      "root_creative_id": "demo-control",
+      "schema_version": "1",
+      "state": "VERIFIED",
+      "tenant_id": "demo-tenant",
+      "width": 192
+    },
+    {
+      "campaign_id": "demo-campaign",
+      "cost_in_usd_ticks": 0,
+      "cost_status": "EXACT",
+      "creative_id": "demo-variant-cool",
+      "height": 192,
+      "latency_ms": 0,
+      "media_sha256": "c0c77a34d6ac5bfe4bbb0ac4a1ebfb0831281608da103911ad7642e84f70ebb9",
+      "media_type": "image/png",
+      "moderation_respected": true,
+      "mutation_id": "57671bb1a9155baa24204e99a36d1c48b7a2cfba571dff9930858a932a167e4c",
+      "parent_creative_id": "demo-control",
+      "provider": "synthetic_fixture",
+      "provider_model_requested": "grok-imagine-image-2026-03-02",
+      "provider_model_resolved": "synthetic-fixture-renderer-v1",
+      "provider_request_id": "synthetic-orbit-cool-v1",
+      "request_hash": "7aff99de5814653328c85d0c40903f9a620700f61c2522e58d88b00bd289d4c6",
+      "root_creative_id": "demo-control",
+      "schema_version": "1",
+      "state": "VERIFIED",
+      "tenant_id": "demo-tenant",
+      "width": 192
+    }
+  ],
+  "auction_receipt_record": {
+    "allocation_change_rate": 0.6,
+    "baseline_signal_hash": "2286c08d7b5a7e3ef00eb2e09b3e79f729a90c23a502f9df5b3ac8b315ae3e78",
+    "bidder_model": "FIXED_BID",
+    "boundary_crossing_rate": 0.6,
+    "common_randomness_id": "f469b4cbef91625487ee4c1b1d49c96d7c74771b1b88800b86f209dd4b8043e5",
+    "convergence_diagnostics": {
+      "converged": true,
+      "iterations": 15000,
+      "notes": [
+        "not_applicable_fixed_bids",
+        "not_applicable_fixed_bids"
+      ],
+      "schema_version": "1",
+      "stability_metric": null
+    },
+    "evidence_class": "SIMULATED",
+    "mechanism": "FIRST_PRICE",
+    "scenario_hash": "5190e6bba6cd6265140f5f9c691cb48e24ceed9c7411f8fad404b6c350da5180",
+    "schema_version": "1",
+    "simulated_advertiser_utility_baseline": 0.06105000000000001,
+    "simulated_advertiser_utility_variant": 0.06828000000000001,
+    "simulated_seller_revenue_baseline": 0.07315,
+    "simulated_seller_revenue_variant": 0.08363999999999999,
+    "uncertainty": {
+      "high": 0.010560408925723238,
+      "low": 0.010419591074276733,
+      "method": "paired_seed_normal_95",
+      "schema_version": "1"
+    },
+    "variant_signal_hash": "23820abc1f0b8e6a4b7ca71ee1c950abd1bdb94b1ed2b4d6d95c0856c86cf692"
+  },
+  "auction_result": {
+    "allowed_claim": "Under scenario orbit-fixed-bid-sensitivity-v1 and bidder mode fixed_bid, the focal signal changed simulated seller revenue per impression by 0.010490.",
+    "assumptions": [
+      "single slot",
+      "pay per click billing",
+      "score equals bid times predicted CTR",
+      "expected click revenue uses true CTR",
+      "fixed query probabilities",
+      "fixed targeting eligibility",
+      "seeded priority tie breaking",
+      "no budgets or pacing",
+      "creative signal is the only baseline-to-variant auction change",
+      "predicted CTR and response CTR are distinct inputs"
+    ],
+    "baseline": {
+      "bidder_utilities": [
+        {
+          "bidder_id": "competitor-a",
+          "utility_per_impression": 0.031050000000000005
+        },
+        {
+          "bidder_id": "competitor-b",
+          "utility_per_impression": 0.0
+        },
+        {
+          "bidder_id": "orbit-focal",
+          "utility_per_impression": 0.030000000000000002
+        }
+      ],
+      "fill_rate": 1.0,
+      "focal_advertiser_utility_per_impression": 0.030000000000000002,
+      "mean_eligible_bidders": 3.0,
+      "participation_rate": 1.0,
+      "simulated_advertiser_spend_per_impression": 0.07315,
+      "simulated_seller_revenue_per_impression": 0.07315,
+      "total_advertiser_utility_per_impression": 0.06105000000000001,
+      "utility_status": "available",
+      "winner_concentration_hhi": 0.52
+    },
+    "baseline_convergence": {
+      "converged": null,
+      "max_total_variation": null,
+      "observations_per_half": 0,
+      "status": "not_applicable_fixed_bids",
+      "threshold": 0.1
+    },
+    "baseline_evidence_hash": "2286c08d7b5a7e3ef00eb2e09b3e79f729a90c23a502f9df5b3ac8b315ae3e78",
+    "baseline_score_distance": {
+      "count": 15000,
+      "maximum": 0.00910000000000001,
+      "mean": 0.0023800000000000015,
+      "median": -0.0021000000000000046,
+      "minimum": -0.0021000000000000046,
+      "p10": -0.0021000000000000046,
+      "p90": 0.00910000000000001
+    },
+    "burn_in": 0,
+    "code_version": "0.1.0",
+    "common_randomness_id": "f469b4cbef91625487ee4c1b1d49c96d7c74771b1b88800b86f209dd4b8043e5",
+    "context_results": [
+      {
+        "baseline": {
+          "bidder_utilities": [
+            {
+              "bidder_id": "competitor-a",
+              "utility_per_impression": 0.051750000000000004
+            },
+            {
+              "bidder_id": "competitor-b",
+              "utility_per_impression": 0.0
+            },
+            {
+              "bidder_id": "orbit-focal",
+              "utility_per_impression": 0.0
+            }
+          ],
+          "fill_rate": 1.0,
+          "focal_advertiser_utility_per_impression": 0.0,
+          "mean_eligible_bidders": 3.0,
+          "participation_rate": 1.0,
+          "simulated_advertiser_spend_per_impression": 0.06525,
+          "simulated_seller_revenue_per_impression": 0.06525,
+          "total_advertiser_utility_per_impression": 0.051750000000000004,
+          "utility_status": "available",
+          "winner_concentration_hhi": 1.0
+        },
+        "baseline_score_distance": {
+          "count": 9000,
+          "maximum": -0.0021000000000000046,
+          "mean": -0.0021000000000000046,
+          "median": -0.0021000000000000046,
+          "minimum": -0.0021000000000000046,
+          "p10": -0.0021000000000000046,
+          "p90": -0.0021000000000000046
+        },
+        "context_id": "home-feed",
+        "delta": {
+          "allocation_change_rate": 1.0,
+          "fill_rate": 0.0,
+          "focal_advertiser_utility_per_impression": 0.059800000000000006,
+          "focal_boundary_crossing_rate": 1.0,
+          "mean_focal_score_distance": 0.0102,
+          "participation_rate": 0.0,
+          "simulated_advertiser_spend_per_impression": 0.01294999999999999,
+          "simulated_seller_revenue_per_impression": 0.01294999999999999,
+          "total_advertiser_utility_per_impression": 0.008050000000000002,
+          "winner_concentration_hhi": 0.0
+        },
+        "observations": 9000,
+        "status": "available",
+        "variant": {
+          "bidder_utilities": [
+            {
+              "bidder_id": "competitor-a",
+              "utility_per_impression": 0.0
+            },
+            {
+              "bidder_id": "competitor-b",
+              "utility_per_impression": 0.0
+            },
+            {
+              "bidder_id": "orbit-focal",
+              "utility_per_impression": 0.059800000000000006
+            }
+          ],
+          "fill_rate": 1.0,
+          "focal_advertiser_utility_per_impression": 0.059800000000000006,
+          "mean_eligible_bidders": 3.0,
+          "participation_rate": 1.0,
+          "simulated_advertiser_spend_per_impression": 0.07819999999999999,
+          "simulated_seller_revenue_per_impression": 0.07819999999999999,
+          "total_advertiser_utility_per_impression": 0.059800000000000006,
+          "utility_status": "available",
+          "winner_concentration_hhi": 1.0
+        },
+        "variant_score_distance": {
+          "count": 9000,
+          "maximum": 0.008099999999999996,
+          "mean": 0.008099999999999996,
+          "median": 0.008099999999999996,
+          "minimum": 0.008099999999999996,
+          "p10": 0.008099999999999996,
+          "p90": 0.008099999999999996
+        }
+      },
+      {
+        "baseline": {
+          "bidder_utilities": [
+            {
+              "bidder_id": "competitor-a",
+              "utility_per_impression": 0.0
+            },
+            {
+              "bidder_id": "competitor-b",
+              "utility_per_impression": 0.0
+            },
+            {
+              "bidder_id": "orbit-focal",
+              "utility_per_impression": 0.07500000000000001
+            }
+          ],
+          "fill_rate": 1.0,
+          "focal_advertiser_utility_per_impression": 0.07500000000000001,
+          "mean_eligible_bidders": 3.0,
+          "participation_rate": 1.0,
+          "simulated_advertiser_spend_per_impression": 0.085,
+          "simulated_seller_revenue_per_impression": 0.085,
+          "total_advertiser_utility_per_impression": 0.07500000000000001,
+          "utility_status": "available",
+          "winner_concentration_hhi": 1.0
+        },
+        "baseline_score_distance": {
+          "count": 6000,
+          "maximum": 0.00910000000000001,
+          "mean": 0.00910000000000001,
+          "median": 0.00910000000000001,
+          "minimum": 0.00910000000000001,
+          "p10": 0.00910000000000001,
+          "p90": 0.00910000000000001
+        },
+        "context_id": "search",
+        "delta": {
+          "allocation_change_rate": 0.0,
+          "fill_rate": 0.0,
+          "focal_advertiser_utility_per_impression": 0.006000000000000005,
+          "focal_boundary_crossing_rate": 0.0,
+          "mean_focal_score_distance": 0.006799999999999987,
+          "participation_rate": 0.0,
+          "simulated_advertiser_spend_per_impression": 0.006799999999999987,
+          "simulated_seller_revenue_per_impression": 0.006799999999999987,
+          "total_advertiser_utility_per_impression": 0.006000000000000005,
+          "winner_concentration_hhi": 0.0
+        },
+        "observations": 6000,
+        "status": "available",
+        "variant": {
+          "bidder_utilities": [
+            {
+              "bidder_id": "competitor-a",
+              "utility_per_impression": 0.0
+            },
+            {
+              "bidder_id": "competitor-b",
+              "utility_per_impression": 0.0
+            },
+            {
+              "bidder_id": "orbit-focal",
+              "utility_per_impression": 0.08100000000000002
+            }
+          ],
+          "fill_rate": 1.0,
+          "focal_advertiser_utility_per_impression": 0.08100000000000002,
+          "mean_eligible_bidders": 3.0,
+          "participation_rate": 1.0,
+          "simulated_advertiser_spend_per_impression": 0.09179999999999999,
+          "simulated_seller_revenue_per_impression": 0.09179999999999999,
+          "total_advertiser_utility_per_impression": 0.08100000000000002,
+          "utility_status": "available",
+          "winner_concentration_hhi": 1.0
+        },
+        "variant_score_distance": {
+          "count": 6000,
+          "maximum": 0.015899999999999997,
+          "mean": 0.015899999999999997,
+          "median": 0.015899999999999997,
+          "minimum": 0.015899999999999997,
+          "p10": 0.015899999999999997,
+          "p90": 0.015899999999999997
+        }
+      }
+    ],
+    "data_origin": "synthetic",
+    "delta": {
+      "allocation_change_rate": 0.6,
+      "fill_rate": 0.0,
+      "focal_advertiser_utility_per_impression": 0.03828000000000001,
+      "focal_boundary_crossing_rate": 0.6,
+      "mean_focal_score_distance": 0.008839999999999995,
+      "participation_rate": 0.0,
+      "simulated_advertiser_spend_per_impression": 0.010489999999999985,
+      "simulated_seller_revenue_per_impression": 0.010489999999999985,
+      "total_advertiser_utility_per_impression": 0.00723,
+      "winner_concentration_hhi": 0.48
+    },
+    "disallowed_claims": [
+      "The variant increases X revenue.",
+      "The simulation reports billed publisher revenue.",
+      "The simulated bidder behavior is a production equilibrium.",
+      "The output may be used to change bids, budgets, pacing, ranking, or floors."
+    ],
+    "evidence_class": "E2_SIMULATED",
+    "horizon": 5000,
+    "known_limitations": [
+      "conditional simulation, not observed X auction evidence",
+      "no production candidate, budget, pacing, or policy stack",
+      "synthetic bidder values and CTRs",
+      "not an X Ads auction or production ranking replay"
+    ],
+    "learning_mode": "fixed_bid",
+    "mechanism": "first_price",
+    "repetitions": 3,
+    "revenue_delta_standard_error": 3.592358139161219e-05,
+    "scenario_hash": "5190e6bba6cd6265140f5f9c691cb48e24ceed9c7411f8fad404b6c350da5180",
+    "scenario_id": "orbit-fixed-bid-sensitivity-v1",
+    "seeds": [
+      7,
+      19,
+      31
+    ],
+    "variant": {
+      "bidder_utilities": [
+        {
+          "bidder_id": "competitor-a",
+          "utility_per_impression": 0.0
+        },
+        {
+          "bidder_id": "competitor-b",
+          "utility_per_impression": 0.0
+        },
+        {
+          "bidder_id": "orbit-focal",
+          "utility_per_impression": 0.06828000000000001
+        }
+      ],
+      "fill_rate": 1.0,
+      "focal_advertiser_utility_per_impression": 0.06828000000000001,
+      "mean_eligible_bidders": 3.0,
+      "participation_rate": 1.0,
+      "simulated_advertiser_spend_per_impression": 0.08363999999999999,
+      "simulated_seller_revenue_per_impression": 0.08363999999999999,
+      "total_advertiser_utility_per_impression": 0.06828000000000001,
+      "utility_status": "available",
+      "winner_concentration_hhi": 1.0
+    },
+    "variant_convergence": {
+      "converged": null,
+      "max_total_variation": null,
+      "observations_per_half": 0,
+      "status": "not_applicable_fixed_bids",
+      "threshold": 0.1
+    },
+    "variant_evidence_hash": "23820abc1f0b8e6a4b7ca71ee1c950abd1bdb94b1ed2b4d6d95c0856c86cf692",
+    "variant_score_distance": {
+      "count": 15000,
+      "maximum": 0.015899999999999997,
+      "mean": 0.011219999999999997,
+      "median": 0.008099999999999996,
+      "minimum": 0.008099999999999996,
+      "p10": 0.008099999999999996,
+      "p90": 0.015899999999999997
+    }
+  },
+  "decision": {
+    "claim_wording": "On the named frozen replay, the system produced the recorded local artifacts. This is not a causal production result.",
+    "evidence_class": "FROZEN_REPLAY",
+    "final_action": "TEST",
+    "gate_results": [
+      {
+        "code": "IS0_OK",
+        "coerce_to": null,
+        "detail": "",
+        "gate": "IS0",
+        "passed": true,
+        "schema_version": "1",
+        "security_signal": false
+      },
+      {
+        "code": "IS1_OK",
+        "coerce_to": null,
+        "detail": "",
+        "gate": "IS1",
+        "passed": true,
+        "schema_version": "1",
+        "security_signal": false
+      },
+      {
+        "code": "IS2_OK",
+        "coerce_to": null,
+        "detail": "",
+        "gate": "IS2",
+        "passed": true,
+        "schema_version": "1",
+        "security_signal": false
+      },
+      {
+        "code": "IS3_OK",
+        "coerce_to": null,
+        "detail": "",
+        "gate": "IS3",
+        "passed": true,
+        "schema_version": "1",
+        "security_signal": false
+      },
+      {
+        "code": "IS4_OK",
+        "coerce_to": null,
+        "detail": "",
+        "gate": "IS4",
+        "passed": true,
+        "schema_version": "1",
+        "security_signal": false
+      },
+      {
+        "code": "IS5_OK",
+        "coerce_to": null,
+        "detail": "",
+        "gate": "IS5",
+        "passed": true,
+        "schema_version": "1",
+        "security_signal": false
+      },
+      {
+        "code": "IS6_OK",
+        "coerce_to": null,
+        "detail": "",
+        "gate": "IS6",
+        "passed": true,
+        "schema_version": "1",
+        "security_signal": false
+      },
+      {
+        "code": "IS7_OK",
+        "coerce_to": null,
+        "detail": "",
+        "gate": "IS7",
+        "passed": true,
+        "schema_version": "1",
+        "security_signal": false
+      },
+      {
+        "code": "IS8_OK",
+        "coerce_to": null,
+        "detail": "",
+        "gate": "IS8",
+        "passed": true,
+        "schema_version": "1",
+        "security_signal": false
+      }
+    ],
+    "proposed_action": "TEST",
+    "rationale": "Synthetic replay may justify a non-production test proposal only. It cannot authorize publishing, spend, or ranking changes.",
+    "schema_version": "1"
+  },
+  "efficiency": {
+    "controlled": {
+      "cost_per_qualified_creative_ticks": 0.0,
+      "duplicate_paid_output_rate": 0.0,
+      "duplicate_paid_outputs": 0,
+      "generated_count": 3,
+      "lineage_completeness": 1.0,
+      "qualified_count": 3,
+      "qualified_creative_yield": 1.0,
+      "quality_precision": null,
+      "total_cost_ticks": 0
+    },
+    "cost_basis": "synthetic_fixture_local_cost_ticks",
+    "evidence_class": "SYNTHETIC_WORKFLOW_COMPARISON",
+    "unstructured_baseline": {
+      "cost_per_qualified_creative_ticks": 0.0,
+      "duplicate_paid_output_rate": 0.3333333333333333,
+      "duplicate_paid_outputs": 1,
+      "generated_count": 3,
+      "lineage_completeness": 0.6666666666666666,
+      "qualified_count": 2,
+      "qualified_creative_yield": 0.6666666666666666,
+      "quality_precision": null,
+      "total_cost_ticks": 0
+    }
+  },
+  "evidence_labels": {
+    "assets": "FROZEN_REPLAY_SYNTHETIC_FIXTURE",
+    "auction": "E2_SIMULATED",
+    "outcomes": "FROZEN_REPLAY_SYNTHETIC_AGGREGATES"
+  },
+  "explanation": "ImagineSignal replayed one approved control and two images that changed only the background tone. It joined clearly labeled synthetic totals, then tested how the small signal could matter in a made-up auction. The allowed next step is TEST. Nothing was published, no campaign money was spent, and no ranking was changed.",
+  "network_used": false,
+  "production_authorization": "NOT_PRESENT",
+  "prohibited_claims": [
+    "The replay proves creative lift.",
+    "The variant increases X revenue.",
+    "ImagineSignal is authorized to publish, spend, or change ranking."
+  ],
+  "provider_call_used": false,
+  "receipt": {
+    "asset_hashes": [
+      "6b2bffff752822ad8c4b8593d6cb207333306fbef229c298561f82c7f8ff53ff",
+      "c1258256a7775a47c11762ed298463b9b076795899edb129b6585a9e0b09080f",
+      "f1c1e10a94138fb43f0fa9dc6b7a61fd816159545262ae7bc53580ff55959602"
+    ],
+    "campaign_hash": "1f25a71011ffd473bc388fe024758ec4c94f2ca1302772afb4a9f6afefac835e",
+    "claim_wording": "On the named frozen replay, the system produced the recorded local artifacts. This is not a causal production result.",
+    "cost_status": "EXACT",
+    "cost_total_ticks": 0,
+    "created_at": "2026-08-05T00:00:00Z",
+    "evidence_class": "FROZEN_REPLAY",
+    "family_hash": "1f3e9523c0a89a6124f8b871d9ca7e198f4b26dae8580ce108c412c484390c0d",
+    "final_action": "TEST",
+    "gate_results": [
+      {
+        "code": "IS0_OK",
+        "coerce_to": null,
+        "detail": "",
+        "gate": "IS0",
+        "passed": true,
+        "schema_version": "1",
+        "security_signal": false
+      },
+      {
+        "code": "IS1_OK",
+        "coerce_to": null,
+        "detail": "",
+        "gate": "IS1",
+        "passed": true,
+        "schema_version": "1",
+        "security_signal": false
+      },
+      {
+        "code": "IS2_OK",
+        "coerce_to": null,
+        "detail": "",
+        "gate": "IS2",
+        "passed": true,
+        "schema_version": "1",
+        "security_signal": false
+      },
+      {
+        "code": "IS3_OK",
+        "coerce_to": null,
+        "detail": "",
+        "gate": "IS3",
+        "passed": true,
+        "schema_version": "1",
+        "security_signal": false
+      },
+      {
+        "code": "IS4_OK",
+        "coerce_to": null,
+        "detail": "",
+        "gate": "IS4",
+        "passed": true,
+        "schema_version": "1",
+        "security_signal": false
+      },
+      {
+        "code": "IS5_OK",
+        "coerce_to": null,
+        "detail": "",
+        "gate": "IS5",
+        "passed": true,
+        "schema_version": "1",
+        "security_signal": false
+      },
+      {
+        "code": "IS6_OK",
+        "coerce_to": null,
+        "detail": "",
+        "gate": "IS6",
+        "passed": true,
+        "schema_version": "1",
+        "security_signal": false
+      },
+      {
+        "code": "IS7_OK",
+        "coerce_to": null,
+        "detail": "",
+        "gate": "IS7",
+        "passed": true,
+        "schema_version": "1",
+        "security_signal": false
+      },
+      {
+        "code": "IS8_OK",
+        "coerce_to": null,
+        "detail": "",
+        "gate": "IS8",
+        "passed": true,
+        "schema_version": "1",
+        "security_signal": false
+      }
+    ],
+    "human_approval": null,
+    "outcome_hashes": [
+      "36fec962131e06c33b012e6f574699d323660e8e4f49b76df4a1051943f0e720",
+      "4721dbf44bf5a544b0fdf5731ee0926eba4bed1093d6ccfcbd1a2a16a193be35",
+      "8b43d07d47a443170a50fd0447c10835fd0387684324a7012df6c8621ccc55c6",
+      "cce7d182fa2aa55758a532720af4170706f8899a14ee31e1fc48b7a851158119"
+    ],
+    "previous_receipt_sha256": null,
+    "proposed_action": "TEST",
+    "receipt_id": "bd8afd1bcdeac50c46cd8ff467bf1f69b056431d9ffa24b5e18d2d307fd94041",
+    "receipt_sha256": "73bc990297dcebec5000fa2d20a5d7c427b63ecc4a4bff736da9403544381bf8",
+    "receipt_version": 1,
+    "scenario_hashes": [
+      "5190e6bba6cd6265140f5f9c691cb48e24ceed9c7411f8fad404b6c350da5180"
+    ],
+    "schema_version": "1",
+    "tenant_id": "demo-tenant",
+    "trace_id": "trace-orbit-offline-demo-v1"
+  },
+  "request_hash": "495f33d2cd47e13a36b8b39e03a4884270d77ac4bdb17cf690c82560492582f3",
+  "run_mode": "fixture",
+  "signal_estimates": [
+    {
+      "absolute_delta": 0.005999999999999998,
+      "baseline_creative_id": "demo-control",
+      "baseline_estimate": 0.04,
+      "context_id": "home-feed",
+      "evidence_class": "FROZEN_REPLAY",
+      "interval_high": 0.011622193500778814,
+      "interval_low": 0.000377806499221184,
+      "method": "aggregate_independent_binomial_wald_95",
+      "metric": "observed.ctr",
+      "outcome_snapshot_hashes": [
+        "4721dbf44bf5a544b0fdf5731ee0926eba4bed1093d6ccfcbd1a2a16a193be35",
+        "cce7d182fa2aa55758a532720af4170706f8899a14ee31e1fc48b7a851158119"
+      ],
+      "relative_delta": 0.14999999999999997,
+      "sample_size": 20000,
+      "schema_version": "1",
+      "variant_creative_id": "demo-variant-warm",
+      "variant_estimate": 0.046
+    },
+    {
+      "absolute_delta": 0.003999999999999997,
+      "baseline_creative_id": "demo-control",
+      "baseline_estimate": 0.05,
+      "context_id": "search",
+      "evidence_class": "FROZEN_REPLAY",
+      "interval_high": 0.010880283209826008,
+      "interval_low": -0.002880283209826014,
+      "method": "aggregate_independent_binomial_wald_95",
+      "metric": "observed.ctr",
+      "outcome_snapshot_hashes": [
+        "36fec962131e06c33b012e6f574699d323660e8e4f49b76df4a1051943f0e720",
+        "8b43d07d47a443170a50fd0447c10835fd0387684324a7012df6c8621ccc55c6"
+      ],
+      "relative_delta": 0.07999999999999993,
+      "sample_size": 16000,
+      "schema_version": "1",
+      "variant_creative_id": "demo-variant-warm",
+      "variant_estimate": 0.054
+    }
+  ],
+  "x_ads_write_client_present": false
+}

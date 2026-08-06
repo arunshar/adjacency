@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 1305" role="img" aria-label="IS-03  The transport seam: three modes and the cost interlock" style="max-width:100%;height:auto;font-family:ui-sans-serif,system-ui,sans-serif">
+<defs>
+<marker id="a-default" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 z" fill="#495057"/></marker>
+<marker id="a-success" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 z" fill="#2f9e44"/></marker>
+<marker id="a-failure" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 z" fill="#c92a2a"/></marker>
+<marker id="a-warning" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 z" fill="#e67700"/></marker>
+<marker id="a-info" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 z" fill="#1971c2"/></marker>
+</defs>
+<text x="34" y="24" font-size="16" font-weight="700" fill="var(--dg-ink,#212529)">IS-03  The transport seam: three modes and the cost interlock</text>
+<path d="M390.0,126 L390.0,181" fill="none" stroke="#495057" stroke-width="1.6" marker-end="url(#a-default)"/>
+<path d="M390.0,246 L390.0,277.0 L217.0,277.0 L217.0,301" fill="none" stroke="#2f9e44" stroke-width="1.6" marker-end="url(#a-success)"/>
+<text x="303.5" y="271.0" font-size="11.5" fill="#2f9e44" text-anchor="middle">REPLAY</text>
+<path d="M390.0,246 L390.0,277.0 L563.0,277.0 L563.0,301" fill="none" stroke="#e67700" stroke-width="1.6" marker-end="url(#a-warning)"/>
+<text x="476.5" y="271.0" font-size="11.5" fill="#e67700" text-anchor="middle">RECORD / LIVE</text>
+<path d="M563.0,391 L563.0,422.0 L390.0,422.0 L390.0,446" fill="none" stroke="#495057" stroke-width="1.6" marker-end="url(#a-default)"/>
+<text x="476.5" y="416.0" font-size="11.5" fill="#495057" text-anchor="middle">approved</text>
+<path d="M390.0,517 L390.0,572" fill="none" stroke="#495057" stroke-width="1.6" marker-end="url(#a-default)"/>
+<path d="M390.0,643 L390.0,698" fill="none" stroke="#495057" stroke-width="1.6" marker-end="url(#a-default)"/>
+<path d="M390.0,769 L390.0,824" fill="none" stroke="#495057" stroke-width="1.6" marker-end="url(#a-default)"/>
+<path d="M390.0,889 L390.0,920.0 L217.0,920.0 L217.0,944" fill="none" stroke="#2f9e44" stroke-width="1.6" marker-end="url(#a-success)"/>
+<text x="303.5" y="914.0" font-size="11.5" fill="#2f9e44" text-anchor="middle">yes</text>
+<path d="M390.0,889 L390.0,920.0 L563.0,920.0 L563.0,944" fill="none" stroke="#c92a2a" stroke-width="1.6" marker-end="url(#a-failure)"/>
+<text x="476.5" y="914.0" font-size="11.5" fill="#c92a2a" text-anchor="middle">no</text>
+<path d="M217.0,1015 L217.0,1046.0 L390.0,1046.0 L390.0,1070" fill="none" stroke="#495057" stroke-width="1.6" marker-end="url(#a-default)"/>
+<path d="M217.0,391 L217.0,734.0 L390.0,734.0 L390.0,1070" fill="none" stroke="#2f9e44" stroke-width="1.6" marker-end="url(#a-success)"/>
+<text x="303.5" y="728.0" font-size="11.5" fill="#2f9e44" text-anchor="middle">fixture hit</text>
+<path d="M390.0,1141 L390.0,1196" fill="none" stroke="#495057" stroke-width="1.6" marker-end="url(#a-default)"/>
+<rect x="240" y="68" width="300" height="58" rx="9" fill="#e7f5ff" stroke="#1971c2" stroke-width="1.6"/>
+<text x="390.0" y="101.5" font-size="15" font-weight="600" fill="#1971c2" text-anchor="middle">build_imagine_client(mode=...)</text>
+<rect x="240" y="188" width="300" height="58" rx="9" fill="#fff9db" stroke="#e67700" stroke-width="1.6"/>
+<text x="390.0" y="221.5" font-size="15" font-weight="600" fill="#e67700" text-anchor="middle">Which mode?</text>
+<rect x="67" y="308" width="300" height="83" rx="9" fill="#ebfbee" stroke="#2f9e44" stroke-width="1.6"/>
+<text x="217.0" y="335.0" font-size="15" font-weight="600" fill="#2f9e44" text-anchor="middle">FixtureImagineClient</text>
+<text x="217.0" y="354.0" font-size="12.5" font-weight="400" fill="#2f9e44" text-anchor="middle">no credential, no socket</text>
+<text x="217.0" y="373.0" font-size="12.5" font-weight="400" fill="#2f9e44" text-anchor="middle">missing fixture is TERMINAL</text>
+<rect x="413" y="308" width="300" height="83" rx="9" fill="#fff5f5" stroke="#c92a2a" stroke-width="1.6"/>
+<text x="563.0" y="335.0" font-size="15" font-weight="600" fill="#c92a2a" text-anchor="middle">Recording / Live client</text>
+<text x="563.0" y="354.0" font-size="12.5" font-weight="400" fill="#c92a2a" text-anchor="middle">policy.approved and cap &gt; 0</text>
+<text x="563.0" y="373.0" font-size="12.5" font-weight="400" fill="#c92a2a" text-anchor="middle">else refused at construction</text>
+<rect x="240" y="453" width="300" height="64" rx="9" fill="#e7f5ff" stroke="#1971c2" stroke-width="1.6"/>
+<text x="390.0" y="480.0" font-size="15" font-weight="600" fill="#1971c2" text-anchor="middle">_admit_call</text>
+<text x="390.0" y="499.0" font-size="12.5" font-weight="400" fill="#1971c2" text-anchor="middle">max_calls, max_outputs, cost cap</text>
+<rect x="240" y="579" width="300" height="64" rx="9" fill="#e7f5ff" stroke="#1971c2" stroke-width="1.6"/>
+<text x="390.0" y="606.0" font-size="15" font-weight="600" fill="#1971c2" text-anchor="middle">ImagineTransport.invoke</text>
+<text x="390.0" y="625.0" font-size="12.5" font-weight="400" fill="#1971c2" text-anchor="middle">EXACTLY ONCE, no retry, no fallback</text>
+<rect x="240" y="705" width="300" height="64" rx="9" fill="#e7f5ff" stroke="#1971c2" stroke-width="1.6"/>
+<text x="390.0" y="732.0" font-size="15" font-weight="600" fill="#1971c2" text-anchor="middle">_validate_transport_result</text>
+<text x="390.0" y="751.0" font-size="12.5" font-weight="400" fill="#1971c2" text-anchor="middle">request id, model, moderation, latency</text>
+<rect x="240" y="831" width="300" height="58" rx="9" fill="#fff9db" stroke="#e67700" stroke-width="1.6"/>
+<text x="390.0" y="864.5" font-size="15" font-weight="600" fill="#e67700" text-anchor="middle">Did the provider report cost ticks?</text>
+<rect x="67" y="951" width="300" height="64" rx="9" fill="#f8f9fa" stroke="#343a40" stroke-width="1.6"/>
+<text x="217.0" y="978.0" font-size="15" font-weight="600" fill="#343a40" text-anchor="middle">CostMeasurement.known</text>
+<text x="217.0" y="997.0" font-size="12.5" font-weight="400" fill="#343a40" text-anchor="middle">budget WITHIN_LIMIT</text>
+<rect x="413" y="951" width="300" height="64" rx="9" fill="#fff5f5" stroke="#c92a2a" stroke-width="1.6"/>
+<text x="563.0" y="978.0" font-size="15" font-weight="600" fill="#c92a2a" text-anchor="middle">CostMeasurement.unknown</text>
+<text x="563.0" y="997.0" font-size="12.5" font-weight="400" fill="#c92a2a" text-anchor="middle">BLOCKS every later call</text>
+<rect x="240" y="1077" width="300" height="64" rx="9" fill="#ebfbee" stroke="#2f9e44" stroke-width="1.6"/>
+<text x="390.0" y="1104.0" font-size="15" font-weight="600" fill="#2f9e44" text-anchor="middle">Validate, hash, persist bytes</text>
+<text x="390.0" y="1123.0" font-size="12.5" font-weight="400" fill="#2f9e44" text-anchor="middle">content-addressed</text>
+<rect x="240" y="1203" width="300" height="58" rx="29.0" fill="#f3f0ff" stroke="#5f3dc4" stroke-width="1.6"/>
+<text x="390.0" y="1236.5" font-size="15" font-weight="600" fill="#5f3dc4" text-anchor="middle">ImagineCallResult</text>
+</svg>

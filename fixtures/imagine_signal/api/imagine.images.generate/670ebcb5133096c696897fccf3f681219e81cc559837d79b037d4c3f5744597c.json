@@ -1,0 +1,41 @@
+{
+  "assets": [
+    {
+      "byte_length": 739,
+      "content_type": "image/png",
+      "extension": "png",
+      "height": 192,
+      "media_sha256": "f760c2932b70e2f65196ec13359f07eef6f5a916fa5684f499abb12b18916400",
+      "width": 192
+    }
+  ],
+  "format_version": 1,
+  "request": {
+    "aspect_ratio": "1:1",
+    "data_classification": "synthetic",
+    "model": "grok-imagine-image-2026-03-02",
+    "n": 1,
+    "prompt": "Fictional Orbit Bottle ad. Preserve the product, logo, composition, and text. Use the approved neutral background tone.",
+    "resolution": "1k",
+    "schema_version": "1.0"
+  },
+  "request_sha256": "670ebcb5133096c696897fccf3f681219e81cc559837d79b037d4c3f5744597c",
+  "response_metadata": {
+    "budget_status": "WITHIN_LIMIT",
+    "cost": {
+      "status": "KNOWN",
+      "ticks": 0
+    },
+    "error_code": null,
+    "generator_id": "imagine-signal-orbit-raster-v1",
+    "latency_ms": 0,
+    "moderation_respected": true,
+    "provider_model_requested": "grok-imagine-image-2026-03-02",
+    "provider_model_resolved": "synthetic-fixture-renderer-v1",
+    "provider_request_id": "synthetic-orbit-neutral-v1",
+    "response_origin": "SYNTHETIC_FIXTURE",
+    "state": "COMPLETED"
+  },
+  "response_sha256": "963a8ec5b14b0d2879ccd2d4d82666147e33c15d4703b044312fd4a67065e79f",
+  "surface": "imagine.images.generate"
+}
