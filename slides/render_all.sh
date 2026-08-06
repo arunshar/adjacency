@@ -10,7 +10,7 @@ mkdir -p slides_png
 if [[ "$#" -gt 0 ]]; then
   IDS=("$@")
 else
-  IDS=(1 2 3 4 5 6 7 8 9)
+  IDS=(1 2 3 4 5 6 7 8 9 10 11 12 13)
 fi
 
 for id in "${IDS[@]}"; do

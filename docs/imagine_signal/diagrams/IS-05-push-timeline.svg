@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 1430" role="img" aria-label="IS-05  Saturday 2026-08-08 push timeline: what lands when, and why" style="max-width:100%;height:auto;font-family:ui-sans-serif,system-ui,sans-serif">
+<defs>
+<marker id="a-default" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 z" fill="#495057"/></marker>
+<marker id="a-success" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 z" fill="#2f9e44"/></marker>
+<marker id="a-failure" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 z" fill="#c92a2a"/></marker>
+<marker id="a-warning" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 z" fill="#e67700"/></marker>
+<marker id="a-info" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 z" fill="#1971c2"/></marker>
+</defs>
+<text x="34" y="24" font-size="16" font-weight="700" fill="var(--dg-ink,#212529)">IS-05  Saturday 2026-08-08 push timeline: what lands when, and why</text>
+<path d="M390.0,132 L390.0,187" fill="none" stroke="#495057" stroke-width="1.6" marker-end="url(#a-default)"/>
+<text x="397.0" y="163.0" font-size="11.5" fill="#495057" text-anchor="middle">immediately</text>
+<path d="M390.0,258 L390.0,313" fill="none" stroke="#2f9e44" stroke-width="1.6" marker-end="url(#a-success)"/>
+<text x="397.0" y="289.0" font-size="11.5" fill="#2f9e44" text-anchor="middle">once CI is green</text>
+<path d="M390.0,384 L390.0,439" fill="none" stroke="#495057" stroke-width="1.6" marker-end="url(#a-default)"/>
+<path d="M390.0,510 L390.0,565" fill="none" stroke="#495057" stroke-width="1.6" marker-end="url(#a-default)"/>
+<text x="397.0" y="541.0" font-size="11.5" fill="#495057" text-anchor="middle">field names known</text>
+<path d="M390.0,636 L390.0,691" fill="none" stroke="#2f9e44" stroke-width="1.6" marker-end="url(#a-success)"/>
+<text x="397.0" y="667.0" font-size="11.5" fill="#2f9e44" text-anchor="middle">suite green</text>
+<path d="M390.0,762 L390.0,817" fill="none" stroke="#495057" stroke-width="1.6" marker-end="url(#a-default)"/>
+<path d="M390.0,888 L390.0,943" fill="none" stroke="#495057" stroke-width="1.6" marker-end="url(#a-default)"/>
+<path d="M390.0,1014 L390.0,1069" fill="none" stroke="#495057" stroke-width="1.6" marker-end="url(#a-default)"/>
+<path d="M390.0,1140 L390.0,1195" fill="none" stroke="#495057" stroke-width="1.6" marker-end="url(#a-default)"/>
+<path d="M390.0,1260 L390.0,1291.0 L217.0,1291.0 L217.0,1315" fill="none" stroke="#2f9e44" stroke-width="1.6" marker-end="url(#a-success)"/>
+<text x="303.5" y="1285.0" font-size="11.5" fill="#2f9e44" text-anchor="middle">ship</text>
+<path d="M390.0,1260 L390.0,1291.0 L563.0,1291.0 L563.0,1315" fill="none" stroke="#c92a2a" stroke-width="1.6" marker-end="url(#a-failure)"/>
+<text x="476.5" y="1285.0" font-size="11.5" fill="#c92a2a" text-anchor="middle">anything broken</text>
+<rect x="240" y="68" width="300" height="64" rx="9" fill="#e7f5ff" stroke="#1971c2" stroke-width="1.6"/>
+<text x="390.0" y="95.0" font-size="15" font-weight="600" fill="#1971c2" text-anchor="middle">09:00  C1 canary branch</text>
+<text x="390.0" y="114.0" font-size="12.5" font-weight="400" fill="#1971c2" text-anchor="middle">everything already green ships first</text>
+<rect x="240" y="194" width="300" height="64" rx="9" fill="#fff5f5" stroke="#c92a2a" stroke-width="1.6"/>
+<text x="390.0" y="221.0" font-size="15" font-weight="600" fill="#c92a2a" text-anchor="middle">Draft PR into main</text>
+<text x="390.0" y="240.0" font-size="12.5" font-weight="400" fill="#c92a2a" text-anchor="middle">WITHOUT THIS, CI NEVER RUNS</text>
+<rect x="240" y="320" width="300" height="64" rx="9" fill="#ebfbee" stroke="#2f9e44" stroke-width="1.6"/>
+<text x="390.0" y="347.0" font-size="15" font-weight="600" fill="#2f9e44" text-anchor="middle">Tag v0.3.0-canary</text>
+<text x="390.0" y="366.0" font-size="12.5" font-weight="400" fill="#2f9e44" text-anchor="middle">a demoable commit now exists</text>
+<rect x="240" y="446" width="300" height="64" rx="9" fill="#e7f5ff" stroke="#1971c2" stroke-width="1.6"/>
+<text x="390.0" y="473.0" font-size="15" font-weight="600" fill="#1971c2" text-anchor="middle">10:00  C2 provider field map</text>
+<text x="390.0" y="492.0" font-size="12.5" font-weight="400" fill="#1971c2" text-anchor="middle">COST_LEDGER filled from one real call</text>
+<rect x="240" y="572" width="300" height="64" rx="9" fill="#e7f5ff" stroke="#1971c2" stroke-width="1.6"/>
+<text x="390.0" y="599.0" font-size="15" font-weight="600" fill="#1971c2" text-anchor="middle">11:30  C3 live transport</text>
+<text x="390.0" y="618.0" font-size="12.5" font-weight="400" fill="#1971c2" text-anchor="middle">extract + invoke, xfail markers deleted</text>
+<rect x="240" y="698" width="300" height="64" rx="9" fill="#ebfbee" stroke="#2f9e44" stroke-width="1.6"/>
+<text x="390.0" y="725.0" font-size="15" font-weight="600" fill="#2f9e44" text-anchor="middle">Tag v0.3.1-canary</text>
+<text x="390.0" y="744.0" font-size="12.5" font-weight="400" fill="#2f9e44" text-anchor="middle">live path proven</text>
+<rect x="240" y="824" width="300" height="64" rx="9" fill="#e7f5ff" stroke="#1971c2" stroke-width="1.6"/>
+<text x="390.0" y="851.0" font-size="15" font-weight="600" fill="#1971c2" text-anchor="middle">13:00  C4 first real family</text>
+<text x="390.0" y="870.0" font-size="12.5" font-weight="400" fill="#1971c2" text-anchor="middle">one controlled family, real receipt</text>
+<rect x="240" y="950" width="300" height="64" rx="9" fill="#fff5f5" stroke="#c92a2a" stroke-width="1.6"/>
+<text x="390.0" y="977.0" font-size="15" font-weight="600" fill="#c92a2a" text-anchor="middle">15:00  C5 demo surface</text>
+<text x="390.0" y="996.0" font-size="12.5" font-weight="400" fill="#c92a2a" text-anchor="middle">TIME-BOXED, does not exist yet</text>
+<rect x="240" y="1076" width="300" height="64" rx="9" fill="#e7f5ff" stroke="#1971c2" stroke-width="1.6"/>
+<text x="390.0" y="1103.0" font-size="15" font-weight="600" fill="#1971c2" text-anchor="middle">17:00  C6 theme alignment</text>
+<text x="390.0" y="1122.0" font-size="12.5" font-weight="400" fill="#1971c2" text-anchor="middle">built on the existing gates</text>
+<rect x="240" y="1202" width="300" height="58" rx="9" fill="#fff9db" stroke="#e67700" stroke-width="1.6"/>
+<text x="390.0" y="1235.5" font-size="15" font-weight="600" fill="#e67700" text-anchor="middle">21:00  FEATURE FREEZE</text>
+<rect x="67" y="1322" width="300" height="64" rx="32.0" fill="#f3f0ff" stroke="#5f3dc4" stroke-width="1.6"/>
+<text x="217.0" y="1349.0" font-size="15" font-weight="600" fill="#5f3dc4" text-anchor="middle">Final tag + submission</text>
+<text x="217.0" y="1368.0" font-size="12.5" font-weight="400" fill="#5f3dc4" text-anchor="middle">digests recorded</text>
+<rect x="413" y="1322" width="300" height="64" rx="9" fill="#fff5f5" stroke="#c92a2a" stroke-width="1.6"/>
+<text x="563.0" y="1349.0" font-size="15" font-weight="600" fill="#c92a2a" text-anchor="middle">FALLBACK at any hour</text>
+<text x="563.0" y="1368.0" font-size="12.5" font-weight="400" fill="#c92a2a" text-anchor="middle">frozen tag + offline demo, wifi off</text>
+</svg>

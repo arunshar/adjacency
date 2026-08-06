@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ImagineSignal system design</title>
+<style>
+:root{--bg:#fbfcfd;--panel:#fff;--ink:#1a2027;--dim:#5b6b7b;--line:#e3e8ee;
+--acc:#1971c2;--ok:#2f9e44;--warn:#e67700;--bad:#c92a2a;--chip:#eef3f8;
+--dg-ink:#1a2027;--dg-dim:#868e96;--code:#f1f3f5;
+--shadow:0 1px 2px rgba(20,40,60,.06),0 8px 24px rgba(20,40,60,.06)}
+@media (prefers-color-scheme:dark){:root{--bg:#0f151b;--panel:#151d25;--ink:#e6edf3;--dim:#9fb0c0;
+--line:#232e39;--acc:#63b3ed;--ok:#51cf66;--warn:#fcc419;--bad:#ff8787;--chip:#18242f;
+--dg-ink:#e6edf3;--dg-dim:#8b98a5;--code:#111a22;--shadow:0 1px 2px rgba(0,0,0,.5)}}
+:root[data-theme=light]{--bg:#fbfcfd;--panel:#fff;--ink:#1a2027;--dim:#5b6b7b;--line:#e3e8ee;
+--acc:#1971c2;--chip:#eef3f8;--dg-ink:#1a2027;--dg-dim:#868e96;--code:#f1f3f5}
+:root[data-theme=dark]{--bg:#0f151b;--panel:#151d25;--ink:#e6edf3;--dim:#9fb0c0;--line:#232e39;
+--acc:#63b3ed;--ok:#51cf66;--warn:#fcc419;--bad:#ff8787;--chip:#18242f;--dg-ink:#e6edf3;
+--dg-dim:#8b98a5;--code:#111a22}
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);
+font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.wrap{max-width:1000px;margin:0 auto;padding:40px 22px 100px}
+header{border-bottom:2px solid var(--line);padding-bottom:18px;margin-bottom:8px}
+h1{font-size:30px;margin:0 0 6px;letter-spacing:-.02em}
+.sub{color:var(--dim);font-size:15px;margin:0}
+h2{font-size:22px;margin:44px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--line)}
+h3{font-size:17px;margin:26px 0 6px;color:var(--acc)}
+p{margin:10px 0}
+code{background:var(--code);padding:1.5px 6px;border-radius:5px;font-size:13.5px;
+font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+pre{background:var(--code);border:1px solid var(--line);border-radius:10px;padding:13px 15px;
+overflow-x:auto;font-size:13px;line-height:1.55}
+pre code{background:none;padding:0}
+table{border-collapse:collapse;width:100%;margin:14px 0;font-size:14.5px;display:block;overflow-x:auto}
+th,td{border:1px solid var(--line);padding:8px 11px;text-align:left;vertical-align:top}
+th{background:var(--chip);font-weight:600}
+figure{margin:22px 0;background:var(--panel);border:1px solid var(--line);border-radius:14px;
+padding:20px;box-shadow:var(--shadow);overflow-x:auto}
+figure svg,figure img{display:block;max-width:100%;height:auto;margin:0 auto}
+figcaption{color:var(--dim);font-size:13.5px;margin-top:14px;text-align:center;line-height:1.5}
+.note{border-left:4px solid var(--acc);background:var(--chip);padding:11px 15px;
+border-radius:0 10px 10px 0;margin:16px 0}
+.note.bad{border-color:var(--bad)}.note.ok{border-color:var(--ok)}.note.warn{border-color:var(--warn)}
+.note b{color:var(--acc)}.note.bad b{color:var(--bad)}.note.ok b{color:var(--ok)}
+.note.warn b{color:var(--warn)}
+.kpi{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0}
+.kpi div{flex:1;min-width:150px;background:var(--panel);border:1px solid var(--line);
+border-radius:12px;padding:12px 14px;box-shadow:var(--shadow)}
+.kpi b{display:block;font-size:21px;color:var(--acc)}
+.kpi span{font-size:12.5px;color:var(--dim)}
+.toc{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 20px;
+margin:22px 0;box-shadow:var(--shadow)}
+.toc ol{margin:6px 0;padding-left:20px}.toc a{color:var(--acc);text-decoration:none}
+.toc a:hover{text-decoration:underline}
+a{color:var(--acc)}
+.tag{display:inline-block;background:var(--chip);color:var(--acc);border-radius:20px;
+padding:1px 9px;font-size:12px;font-weight:700}
+footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--line);color:var(--dim);font-size:13.5px}
+@media (max-width:700px){.wrap{padding:22px 14px 70px}h1{font-size:24px}}
+</style></head><body>
+<div class="wrap">
+<header>
+<h1>ImagineSignal system design</h1>
+<p class="sub">Controlled creative mutation for ad imagery, with the evidence discipline enforced in
+code. Offline MVP, production <b>NO_GO</b>, action ceiling <b>TEST</b>. Written 2026-08-05 against
+<code>main</code> at <code>cd218dd</code>.</p>
+</header>
+
+<div class="kpi">
+<div><b>448</b><span>tests passing, 2 xfailed</span></div>
+<div><b>100%</b><span>line and branch on the decision core</span></div>
+<div><b>304</b><span>documented symbols</span></div>
+<div><b>1</b><span>method between here and xAI</span></div>
+</div>
+
+<div class="toc"><b>Contents</b>
+<ol>
+<li><a href="#what">What the system does</a></li>
+<li><a href="#hld">High-level design</a></li>
+<li><a href="#lld">Component design</a></li>
+<li><a href="#seam">The transport seam and the cost interlock</a></li>
+<li><a href="#gates">The gate chain and the evidence ceiling</a></li>
+<li><a href="#life">Request lifecycle</a></li>
+<li><a href="#trust">Trust boundaries</a></li>
+<li><a href="#fail">Failure behavior</a></li>
+<li><a href="#plan">Saturday push timeline</a></li>
+</ol></div>
+
+<h2 id="what">1. What the system does</h2>
+<p>An advertiser has one approved ad image. The obvious move is to generate fifty more. You then have
+fifty images and no idea which difference mattered, what it cost, or whether you are allowed to say
+anything about it.</p>
+<p>ImagineSignal builds a small family in which <b>exactly one declared visual choice changes at a
+time</b>, with product, logo, composition and text locked and verified byte-identical. It records
+lineage and actual cost, joins clearly labeled outcome evidence, and passes every conclusion through
+nine deterministic gates before recommending anything.</p>
+<p>The output is not an image. It is a decision receipt: keep, edit, test, hold, review, or stop,
+with the evidence class that justified it attached.</p>
+<div class="note ok"><b>The design claim.</b> The interesting engineering is not generation. It is
+that the system refuses to claim more than its evidence supports, and the refusal is enforced by
+types and pure functions rather than by a style guide.</div>
+
+<h2 id="hld">2. High-level design</h2>
+<figure><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 1071" role="img" aria-label="IS-01  Context and high-level design (offline MVP path)" style="max-width:100%;height:auto;font-family:ui-sans-serif,system-ui,sans-serif">
+<defs>
+<marker id="a-default" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 z" fill="#495057"/></marker>
+<marker id="a-success" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 z" fill="#2f9e44"/></marker>
+<marker id="a-failure" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 z" fill="#c92a2a"/></marker>
+<marker id="a-warning" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 z" fill="#e67700"/></marker>
+<marker id="a-info" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 z" fill="#1971c2"/></marker>
+</defs>
+<text x="34" y="24" font-size="16" font-weight="700" fill="var(--dg-ink,#212529)">IS-01  Context and high-level design (offline MVP path)</text>
+<rect x="220" y="164" width="340" height="881" rx="10" fill="none" stroke="#adb5bd" stroke-width="1.2" stroke-dasharray="6 5"/>
+<text x="230" y="157" font-size="11.5" fill="var(--dg-dim,#868e96)">src/adjacency/imagine_signal   production NO_GO, action ceiling TEST</text>
+<path d="M390.0,132 L390.0,187" fill="none" stroke="#495057" stroke-width="1.6" marker-end="url(#a-default)"/>
+<text x="397.0" y="163.0" font-size="11.5" fill="#495057" text-anchor="middle">brief + locked attrs</text>
+<path d="M390.0,258 L390.0,313" fill="none" stroke="#495057" stroke-width="1.6" marker-end="url(#a-default)"/>
+<text x="397.0" y="289.0" font-size="11.5" fill="#495057" text-anchor="middle">one request per level</text>
+<path d="M390.0,403 L390.0,458" fill="none" stroke="#2f9e44" stroke-width="1.6" marker-end="url(#a-success)"/>
+<text x="397.0" y="434.0" font-size="11.5" fill="#2f9e44" text-anchor="middle">REPLAY default</text>
+<path d="M390.0,529 L390.0,584" fill="none" stroke="#495057" stroke-width="1.6" marker-end="url(#a-default)"/>
+<text x="397.0" y="560.0" font-size="11.5" fill="#495057" text-anchor="middle">verified bytes</text>
+<path d="M390.0,655 L390.0,710" fill="none" stroke="#495057" stroke-width="1.6" marker-end="url(#a-default)"/>
+<path d="M390.0,781 L390.0,836" fill="none" stroke="#495057" stroke-width="1.6" marker-end="url(#a-default)"/>
+<text x="397.0" y="812.0" font-size="11.5" fill="#495057" text-anchor="middle">evidence-capped</text>
+<path d="M390.0,907 L390.0,962" fill="none" stroke="#495057" stroke-width="1.6" marker-end="url(#a-default)"/>
+<rect x="240" y="68" width="300" height="64" rx="9" fill="#e3fafc" stroke="#0b7285" stroke-width="1.6"/>
+<text x="390.0" y="95.0" font-size="15" font-weight="600" fill="#0b7285" text-anchor="middle">Advertiser</text>
+<text x="390.0" y="114.0" font-size="12.5" font-weight="400" fill="#0b7285" text-anchor="middle">approved base image + brief</text>
+<rect x="240" y="194" width="300" height="64" rx="9" fill="#e7f5ff" stroke="#1971c2" stroke-width="1.6"/>
+<text x="390.0" y="221.0" font-size="15" font-weight="600" fill="#1971c2" text-anchor="middle">Mutation planner</text>
+<text x="390.0" y="240.0" font-size="12.5" font-weight="400" fill="#1971c2" text-anchor="middle">exactly one declared axis changes</text>
+<rect x="240" y="320" width="300" height="83" rx="9" fill="#e7f5ff" stroke="#1971c2" stroke-width="1.6"/>
+<text x="390.0" y="347.0" font-size="15" font-weight="600" fill="#1971c2" text-anchor="middle">ImagineTransport port</text>
+<text x="390.0" y="366.0" font-size="12.5" font-weight="400" fill="#1971c2" text-anchor="middle">the ONLY provider seam</text>
+<text x="390.0" y="385.0" font-size="12.5" font-weight="400" fill="#1971c2" text-anchor="middle">REPLAY default / RECORD / LIVE</text>
+<rect x="240" y="465" width="300" height="64" rx="9" fill="#ebfbee" stroke="#2f9e44" stroke-width="1.6"/>
+<text x="390.0" y="492.0" font-size="15" font-weight="600" fill="#2f9e44" text-anchor="middle">Frozen fixtures</text>
+<text x="390.0" y="511.0" font-size="12.5" font-weight="400" fill="#2f9e44" text-anchor="middle">replay, no credential, no socket</text>
+<rect x="240" y="591" width="300" height="64" rx="9" fill="#ebfbee" stroke="#2f9e44" stroke-width="1.6"/>
+<text x="390.0" y="618.0" font-size="15" font-weight="600" fill="#2f9e44" text-anchor="middle">Asset store</text>
+<text x="390.0" y="637.0" font-size="12.5" font-weight="400" fill="#2f9e44" text-anchor="middle">content-addressed SHA-256</text>
+<rect x="240" y="717" width="300" height="64" rx="9" fill="#e7f5ff" stroke="#1971c2" stroke-width="1.6"/>
+<text x="390.0" y="744.0" font-size="15" font-weight="600" fill="#1971c2" text-anchor="middle">Gates IS0 to IS8</text>
+<text x="390.0" y="763.0" font-size="12.5" font-weight="400" fill="#1971c2" text-anchor="middle">deterministic, fail closed</text>
+<rect x="240" y="843" width="300" height="64" rx="9" fill="#ebfbee" stroke="#2f9e44" stroke-width="1.6"/>
+<text x="390.0" y="870.0" font-size="15" font-weight="600" fill="#2f9e44" text-anchor="middle">Decision receipt</text>
+<text x="390.0" y="889.0" font-size="12.5" font-weight="400" fill="#2f9e44" text-anchor="middle">append-once, digest-linked</text>
+<rect x="240" y="969" width="300" height="58" rx="29.0" fill="#f3f0ff" stroke="#5f3dc4" stroke-width="1.6"/>
+<text x="390.0" y="1002.5" font-size="15" font-weight="600" fill="#5f3dc4" text-anchor="middle">keep / edit / test / hold / review / stop</text>
+</svg><figcaption>IS-01. The offline MVP path. Replay is the default and needs no credential. The live provider plugs in at the transport port, shown in detail in section 4.</figcaption></figure>
+<p>Base Adjacency (gates <code>G0</code> to <code>G6</code>) is untouched. ImagineSignal is isolated
+under <code>src/adjacency/imagine_signal/</code> with gates <code>IS0</code> to <code>IS8</code> and
+its own canonical hashing, so its contracts can evolve without moving existing hash vectors.</p>
+
+<h2 id="lld">3. Component design</h2>
+<figure><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 1184" role="img" aria-label="IS-02  Component low-level design: dependencies point downward" style="max-width:100%;height:auto;font-family:ui-sans-serif,system-ui,sans-serif">
+<defs>
+<marker id="a-default" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 z" fill="#495057"/></marker>
+<marker id="a-success" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 z" fill="#2f9e44"/></marker>
+<marker id="a-failure" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 z" fill="#c92a2a"/></marker>
+<marker id="a-warning" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 z" fill="#e67700"/></marker>
+<marker id="a-info" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 z" fill="#1971c2"/></marker>
+</defs>
+<text x="34" y="24" font-size="16" font-weight="700" fill="var(--dg-ink,#212529)">IS-02  Component low-level design: dependencies point downward</text>
+<rect x="220" y="38" width="340" height="238" rx="10" fill="none" stroke="#adb5bd" stroke-width="1.2" stroke-dasharray="6 5"/>
+<text x="230" y="31" font-size="11.5" fill="var(--dg-dim,#868e96)">Orchestration</text>
+<rect x="47" y="290" width="686" height="364" rx="10" fill="none" stroke="#adb5bd" stroke-width="1.2" stroke-dasharray="6 5"/>
+<text x="57" y="283" font-size="11.5" fill="var(--dg-dim,#868e96)">I/O and adapters   the gates are the safety net, so coverage is lower here on purpose</text>
+<rect x="47" y="668" width="686" height="490" rx="10" fill="none" stroke="#adb5bd" stroke-width="1.2" stroke-dasharray="6 5"/>
+<text x="57" y="661" font-size="11.5" fill="var(--dg-dim,#868e96)">Pure decision core   held at 100 percent line and branch in CI</text>
+<path d="M390.0,132 L390.0,187" fill="none" stroke="#495057" stroke-width="1.6" marker-end="url(#a-default)"/>
+<path d="M390.0,258 L390.0,289.0 L217.0,289.0 L217.0,313" fill="none" stroke="#495057" stroke-width="1.6" marker-end="url(#a-default)"/>
+<path d="M390.0,258 L390.0,289.0 L563.0,289.0 L563.0,313" fill="none" stroke="#495057" stroke-width="1.6" marker-end="url(#a-default)"/>
+<path d="M217.0,384 L217.0,439" fill="none" stroke="#495057" stroke-width="1.6" marker-end="url(#a-default)"/>
+<path d="M563.0,384 L563.0,439" fill="none" stroke="#495057" stroke-width="1.6" marker-end="url(#a-default)"/>
+<path d="M217.0,510 L217.0,565" fill="none" stroke="#495057" stroke-width="1.6" marker-end="url(#a-default)"/>
+<path d="M563.0,510 L563.0,565" fill="none" stroke="#1971c2" stroke-width="1.6" marker-end="url(#a-info)"/>
+<path d="M217.0,636 L217.0,667.0 L390.0,667.0 L390.0,691" fill="none" stroke="#495057" stroke-width="1.6" marker-end="url(#a-default)"/>
+<path d="M390.0,762 L390.0,793.0 L217.0,793.0 L217.0,817" fill="none" stroke="#495057" stroke-width="1.6" marker-end="url(#a-default)"/>
+<path d="M390.0,762 L390.0,793.0 L563.0,793.0 L563.0,817" fill="none" stroke="#495057" stroke-width="1.6" marker-end="url(#a-default)"/>
+<path d="M217.0,888 L217.0,943" fill="none" stroke="#495057" stroke-width="1.6" marker-end="url(#a-default)"/>
+<path d="M563.0,888 L563.0,943" fill="none" stroke="#495057" stroke-width="1.6" marker-end="url(#a-default)"/>
+<path d="M217.0,1014 L217.0,1069" fill="none" stroke="#495057" stroke-width="1.6" marker-end="url(#a-default)"/>
+<path d="M563.0,1014 L563.0,1069" fill="none" stroke="#495057" stroke-width="1.6" marker-end="url(#a-default)"/>
+<rect x="240" y="68" width="300" height="64" rx="9" fill="#e7f5ff" stroke="#1971c2" stroke-width="1.6"/>
+<text x="390.0" y="95.0" font-size="15" font-weight="600" fill="#1971c2" text-anchor="middle">demo.py</text>
+<text x="390.0" y="114.0" font-size="12.5" font-weight="400" fill="#1971c2" text-anchor="middle">deterministic artifact writer</text>
+<rect x="240" y="194" width="300" height="64" rx="9" fill="#e7f5ff" stroke="#1971c2" stroke-width="1.6"/>
+<text x="390.0" y="221.0" font-size="15" font-weight="600" fill="#1971c2" text-anchor="middle">service.py</text>
+<text x="390.0" y="240.0" font-size="12.5" font-weight="400" fill="#1971c2" text-anchor="middle">OfflineImagineSignalService.run</text>
+<rect x="67" y="320" width="300" height="64" rx="9" fill="#e7f5ff" stroke="#1971c2" stroke-width="1.6"/>
+<text x="217.0" y="347.0" font-size="15" font-weight="600" fill="#1971c2" text-anchor="middle">imagine_client.py</text>
+<text x="217.0" y="366.0" font-size="12.5" font-weight="400" fill="#1971c2" text-anchor="middle">Fixture / Recording / Live</text>
+<rect x="413" y="320" width="300" height="64" rx="9" fill="#e7f5ff" stroke="#1971c2" stroke-width="1.6"/>
+<text x="563.0" y="347.0" font-size="15" font-weight="600" fill="#1971c2" text-anchor="middle">auction.py</text>
+<text x="563.0" y="366.0" font-size="12.5" font-weight="400" fill="#1971c2" text-anchor="middle">1305 lines, SIMULATED</text>
+<rect x="67" y="446" width="300" height="64" rx="9" fill="#ebfbee" stroke="#2f9e44" stroke-width="1.6"/>
+<text x="217.0" y="473.0" font-size="15" font-weight="600" fill="#2f9e44" text-anchor="middle">adapters/fixture_blobs.py</text>
+<text x="217.0" y="492.0" font-size="12.5" font-weight="400" fill="#2f9e44" text-anchor="middle">BinaryFixtureStore, secret scan</text>
+<rect x="413" y="446" width="300" height="64" rx="9" fill="#ebfbee" stroke="#2f9e44" stroke-width="1.6"/>
+<text x="563.0" y="473.0" font-size="15" font-weight="600" fill="#2f9e44" text-anchor="middle">outcomes.py</text>
+<text x="563.0" y="492.0" font-size="12.5" font-weight="400" fill="#2f9e44" text-anchor="middle">append_once, snapshot join</text>
+<rect x="67" y="572" width="300" height="64" rx="9" fill="#ebfbee" stroke="#2f9e44" stroke-width="1.6"/>
+<text x="217.0" y="599.0" font-size="15" font-weight="600" fill="#2f9e44" text-anchor="middle">assets.py</text>
+<text x="217.0" y="618.0" font-size="12.5" font-weight="400" fill="#2f9e44" text-anchor="middle">PNG / JPEG header parse, put</text>
+<rect x="413" y="572" width="300" height="64" rx="9" fill="#fff5f5" stroke="#c92a2a" stroke-width="1.6"/>
+<text x="563.0" y="599.0" font-size="15" font-weight="600" fill="#c92a2a" text-anchor="middle">adapters/xai_live.py</text>
+<text x="563.0" y="618.0" font-size="12.5" font-weight="400" fill="#c92a2a" text-anchor="middle">SKELETON, 2 NotImplemented</text>
+<rect x="240" y="698" width="300" height="64" rx="9" fill="#f8f9fa" stroke="#343a40" stroke-width="1.6"/>
+<text x="390.0" y="725.0" font-size="15" font-weight="600" fill="#343a40" text-anchor="middle">gates.py</text>
+<text x="390.0" y="744.0" font-size="12.5" font-weight="400" fill="#343a40" text-anchor="middle">is0_request_budget ... is8_evidence_action</text>
+<rect x="67" y="824" width="300" height="64" rx="9" fill="#f8f9fa" stroke="#343a40" stroke-width="1.6"/>
+<text x="217.0" y="851.0" font-size="15" font-weight="600" fill="#343a40" text-anchor="middle">mutations.py</text>
+<text x="217.0" y="870.0" font-size="12.5" font-weight="400" fill="#343a40" text-anchor="middle">validate_controlled_family</text>
+<rect x="413" y="824" width="300" height="64" rx="9" fill="#f8f9fa" stroke="#343a40" stroke-width="1.6"/>
+<text x="563.0" y="851.0" font-size="15" font-weight="600" fill="#343a40" text-anchor="middle">decisions.py</text>
+<text x="563.0" y="870.0" font-size="12.5" font-weight="400" fill="#343a40" text-anchor="middle">evidence ceiling, action resolution</text>
+<rect x="67" y="950" width="300" height="64" rx="9" fill="#e7f5ff" stroke="#1971c2" stroke-width="1.6"/>
+<text x="217.0" y="977.0" font-size="15" font-weight="600" fill="#1971c2" text-anchor="middle">ports.py</text>
+<text x="217.0" y="996.0" font-size="12.5" font-weight="400" fill="#1971c2" text-anchor="middle">ImagineTransport, ExternalCallPolicy</text>
+<rect x="413" y="950" width="300" height="64" rx="9" fill="#f8f9fa" stroke="#343a40" stroke-width="1.6"/>
+<text x="563.0" y="977.0" font-size="15" font-weight="600" fill="#343a40" text-anchor="middle">contracts.py</text>
+<text x="563.0" y="996.0" font-size="12.5" font-weight="400" fill="#343a40" text-anchor="middle">26 frozen models, 213 fields</text>
+<rect x="67" y="1076" width="300" height="64" rx="9" fill="#f8f9fa" stroke="#343a40" stroke-width="1.6"/>
+<text x="217.0" y="1103.0" font-size="15" font-weight="600" fill="#343a40" text-anchor="middle">canonical.py</text>
+<text x="217.0" y="1122.0" font-size="12.5" font-weight="400" fill="#343a40" text-anchor="middle">canonical_json, content_sha256</text>
+<rect x="413" y="1076" width="300" height="64" rx="9" fill="#f8f9fa" stroke="#343a40" stroke-width="1.6"/>
+<text x="563.0" y="1103.0" font-size="15" font-weight="600" fill="#343a40" text-anchor="middle">receipts.py</text>
+<text x="563.0" y="1122.0" font-size="12.5" font-weight="400" fill="#343a40" text-anchor="middle">build_decision_receipt</text>
+</svg><figcaption>IS-02. Dependencies point downward. Nothing in an upper layer is imported by a lower one.</figcaption></figure>
+<div class="note"><b>Asymmetric coverage, on purpose.</b> The pure core is held at 100 percent line
+and branch in CI. The I/O layers sit against a 55 percent floor. A bad verdict from a badly written
+I/O layer still gets caught by the gates, so exhaustive branch coverage there buys much less. The
+gates are the safety net, so the gates are what gets tested exhaustively.</div>
+
+<h2 id="seam">4. The transport seam and the cost interlock</h2>
+<p>The entire provider integration is one Protocol with one method:</p>
+<pre><code>class ImagineTransport(Protocol):
+    def invoke(self, *, operation, request) -&gt; TransportResult: ...</code></pre>
+<figure><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 1305" role="img" aria-label="IS-03  The transport seam: three modes and the cost interlock" style="max-width:100%;height:auto;font-family:ui-sans-serif,system-ui,sans-serif">
+<defs>
+<marker id="a-default" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 z" fill="#495057"/></marker>
+<marker id="a-success" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 z" fill="#2f9e44"/></marker>
+<marker id="a-failure" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 z" fill="#c92a2a"/></marker>
+<marker id="a-warning" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 z" fill="#e67700"/></marker>
+<marker id="a-info" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 z" fill="#1971c2"/></marker>
+</defs>
+<text x="34" y="24" font-size="16" font-weight="700" fill="var(--dg-ink,#212529)">IS-03  The transport seam: three modes and the cost interlock</text>
+<path d="M390.0,126 L390.0,181" fill="none" stroke="#495057" stroke-width="1.6" marker-end="url(#a-default)"/>
+<path d="M390.0,246 L390.0,277.0 L217.0,277.0 L217.0,301" fill="none" stroke="#2f9e44" stroke-width="1.6" marker-end="url(#a-success)"/>
+<text x="303.5" y="271.0" font-size="11.5" fill="#2f9e44" text-anchor="middle">REPLAY</text>
+<path d="M390.0,246 L390.0,277.0 L563.0,277.0 L563.0,301" fill="none" stroke="#e67700" stroke-width="1.6" marker-end="url(#a-warning)"/>
+<text x="476.5" y="271.0" font-size="11.5" fill="#e67700" text-anchor="middle">RECORD / LIVE</text>
+<path d="M563.0,391 L563.0,422.0 L390.0,422.0 L390.0,446" fill="none" stroke="#495057" stroke-width="1.6" marker-end="url(#a-default)"/>
+<text x="476.5" y="416.0" font-size="11.5" fill="#495057" text-anchor="middle">approved</text>
+<path d="M390.0,517 L390.0,572" fill="none" stroke="#495057" stroke-width="1.6" marker-end="url(#a-default)"/>
+<path d="M390.0,643 L390.0,698" fill="none" stroke="#495057" stroke-width="1.6" marker-end="url(#a-default)"/>
+<path d="M390.0,769 L390.0,824" fill="none" stroke="#495057" stroke-width="1.6" marker-end="url(#a-default)"/>
+<path d="M390.0,889 L390.0,920.0 L217.0,920.0 L217.0,944" fill="none" stroke="#2f9e44" stroke-width="1.6" marker-end="url(#a-success)"/>
+<text x="303.5" y="914.0" font-size="11.5" fill="#2f9e44" text-anchor="middle">yes</text>
+<path d="M390.0,889 L390.0,920.0 L563.0,920.0 L563.0,944" fill="none" stroke="#c92a2a" stroke-width="1.6" marker-end="url(#a-failure)"/>
+<text x="476.5" y="914.0" font-size="11.5" fill="#c92a2a" text-anchor="middle">no</text>
+<path d="M217.0,1015 L217.0,1046.0 L390.0,1046.0 L390.0,1070" fill="none" stroke="#495057" stroke-width="1.6" marker-end="url(#a-default)"/>
+<path d="M217.0,391 L217.0,734.0 L390.0,734.0 L390.0,1070" fill="none" stroke="#2f9e44" stroke-width="1.6" marker-end="url(#a-success)"/>
+<text x="303.5" y="728.0" font-size="11.5" fill="#2f9e44" text-anchor="middle">fixture hit</text>
+<path d="M390.0,1141 L390.0,1196" fill="none" stroke="#495057" stroke-width="1.6" marker-end="url(#a-default)"/>
+<rect x="240" y="68" width="300" height="58" rx="9" fill="#e7f5ff" stroke="#1971c2" stroke-width="1.6"/>
+<text x="390.0" y="101.5" font-size="15" font-weight="600" fill="#1971c2" text-anchor="middle">build_imagine_client(mode=...)</text>
+<rect x="240" y="188" width="300" height="58" rx="9" fill="#fff9db" stroke="#e67700" stroke-width="1.6"/>
+<text x="390.0" y="221.5" font-size="15" font-weight="600" fill="#e67700" text-anchor="middle">Which mode?</text>
+<rect x="67" y="308" width="300" height="83" rx="9" fill="#ebfbee" stroke="#2f9e44" stroke-width="1.6"/>
+<text x="217.0" y="335.0" font-size="15" font-weight="600" fill="#2f9e44" text-anchor="middle">FixtureImagineClient</text>
+<text x="217.0" y="354.0" font-size="12.5" font-weight="400" fill="#2f9e44" text-anchor="middle">no credential, no socket</text>
+<text x="217.0" y="373.0" font-size="12.5" font-weight="400" fill="#2f9e44" text-anchor="middle">missing fixture is TERMINAL</text>
+<rect x="413" y="308" width="300" height="83" rx="9" fill="#fff5f5" stroke="#c92a2a" stroke-width="1.6"/>
+<text x="563.0" y="335.0" font-size="15" font-weight="600" fill="#c92a2a" text-anchor="middle">Recording / Live client</text>
+<text x="563.0" y="354.0" font-size="12.5" font-weight="400" fill="#c92a2a" text-anchor="middle">policy.approved and cap &gt; 0</text>
+<text x="563.0" y="373.0" font-size="12.5" font-weight="400" fill="#c92a2a" text-anchor="middle">else refused at construction</text>
+<rect x="240" y="453" width="300" height="64" rx="9" fill="#e7f5ff" stroke="#1971c2" stroke-width="1.6"/>
+<text x="390.0" y="480.0" font-size="15" font-weight="600" fill="#1971c2" text-anchor="middle">_admit_call</text>
+<text x="390.0" y="499.0" font-size="12.5" font-weight="400" fill="#1971c2" text-anchor="middle">max_calls, max_outputs, cost cap</text>
+<rect x="240" y="579" width="300" height="64" rx="9" fill="#e7f5ff" stroke="#1971c2" stroke-width="1.6"/>
+<text x="390.0" y="606.0" font-size="15" font-weight="600" fill="#1971c2" text-anchor="middle">ImagineTransport.invoke</text>
+<text x="390.0" y="625.0" font-size="12.5" font-weight="400" fill="#1971c2" text-anchor="middle">EXACTLY ONCE, no retry, no fallback</text>
+<rect x="240" y="705" width="300" height="64" rx="9" fill="#e7f5ff" stroke="#1971c2" stroke-width="1.6"/>
+<text x="390.0" y="732.0" font-size="15" font-weight="600" fill="#1971c2" text-anchor="middle">_validate_transport_result</text>
+<text x="390.0" y="751.0" font-size="12.5" font-weight="400" fill="#1971c2" text-anchor="middle">request id, model, moderation, latency</text>
+<rect x="240" y="831" width="300" height="58" rx="9" fill="#fff9db" stroke="#e67700" stroke-width="1.6"/>
+<text x="390.0" y="864.5" font-size="15" font-weight="600" fill="#e67700" text-anchor="middle">Did the provider report cost ticks?</text>
+<rect x="67" y="951" width="300" height="64" rx="9" fill="#f8f9fa" stroke="#343a40" stroke-width="1.6"/>
+<text x="217.0" y="978.0" font-size="15" font-weight="600" fill="#343a40" text-anchor="middle">CostMeasurement.known</text>
+<text x="217.0" y="997.0" font-size="12.5" font-weight="400" fill="#343a40" text-anchor="middle">budget WITHIN_LIMIT</text>
+<rect x="413" y="951" width="300" height="64" rx="9" fill="#fff5f5" stroke="#c92a2a" stroke-width="1.6"/>
+<text x="563.0" y="978.0" font-size="15" font-weight="600" fill="#c92a2a" text-anchor="middle">CostMeasurement.unknown</text>
+<text x="563.0" y="997.0" font-size="12.5" font-weight="400" fill="#c92a2a" text-anchor="middle">BLOCKS every later call</text>
+<rect x="240" y="1077" width="300" height="64" rx="9" fill="#ebfbee" stroke="#2f9e44" stroke-width="1.6"/>
+<text x="390.0" y="1104.0" font-size="15" font-weight="600" fill="#2f9e44" text-anchor="middle">Validate, hash, persist bytes</text>
+<text x="390.0" y="1123.0" font-size="12.5" font-weight="400" fill="#2f9e44" text-anchor="middle">content-addressed</text>
+<rect x="240" y="1203" width="300" height="58" rx="29.0" fill="#f3f0ff" stroke="#5f3dc4" stroke-width="1.6"/>
+<text x="390.0" y="1236.5" font-size="15" font-weight="600" fill="#5f3dc4" text-anchor="middle">ImagineCallResult</text>
+</svg><figcaption>IS-03. Three modes and the cost branch. An unreported cost becomes an explicit unknown that blocks every later call rather than a silent zero.</figcaption></figure>
+<table>
+<tr><th>Property</th><th>Why it is built that way</th></tr>
+<tr><td>Replay is the default</td><td>No credential, no socket. The business logic is testable without a network or a bill.</td></tr>
+<tr><td>A missing fixture is terminal</td><td>A fallback from replay to a live call is how you get a surprise bill and an unreproducible result.</td></tr>
+<tr><td>One invocation per call</td><td>Retries hide provider state and multiply spend exactly when you can least reason about it.</td></tr>
+<tr><td>Unknown cost blocks spending</td><td>Zero is a reported value, never a default. This is what makes it safe to leave running unattended.</td></tr>
+<tr><td>Ambiguous outcome is typed</td><td><code>ProviderOutcomeUnknownError</code> carries the provider request id, so reconciliation is possible.</td></tr>
+</table>
+
+<h2 id="gates">5. The gate chain and the evidence ceiling</h2>
+<figure><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 1682" role="img" aria-label="IS-04  Gate chain IS0 to IS8 and the evidence-to-action ceiling" style="max-width:100%;height:auto;font-family:ui-sans-serif,system-ui,sans-serif">
+<defs>
+<marker id="a-default" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 z" fill="#495057"/></marker>
+<marker id="a-success" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 z" fill="#2f9e44"/></marker>
+<marker id="a-failure" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 z" fill="#c92a2a"/></marker>
+<marker id="a-warning" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 z" fill="#e67700"/></marker>
+<marker id="a-info" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 z" fill="#1971c2"/></marker>
+</defs>
+<text x="34" y="24" font-size="16" font-weight="700" fill="var(--dg-ink,#212529)">IS-04  Gate chain IS0 to IS8 and the evidence-to-action ceiling</text>
+<rect x="220" y="38" width="340" height="994" rx="10" fill="none" stroke="#adb5bd" stroke-width="1.2" stroke-dasharray="6 5"/>
+<text x="230" y="31" font-size="11.5" fill="var(--dg-dim,#868e96)">Pure gate chain, each returns SignalGateResult carrying a coerce_to</text>
+<rect x="47" y="1046" width="686" height="610" rx="10" fill="none" stroke="#adb5bd" stroke-width="1.2" stroke-dasharray="6 5"/>
+<text x="57" y="1039" font-size="11.5" fill="var(--dg-dim,#868e96)">Evidence ceiling (decisions.py)</text>
+<path d="M390.0,132 L390.0,187" fill="none" stroke="#495057" stroke-width="1.6" marker-end="url(#a-default)"/>
+<path d="M390.0,258 L390.0,313" fill="none" stroke="#495057" stroke-width="1.6" marker-end="url(#a-default)"/>
+<path d="M390.0,384 L390.0,439" fill="none" stroke="#495057" stroke-width="1.6" marker-end="url(#a-default)"/>
+<path d="M390.0,510 L390.0,565" fill="none" stroke="#495057" stroke-width="1.6" marker-end="url(#a-default)"/>
+<path d="M390.0,636 L390.0,691" fill="none" stroke="#495057" stroke-width="1.6" marker-end="url(#a-default)"/>
+<path d="M390.0,762 L390.0,817" fill="none" stroke="#495057" stroke-width="1.6" marker-end="url(#a-default)"/>
+<path d="M390.0,888 L390.0,943" fill="none" stroke="#495057" stroke-width="1.6" marker-end="url(#a-default)"/>
+<path d="M390.0,1014 L390.0,1045.0 L217.0,1045.0 L217.0,1069" fill="none" stroke="#1971c2" stroke-width="1.6" marker-end="url(#a-info)"/>
+<text x="303.5" y="1039.0" font-size="11.5" fill="#1971c2" text-anchor="middle">all results</text>
+<path d="M217.0,1140 L217.0,1198" fill="none" stroke="#c92a2a" stroke-width="1.6" marker-end="url(#a-failure)"/>
+<path d="M563.0,1140 L563.0,1195" fill="none" stroke="#2f9e44" stroke-width="1.6" marker-end="url(#a-success)"/>
+<path d="M217.0,1263 L217.0,1295.5 L390.0,1295.5 L390.0,1321" fill="none" stroke="#495057" stroke-width="1.6" marker-end="url(#a-default)"/>
+<path d="M563.0,1266 L563.0,1297.0 L390.0,1297.0 L390.0,1321" fill="none" stroke="#495057" stroke-width="1.6" marker-end="url(#a-default)"/>
+<path d="M390.0,1392 L390.0,1447" fill="none" stroke="#495057" stroke-width="1.6" marker-end="url(#a-default)"/>
+<text x="397.0" y="1423.0" font-size="11.5" fill="#495057" text-anchor="middle">admitted or coerced</text>
+<path d="M390.0,1518 L390.0,1573" fill="none" stroke="#495057" stroke-width="1.6" marker-end="url(#a-default)"/>
+<rect x="240" y="68" width="300" height="64" rx="9" fill="#f8f9fa" stroke="#343a40" stroke-width="1.6"/>
+<text x="390.0" y="95.0" font-size="15" font-weight="600" fill="#343a40" text-anchor="middle">IS0 request budget</text>
+<text x="390.0" y="114.0" font-size="12.5" font-weight="400" fill="#343a40" text-anchor="middle">calls, images, cost, wallclock</text>
+<rect x="240" y="194" width="300" height="64" rx="9" fill="#f8f9fa" stroke="#343a40" stroke-width="1.6"/>
+<text x="390.0" y="221.0" font-size="15" font-weight="600" fill="#343a40" text-anchor="middle">IS1 lineage</text>
+<text x="390.0" y="240.0" font-size="12.5" font-weight="400" fill="#343a40" text-anchor="middle">tenant, campaign, parent, root</text>
+<rect x="240" y="320" width="300" height="64" rx="9" fill="#f8f9fa" stroke="#343a40" stroke-width="1.6"/>
+<text x="390.0" y="347.0" font-size="15" font-weight="600" fill="#343a40" text-anchor="middle">IS2 controlled mutation</text>
+<text x="390.0" y="366.0" font-size="12.5" font-weight="400" fill="#343a40" text-anchor="middle">one axis, locked attributes intact</text>
+<rect x="240" y="446" width="300" height="64" rx="9" fill="#f8f9fa" stroke="#343a40" stroke-width="1.6"/>
+<text x="390.0" y="473.0" font-size="15" font-weight="600" fill="#343a40" text-anchor="middle">IS3 provider admission</text>
+<text x="390.0" y="492.0" font-size="12.5" font-weight="400" fill="#343a40" text-anchor="middle">moderation, completion, cost known</text>
+<rect x="240" y="572" width="300" height="64" rx="9" fill="#f8f9fa" stroke="#343a40" stroke-width="1.6"/>
+<text x="390.0" y="599.0" font-size="15" font-weight="600" fill="#343a40" text-anchor="middle">IS4 asset integrity</text>
+<text x="390.0" y="618.0" font-size="12.5" font-weight="400" fill="#343a40" text-anchor="middle">digest, dimensions, duplicate</text>
+<rect x="240" y="698" width="300" height="64" rx="9" fill="#f8f9fa" stroke="#343a40" stroke-width="1.6"/>
+<text x="390.0" y="725.0" font-size="15" font-weight="600" fill="#343a40" text-anchor="middle">IS5 outcome admission</text>
+<text x="390.0" y="744.0" font-size="12.5" font-weight="400" fill="#343a40" text-anchor="middle">experiment, arm, window, staleness</text>
+<rect x="240" y="824" width="300" height="64" rx="9" fill="#f8f9fa" stroke="#343a40" stroke-width="1.6"/>
+<text x="390.0" y="851.0" font-size="15" font-weight="600" fill="#343a40" text-anchor="middle">IS6 statistical validity</text>
+<text x="390.0" y="870.0" font-size="12.5" font-weight="400" fill="#343a40" text-anchor="middle">namespace, sample size, interval</text>
+<rect x="240" y="950" width="300" height="64" rx="9" fill="#f8f9fa" stroke="#343a40" stroke-width="1.6"/>
+<text x="390.0" y="977.0" font-size="15" font-weight="600" fill="#343a40" text-anchor="middle">IS7 auction sensitivity</text>
+<text x="390.0" y="996.0" font-size="12.5" font-weight="400" fill="#343a40" text-anchor="middle">convergence, pairing, sign conflict</text>
+<rect x="67" y="1076" width="300" height="64" rx="9" fill="#fff5f5" stroke="#c92a2a" stroke-width="1.6"/>
+<text x="217.0" y="1103.0" font-size="15" font-weight="600" fill="#c92a2a" text-anchor="middle">PROPOSED / IMPLEMENTED</text>
+<text x="217.0" y="1122.0" font-size="12.5" font-weight="400" fill="#c92a2a" text-anchor="middle">UNIT_TESTED</text>
+<rect x="413" y="1076" width="300" height="64" rx="9" fill="#ebfbee" stroke="#2f9e44" stroke-width="1.6"/>
+<text x="563.0" y="1103.0" font-size="15" font-weight="600" fill="#2f9e44" text-anchor="middle">FROZEN_REPLAY / SIMULATED</text>
+<text x="563.0" y="1122.0" font-size="12.5" font-weight="400" fill="#2f9e44" text-anchor="middle">and above</text>
+<rect x="67" y="1205" width="300" height="58" rx="9" fill="#fff5f5" stroke="#c92a2a" stroke-width="1.6"/>
+<text x="217.0" y="1238.5" font-size="15" font-weight="600" fill="#c92a2a" text-anchor="middle">HOLD, REVIEW, STOP only</text>
+<rect x="413" y="1202" width="300" height="64" rx="9" fill="#ebfbee" stroke="#2f9e44" stroke-width="1.6"/>
+<text x="563.0" y="1229.0" font-size="15" font-weight="600" fill="#2f9e44" text-anchor="middle">KEEP, EDIT, TEST</text>
+<text x="563.0" y="1248.0" font-size="12.5" font-weight="400" fill="#2f9e44" text-anchor="middle">HOLD, REVIEW, STOP</text>
+<rect x="240" y="1328" width="300" height="64" rx="9" fill="#e7f5ff" stroke="#1971c2" stroke-width="1.6"/>
+<text x="390.0" y="1355.0" font-size="15" font-weight="600" fill="#1971c2" text-anchor="middle">IS8 evidence to action</text>
+<text x="390.0" y="1374.0" font-size="12.5" font-weight="400" fill="#1971c2" text-anchor="middle">the total ceiling</text>
+<rect x="240" y="1454" width="300" height="64" rx="9" fill="#e7f5ff" stroke="#1971c2" stroke-width="1.6"/>
+<text x="390.0" y="1481.0" font-size="15" font-weight="600" fill="#1971c2" text-anchor="middle">resolve_final_action</text>
+<text x="390.0" y="1500.0" font-size="12.5" font-weight="400" fill="#1971c2" text-anchor="middle">MOST RESTRICTIVE wins</text>
+<rect x="240" y="1580" width="300" height="58" rx="29.0" fill="#f3f0ff" stroke="#5f3dc4" stroke-width="1.6"/>
+<text x="390.0" y="1613.5" font-size="15" font-weight="600" fill="#5f3dc4" text-anchor="middle">Final action on the receipt</text>
+</svg><figcaption>IS-04. Nine fail-closed gates feeding a total evidence-to-action ceiling. The final action is the most restrictive of the proposal and every failed gate.</figcaption></figure>
+<table>
+<tr><th>Evidence class</th><th>Actions admitted</th></tr>
+<tr><td><span class="tag">PROPOSED</span> <span class="tag">IMPLEMENTED</span> <span class="tag">UNIT_TESTED</span></td><td><code>HOLD</code>, <code>REVIEW</code>, <code>STOP</code></td></tr>
+<tr><td><span class="tag">FROZEN_REPLAY</span> <span class="tag">SIMULATED</span> and above</td><td><code>KEEP</code>, <code>EDIT</code>, <code>TEST</code>, <code>HOLD</code>, <code>REVIEW</code>, <code>STOP</code></td></tr>
+</table>
+<p>Restrictiveness ordering is total:
+<code>TEST(0) &lt; EDIT(1) &lt; KEEP(2) &lt; HOLD(3) &lt; REVIEW(4) &lt; STOP(5)</code>. One failed gate can
+only make the outcome stricter, never looser.</p>
+<div class="note bad"><b>What this forecloses.</b> No causal lift, no image-quality claim, no
+advertiser-lift claim, no production readiness, and no X revenue figure. Replay and simulation
+cannot supply that evidence, which is why the ceiling is <code>TEST</code>.</div>
+
+<h2 id="life">6. Request lifecycle</h2>
+<p>The offline path, with real line anchors from <code>service.py</code>:</p>
+<pre><code>OfflineImagineSignalService.run                       service.py:299
+  load frozen outcome fixture, compute request hash   service.py:302
+  idempotency check under a lock                      service.py:304
+  _execute
+    validate request contracts                        service.py:324
+    replay assets, collect IS1 / IS3 / IS4 groups     service.py:325
+    append outcomes once, admit via IS5               service.py:328
+    estimate signals per context, admit via IS6       service.py:346
+    run auction scenario, admit via IS7               service.py:361
+    IS2 controlled mutation, IS0 request budget       service.py:369
+    build_signal_decision  (recomputes IS8 itself)    service.py:402
+    resolve_final_action   (most restrictive wins)    decisions.py:74
+    build_decision_receipt (append-once, digest)      service.py:422</code></pre>
+<div class="note warn"><b>The defect worth knowing.</b> The service used to compare an outcome
+snapshot's experiment id against itself, so a mismatched experiment passed silently. The fix binds an
+expected experiment id into the request (<code>service.py:338</code>), and a regression test asserts
+an unexpected experiment now forces <code>HOLD</code>. A self-comparison always passes and never
+throws, so only a test that supplies the wrong experiment catches it.</div>
+
+<h2 id="trust">7. Trust boundaries</h2>
+<table>
+<tr><th>Crosses the port</th><th>Never crosses</th></tr>
+<tr><td>A validated <code>ImagineRequest</code></td><td>A credential. <code>ports.py</code> has no credential lookup at all.</td></tr>
+<tr><td>A typed <code>TransportResult</code></td><td>Raw base64 or a signed URL into any log, fixture, or artifact.</td></tr>
+<tr><td>Decoded bytes, immediately hashed</td><td>A provider URL as the only record of an asset.</td></tr>
+<tr><td>Exact cost ticks, or an explicit unknown</td><td>An inferred or estimated cost.</td></tr>
+</table>
+
+<h2 id="fail">8. Failure behavior</h2>
+<table>
+<tr><th>Condition</th><th>Behavior</th></tr>
+<tr><td>Fixture miss</td><td><code>BinaryFixtureMissError</code>. Terminal. No live fallback.</td></tr>
+<tr><td>Moderation rejection</td><td>Terminal for that output. Recorded, never reworded.</td></tr>
+<tr><td>Provider outcome ambiguous</td><td><code>UNKNOWN</code> result, unknown cost, spending blocked.</td></tr>
+<tr><td>Cost unreported</td><td>Explicit unknown. Next external call refused until reconciled.</td></tr>
+<tr><td>Digest or dimension mismatch</td><td><code>IS4</code> fails, coerces to <code>STOP</code>.</td></tr>
+<tr><td>Experiment or arm mismatch</td><td><code>IS5</code> fails, coerces to <code>HOLD</code>.</td></tr>
+<tr><td>Idempotency key reused with different input</td><td><code>SERVICE_IDEMPOTENCY_CONFLICT</code>.</td></tr>
+</table>
+<div class="note ok"><b>Verified.</b> The live code path was driven end to end with a local fake
+transport and zero network during the dry run: 17 of 17 checks passed, including the unknown-cost
+interlock actually blocking a second call.</div>
+
+<h2 id="plan">9. Saturday push timeline</h2>
+<figure><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 1430" role="img" aria-label="IS-05  Saturday 2026-08-08 push timeline: what lands when, and why" style="max-width:100%;height:auto;font-family:ui-sans-serif,system-ui,sans-serif">
+<defs>
+<marker id="a-default" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 z" fill="#495057"/></marker>
+<marker id="a-success" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 z" fill="#2f9e44"/></marker>
+<marker id="a-failure" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 z" fill="#c92a2a"/></marker>
+<marker id="a-warning" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 z" fill="#e67700"/></marker>
+<marker id="a-info" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 z" fill="#1971c2"/></marker>
+</defs>
+<text x="34" y="24" font-size="16" font-weight="700" fill="var(--dg-ink,#212529)">IS-05  Saturday 2026-08-08 push timeline: what lands when, and why</text>
+<path d="M390.0,132 L390.0,187" fill="none" stroke="#495057" stroke-width="1.6" marker-end="url(#a-default)"/>
+<text x="397.0" y="163.0" font-size="11.5" fill="#495057" text-anchor="middle">immediately</text>
+<path d="M390.0,258 L390.0,313" fill="none" stroke="#2f9e44" stroke-width="1.6" marker-end="url(#a-success)"/>
+<text x="397.0" y="289.0" font-size="11.5" fill="#2f9e44" text-anchor="middle">once CI is green</text>
+<path d="M390.0,384 L390.0,439" fill="none" stroke="#495057" stroke-width="1.6" marker-end="url(#a-default)"/>
+<path d="M390.0,510 L390.0,565" fill="none" stroke="#495057" stroke-width="1.6" marker-end="url(#a-default)"/>
+<text x="397.0" y="541.0" font-size="11.5" fill="#495057" text-anchor="middle">field names known</text>
+<path d="M390.0,636 L390.0,691" fill="none" stroke="#2f9e44" stroke-width="1.6" marker-end="url(#a-success)"/>
+<text x="397.0" y="667.0" font-size="11.5" fill="#2f9e44" text-anchor="middle">suite green</text>
+<path d="M390.0,762 L390.0,817" fill="none" stroke="#495057" stroke-width="1.6" marker-end="url(#a-default)"/>
+<path d="M390.0,888 L390.0,943" fill="none" stroke="#495057" stroke-width="1.6" marker-end="url(#a-default)"/>
+<path d="M390.0,1014 L390.0,1069" fill="none" stroke="#495057" stroke-width="1.6" marker-end="url(#a-default)"/>
+<path d="M390.0,1140 L390.0,1195" fill="none" stroke="#495057" stroke-width="1.6" marker-end="url(#a-default)"/>
+<path d="M390.0,1260 L390.0,1291.0 L217.0,1291.0 L217.0,1315" fill="none" stroke="#2f9e44" stroke-width="1.6" marker-end="url(#a-success)"/>
+<text x="303.5" y="1285.0" font-size="11.5" fill="#2f9e44" text-anchor="middle">ship</text>
+<path d="M390.0,1260 L390.0,1291.0 L563.0,1291.0 L563.0,1315" fill="none" stroke="#c92a2a" stroke-width="1.6" marker-end="url(#a-failure)"/>
+<text x="476.5" y="1285.0" font-size="11.5" fill="#c92a2a" text-anchor="middle">anything broken</text>
+<rect x="240" y="68" width="300" height="64" rx="9" fill="#e7f5ff" stroke="#1971c2" stroke-width="1.6"/>
+<text x="390.0" y="95.0" font-size="15" font-weight="600" fill="#1971c2" text-anchor="middle">09:00  C1 canary branch</text>
+<text x="390.0" y="114.0" font-size="12.5" font-weight="400" fill="#1971c2" text-anchor="middle">everything already green ships first</text>
+<rect x="240" y="194" width="300" height="64" rx="9" fill="#fff5f5" stroke="#c92a2a" stroke-width="1.6"/>
+<text x="390.0" y="221.0" font-size="15" font-weight="600" fill="#c92a2a" text-anchor="middle">Draft PR into main</text>
+<text x="390.0" y="240.0" font-size="12.5" font-weight="400" fill="#c92a2a" text-anchor="middle">WITHOUT THIS, CI NEVER RUNS</text>
+<rect x="240" y="320" width="300" height="64" rx="9" fill="#ebfbee" stroke="#2f9e44" stroke-width="1.6"/>
+<text x="390.0" y="347.0" font-size="15" font-weight="600" fill="#2f9e44" text-anchor="middle">Tag v0.3.0-canary</text>
+<text x="390.0" y="366.0" font-size="12.5" font-weight="400" fill="#2f9e44" text-anchor="middle">a demoable commit now exists</text>
+<rect x="240" y="446" width="300" height="64" rx="9" fill="#e7f5ff" stroke="#1971c2" stroke-width="1.6"/>
+<text x="390.0" y="473.0" font-size="15" font-weight="600" fill="#1971c2" text-anchor="middle">10:00  C2 provider field map</text>
+<text x="390.0" y="492.0" font-size="12.5" font-weight="400" fill="#1971c2" text-anchor="middle">COST_LEDGER filled from one real call</text>
+<rect x="240" y="572" width="300" height="64" rx="9" fill="#e7f5ff" stroke="#1971c2" stroke-width="1.6"/>
+<text x="390.0" y="599.0" font-size="15" font-weight="600" fill="#1971c2" text-anchor="middle">11:30  C3 live transport</text>
+<text x="390.0" y="618.0" font-size="12.5" font-weight="400" fill="#1971c2" text-anchor="middle">extract + invoke, xfail markers deleted</text>
+<rect x="240" y="698" width="300" height="64" rx="9" fill="#ebfbee" stroke="#2f9e44" stroke-width="1.6"/>
+<text x="390.0" y="725.0" font-size="15" font-weight="600" fill="#2f9e44" text-anchor="middle">Tag v0.3.1-canary</text>
+<text x="390.0" y="744.0" font-size="12.5" font-weight="400" fill="#2f9e44" text-anchor="middle">live path proven</text>
+<rect x="240" y="824" width="300" height="64" rx="9" fill="#e7f5ff" stroke="#1971c2" stroke-width="1.6"/>
+<text x="390.0" y="851.0" font-size="15" font-weight="600" fill="#1971c2" text-anchor="middle">13:00  C4 first real family</text>
+<text x="390.0" y="870.0" font-size="12.5" font-weight="400" fill="#1971c2" text-anchor="middle">one controlled family, real receipt</text>
+<rect x="240" y="950" width="300" height="64" rx="9" fill="#fff5f5" stroke="#c92a2a" stroke-width="1.6"/>
+<text x="390.0" y="977.0" font-size="15" font-weight="600" fill="#c92a2a" text-anchor="middle">15:00  C5 demo surface</text>
+<text x="390.0" y="996.0" font-size="12.5" font-weight="400" fill="#c92a2a" text-anchor="middle">TIME-BOXED, does not exist yet</text>
+<rect x="240" y="1076" width="300" height="64" rx="9" fill="#e7f5ff" stroke="#1971c2" stroke-width="1.6"/>
+<text x="390.0" y="1103.0" font-size="15" font-weight="600" fill="#1971c2" text-anchor="middle">17:00  C6 theme alignment</text>
+<text x="390.0" y="1122.0" font-size="12.5" font-weight="400" fill="#1971c2" text-anchor="middle">built on the existing gates</text>
+<rect x="240" y="1202" width="300" height="58" rx="9" fill="#fff9db" stroke="#e67700" stroke-width="1.6"/>
+<text x="390.0" y="1235.5" font-size="15" font-weight="600" fill="#e67700" text-anchor="middle">21:00  FEATURE FREEZE</text>
+<rect x="67" y="1322" width="300" height="64" rx="32.0" fill="#f3f0ff" stroke="#5f3dc4" stroke-width="1.6"/>
+<text x="217.0" y="1349.0" font-size="15" font-weight="600" fill="#5f3dc4" text-anchor="middle">Final tag + submission</text>
+<text x="217.0" y="1368.0" font-size="12.5" font-weight="400" fill="#5f3dc4" text-anchor="middle">digests recorded</text>
+<rect x="413" y="1322" width="300" height="64" rx="9" fill="#fff5f5" stroke="#c92a2a" stroke-width="1.6"/>
+<text x="563.0" y="1349.0" font-size="15" font-weight="600" fill="#c92a2a" text-anchor="middle">FALLBACK at any hour</text>
+<text x="563.0" y="1368.0" font-size="12.5" font-weight="400" fill="#c92a2a" text-anchor="middle">frozen tag + offline demo, wifi off</text>
+</svg><figcaption>IS-05. Every commit leaves a demoable repository behind it. The draft PR is required because CI does not run on branch pushes.</figcaption></figure>
+<div class="note bad"><b>Open risk.</b> There is no ImagineSignal demo surface. <code>app.py</code>
+launches only the base Adjacency Autopsy demo and <code>ui.py</code> never imports
+<code>imagine_signal</code>. It is scheduled as a time-boxed task with a hard 17:00 stop, and the
+Autopsy demo is the verified fallback.</div>
+
+<footer>
+Companion documents: the master explainer, the complete API reference (304 symbols), the push
+strategy, the Cursor and Grok working rules, the design handoff, and the dry-run report, all in
+<code>docs/imagine_signal/</code>. Diagrams are editable as Excalidraw scenes named
+<code>IS-01</code> through <code>IS-05</code>.
+</footer>
+</div>
+</body></html>

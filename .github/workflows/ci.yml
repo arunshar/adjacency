@@ -54,14 +54,32 @@ jobs:
 
       # Two gates, deliberately asymmetric.
       #
-      # The core is the product. contracts.py and gates.py are pure functions, a
-      # wrong gate invalidates every claim the system makes, and the tests cost
-      # about 0.16 seconds. That one stays at 100 percent line and branch.
+      # The legacy admission core and the ImagineSignal decision core are pure
+      # functions. A wrong contract, gate, decision, or receipt invalidates every
+      # claim the system makes. These modules stay at 100 percent line and branch.
       - name: Deterministic core must stay at 100 percent
         run: |
           pytest -m "not e2e" -q \
-            --cov=adjacency.contracts --cov=adjacency.gates \
+            --cov=adjacency.contracts \
+            --cov=adjacency.gates \
+            --cov=adjacency.imagine_signal.canonical \
+            --cov=adjacency.imagine_signal.contracts \
+            --cov=adjacency.imagine_signal.mutations \
+            --cov=adjacency.imagine_signal.gates \
+            --cov=adjacency.imagine_signal.decisions \
+            --cov=adjacency.imagine_signal.receipts \
+            --cov-branch \
             --cov-report=term-missing --cov-fail-under=100
+
+      # Both commands regenerate expected evidence in memory and compare it with
+      # committed synthetic fixtures and artifacts. Credentials are explicitly
+      # removed, and neither command has a live network or provider path.
+      - name: Verify frozen ImagineSignal replay evidence
+        run: |
+          env -u XAI_API_KEY -u ADJ_RECORD \
+            python -I -B scripts/generate_imagine_signal_fixtures.py --verify-only
+          env -u XAI_API_KEY -u ADJ_RECORD \
+            python -I -B scripts/run_imagine_signal_demo.py --verify-only
 
       # The remaining package includes lower-risk deterministic helpers and I/O,
       # where the gates are already the safety net. This floor only catches a

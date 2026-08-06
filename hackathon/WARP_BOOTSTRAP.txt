@@ -1,0 +1,65 @@
+You are taking over an in-progress project in /Users/arunsharma/code/adjacency. Read
+WARP.md and hackathon/WARP_HANDOFF.md in full before you respond. Where any other
+document disagrees with the handoff, the handoff wins. Where the repository disagrees
+with the handoff, the repository wins and you report the difference.
+
+THE PROJECT. Adjacency is a brand-safety policy engine: advertiser prose compiles into
+a typed, hashed PolicySpec, inventory is evaluated, and every verdict passes through
+deterministic fail-closed gates G0 to G6. ImagineSignal extends the same discipline to
+creative generation: one approved ad image becomes a small family where exactly one
+declared visual attribute changes and everything else stays locked and byte-verified,
+with gates IS0 to IS8 and an append-once decision receipt. The output is not an image,
+it is a decision: keep, edit, test, hold, review, or stop, with the evidence class that
+justified it attached.
+
+FIVE HARD RAILS. These lead because you have a terminal and can execute every one of
+the forbidden things.
+
+1. Never commit, stage, push, tag, open a pull request, reset, clean, stash, or discard.
+   This tree is intentionally dirty and uncommitted. Arun runs every git write himself.
+   git status, git diff, and git log are fine.
+2. Never make a live xAI or X Ads call. Never read XAI_API_KEY, never set ADJ_RECORD,
+   never pass --write. Arun runs hackathon/smoke_call.py himself, not you.
+3. Never add retry or fallback to the Imagine transport, and never fall back from replay
+   to a live call. A missing fixture is terminal.
+4. Never record a cost of zero for an unreported provider cost. Zero is a value the
+   provider reports. An absent cost is CostMeasurement.unknown() and it deliberately
+   blocks further calls.
+5. Plain ASCII hyphens only. Never an em dash or an en dash, anywhere.
+
+Also: use python3.13, never bare python3. The system interpreter is 3.14.6 and
+pyproject.toml requires >=3.12,<3.14.
+
+FILES YOU MUST NOT WRITE. Nothing catches a mistake in these, because they are the thing
+doing the catching: gates.py, decisions.py, contracts.py, canonical.py, receipts.py,
+mutations.py and ports.py in src/adjacency/imagine_signal/, plus src/adjacency/gates.py,
+src/adjacency/contracts.py, and the cost accounting inside imagine_client.py. Everything
+else is delegatable because the gates, the suite, and the artifact digest catch errors.
+
+HONESTY SPINE. Evidence classes are UNIT_TESTED, FROZEN_REPLAY, and SIMULATED.
+Production is NO_GO and the action ceiling is TEST. Never claim, in code, comments,
+documentation, or UI text: live Grok image quality, image-quality lift, advertiser lift,
+causal lift, production readiness, or X revenue of any kind.
+
+VERIFY THIS CHECKPOINT BEFORE EDITING ANYTHING:
+
+  cd /Users/arunsharma/code/adjacency
+  git branch --show-current && git rev-parse --short HEAD
+  env -u XAI_API_KEY -u ADJ_RECORD .venv/bin/pytest -m "not e2e" -q
+  env -u XAI_API_KEY -u ADJ_RECORD .venv/bin/python -I -B scripts/run_imagine_signal_demo.py --verify-only
+  shasum -a 256 artifacts/imagine_signal/offline_demo.json
+
+Expected: branch main, HEAD cd218dd, 448 passed 2 xfailed, status verified, and digest
+b17e9105f0de89772440c82938a69a7b25452784fc9c0667a4fe81a8f621ca73. If anything differs,
+report the exact difference and stop. Do not repair it. Do not regenerate an artifact to
+make a digest match.
+
+TWO THINGS THAT ARE NOT WHAT YOU MIGHT ASSUME. The xAI Grokathon is Saturday 2026-08-08,
+and the organizer confirmed the brief is assigned that morning, so ImagineSignal is
+probably not the submission. There is also no scheduled interview at the event.
+hackathon/CONTINGENCY.md has the 09:00 decision tree.
+
+YOUR FIRST MOVE. Run the checkpoint commands. Read hackathon/WARP_TASKS.md. Then
+summarize back in about eight lines: what this project is, the checkpoint result, which
+rails constrain you, and which task you are taking first. Then either start task 1 or ask
+one specific question. Do not ask for permission in general terms.

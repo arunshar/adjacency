@@ -102,12 +102,12 @@ def ui_mode() -> str:
     return mode
 
 
-def create_app(
+def render_autopsy_panel(
     *,
     root: Path | str | None = None,
     step_delay_seconds: float = 0.06,
-) -> gr.Blocks:
-    """Build the offline-first Autopsy interface."""
+) -> None:
+    """Render the offline-first Autopsy interface into the current Blocks context."""
 
     ui_mode()
     if step_delay_seconds < 0:
@@ -118,161 +118,171 @@ def create_app(
     initial_frame = demo.frames()[0]
     initial_state = _state(initial_frame)
 
+    frame_state = gr.State(initial_state)
+    with gr.Row(elem_classes="autopsy-header"):
+        with gr.Column(scale=4):
+            gr.Markdown(
+                "# Adjacency Autopsy\n"
+                "Compare the compiled policy engine with the same-prose keyword baseline."
+            )
+        with gr.Column(scale=2, min_width=300):
+            gr.HTML('<span class="mode-badge">DEMO MODE · FROZEN CORPUS · NO API KEY</span>')
+            gr.Markdown(
+                f"**{len(bundle.records)} verified items** · "
+                f"**{sum(record.item.has_media for record in bundle.records)} local media**\n\n"
+                '<span class="source-note">Source: `corpus/frozen/manifest.json`</span>'
+            )
+
+    with gr.Row():
+        run_button = gr.Button("Run Autopsy", variant="primary", scale=3)
+        reset_button = gr.Button("Reset", variant="secondary", scale=1)
+
+    gate_banner = gr.Markdown(visible=False, elem_classes="gate-banner")
+
+    with gr.Row(equal_height=True):
+        with gr.Column(elem_classes="delta-column"):
+            gr.Markdown("## AGREE\nBoth systems make the same delivery decision.")
+            agree_table = _table("Agreement traces")
+        with gr.Column(elem_classes="delta-column"):
+            gr.Markdown("## OVER_BLOCK\nThe blocklist withholds safe inventory.")
+            over_counter = gr.Markdown(_counter(bundle, 0))
+            over_table = _table("Recovered inventory traces")
+        with gr.Column(elem_classes="delta-column"):
+            gr.Markdown("## UNDER_BLOCK\nThe blocklist serves inventory the engine withholds.")
+            gate_fail_row = gr.Button(
+                "GATE FAIL · G1_SPAN_NOT_FOUND",
+                variant="stop",
+                visible=False,
+                elem_id="gate-fail-row",
+            )
+            under_table = _table("Caught-risk traces")
+
+    with gr.Row():
+        with gr.Column(scale=3):
+            item_detail = gr.Markdown(
+                "### Evidence inspector\nSelect a table row to inspect its source evidence."
+            )
+            evidence_image = gr.Image(
+                label="Cited media region",
+                type="pil",
+                interactive=False,
+                height=460,
+            )
+        with gr.Column(scale=2):
+            with gr.Accordion("Audit drawer", open=True, elem_classes="audit-drawer"):
+                audit_json = gr.JSON(
+                    label="Structured trace and full gate chain",
+                    open=False,
+                    height=520,
+                )
+            gr.Markdown("### Human review queue")
+            hitl_table = gr.Dataframe(
+                value=[],
+                headers=["Trace", "Action", "Reason"],
+                datatype=["str", "str", "str"],
+                type="array",
+                interactive=False,
+                row_count=0,
+                column_count=3,
+                max_height=280,
+                wrap=True,
+                show_row_numbers=False,
+            )
+
+    gr.Markdown(
+        "Artifact paths: `artifacts/ui/autopsy_snapshot.json`, "
+        "`artifacts/wednesday/judge_traces.json`, "
+        "`artifacts/tuesday/baseline_blocklist.json`, and "
+        "`corpus/frozen/manifest.json`. The dollar counter uses an illustrative input from "
+        "`artifacts/ui/economics_assumption.json`, not measured revenue."
+    )
+
+    run_event = run_button.click(
+        fn=_runner(demo, bundle, step_delay_seconds),
+        inputs=None,
+        outputs=[
+            frame_state,
+            agree_table,
+            over_table,
+            over_counter,
+            under_table,
+            gate_fail_row,
+            gate_banner,
+            hitl_table,
+        ],
+        show_progress="hidden",
+    )
+    reset_button.click(
+        fn=lambda: (
+            initial_state,
+            [],
+            [],
+            _counter(bundle, 0),
+            [],
+            gr.update(visible=False),
+            gr.update(value=None, visible=False),
+            [],
+            "### Evidence inspector\nSelect a table row to inspect its source evidence.",
+            None,
+            None,
+        ),
+        inputs=None,
+        outputs=[
+            frame_state,
+            agree_table,
+            over_table,
+            over_counter,
+            under_table,
+            gate_fail_row,
+            gate_banner,
+            hitl_table,
+            item_detail,
+            evidence_image,
+            audit_json,
+        ],
+        cancels=[run_event],
+        queue=False,
+    )
+
+    detail_outputs = [item_detail, evidence_image, audit_json]
+    agree_table.select(
+        fn=_table_selector(demo, bundle, DeltaKind.AGREE),
+        inputs=[frame_state],
+        outputs=detail_outputs,
+        show_progress="hidden",
+    )
+    over_table.select(
+        fn=_table_selector(demo, bundle, DeltaKind.OVER_BLOCK),
+        inputs=[frame_state],
+        outputs=detail_outputs,
+        show_progress="hidden",
+    )
+    under_table.select(
+        fn=_table_selector(demo, bundle, DeltaKind.UNDER_BLOCK),
+        inputs=[frame_state],
+        outputs=detail_outputs,
+        show_progress="hidden",
+    )
+    gate_fail_row.click(
+        fn=lambda: _inspect(bundle.record(bundle.wow_item_id)),
+        inputs=None,
+        outputs=detail_outputs,
+        show_progress="hidden",
+    )
+
+
+def create_app(
+    *,
+    root: Path | str | None = None,
+    step_delay_seconds: float = 0.06,
+) -> gr.Blocks:
+    """Build the offline-first Autopsy interface."""
+
     with gr.Blocks(
         fill_width=True,
         title="Adjacency Autopsy",
     ) as app:
-        frame_state = gr.State(initial_state)
-        with gr.Row(elem_classes="autopsy-header"):
-            with gr.Column(scale=4):
-                gr.Markdown(
-                    "# Adjacency Autopsy\n"
-                    "Compare the compiled policy engine with the same-prose keyword baseline."
-                )
-            with gr.Column(scale=2, min_width=300):
-                gr.HTML('<span class="mode-badge">DEMO MODE · FROZEN CORPUS · NO API KEY</span>')
-                gr.Markdown(
-                    f"**{len(bundle.records)} verified items** · "
-                    f"**{sum(record.item.has_media for record in bundle.records)} local media**\n\n"
-                    '<span class="source-note">Source: `corpus/frozen/manifest.json`</span>'
-                )
-
-        with gr.Row():
-            run_button = gr.Button("Run Autopsy", variant="primary", scale=3)
-            reset_button = gr.Button("Reset", variant="secondary", scale=1)
-
-        gate_banner = gr.Markdown(visible=False, elem_classes="gate-banner")
-
-        with gr.Row(equal_height=True):
-            with gr.Column(elem_classes="delta-column"):
-                gr.Markdown("## AGREE\nBoth systems make the same delivery decision.")
-                agree_table = _table("Agreement traces")
-            with gr.Column(elem_classes="delta-column"):
-                gr.Markdown("## OVER_BLOCK\nThe blocklist withholds safe inventory.")
-                over_counter = gr.Markdown(_counter(bundle, 0))
-                over_table = _table("Recovered inventory traces")
-            with gr.Column(elem_classes="delta-column"):
-                gr.Markdown("## UNDER_BLOCK\nThe blocklist serves inventory the engine withholds.")
-                gate_fail_row = gr.Button(
-                    "GATE FAIL · G1_SPAN_NOT_FOUND",
-                    variant="stop",
-                    visible=False,
-                    elem_id="gate-fail-row",
-                )
-                under_table = _table("Caught-risk traces")
-
-        with gr.Row():
-            with gr.Column(scale=3):
-                item_detail = gr.Markdown(
-                    "### Evidence inspector\nSelect a table row to inspect its source evidence."
-                )
-                evidence_image = gr.Image(
-                    label="Cited media region",
-                    type="pil",
-                    interactive=False,
-                    height=460,
-                )
-            with gr.Column(scale=2):
-                with gr.Accordion("Audit drawer", open=True, elem_classes="audit-drawer"):
-                    audit_json = gr.JSON(
-                        label="Structured trace and full gate chain",
-                        open=False,
-                        height=520,
-                    )
-                gr.Markdown("### Human review queue")
-                hitl_table = gr.Dataframe(
-                    value=[],
-                    headers=["Trace", "Action", "Reason"],
-                    datatype=["str", "str", "str"],
-                    type="array",
-                    interactive=False,
-                    row_count=0,
-                    column_count=3,
-                    max_height=280,
-                    wrap=True,
-                    show_row_numbers=False,
-                )
-
-        gr.Markdown(
-            "Artifact paths: `artifacts/ui/autopsy_snapshot.json`, "
-            "`artifacts/wednesday/judge_traces.json`, "
-            "`artifacts/tuesday/baseline_blocklist.json`, and "
-            "`corpus/frozen/manifest.json`. The dollar counter uses an illustrative input from "
-            "`artifacts/ui/economics_assumption.json`, not measured revenue."
-        )
-
-        run_event = run_button.click(
-            fn=_runner(demo, bundle, step_delay_seconds),
-            inputs=None,
-            outputs=[
-                frame_state,
-                agree_table,
-                over_table,
-                over_counter,
-                under_table,
-                gate_fail_row,
-                gate_banner,
-                hitl_table,
-            ],
-            show_progress="hidden",
-        )
-        reset_button.click(
-            fn=lambda: (
-                initial_state,
-                [],
-                [],
-                _counter(bundle, 0),
-                [],
-                gr.update(visible=False),
-                gr.update(value=None, visible=False),
-                [],
-                "### Evidence inspector\nSelect a table row to inspect its source evidence.",
-                None,
-                None,
-            ),
-            inputs=None,
-            outputs=[
-                frame_state,
-                agree_table,
-                over_table,
-                over_counter,
-                under_table,
-                gate_fail_row,
-                gate_banner,
-                hitl_table,
-                item_detail,
-                evidence_image,
-                audit_json,
-            ],
-            cancels=[run_event],
-            queue=False,
-        )
-
-        detail_outputs = [item_detail, evidence_image, audit_json]
-        agree_table.select(
-            fn=_table_selector(demo, bundle, DeltaKind.AGREE),
-            inputs=[frame_state],
-            outputs=detail_outputs,
-            show_progress="hidden",
-        )
-        over_table.select(
-            fn=_table_selector(demo, bundle, DeltaKind.OVER_BLOCK),
-            inputs=[frame_state],
-            outputs=detail_outputs,
-            show_progress="hidden",
-        )
-        under_table.select(
-            fn=_table_selector(demo, bundle, DeltaKind.UNDER_BLOCK),
-            inputs=[frame_state],
-            outputs=detail_outputs,
-            show_progress="hidden",
-        )
-        gate_fail_row.click(
-            fn=lambda: _inspect(bundle.record(bundle.wow_item_id)),
-            inputs=None,
-            outputs=detail_outputs,
-            show_progress="hidden",
-        )
+        render_autopsy_panel(root=root, step_delay_seconds=step_delay_seconds)
 
     return app.queue(default_concurrency_limit=2)
 

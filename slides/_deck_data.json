@@ -14,9 +14,18 @@
           "Confidence-gated revision becomes selective reasoning"
         ],
         "highlights": [
-          {"label": "System", "value": "Adjacency"},
-          {"label": "Surface", "value": "Brand safety"},
-          {"label": "Mode", "value": "Read-only"}
+          {
+            "label": "System",
+            "value": "Adjacency"
+          },
+          {
+            "label": "Surface",
+            "value": "Brand safety"
+          },
+          {
+            "label": "Mode",
+            "value": "Read-only"
+          }
         ],
         "chartRef": "",
         "figureRef": "",
@@ -36,8 +45,14 @@
           "Source: src/adjacency/baseline.py and X Brand Safety documentation"
         ],
         "highlights": [
-          {"label": "Representation", "value": "Prose → terms"},
-          {"label": "Missing signal", "value": "Joint context"}
+          {
+            "label": "Representation",
+            "value": "Prose → terms"
+          },
+          {
+            "label": "Missing signal",
+            "value": "Joint context"
+          }
         ],
         "chartRef": "control_gap",
         "figureRef": "",
@@ -70,8 +85,14 @@
           "Sources: artifacts/tuesday/policy_spec.json and artifacts/tuesday/baseline_blocklist.json"
         ],
         "highlights": [
-          {"label": "Compiler admission", "value": "G0"},
-          {"label": "Baseline", "value": "Same prose"}
+          {
+            "label": "Compiler admission",
+            "value": "G0"
+          },
+          {
+            "label": "Baseline",
+            "value": "Same prose"
+          }
         ],
         "chartRef": "compile_contract",
         "figureRef": "",
@@ -104,9 +125,18 @@
           "Source: artifacts/ui/autopsy_snapshot.json"
         ],
         "highlights": [
-          {"label": "Before", "value": "ALLOW"},
-          {"label": "After", "value": "REVIEW"},
-          {"label": "Rule", "value": "Fail closed"}
+          {
+            "label": "Before",
+            "value": "ALLOW"
+          },
+          {
+            "label": "After",
+            "value": "REVIEW"
+          },
+          {
+            "label": "Rule",
+            "value": "Fail closed"
+          }
         ],
         "chartRef": "gate_fail",
         "figureRef": "",
@@ -139,8 +169,14 @@
           "Source: artifacts/wednesday/judge_report.json"
         ],
         "highlights": [
-          {"label": "Tier 2 fraction", "value": "44%"},
-          {"label": "Blended judge cost", "value": "$6.12 / 1,000"}
+          {
+            "label": "Tier 2 fraction",
+            "value": "44%"
+          },
+          {
+            "label": "Blended judge cost",
+            "value": "$6.12 / 1,000"
+          }
         ],
         "chartRef": "ladder",
         "figureRef": "",
@@ -149,6 +185,122 @@
       },
       {
         "n": 9,
+        "section": "CREATIVE",
+        "kicker": "SAME DISCIPLINE, SECOND SURFACE",
+        "title": "One image in. A family where *exactly one thing* changed.",
+        "layout": "split",
+        "body": [
+          "Fifty variants tell you nothing, because no difference is attributable",
+          "ImagineSignal changes one declared axis and locks the rest",
+          "Product, logo, composition and text are verified byte-identical",
+          "Sources: artifacts/imagine_signal/offline_demo.json"
+        ],
+        "highlights": [
+          {
+            "label": "Declared axis",
+            "value": "background_tone"
+          },
+          {
+            "label": "Family",
+            "value": "1 control + 2 variants"
+          }
+        ],
+        "chartRef": "",
+        "figureRef": "diagrams/IS-01-context-hld.svg",
+        "equations": [],
+        "notes": "The discipline is the product, not the generation. If two things change you cannot attribute the difference, so the planner rejects a family that varies more than one declared attribute. The three assets here are synthetic fixtures, not measured creative quality."
+      },
+      {
+        "n": 10,
+        "section": "CREATIVE",
+        "kicker": "A SEAM, NOT A WRAPPER",
+        "title": "The provider is *one method* behind a typed port.",
+        "layout": "split",
+        "body": [
+          "ImagineTransport is a Protocol with a single invoke",
+          "Replay is the default and needs no credential or socket",
+          "A missing fixture is terminal: there is no fallback to a live call",
+          "An unreported cost halts spending instead of recording zero"
+        ],
+        "highlights": [
+          {
+            "label": "Modes",
+            "value": "REPLAY / RECORD / LIVE"
+          },
+          {
+            "label": "Cost unit",
+            "value": "1e10 ticks = $1"
+          }
+        ],
+        "chartRef": "",
+        "figureRef": "diagrams/IS-03-transport-seam.svg",
+        "equations": [],
+        "notes": "This is the difference between a demo and a system. A demo calls the API from inside the business logic. Here the business logic is tested without a network, a key, or a bill. The cost interlock is the detail worth slowing down on: an unreported cost is a distinct state that blocks further calls, which is what makes it safe to leave running unattended."
+      },
+      {
+        "n": 11,
+        "section": "EVIDENCE",
+        "kicker": "THE CEILING IS MECHANICAL",
+        "title": "Nine gates, and a ceiling on *what the evidence permits*.",
+        "layout": "split",
+        "body": [
+          "IS0 through IS8 are pure functions, held at 100 percent line and branch",
+          "The final action is the most restrictive of the proposal and every failed gate",
+          "Frozen replay cannot authorize anything beyond TEST",
+          "Sources: src/adjacency/imagine_signal/gates.py and decisions.py"
+        ],
+        "highlights": [
+          {
+            "label": "Gates",
+            "value": "IS0 to IS8"
+          },
+          {
+            "label": "Ceiling",
+            "value": "TEST"
+          },
+          {
+            "label": "Production",
+            "value": "NO_GO"
+          }
+        ],
+        "chartRef": "",
+        "figureRef": "diagrams/IS-04-gate-chain.svg",
+        "equations": [],
+        "notes": "The refusal to overclaim is enforced in code rather than in a style guide. Early evidence admits only HOLD, REVIEW and STOP. One failed gate can only make the outcome stricter, never looser. This is the answer to why the system will not tell you a variant is better."
+      },
+      {
+        "n": 12,
+        "section": "ECONOMICS",
+        "kicker": "MEASURED, NOT ASSERTED",
+        "title": "The objective is *qualified evidence per generation dollar*.",
+        "layout": "split",
+        "body": [
+          "Cost comes from the provider's reported ticks, recorded per call",
+          "Explore on the standard model, promote only qualified candidates",
+          "A moderation rejection is terminal and is recorded, never reworded",
+          "Sources: hackathon/COST_LEDGER.md"
+        ],
+        "highlights": [
+          {
+            "label": "Standard",
+            "value": "$0.02 / 1K"
+          },
+          {
+            "label": "Quality",
+            "value": "$0.05 / 1K"
+          },
+          {
+            "label": "Cost per qualified output",
+            "value": "from the ledger"
+          }
+        ],
+        "chartRef": "",
+        "figureRef": "",
+        "equations": [],
+        "notes": "Fill the final highlight from the cost ledger after the event. If the ledger is empty at presentation time, say the accounting is built and the figure is not yet measured. Do not estimate it. The synthetic three-of-three versus two-of-three comparison in the artifact is a fixture-backed pipeline check, not measured provider efficiency."
+      },
+      {
+        "n": 13,
         "section": "CLOSE",
         "kicker": "FAILURE HAS A DESTINATION",
         "title": "Real Cloud review, offline demo, staged rollout",
@@ -160,8 +312,14 @@
           "Rollout: read-only autopsy → shadow evaluation → per-clause activation"
         ],
         "highlights": [
-          {"label": "Code", "value": "github.com/arunshar/adjacency"},
-          {"label": "Position", "value": "Models propose. Gates decide."}
+          {
+            "label": "Code",
+            "value": "github.com/arunshar/adjacency"
+          },
+          {
+            "label": "Position",
+            "value": "Models propose. Gates decide."
+          }
         ],
         "chartRef": "",
         "figureRef": "",

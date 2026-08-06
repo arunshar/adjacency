@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 1682" role="img" aria-label="IS-04  Gate chain IS0 to IS8 and the evidence-to-action ceiling" style="max-width:100%;height:auto;font-family:ui-sans-serif,system-ui,sans-serif">
+<defs>
+<marker id="a-default" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 z" fill="#495057"/></marker>
+<marker id="a-success" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 z" fill="#2f9e44"/></marker>
+<marker id="a-failure" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 z" fill="#c92a2a"/></marker>
+<marker id="a-warning" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 z" fill="#e67700"/></marker>
+<marker id="a-info" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 z" fill="#1971c2"/></marker>
+</defs>
+<text x="34" y="24" font-size="16" font-weight="700" fill="var(--dg-ink,#212529)">IS-04  Gate chain IS0 to IS8 and the evidence-to-action ceiling</text>
+<rect x="220" y="38" width="340" height="994" rx="10" fill="none" stroke="#adb5bd" stroke-width="1.2" stroke-dasharray="6 5"/>
+<text x="230" y="31" font-size="11.5" fill="var(--dg-dim,#868e96)">Pure gate chain, each returns SignalGateResult carrying a coerce_to</text>
+<rect x="47" y="1046" width="686" height="610" rx="10" fill="none" stroke="#adb5bd" stroke-width="1.2" stroke-dasharray="6 5"/>
+<text x="57" y="1039" font-size="11.5" fill="var(--dg-dim,#868e96)">Evidence ceiling (decisions.py)</text>
+<path d="M390.0,132 L390.0,187" fill="none" stroke="#495057" stroke-width="1.6" marker-end="url(#a-default)"/>
+<path d="M390.0,258 L390.0,313" fill="none" stroke="#495057" stroke-width="1.6" marker-end="url(#a-default)"/>
+<path d="M390.0,384 L390.0,439" fill="none" stroke="#495057" stroke-width="1.6" marker-end="url(#a-default)"/>
+<path d="M390.0,510 L390.0,565" fill="none" stroke="#495057" stroke-width="1.6" marker-end="url(#a-default)"/>
+<path d="M390.0,636 L390.0,691" fill="none" stroke="#495057" stroke-width="1.6" marker-end="url(#a-default)"/>
+<path d="M390.0,762 L390.0,817" fill="none" stroke="#495057" stroke-width="1.6" marker-end="url(#a-default)"/>
+<path d="M390.0,888 L390.0,943" fill="none" stroke="#495057" stroke-width="1.6" marker-end="url(#a-default)"/>
+<path d="M390.0,1014 L390.0,1045.0 L217.0,1045.0 L217.0,1069" fill="none" stroke="#1971c2" stroke-width="1.6" marker-end="url(#a-info)"/>
+<text x="303.5" y="1039.0" font-size="11.5" fill="#1971c2" text-anchor="middle">all results</text>
+<path d="M217.0,1140 L217.0,1198" fill="none" stroke="#c92a2a" stroke-width="1.6" marker-end="url(#a-failure)"/>
+<path d="M563.0,1140 L563.0,1195" fill="none" stroke="#2f9e44" stroke-width="1.6" marker-end="url(#a-success)"/>
+<path d="M217.0,1263 L217.0,1295.5 L390.0,1295.5 L390.0,1321" fill="none" stroke="#495057" stroke-width="1.6" marker-end="url(#a-default)"/>
+<path d="M563.0,1266 L563.0,1297.0 L390.0,1297.0 L390.0,1321" fill="none" stroke="#495057" stroke-width="1.6" marker-end="url(#a-default)"/>
+<path d="M390.0,1392 L390.0,1447" fill="none" stroke="#495057" stroke-width="1.6" marker-end="url(#a-default)"/>
+<text x="397.0" y="1423.0" font-size="11.5" fill="#495057" text-anchor="middle">admitted or coerced</text>
+<path d="M390.0,1518 L390.0,1573" fill="none" stroke="#495057" stroke-width="1.6" marker-end="url(#a-default)"/>
+<rect x="240" y="68" width="300" height="64" rx="9" fill="#f8f9fa" stroke="#343a40" stroke-width="1.6"/>
+<text x="390.0" y="95.0" font-size="15" font-weight="600" fill="#343a40" text-anchor="middle">IS0 request budget</text>
+<text x="390.0" y="114.0" font-size="12.5" font-weight="400" fill="#343a40" text-anchor="middle">calls, images, cost, wallclock</text>
+<rect x="240" y="194" width="300" height="64" rx="9" fill="#f8f9fa" stroke="#343a40" stroke-width="1.6"/>
+<text x="390.0" y="221.0" font-size="15" font-weight="600" fill="#343a40" text-anchor="middle">IS1 lineage</text>
+<text x="390.0" y="240.0" font-size="12.5" font-weight="400" fill="#343a40" text-anchor="middle">tenant, campaign, parent, root</text>
+<rect x="240" y="320" width="300" height="64" rx="9" fill="#f8f9fa" stroke="#343a40" stroke-width="1.6"/>
+<text x="390.0" y="347.0" font-size="15" font-weight="600" fill="#343a40" text-anchor="middle">IS2 controlled mutation</text>
+<text x="390.0" y="366.0" font-size="12.5" font-weight="400" fill="#343a40" text-anchor="middle">one axis, locked attributes intact</text>
+<rect x="240" y="446" width="300" height="64" rx="9" fill="#f8f9fa" stroke="#343a40" stroke-width="1.6"/>
+<text x="390.0" y="473.0" font-size="15" font-weight="600" fill="#343a40" text-anchor="middle">IS3 provider admission</text>
+<text x="390.0" y="492.0" font-size="12.5" font-weight="400" fill="#343a40" text-anchor="middle">moderation, completion, cost known</text>
+<rect x="240" y="572" width="300" height="64" rx="9" fill="#f8f9fa" stroke="#343a40" stroke-width="1.6"/>
+<text x="390.0" y="599.0" font-size="15" font-weight="600" fill="#343a40" text-anchor="middle">IS4 asset integrity</text>
+<text x="390.0" y="618.0" font-size="12.5" font-weight="400" fill="#343a40" text-anchor="middle">digest, dimensions, duplicate</text>
+<rect x="240" y="698" width="300" height="64" rx="9" fill="#f8f9fa" stroke="#343a40" stroke-width="1.6"/>
+<text x="390.0" y="725.0" font-size="15" font-weight="600" fill="#343a40" text-anchor="middle">IS5 outcome admission</text>
+<text x="390.0" y="744.0" font-size="12.5" font-weight="400" fill="#343a40" text-anchor="middle">experiment, arm, window, staleness</text>
+<rect x="240" y="824" width="300" height="64" rx="9" fill="#f8f9fa" stroke="#343a40" stroke-width="1.6"/>
+<text x="390.0" y="851.0" font-size="15" font-weight="600" fill="#343a40" text-anchor="middle">IS6 statistical validity</text>
+<text x="390.0" y="870.0" font-size="12.5" font-weight="400" fill="#343a40" text-anchor="middle">namespace, sample size, interval</text>
+<rect x="240" y="950" width="300" height="64" rx="9" fill="#f8f9fa" stroke="#343a40" stroke-width="1.6"/>
+<text x="390.0" y="977.0" font-size="15" font-weight="600" fill="#343a40" text-anchor="middle">IS7 auction sensitivity</text>
+<text x="390.0" y="996.0" font-size="12.5" font-weight="400" fill="#343a40" text-anchor="middle">convergence, pairing, sign conflict</text>
+<rect x="67" y="1076" width="300" height="64" rx="9" fill="#fff5f5" stroke="#c92a2a" stroke-width="1.6"/>
+<text x="217.0" y="1103.0" font-size="15" font-weight="600" fill="#c92a2a" text-anchor="middle">PROPOSED / IMPLEMENTED</text>
+<text x="217.0" y="1122.0" font-size="12.5" font-weight="400" fill="#c92a2a" text-anchor="middle">UNIT_TESTED</text>
+<rect x="413" y="1076" width="300" height="64" rx="9" fill="#ebfbee" stroke="#2f9e44" stroke-width="1.6"/>
+<text x="563.0" y="1103.0" font-size="15" font-weight="600" fill="#2f9e44" text-anchor="middle">FROZEN_REPLAY / SIMULATED</text>
+<text x="563.0" y="1122.0" font-size="12.5" font-weight="400" fill="#2f9e44" text-anchor="middle">and above</text>
+<rect x="67" y="1205" width="300" height="58" rx="9" fill="#fff5f5" stroke="#c92a2a" stroke-width="1.6"/>
+<text x="217.0" y="1238.5" font-size="15" font-weight="600" fill="#c92a2a" text-anchor="middle">HOLD, REVIEW, STOP only</text>
+<rect x="413" y="1202" width="300" height="64" rx="9" fill="#ebfbee" stroke="#2f9e44" stroke-width="1.6"/>
+<text x="563.0" y="1229.0" font-size="15" font-weight="600" fill="#2f9e44" text-anchor="middle">KEEP, EDIT, TEST</text>
+<text x="563.0" y="1248.0" font-size="12.5" font-weight="400" fill="#2f9e44" text-anchor="middle">HOLD, REVIEW, STOP</text>
+<rect x="240" y="1328" width="300" height="64" rx="9" fill="#e7f5ff" stroke="#1971c2" stroke-width="1.6"/>
+<text x="390.0" y="1355.0" font-size="15" font-weight="600" fill="#1971c2" text-anchor="middle">IS8 evidence to action</text>
+<text x="390.0" y="1374.0" font-size="12.5" font-weight="400" fill="#1971c2" text-anchor="middle">the total ceiling</text>
+<rect x="240" y="1454" width="300" height="64" rx="9" fill="#e7f5ff" stroke="#1971c2" stroke-width="1.6"/>
+<text x="390.0" y="1481.0" font-size="15" font-weight="600" fill="#1971c2" text-anchor="middle">resolve_final_action</text>
+<text x="390.0" y="1500.0" font-size="12.5" font-weight="400" fill="#1971c2" text-anchor="middle">MOST RESTRICTIVE wins</text>
+<rect x="240" y="1580" width="300" height="58" rx="29.0" fill="#f3f0ff" stroke="#5f3dc4" stroke-width="1.6"/>
+<text x="390.0" y="1613.5" font-size="15" font-weight="600" fill="#5f3dc4" text-anchor="middle">Final action on the receipt</text>
+</svg>

@@ -32,6 +32,13 @@ test = [
     "pytest-cov>=5.0.0",
     "hypothesis>=6.100.0",
 ]
+# Tooling CI runs but that no other extra installed. Without this, a fresh clone
+# cannot reproduce the lint gate (`ruff check src tests scripts`) or rebuild the
+# deck, so both failed silently in the 2026-08-05 dry run.
+dev = [
+    "ruff>=0.9.0",
+    "python-pptx>=1.0.0",
+]
 
 [build-system]
 requires = ["hatchling"]
@@ -67,10 +74,10 @@ source = ["src/adjacency"]
 # Coverage is deliberately asymmetric, and the asymmetry is a design statement
 # rather than a shortcut.
 #
-# The deterministic core (contracts.py, gates.py) is held to 100 percent line and
-# branch by a dedicated CI step. Those are pure functions, they are the product,
-# and a wrong gate invalidates every claim the system makes. Tests there are also
-# nearly free: the whole suite runs in about 0.16 seconds.
+# The legacy contracts and gates plus the ImagineSignal canonical, contract,
+# mutation, gate, decision, and receipt modules are held to 100 percent line and
+# branch by a dedicated CI step. Those modules are pure decision logic, and a
+# wrong result invalidates every claim the system makes.
 #
 # The remaining package includes lower-risk deterministic helpers plus model,
 # network, and UI code. Exhaustive branch coverage on I/O buys much less because

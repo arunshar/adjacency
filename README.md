@@ -69,6 +69,19 @@ Run the offline Autopsy with no API key:
 
 External calls replay from content-addressed fixtures by default. Set `ADJ_RECORD=1` only when intentionally recording a live response. The default inventory source is `frozen_corpus`, as defined in `src/adjacency/sources.py`.
 
+### Verify the ImagineSignal offline MVP
+
+ImagineSignal is a credential-free frozen synthetic replay. These commands verify its image fixtures and deterministic artifact without making a provider call:
+
+```bash
+env -u XAI_API_KEY -u ADJ_RECORD .venv/bin/python -I -B scripts/generate_imagine_signal_fixtures.py --verify-only
+env -u XAI_API_KEY -u ADJ_RECORD .venv/bin/python -I -B scripts/run_imagine_signal_demo.py --verify-only
+```
+
+Read the [implementation status](docs/imagine_signal/12_IMPLEMENTATION_STATUS.md) for the exact completion boundary, evidence labels, test command, and production blockers. The reviewed output is [the offline demo artifact](artifacts/imagine_signal/offline_demo.json).
+
+To continue in a fresh local Claude session, start with [the Claude handoff](docs/imagine_signal/13_CLAUDE_HANDOFF.md) or paste [the Claude resume prompt](docs/imagine_signal/14_CLAUDE_RESUME_PROMPT.md).
+
 ## Optional Temporal review backend
 
 `ADJ_HITL_BACKEND` defaults to `in_process`. Temporal remains opt-in and owns only the human-review queue. The judge, gates, corpus, and public demo never depend on it.
@@ -86,6 +99,7 @@ The durable surface is deliberately small: one `AdjacencyHITLReview` workflow, o
 - Paper source and compiled report: `paper/main.tex` and `paper/main.pdf`.
 - Portable browser deck, PDF, and PowerPoint: `slides/adjacency_deck_portable.html`, `slides/adjacency_deck.pdf`, and `slides/adjacency_deck.pptx`.
 - Recorded fallback run and capture metadata: `artifacts/demo/adjacency_fallback.mp4` and `artifacts/demo/adjacency_fallback.json`.
+- Implemented offline Grok Imagine controlled-creative MVP and production review packet: [ImagineSignal](docs/imagine_signal/README.md).
 - Quality contract: [QUALITY.md](QUALITY.md).
 - Judging evidence map: [judging-map.md](judging-map.md).
 
