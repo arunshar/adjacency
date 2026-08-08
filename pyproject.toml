@@ -16,7 +16,7 @@ dependencies = [
 # half that decides most inventory, installs and tests with no model dependency
 # at all. `pip install -e .` is enough to run every gate test.
 model = [
-    "litellm>=1.0.0",
+    "litellm>=1.94.1",
     "httpx>=0.28.1",
     "Pillow>=12.3.0,<13",
 ]
